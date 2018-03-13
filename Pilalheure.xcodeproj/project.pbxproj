@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6EE1447020586380003EA154 /* PrescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE1446F20586380003EA154 /* PrescriptionViewController.swift */; };
+		6EE1447120586380003EA154 /* PrescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE1446F20586380003EA154 /* PrescriptionViewController.swift */; };
+		6EE14473205863A0003EA154 /* PrescriptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE14472205863A0003EA154 /* PrescriptionTableViewCell.swift */; };
+		6EE14474205863A0003EA154 /* PrescriptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE14472205863A0003EA154 /* PrescriptionTableViewCell.swift */; };
+		6EE14476205863C0003EA154 /* AddPrescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE14475205863C0003EA154 /* AddPrescriptionViewController.swift */; };
+		6EE14477205863C0003EA154 /* AddPrescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE14475205863C0003EA154 /* AddPrescriptionViewController.swift */; };
 		7D93A55120582604006D37C4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D93A55020582604006D37C4 /* AppDelegate.swift */; };
 		7D93A55320582604006D37C4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D93A55220582604006D37C4 /* ViewController.swift */; };
 		7D93A55620582604006D37C4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D93A55420582604006D37C4 /* Main.storyboard */; };
@@ -46,6 +52,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6EE1446F20586380003EA154 /* PrescriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrescriptionViewController.swift; sourceTree = "<group>"; };
+		6EE14472205863A0003EA154 /* PrescriptionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrescriptionTableViewCell.swift; sourceTree = "<group>"; };
+		6EE14475205863C0003EA154 /* AddPrescriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPrescriptionViewController.swift; sourceTree = "<group>"; };
 		7D93A54D20582604006D37C4 /* Pilalheure.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pilalheure.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D93A55020582604006D37C4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7D93A55220582604006D37C4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -310,7 +319,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				7D93A55920582604006D37C4 /* Pilalheure.xcdatamodeld in Sources */,
+				6EE14473205863A0003EA154 /* PrescriptionTableViewCell.swift in Sources */,
+				6EE1447020586380003EA154 /* PrescriptionViewController.swift in Sources */,
 				7D93A59220583468006D37C4 /* AddMedicamentViewController.swift in Sources */,
+				6EE14476205863C0003EA154 /* AddPrescriptionViewController.swift in Sources */,
 				7D93A58C20582F88006D37C4 /* MedicamentViewController.swift in Sources */,
 				7D93A582205826AD006D37C4 /* MedicamentDAOext.swift in Sources */,
 				7D93A58720582D04006D37C4 /* Medicament.swift in Sources */,
@@ -325,12 +337,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6EE14477205863C0003EA154 /* AddPrescriptionViewController.swift in Sources */,
+				6EE1447120586380003EA154 /* PrescriptionViewController.swift in Sources */,
 				7D93A58820582D04006D37C4 /* Medicament.swift in Sources */,
 				7D93A56920582604006D37C4 /* PilalheureTests.swift in Sources */,
 				7D93A583205826AD006D37C4 /* MedicamentDAOext.swift in Sources */,
 				7D93A58D20582F88006D37C4 /* MedicamentViewController.swift in Sources */,
 				7D93A59020582FB1006D37C4 /* MedicamentTableViewCell.swift in Sources */,
 				7D93A59320583468006D37C4 /* AddMedicamentViewController.swift in Sources */,
+				6EE14474205863A0003EA154 /* PrescriptionTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
