@@ -1,0 +1,547 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		7D93A55120582604006D37C4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D93A55020582604006D37C4 /* AppDelegate.swift */; };
+		7D93A55320582604006D37C4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D93A55220582604006D37C4 /* ViewController.swift */; };
+		7D93A55620582604006D37C4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D93A55420582604006D37C4 /* Main.storyboard */; };
+		7D93A55920582604006D37C4 /* Pilalheure.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7D93A55720582604006D37C4 /* Pilalheure.xcdatamodeld */; };
+		7D93A55B20582604006D37C4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7D93A55A20582604006D37C4 /* Assets.xcassets */; };
+		7D93A55E20582604006D37C4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D93A55C20582604006D37C4 /* LaunchScreen.storyboard */; };
+		7D93A56920582604006D37C4 /* PilalheureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D93A56820582604006D37C4 /* PilalheureTests.swift */; };
+		7D93A57420582604006D37C4 /* PilalheureUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D93A57320582604006D37C4 /* PilalheureUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		7D93A56520582604006D37C4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7D93A54520582604006D37C4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7D93A54C20582604006D37C4;
+			remoteInfo = Pilalheure;
+		};
+		7D93A57020582604006D37C4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7D93A54520582604006D37C4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7D93A54C20582604006D37C4;
+			remoteInfo = Pilalheure;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		7D93A54D20582604006D37C4 /* Pilalheure.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pilalheure.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7D93A55020582604006D37C4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		7D93A55220582604006D37C4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		7D93A55520582604006D37C4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		7D93A55820582604006D37C4 /* Pilalheure.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Pilalheure.xcdatamodel; sourceTree = "<group>"; };
+		7D93A55A20582604006D37C4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		7D93A55D20582604006D37C4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		7D93A55F20582604006D37C4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7D93A56420582604006D37C4 /* PilalheureTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PilalheureTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7D93A56820582604006D37C4 /* PilalheureTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PilalheureTests.swift; sourceTree = "<group>"; };
+		7D93A56A20582604006D37C4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7D93A56F20582604006D37C4 /* PilalheureUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PilalheureUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7D93A57320582604006D37C4 /* PilalheureUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PilalheureUITests.swift; sourceTree = "<group>"; };
+		7D93A57520582604006D37C4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		7D93A54A20582604006D37C4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7D93A56120582604006D37C4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7D93A56C20582604006D37C4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		7D93A54420582604006D37C4 = {
+			isa = PBXGroup;
+			children = (
+				7D93A54F20582604006D37C4 /* Pilalheure */,
+				7D93A56720582604006D37C4 /* PilalheureTests */,
+				7D93A57220582604006D37C4 /* PilalheureUITests */,
+				7D93A54E20582604006D37C4 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		7D93A54E20582604006D37C4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7D93A54D20582604006D37C4 /* Pilalheure.app */,
+				7D93A56420582604006D37C4 /* PilalheureTests.xctest */,
+				7D93A56F20582604006D37C4 /* PilalheureUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7D93A54F20582604006D37C4 /* Pilalheure */ = {
+			isa = PBXGroup;
+			children = (
+				7D93A55020582604006D37C4 /* AppDelegate.swift */,
+				7D93A55220582604006D37C4 /* ViewController.swift */,
+				7D93A55420582604006D37C4 /* Main.storyboard */,
+				7D93A55A20582604006D37C4 /* Assets.xcassets */,
+				7D93A55C20582604006D37C4 /* LaunchScreen.storyboard */,
+				7D93A55F20582604006D37C4 /* Info.plist */,
+				7D93A55720582604006D37C4 /* Pilalheure.xcdatamodeld */,
+			);
+			path = Pilalheure;
+			sourceTree = "<group>";
+		};
+		7D93A56720582604006D37C4 /* PilalheureTests */ = {
+			isa = PBXGroup;
+			children = (
+				7D93A56820582604006D37C4 /* PilalheureTests.swift */,
+				7D93A56A20582604006D37C4 /* Info.plist */,
+			);
+			path = PilalheureTests;
+			sourceTree = "<group>";
+		};
+		7D93A57220582604006D37C4 /* PilalheureUITests */ = {
+			isa = PBXGroup;
+			children = (
+				7D93A57320582604006D37C4 /* PilalheureUITests.swift */,
+				7D93A57520582604006D37C4 /* Info.plist */,
+			);
+			path = PilalheureUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		7D93A54C20582604006D37C4 /* Pilalheure */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7D93A57820582604006D37C4 /* Build configuration list for PBXNativeTarget "Pilalheure" */;
+			buildPhases = (
+				7D93A54920582604006D37C4 /* Sources */,
+				7D93A54A20582604006D37C4 /* Frameworks */,
+				7D93A54B20582604006D37C4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Pilalheure;
+			productName = Pilalheure;
+			productReference = 7D93A54D20582604006D37C4 /* Pilalheure.app */;
+			productType = "com.apple.product-type.application";
+		};
+		7D93A56320582604006D37C4 /* PilalheureTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7D93A57B20582604006D37C4 /* Build configuration list for PBXNativeTarget "PilalheureTests" */;
+			buildPhases = (
+				7D93A56020582604006D37C4 /* Sources */,
+				7D93A56120582604006D37C4 /* Frameworks */,
+				7D93A56220582604006D37C4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7D93A56620582604006D37C4 /* PBXTargetDependency */,
+			);
+			name = PilalheureTests;
+			productName = PilalheureTests;
+			productReference = 7D93A56420582604006D37C4 /* PilalheureTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		7D93A56E20582604006D37C4 /* PilalheureUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7D93A57E20582604006D37C4 /* Build configuration list for PBXNativeTarget "PilalheureUITests" */;
+			buildPhases = (
+				7D93A56B20582604006D37C4 /* Sources */,
+				7D93A56C20582604006D37C4 /* Frameworks */,
+				7D93A56D20582604006D37C4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7D93A57120582604006D37C4 /* PBXTargetDependency */,
+			);
+			name = PilalheureUITests;
+			productName = PilalheureUITests;
+			productReference = 7D93A56F20582604006D37C4 /* PilalheureUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		7D93A54520582604006D37C4 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = "Vincent HERREROS";
+				TargetAttributes = {
+					7D93A54C20582604006D37C4 = {
+						CreatedOnToolsVersion = 8.3.3;
+						ProvisioningStyle = Automatic;
+					};
+					7D93A56320582604006D37C4 = {
+						CreatedOnToolsVersion = 8.3.3;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 7D93A54C20582604006D37C4;
+					};
+					7D93A56E20582604006D37C4 = {
+						CreatedOnToolsVersion = 8.3.3;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 7D93A54C20582604006D37C4;
+					};
+				};
+			};
+			buildConfigurationList = 7D93A54820582604006D37C4 /* Build configuration list for PBXProject "Pilalheure" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 7D93A54420582604006D37C4;
+			productRefGroup = 7D93A54E20582604006D37C4 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				7D93A54C20582604006D37C4 /* Pilalheure */,
+				7D93A56320582604006D37C4 /* PilalheureTests */,
+				7D93A56E20582604006D37C4 /* PilalheureUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		7D93A54B20582604006D37C4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7D93A55E20582604006D37C4 /* LaunchScreen.storyboard in Resources */,
+				7D93A55B20582604006D37C4 /* Assets.xcassets in Resources */,
+				7D93A55620582604006D37C4 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7D93A56220582604006D37C4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7D93A56D20582604006D37C4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7D93A54920582604006D37C4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7D93A55920582604006D37C4 /* Pilalheure.xcdatamodeld in Sources */,
+				7D93A55320582604006D37C4 /* ViewController.swift in Sources */,
+				7D93A55120582604006D37C4 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7D93A56020582604006D37C4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7D93A56920582604006D37C4 /* PilalheureTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7D93A56B20582604006D37C4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7D93A57420582604006D37C4 /* PilalheureUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		7D93A56620582604006D37C4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7D93A54C20582604006D37C4 /* Pilalheure */;
+			targetProxy = 7D93A56520582604006D37C4 /* PBXContainerItemProxy */;
+		};
+		7D93A57120582604006D37C4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7D93A54C20582604006D37C4 /* Pilalheure */;
+			targetProxy = 7D93A57020582604006D37C4 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		7D93A55420582604006D37C4 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7D93A55520582604006D37C4 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		7D93A55C20582604006D37C4 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7D93A55D20582604006D37C4 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		7D93A57620582604006D37C4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		7D93A57720582604006D37C4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		7D93A57920582604006D37C4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Pilalheure/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = IG.Pilalheure;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		7D93A57A20582604006D37C4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Pilalheure/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = IG.Pilalheure;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		7D93A57C20582604006D37C4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = PilalheureTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = IG.PilalheureTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Pilalheure.app/Pilalheure";
+			};
+			name = Debug;
+		};
+		7D93A57D20582604006D37C4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = PilalheureTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = IG.PilalheureTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Pilalheure.app/Pilalheure";
+			};
+			name = Release;
+		};
+		7D93A57F20582604006D37C4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				INFOPLIST_FILE = PilalheureUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = IG.PilalheureUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = Pilalheure;
+			};
+			name = Debug;
+		};
+		7D93A58020582604006D37C4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				INFOPLIST_FILE = PilalheureUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = IG.PilalheureUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = Pilalheure;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		7D93A54820582604006D37C4 /* Build configuration list for PBXProject "Pilalheure" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7D93A57620582604006D37C4 /* Debug */,
+				7D93A57720582604006D37C4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7D93A57820582604006D37C4 /* Build configuration list for PBXNativeTarget "Pilalheure" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7D93A57920582604006D37C4 /* Debug */,
+				7D93A57A20582604006D37C4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		7D93A57B20582604006D37C4 /* Build configuration list for PBXNativeTarget "PilalheureTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7D93A57C20582604006D37C4 /* Debug */,
+				7D93A57D20582604006D37C4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		7D93A57E20582604006D37C4 /* Build configuration list for PBXNativeTarget "PilalheureUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7D93A57F20582604006D37C4 /* Debug */,
+				7D93A58020582604006D37C4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		7D93A55720582604006D37C4 /* Pilalheure.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				7D93A55820582604006D37C4 /* Pilalheure.xcdatamodel */,
+			);
+			currentVersion = 7D93A55820582604006D37C4 /* Pilalheure.xcdatamodel */;
+			path = Pilalheure.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 7D93A54520582604006D37C4 /* Project object */;
+}
