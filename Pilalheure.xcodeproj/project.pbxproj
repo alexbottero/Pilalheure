@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 48;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -15,6 +15,16 @@
 		7D93A55E20582604006D37C4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D93A55C20582604006D37C4 /* LaunchScreen.storyboard */; };
 		7D93A56920582604006D37C4 /* PilalheureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D93A56820582604006D37C4 /* PilalheureTests.swift */; };
 		7D93A57420582604006D37C4 /* PilalheureUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D93A57320582604006D37C4 /* PilalheureUITests.swift */; };
+		7D93A582205826AD006D37C4 /* MedicamentDAOext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D93A581205826AD006D37C4 /* MedicamentDAOext.swift */; };
+		7D93A583205826AD006D37C4 /* MedicamentDAOext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D93A581205826AD006D37C4 /* MedicamentDAOext.swift */; };
+		7D93A58720582D04006D37C4 /* Medicament.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D93A58620582D04006D37C4 /* Medicament.swift */; };
+		7D93A58820582D04006D37C4 /* Medicament.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D93A58620582D04006D37C4 /* Medicament.swift */; };
+		7D93A58C20582F88006D37C4 /* MedicamentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D93A58B20582F88006D37C4 /* MedicamentViewController.swift */; };
+		7D93A58D20582F88006D37C4 /* MedicamentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D93A58B20582F88006D37C4 /* MedicamentViewController.swift */; };
+		7D93A58F20582FB1006D37C4 /* MedicamentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D93A58E20582FB1006D37C4 /* MedicamentTableViewCell.swift */; };
+		7D93A59020582FB1006D37C4 /* MedicamentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D93A58E20582FB1006D37C4 /* MedicamentTableViewCell.swift */; };
+		7D93A59220583468006D37C4 /* AddMedicamentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D93A59120583468006D37C4 /* AddMedicamentViewController.swift */; };
+		7D93A59320583468006D37C4 /* AddMedicamentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D93A59120583468006D37C4 /* AddMedicamentViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +59,11 @@
 		7D93A56F20582604006D37C4 /* PilalheureUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PilalheureUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D93A57320582604006D37C4 /* PilalheureUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PilalheureUITests.swift; sourceTree = "<group>"; };
 		7D93A57520582604006D37C4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7D93A581205826AD006D37C4 /* MedicamentDAOext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MedicamentDAOext.swift; path = Pilalheure/MedicamentDAOext.swift; sourceTree = "<group>"; };
+		7D93A58620582D04006D37C4 /* Medicament.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Medicament.swift; sourceTree = "<group>"; };
+		7D93A58B20582F88006D37C4 /* MedicamentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MedicamentViewController.swift; sourceTree = "<group>"; };
+		7D93A58E20582FB1006D37C4 /* MedicamentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MedicamentTableViewCell.swift; sourceTree = "<group>"; };
+		7D93A59120583468006D37C4 /* AddMedicamentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddMedicamentViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +94,9 @@
 		7D93A54420582604006D37C4 = {
 			isa = PBXGroup;
 			children = (
+				7D93A58A20582F28006D37C4 /* Controlleur */,
+				7D93A58920582D1B006D37C4 /* Model */,
+				7D93A58520582CD2006D37C4 /* DAO */,
 				7D93A54F20582604006D37C4 /* Pilalheure */,
 				7D93A56720582604006D37C4 /* PilalheureTests */,
 				7D93A57220582604006D37C4 /* PilalheureUITests */,
@@ -126,6 +144,32 @@
 				7D93A57520582604006D37C4 /* Info.plist */,
 			);
 			path = PilalheureUITests;
+			sourceTree = "<group>";
+		};
+		7D93A58520582CD2006D37C4 /* DAO */ = {
+			isa = PBXGroup;
+			children = (
+				7D93A581205826AD006D37C4 /* MedicamentDAOext.swift */,
+			);
+			name = DAO;
+			sourceTree = "<group>";
+		};
+		7D93A58920582D1B006D37C4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7D93A58620582D04006D37C4 /* Medicament.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		7D93A58A20582F28006D37C4 /* Controlleur */ = {
+			isa = PBXGroup;
+			children = (
+				7D93A58B20582F88006D37C4 /* MedicamentViewController.swift */,
+				7D93A59120583468006D37C4 /* AddMedicamentViewController.swift */,
+				7D93A58E20582FB1006D37C4 /* MedicamentTableViewCell.swift */,
+			);
+			name = Controlleur;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -211,7 +255,7 @@
 				};
 			};
 			buildConfigurationList = 7D93A54820582604006D37C4 /* Build configuration list for PBXProject "Pilalheure" */;
-			compatibilityVersion = "Xcode 3.2";
+			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -263,8 +307,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				7D93A55920582604006D37C4 /* Pilalheure.xcdatamodeld in Sources */,
+				7D93A59220583468006D37C4 /* AddMedicamentViewController.swift in Sources */,
+				7D93A58C20582F88006D37C4 /* MedicamentViewController.swift in Sources */,
+				7D93A582205826AD006D37C4 /* MedicamentDAOext.swift in Sources */,
+				7D93A58720582D04006D37C4 /* Medicament.swift in Sources */,
 				7D93A55320582604006D37C4 /* ViewController.swift in Sources */,
 				7D93A55120582604006D37C4 /* AppDelegate.swift in Sources */,
+				7D93A58F20582FB1006D37C4 /* MedicamentTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -272,7 +321,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7D93A58820582D04006D37C4 /* Medicament.swift in Sources */,
 				7D93A56920582604006D37C4 /* PilalheureTests.swift in Sources */,
+				7D93A583205826AD006D37C4 /* MedicamentDAOext.swift in Sources */,
+				7D93A58D20582F88006D37C4 /* MedicamentViewController.swift in Sources */,
+				7D93A59020582FB1006D37C4 /* MedicamentTableViewCell.swift in Sources */,
+				7D93A59320583468006D37C4 /* AddMedicamentViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
