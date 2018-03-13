@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6EE1447020586380003EA154 /* PrescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE1446F20586380003EA154 /* PrescriptionViewController.swift */; };
+		6EE1447120586380003EA154 /* PrescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE1446F20586380003EA154 /* PrescriptionViewController.swift */; };
+		6EE14473205863A0003EA154 /* PrescriptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE14472205863A0003EA154 /* PrescriptionTableViewCell.swift */; };
+		6EE14474205863A0003EA154 /* PrescriptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE14472205863A0003EA154 /* PrescriptionTableViewCell.swift */; };
+		6EE14476205863C0003EA154 /* AddPrescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE14475205863C0003EA154 /* AddPrescriptionViewController.swift */; };
+		6EE14477205863C0003EA154 /* AddPrescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE14475205863C0003EA154 /* AddPrescriptionViewController.swift */; };
 		7D93A55120582604006D37C4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D93A55020582604006D37C4 /* AppDelegate.swift */; };
 		7D93A55320582604006D37C4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D93A55220582604006D37C4 /* ViewController.swift */; };
 		7D93A55620582604006D37C4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D93A55420582604006D37C4 /* Main.storyboard */; };
@@ -45,6 +51,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6EE1446F20586380003EA154 /* PrescriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrescriptionViewController.swift; sourceTree = "<group>"; };
+		6EE14472205863A0003EA154 /* PrescriptionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrescriptionTableViewCell.swift; sourceTree = "<group>"; };
+		6EE14475205863C0003EA154 /* AddPrescriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPrescriptionViewController.swift; sourceTree = "<group>"; };
 		7D93A54D20582604006D37C4 /* Pilalheure.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pilalheure.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D93A55020582604006D37C4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7D93A55220582604006D37C4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -168,6 +177,9 @@
 				7D93A58B20582F88006D37C4 /* MedicamentViewController.swift */,
 				7D93A59120583468006D37C4 /* AddMedicamentViewController.swift */,
 				7D93A58E20582FB1006D37C4 /* MedicamentTableViewCell.swift */,
+				6EE1446F20586380003EA154 /* PrescriptionViewController.swift */,
+				6EE14472205863A0003EA154 /* PrescriptionTableViewCell.swift */,
+				6EE14475205863C0003EA154 /* AddPrescriptionViewController.swift */,
 			);
 			name = Controlleur;
 			sourceTree = "<group>";
@@ -235,7 +247,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 0830;
+				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = "Vincent HERREROS";
 				TargetAttributes = {
 					7D93A54C20582604006D37C4 = {
@@ -307,7 +319,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				7D93A55920582604006D37C4 /* Pilalheure.xcdatamodeld in Sources */,
+				6EE14473205863A0003EA154 /* PrescriptionTableViewCell.swift in Sources */,
+				6EE1447020586380003EA154 /* PrescriptionViewController.swift in Sources */,
 				7D93A59220583468006D37C4 /* AddMedicamentViewController.swift in Sources */,
+				6EE14476205863C0003EA154 /* AddPrescriptionViewController.swift in Sources */,
 				7D93A58C20582F88006D37C4 /* MedicamentViewController.swift in Sources */,
 				7D93A582205826AD006D37C4 /* MedicamentDAOext.swift in Sources */,
 				7D93A58720582D04006D37C4 /* Medicament.swift in Sources */,
@@ -321,12 +336,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6EE14477205863C0003EA154 /* AddPrescriptionViewController.swift in Sources */,
+				6EE1447120586380003EA154 /* PrescriptionViewController.swift in Sources */,
 				7D93A58820582D04006D37C4 /* Medicament.swift in Sources */,
 				7D93A56920582604006D37C4 /* PilalheureTests.swift in Sources */,
 				7D93A583205826AD006D37C4 /* MedicamentDAOext.swift in Sources */,
 				7D93A58D20582F88006D37C4 /* MedicamentViewController.swift in Sources */,
 				7D93A59020582FB1006D37C4 /* MedicamentTableViewCell.swift in Sources */,
 				7D93A59320583468006D37C4 /* AddMedicamentViewController.swift in Sources */,
+				6EE14474205863A0003EA154 /* PrescriptionTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -383,7 +401,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -391,7 +411,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -434,7 +458,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -442,7 +468,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -565,6 +595,7 @@
 				7D93A57A20582604006D37C4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7D93A57B20582604006D37C4 /* Build configuration list for PBXNativeTarget "PilalheureTests" */ = {
 			isa = XCConfigurationList;
@@ -573,6 +604,7 @@
 				7D93A57D20582604006D37C4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7D93A57E20582604006D37C4 /* Build configuration list for PBXNativeTarget "PilalheureUITests" */ = {
 			isa = XCConfigurationList;
@@ -581,6 +613,7 @@
 				7D93A58020582604006D37C4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
