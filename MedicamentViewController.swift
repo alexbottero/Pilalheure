@@ -83,14 +83,13 @@ class MedicamentViewController: UIViewController, UITableViewDataSource, UITable
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool{
         return true
     }
-    /*
-     // MARK: - Navigation
+    
+     // MARK: - Navigation -
      
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
+    @IBAction func unwindToMedicamentsListAfterSavingNewMedicament(segue: UIStoryboardSegue){
+        print("back")
+        let newMedicamentController = segue.source as! AddMedicamentViewController
+        print("nom : \(newMedicamentController.nomMedicamentText.text)")
+    }
     
 }
