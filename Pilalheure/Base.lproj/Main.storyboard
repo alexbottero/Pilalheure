@@ -7,6 +7,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -104,32 +105,53 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Nf-Do-Xrn">
-                                <rect key="frame" x="158" y="551" width="59" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Medecin"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Nf-Do-Xrn">
+                                <rect key="frame" x="213" y="298.5" width="137" height="137"/>
+                                <state key="normal" image="medecin"/>
                                 <connections>
                                     <segue destination="E9d-gh-I7N" kind="show" id="1bw-ed-hLW"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5oE-z6-tH1">
-                                <rect key="frame" x="146" y="234" width="83" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Prescription"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5oE-z6-tH1">
+                                <rect key="frame" x="25.5" y="298.5" width="137" height="137"/>
+                                <state key="normal" image="medic"/>
                                 <connections>
                                     <segue destination="U6Y-lP-i92" kind="show" id="mWa-3G-epN"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W7N-bA-a36">
-                                <rect key="frame" x="247" y="165" width="59" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Activités"/>
+                            <button opaque="NO" alpha="0.90000000000000002" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W7N-bA-a36">
+                                <rect key="frame" x="213" y="465" width="137" height="137"/>
+                                <state key="normal" image="activite"/>
                                 <connections>
                                     <segue destination="JDy-hf-f50" kind="show" id="3ap-1i-Eik"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x2D-Wd-8Xd">
+                                <rect key="frame" x="25.5" y="465" width="137" height="137"/>
+                                <state key="normal" image="RDV"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gxg-df-XBE">
+                                <rect key="frame" x="142.5" y="422" width="90" height="90"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="90" id="AOU-Tn-8vV"/>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="90" id="FJI-LX-kWG"/>
+                                </constraints>
+                                <state key="normal" image="info"/>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.20000000000000001" green="0.40000000000000002" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="x2D-Wd-8Xd" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" multiplier="0.5" id="7FH-i4-PsT"/>
+                            <constraint firstItem="gxg-df-XBE" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="8Tb-P0-fpO"/>
+                            <constraint firstItem="6Nf-Do-Xrn" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" multiplier="1.5" id="DV3-HX-6Dq"/>
+                            <constraint firstItem="5oE-z6-tH1" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" multiplier="0.5" id="FPr-WB-BsI"/>
+                            <constraint firstItem="W7N-bA-a36" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" multiplier="1.6" id="QlS-ge-PZS"/>
+                            <constraint firstItem="5oE-z6-tH1" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" multiplier="1.1" id="Ty5-r7-iR5"/>
+                            <constraint firstItem="gxg-df-XBE" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" multiplier="1.4" id="UXb-fr-fpa"/>
+                            <constraint firstItem="6Nf-Do-Xrn" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" multiplier="1.1" id="cE9-do-2rj"/>
+                            <constraint firstItem="x2D-Wd-8Xd" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" multiplier="1.6" id="qxb-rR-Gyh"/>
+                            <constraint firstItem="W7N-bA-a36" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" multiplier="1.5" id="yn5-p8-EKw"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="K2K-VX-zoP"/>
                 </viewController>
@@ -424,4 +446,11 @@
             <point key="canvasLocation" x="160.80000000000001" y="-559.07046476761627"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="RDV" width="137" height="137"/>
+        <image name="activite" width="137" height="137"/>
+        <image name="info" width="137" height="137"/>
+        <image name="medecin" width="137" height="137"/>
+        <image name="medic" width="137" height="137"/>
+    </resources>
 </document>
