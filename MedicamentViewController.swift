@@ -71,7 +71,7 @@ class MedicamentViewController: UIViewController, UITableViewDataSource, UITable
      
     @IBAction func unwindToMedicamentsListAfterSavingNewMedicament(segue: UIStoryboardSegue){
         let newMedicamentController = segue.source as! AddMedicamentViewController
-        let medoc = Medicament(nom: newMedicamentController.nomMedicamentText.text!, dose: newMedicamentController.doseMedicamentText.text!, unite: newMedicamentController.placementPicker, desc: newMedicamentController.descriptionMedicamentText.text)
+        let medoc = Medicament(nom: newMedicamentController.nomMedicamentText.text!, dose: newMedicamentController.doseMedicamentText.text!, unite: newMedicamentController.selectedValues, desc: newMedicamentController.descriptionMedicamentText.text)
         medicaments.append(medoc)
     }
     

@@ -17,6 +17,8 @@ class AddMedicamentViewController: UIViewController, UIPickerViewDelegate, UIPic
     
     var pickerData : [String] = [String]()
     
+    var selectedValues : String = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -62,10 +64,10 @@ class AddMedicamentViewController: UIViewController, UIPickerViewDelegate, UIPic
     }
     
     // Catpure the picker view selection
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) -> String?{
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int){
         // This method is triggered whenever the user makes a change to the picker selection.
         // The parameter named row and component represents what was selected.
-        return pickerData[row]
+        selectedValues = pickerData[unitePicker.selectedRow(inComponent: 0)]
     }
 
     /*
