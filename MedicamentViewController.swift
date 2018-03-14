@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class MedicamentViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
+class MedicamentViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate{
     
     
     @IBOutlet weak var medicamentTable: UITableView!
@@ -40,23 +40,6 @@ class MedicamentViewController: UIViewController, UITableViewDataSource, UITable
         return self.medicaments.count
     }
     
-    
-    // MARK: - Helper Methods
-    
-    /// Récupère le context d'un Core Data initialisé dans l'application delegate
-    ///
-    /// - Parameters:
-    ///   - errorMsg: Message d'erreur
-    ///   - userInfoMsg: Information additionnelle
-    /// - Returns: Retourne le context d'un Core Data
-    func getContext(errorMsg: String, userInfoMsg: String = "could not retrieve data context") -> NSManagedObjectContext?{
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-            self.alert(WithTitle: errorMsg, andMessage: userInfoMsg)
-            return nil
-        }
-        return appDelegate.persistentContainer.viewContext
-    }
-    
     /// Fait apparaître une boite de dialogue "alert" avec 2 messages
     ///
     /// - Parameters:
@@ -83,14 +66,13 @@ class MedicamentViewController: UIViewController, UITableViewDataSource, UITable
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool{
         return true
     }
-    /*
-     // MARK: - Navigation
+    
+     // MARK: - Navigation -
      
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
+    @IBAction func unwindToMedicamentsListAfterSavingNewMedicament(segue: UIStoryboardSegue){
+        let newMedicamentController = segue.source as! AddMedicamentViewController
+        let medoc = Medicament(nom: newMedicamentController.nomMedicamentText.text!, dose: newMedicamentController.doseMedicamentText.text!, unite: newMedicamentController.selectedValues, desc: newMedicamentController.descriptionMedicamentText.text)
+        medicaments.append(medoc)
+    }
     
 }
