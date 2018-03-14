@@ -8,9 +8,10 @@
 
 import UIKit
 
-class PrescriptionViewController: UIViewController {
+class PrescriptionViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
 
     @IBOutlet weak var prescriptionTable: UITableView!
+    var prescriptions : [String] = []
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -20,6 +21,14 @@ class PrescriptionViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
+        let cell = self.prescriptionTable.dequeueReusableCell(withIdentifier: "prescriptionCell", for: indexPath) as! PrescriptionTableViewCell
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.prescriptions.count
     }
     
 

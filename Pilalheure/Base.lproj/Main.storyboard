@@ -100,10 +100,10 @@
             </objects>
             <point key="canvasLocation" x="880.79999999999995" y="-1313.793103448276"/>
         </scene>
-        <!--Exercice Physique Table View Controller-->
+        <!--Exercice Physique View Controller-->
         <scene sceneID="eVx-no-sjn">
             <objects>
-                <viewController id="sKO-gb-JMc" customClass="ExercicePhysiqueTableViewController" customModule="Pilalheure" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="sKO-gb-JMc" customClass="ExercicePhysiqueViewController" customModule="Pilalheure" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="hze-6M-gLT"/>
                         <viewControllerLayoutGuide type="bottom" id="rZN-PN-QXc"/>
@@ -123,7 +123,7 @@
                                 <rect key="frame" x="16" y="80" width="343" height="537"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="KCO-GK-Qtn" customClass="ExercicePhysiqueTableViewCell" customModule="Pilalheure" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="exercicePhysiqueCell" id="KCO-GK-Qtn" customClass="ExercicePhysiqueTableViewCell" customModule="Pilalheure" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="343" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="KCO-GK-Qtn" id="t1M-az-Tjx">
@@ -165,17 +165,17 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="exercicePhysiqueTable" destination="0Pc-4B-v0t" id="VwU-Pt-EXA"/>
+                        <outlet property="exercicePhysiqueTable" destination="0Pc-4B-v0t" id="Qmq-w9-g09"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="n7d-cv-B2j" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1621.5999999999999" y="-1251.7241379310346"/>
         </scene>
-        <!--Add Exercice Physique Table View Controller-->
+        <!--Add Exercice Physique View Controller-->
         <scene sceneID="9CS-AL-3zH">
             <objects>
-                <viewController id="pgO-Ve-OSh" customClass="AddExercicePhysiqueTableViewController" customModule="Pilalheure" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="pgO-Ve-OSh" customClass="AddExercicePhysiqueViewController" customModule="Pilalheure" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="tdR-M7-BxX"/>
                         <viewControllerLayoutGuide type="bottom" id="Pac-Sm-Ogh"/>
@@ -273,7 +273,7 @@
                     </view>
                     <connections>
                         <outlet property="descNewExercicePhysique" destination="jAB-nT-tAw" id="fJ4-Iy-0qk"/>
-                        <outlet property="nbRepNewExercicePhysique" destination="gyR-QH-0vB" id="au1-Ve-93d"/>
+                        <outlet property="nbRepNewExercicePhysique" destination="gyR-QH-0vB" id="S6I-a4-i90"/>
                         <outlet property="nomNewExercicePhysique" destination="VSW-ES-3YK" id="9Pz-2c-NFf"/>
                         <outlet property="tempsNewExercicePhysique" destination="q72-a4-bPn" id="pQl-uR-FuD"/>
                     </connections>
@@ -313,7 +313,7 @@
                                 <rect key="frame" x="213" y="465" width="137" height="137"/>
                                 <state key="normal" image="activite"/>
                                 <connections>
-                                    <segue destination="sKO-gb-JMc" kind="show" id="WjI-Qm-VRn"/>
+                                    <segue destination="sKO-gb-JMc" kind="show" id="EH2-kg-1OX"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x2D-Wd-8Xd">
@@ -521,7 +521,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Add"/>
                                 <connections>
-                                    <segue destination="tZi-P6-1HI" kind="show" id="P3Z-A1-BcK"/>
+                                    <segue destination="tZi-P6-1HI" kind="presentation" id="4RP-Lw-eaD"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -547,14 +547,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pwo-2S-8yV" userLabel="valider">
-                                <rect key="frame" x="164" y="617" width="47" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Valider"/>
-                                <connections>
-                                    <action selector="addAction:" destination="tZi-P6-1HI" eventType="touchUpInside" id="g9B-1K-3H2"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Dose" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DBU-Ba-hv8" userLabel="dose">
                                 <rect key="frame" x="16" y="180" width="40" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -609,11 +601,37 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jSK-df-447">
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="iWh-tM-qOJ"/>
+                                    <barButtonItem title="Cancel" id="3Ol-cU-b8a">
+                                        <connections>
+                                            <action selector="cancelAction:" destination="tZi-P6-1HI" id="1cl-dT-JAt"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="KJD-zg-Qwk"/>
+                                    <barButtonItem title="Save" id="Czc-RE-svw">
+                                        <connections>
+                                            <segue destination="NMt-Ad-8MX" kind="unwind" unwindAction="unwindToMedicamentsListAfterSavingNewMedicamentWithSegue:" id="SWu-oh-Ftz"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="dfI-ii-zbX"/>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="descriptionMedicamentText" destination="LlP-kd-Q4L" id="9Pa-cx-I7A"/>
+                        <outlet property="doseMedicamentText" destination="rub-Aq-CYo" id="jPW-xn-8tT"/>
+                        <outlet property="nomMedicamentText" destination="RUu-cD-VSE" id="OBi-fw-bKm"/>
+                        <outlet property="unitePicker" destination="I6V-Pr-7Jj" id="reP-Po-0fW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TV0-Dp-3Zr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="NMt-Ad-8MX" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2764" y="221"/>
         </scene>
