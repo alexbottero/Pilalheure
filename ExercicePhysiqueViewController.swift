@@ -23,7 +23,11 @@ class ExercicePhysiqueViewController: UIViewController, UITableViewDelegate, UIT
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
     @IBAction func unwindToExercicePhysiqueListAfterSavingNewExercicePhysique(segue:UIStoryboardSegue){
-        print("I'm Back")
+        let newExercicePhysiqueController = segue.source as! AddExercicePhysiqueViewController
+            
+        let actPhys = ExercicePhysique(nom: newExercicePhysiqueController.nomNewExercicePhysique.text!, descript: newExercicePhysiqueController.descNewExercicePhysique.text, temps: Int64(newExercicePhysiqueController.tempsNewExercicePhysique.text!), nbRepetition: Int64(newExercicePhysiqueController.nbRepNewExercicePhysique.text!))
+        exercicePhysique.append(actPhys)
+       exercicePhysiqueTable.reloadData()
     }
     
     override func didReceiveMemoryWarning() {

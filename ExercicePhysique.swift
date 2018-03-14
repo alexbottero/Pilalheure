@@ -43,41 +43,14 @@ class ExercicePhysique {
             self.dao.nbRepetition = newValue!
         }
     }
-    init(nom: String, descript: String, temps: Int64, nbRepetition: Int64){
+    init(nom: String, descript: String, temps: Int64?, nbRepetition: Int64?){
         guard let dao = ExercicePhysiqueDAO.getNewExercicePhysique() else{
             fatalError("unuable to get dao for ExercicePhysique")
         }
         self.dao = dao
         self.dao.nom = nom
-        self.dao.temps = temps
+        self.dao.temps = temps!
         self.dao.descript = descript
-        self.dao.nbRepetition = nbRepetition
-    }
-    init(nom: String, descript: String, temps: Int64){
-        guard let dao = ExercicePhysiqueDAO.getNewExercicePhysique() else{
-            fatalError("unuable to get dao for ExercicePhysique")
-        }
-        self.dao = dao
-        self.dao.nom = nom
-        self.dao.temps = temps
-        self.dao.descript = descript
-        
-    }
-    init(nom: String, descript: String, nbRepetition: Int64){
-        guard let dao = ExercicePhysiqueDAO.getNewExercicePhysique() else{
-            fatalError("unuable to get dao for ExercicePhysique")
-        }
-        self.dao = dao
-        self.dao.nom = nom
-        self.dao.descript = descript
-        self.dao.nbRepetition = nbRepetition
-    }
-    init(nom: String, descript: String){
-        guard let dao = ExercicePhysiqueDAO.getNewExercicePhysique() else{
-            fatalError("unuable to get dao for ExercicePhysique")
-        }
-        self.dao = dao
-        self.dao.nom = nom
-        self.dao.descript = descript
+        self.dao.nbRepetition = nbRepetition!
     }
 }
