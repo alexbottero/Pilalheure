@@ -9,11 +9,23 @@
 import UIKit
 import CoreData
 
-class MedicamentViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
+class MedicamentViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate{
     
     
     @IBOutlet weak var medicamentTable: UITableView!
+    
+    @IBOutlet var medicamentPresenter: MedicamentPresenter!
+    
     var medicaments : [Medicament] = []
+    
+    /*fileprivate lazy var medicamentsFetched : NSFetchedResultsController<MedicamentDAO> = 	{
+        //prepare request
+        let request : NSFetchRequest<MedicamentDAO> = MedicamentDAO.fetchRequest()
+        request.sortDescriptors = [NSSortDescriptor(key:#keyPath(MedicamentDAO.nom), ascending:true)]
+        let fetchResultController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: CoreDataManager.context, sectionNameKeyPath: nil, cacheName: nil)
+        fetchResultController.delegate = self
+        return fetchResultController
+    }()*/
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,9 +41,7 @@ class MedicamentViewController: UIViewController, UITableViewDataSource, UITable
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         let cell = self.medicamentTable.dequeueReusableCell(withIdentifier: "medicamentCell", for: indexPath) as! MedicamentTableViewCell
-        cell.nom.text = self.medicaments[indexPath.row].nom
-        cell.dose.text = String(self.medicaments[indexPath.row].dose)
-        cell.unite.text = self.medicaments[indexPath.row].unite
+        //self.medicamentPresenter.configure(theCell: cell, forMedicament: self.medicaments[indexPath.row])
         return cell
         
     }
