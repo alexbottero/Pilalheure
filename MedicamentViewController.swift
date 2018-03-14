@@ -90,6 +90,7 @@ class MedicamentViewController: UIViewController, UITableViewDataSource, UITable
         let newMedicamentController = segue.source as! AddMedicamentViewController
         let medoc = Medicament(nom: newMedicamentController.nomMedicamentText.text!, dose: newMedicamentController.doseMedicamentText.text!, unite: newMedicamentController.selectedValues, desc: newMedicamentController.descriptionMedicamentText.text)
         medicaments.append(medoc)
+        medicamentTable.reloadData()
     }
     
 }
