@@ -7,12 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6EE1447020586380003EA154 /* PrescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE1446F20586380003EA154 /* PrescriptionViewController.swift */; };
-		6EE1447120586380003EA154 /* PrescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE1446F20586380003EA154 /* PrescriptionViewController.swift */; };
-		6EE14473205863A0003EA154 /* PrescriptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE14472205863A0003EA154 /* PrescriptionTableViewCell.swift */; };
-		6EE14474205863A0003EA154 /* PrescriptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE14472205863A0003EA154 /* PrescriptionTableViewCell.swift */; };
-		6EE14476205863C0003EA154 /* AddPrescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE14475205863C0003EA154 /* AddPrescriptionViewController.swift */; };
-		6EE14477205863C0003EA154 /* AddPrescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE14475205863C0003EA154 /* AddPrescriptionViewController.swift */; };
+		6EE2379B2058A1FE009A097C /* MedicamentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE2379A2058A1FD009A097C /* MedicamentViewController.swift */; };
+		6EE2379D2058A21E009A097C /* AddMedicamentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE2379C2058A21D009A097C /* AddMedicamentViewController.swift */; };
+		6EE2379F2058A229009A097C /* MedicamentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE2379E2058A228009A097C /* MedicamentTableViewCell.swift */; };
+		6EE237A12058A236009A097C /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE237A02058A236009A097C /* MenuViewController.swift */; };
+		6EE237A32058A24A009A097C /* ActiviteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE237A22058A24A009A097C /* ActiviteViewController.swift */; };
+		6EE237A52058A259009A097C /* ActiviteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE237A42058A258009A097C /* ActiviteTableViewCell.swift */; };
+		6EE237A72058A26F009A097C /* AddPrescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE237A62058A26E009A097C /* AddPrescriptionViewController.swift */; };
+		6EE237A92058A276009A097C /* PrescriptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE237A82058A275009A097C /* PrescriptionTableViewCell.swift */; };
+		6EE237AB2058A27D009A097C /* PrescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE237AA2058A27D009A097C /* PrescriptionViewController.swift */; };
 		7D93A55120582604006D37C4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D93A55020582604006D37C4 /* AppDelegate.swift */; };
 		7D93A55320582604006D37C4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D93A55220582604006D37C4 /* ViewController.swift */; };
 		7D93A55620582604006D37C4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D93A55420582604006D37C4 /* Main.storyboard */; };
@@ -23,16 +26,6 @@
 		7D93A57420582604006D37C4 /* PilalheureUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D93A57320582604006D37C4 /* PilalheureUITests.swift */; };
 		7D93A582205826AD006D37C4 /* MedicamentDAOext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D93A581205826AD006D37C4 /* MedicamentDAOext.swift */; };
 		7D93A58720582D04006D37C4 /* Medicament.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D93A58620582D04006D37C4 /* Medicament.swift */; };
-		7D93A58C20582F88006D37C4 /* MedicamentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D93A58B20582F88006D37C4 /* MedicamentViewController.swift */; };
-		7D93A58F20582FB1006D37C4 /* MedicamentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D93A58E20582FB1006D37C4 /* MedicamentTableViewCell.swift */; };
-		7D93A59020582FB1006D37C4 /* MedicamentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D93A58E20582FB1006D37C4 /* MedicamentTableViewCell.swift */; };
-		7D93A59220583468006D37C4 /* AddMedicamentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D93A59120583468006D37C4 /* AddMedicamentViewController.swift */; };
-		7D93A59320583468006D37C4 /* AddMedicamentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D93A59120583468006D37C4 /* AddMedicamentViewController.swift */; };
-		AC7AB20420586EA800CA5DED /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7AB20320586EA800CA5DED /* MenuViewController.swift */; };
-		AC7AB2072058780100CA5DED /* ActiviteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7AB2062058780100CA5DED /* ActiviteViewController.swift */; };
-		AC7AB2082058780100CA5DED /* ActiviteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7AB2062058780100CA5DED /* ActiviteViewController.swift */; };
-		AC7AB20A20587D7A00CA5DED /* ActiviteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7AB20920587D7A00CA5DED /* ActiviteTableViewCell.swift */; };
-		AC7AB20B20587D7A00CA5DED /* ActiviteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7AB20920587D7A00CA5DED /* ActiviteTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,9 +46,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		6EE1446F20586380003EA154 /* PrescriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrescriptionViewController.swift; sourceTree = "<group>"; };
-		6EE14472205863A0003EA154 /* PrescriptionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrescriptionTableViewCell.swift; sourceTree = "<group>"; };
-		6EE14475205863C0003EA154 /* AddPrescriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPrescriptionViewController.swift; sourceTree = "<group>"; };
+		6EE2379A2058A1FD009A097C /* MedicamentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MedicamentViewController.swift; sourceTree = SOURCE_ROOT; };
+		6EE2379C2058A21D009A097C /* AddMedicamentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddMedicamentViewController.swift; sourceTree = SOURCE_ROOT; };
+		6EE2379E2058A228009A097C /* MedicamentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MedicamentTableViewCell.swift; sourceTree = SOURCE_ROOT; };
+		6EE237A02058A236009A097C /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = SOURCE_ROOT; };
+		6EE237A22058A24A009A097C /* ActiviteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActiviteViewController.swift; sourceTree = SOURCE_ROOT; };
+		6EE237A42058A258009A097C /* ActiviteTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActiviteTableViewCell.swift; sourceTree = SOURCE_ROOT; };
+		6EE237A62058A26E009A097C /* AddPrescriptionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPrescriptionViewController.swift; sourceTree = SOURCE_ROOT; };
+		6EE237A82058A275009A097C /* PrescriptionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrescriptionTableViewCell.swift; sourceTree = SOURCE_ROOT; };
+		6EE237AA2058A27D009A097C /* PrescriptionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrescriptionViewController.swift; sourceTree = SOURCE_ROOT; };
 		7D93A54D20582604006D37C4 /* Pilalheure.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pilalheure.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D93A55020582604006D37C4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7D93A55220582604006D37C4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -72,12 +71,6 @@
 		7D93A57520582604006D37C4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7D93A581205826AD006D37C4 /* MedicamentDAOext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MedicamentDAOext.swift; path = Pilalheure/MedicamentDAOext.swift; sourceTree = "<group>"; };
 		7D93A58620582D04006D37C4 /* Medicament.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Medicament.swift; sourceTree = "<group>"; };
-		7D93A58B20582F88006D37C4 /* MedicamentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MedicamentViewController.swift; sourceTree = "<group>"; };
-		7D93A58E20582FB1006D37C4 /* MedicamentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MedicamentTableViewCell.swift; sourceTree = "<group>"; };
-		7D93A59120583468006D37C4 /* AddMedicamentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddMedicamentViewController.swift; sourceTree = "<group>"; };
-		AC7AB20320586EA800CA5DED /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
-		AC7AB2062058780100CA5DED /* ActiviteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiviteViewController.swift; sourceTree = "<group>"; };
-		AC7AB20920587D7A00CA5DED /* ActiviteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiviteTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,7 +105,6 @@
 				7D93A56720582604006D37C4 /* PilalheureTests */,
 				7D93A57220582604006D37C4 /* PilalheureUITests */,
 				7D93A54E20582604006D37C4 /* Products */,
-				AC7AB2052058777300CA5DED /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -182,25 +174,17 @@
 		7D93A58A20582F28006D37C4 /* Controlleur */ = {
 			isa = PBXGroup;
 			children = (
-				7D93A58B20582F88006D37C4 /* MedicamentViewController.swift */,
-				7D93A59120583468006D37C4 /* AddMedicamentViewController.swift */,
-				7D93A58E20582FB1006D37C4 /* MedicamentTableViewCell.swift */,
-				AC7AB20320586EA800CA5DED /* MenuViewController.swift */,
-				AC7AB2062058780100CA5DED /* ActiviteViewController.swift */,
-				AC7AB20920587D7A00CA5DED /* ActiviteTableViewCell.swift */,
+				6EE237AA2058A27D009A097C /* PrescriptionViewController.swift */,
+				6EE237A82058A275009A097C /* PrescriptionTableViewCell.swift */,
+				6EE237A62058A26E009A097C /* AddPrescriptionViewController.swift */,
+				6EE2379A2058A1FD009A097C /* MedicamentViewController.swift */,
+				6EE2379C2058A21D009A097C /* AddMedicamentViewController.swift */,
+				6EE2379E2058A228009A097C /* MedicamentTableViewCell.swift */,
+				6EE237A02058A236009A097C /* MenuViewController.swift */,
+				6EE237A42058A258009A097C /* ActiviteTableViewCell.swift */,
+				6EE237A22058A24A009A097C /* ActiviteViewController.swift */,
 			);
 			name = Controlleur;
-			sourceTree = "<group>";
-		};
-		AC7AB2052058777300CA5DED /* Recovered References */ = {
-			isa = PBXGroup;
-			children = (
-				6EE14472205863A0003EA154 /* PrescriptionTableViewCell.swift */,
-				6EE1446F20586380003EA154 /* PrescriptionViewController.swift */,
-				6EE14475205863C0003EA154 /* AddPrescriptionViewController.swift */,
-			);
-			name = Controlleur;
-			path = ..;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -338,19 +322,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				7D93A55920582604006D37C4 /* Pilalheure.xcdatamodeld in Sources */,
-				6EE14473205863A0003EA154 /* PrescriptionTableViewCell.swift in Sources */,
-				6EE1447020586380003EA154 /* PrescriptionViewController.swift in Sources */,
-				AC7AB2072058780100CA5DED /* ActiviteViewController.swift in Sources */,
-				7D93A59220583468006D37C4 /* AddMedicamentViewController.swift in Sources */,
-				6EE14476205863C0003EA154 /* AddPrescriptionViewController.swift in Sources */,
-				AC7AB20A20587D7A00CA5DED /* ActiviteTableViewCell.swift in Sources */,
-				7D93A58C20582F88006D37C4 /* MedicamentViewController.swift in Sources */,
+				6EE2379F2058A229009A097C /* MedicamentTableViewCell.swift in Sources */,
+				6EE237A32058A24A009A097C /* ActiviteViewController.swift in Sources */,
+				6EE2379B2058A1FE009A097C /* MedicamentViewController.swift in Sources */,
+				6EE237A92058A276009A097C /* PrescriptionTableViewCell.swift in Sources */,
+				6EE237A72058A26F009A097C /* AddPrescriptionViewController.swift in Sources */,
+				6EE237A52058A259009A097C /* ActiviteTableViewCell.swift in Sources */,
+				6EE2379D2058A21E009A097C /* AddMedicamentViewController.swift in Sources */,
 				7D93A582205826AD006D37C4 /* MedicamentDAOext.swift in Sources */,
+				6EE237A12058A236009A097C /* MenuViewController.swift in Sources */,
+				6EE237AB2058A27D009A097C /* PrescriptionViewController.swift in Sources */,
 				7D93A58720582D04006D37C4 /* Medicament.swift in Sources */,
 				7D93A55320582604006D37C4 /* ViewController.swift in Sources */,
 				7D93A55120582604006D37C4 /* AppDelegate.swift in Sources */,
-				AC7AB20420586EA800CA5DED /* MenuViewController.swift in Sources */,
-				7D93A58F20582FB1006D37C4 /* MedicamentTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -358,14 +342,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AC7AB20B20587D7A00CA5DED /* ActiviteTableViewCell.swift in Sources */,
-				6EE14477205863C0003EA154 /* AddPrescriptionViewController.swift in Sources */,
-				6EE1447120586380003EA154 /* PrescriptionViewController.swift in Sources */,
 				7D93A56920582604006D37C4 /* PilalheureTests.swift in Sources */,
-				7D93A59020582FB1006D37C4 /* MedicamentTableViewCell.swift in Sources */,
-				AC7AB2082058780100CA5DED /* ActiviteViewController.swift in Sources */,
-				7D93A59320583468006D37C4 /* AddMedicamentViewController.swift in Sources */,
-				6EE14474205863A0003EA154 /* PrescriptionTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
