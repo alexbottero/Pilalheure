@@ -7,7 +7,7 @@
 //
 
 import Foundation
-class Medicament {
+class Medicament{
     private let dao : MedicamentDAO
     var nom   : String{
         return self.dao.nom!
@@ -15,8 +15,8 @@ class Medicament {
     var unite : String{
         return self.dao.unite!
     }
-    var dose  : Int64 {
-        return self.dao.dose
+    var dose  : String {
+        return self.dao.dose!
     }
     var desc  : String?{
         get{
@@ -26,7 +26,7 @@ class Medicament {
             self.dao.descript = newValue
         }
     }
-    init(nom: String, dose: Int64, unite: String, desc: String){
+    init(nom: String, dose: String, unite: String, desc: String){
         guard let dao = MedicamentDAO.getNewMedicament() else{
             fatalError("unuable to get dao for medicament")
         }

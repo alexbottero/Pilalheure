@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class MedicamentViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
+class MedicamentViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate{
     
     
     @IBOutlet weak var medicamentTable: UITableView!
@@ -38,23 +38,6 @@ class MedicamentViewController: UIViewController, UITableViewDataSource, UITable
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
         return self.medicaments.count
-    }
-    
-    
-    // MARK: - Helper Methods
-    
-    /// Récupère le context d'un Core Data initialisé dans l'application delegate
-    ///
-    /// - Parameters:
-    ///   - errorMsg: Message d'erreur
-    ///   - userInfoMsg: Information additionnelle
-    /// - Returns: Retourne le context d'un Core Data
-    func getContext(errorMsg: String, userInfoMsg: String = "could not retrieve data context") -> NSManagedObjectContext?{
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-            self.alert(WithTitle: errorMsg, andMessage: userInfoMsg)
-            return nil
-        }
-        return appDelegate.persistentContainer.viewContext
     }
     
     /// Fait apparaître une boite de dialogue "alert" avec 2 messages
@@ -87,9 +70,9 @@ class MedicamentViewController: UIViewController, UITableViewDataSource, UITable
      // MARK: - Navigation -
      
     @IBAction func unwindToMedicamentsListAfterSavingNewMedicament(segue: UIStoryboardSegue){
-        print("back")
         let newMedicamentController = segue.source as! AddMedicamentViewController
-        print("nom : \(newMedicamentController.nomMedicamentText.text)")
+        let medoc = Medicament(nom: newMedicamentController.nomMedicamentText.text!, dose: newMedicamentController.doseMedicamentText.text!, unite: newMedicamentController.placementPicker, desc: newMedicamentController.descriptionMedicamentText.text)
+        medicaments.append(medoc)
     }
     
 }
