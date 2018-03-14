@@ -24,7 +24,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView opaque="NO" clipsSubviews="YES" alpha="0.5" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0VU-kd-6of">
-                                <rect key="frame" x="16" y="79" width="343" height="522"/>
+                                <rect key="frame" x="16" y="35" width="343" height="566"/>
                                 <color key="backgroundColor" red="0.20000000000000001" green="0.40000000000000002" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="separatorColor" red="0.20000000000000001" green="0.40000000000000002" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
@@ -76,6 +76,11 @@
                                 </constraints>
                                 <state key="normal" image="ajout"/>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yG6-MH-EeJ">
+                                <rect key="frame" x="279" y="16" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.20000000000000001" green="0.40000000000000002" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -95,10 +100,82 @@
             </objects>
             <point key="canvasLocation" x="880.79999999999995" y="-1313.793103448276"/>
         </scene>
-        <!--View Controller-->
+        <!--Exercice Physique Table View Controller-->
+        <scene sceneID="eVx-no-sjn">
+            <objects>
+                <viewController id="sKO-gb-JMc" customClass="ExercicePhysiqueTableViewController" customModule="Pilalheure" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="hze-6M-gLT"/>
+                        <viewControllerLayoutGuide type="bottom" id="rZN-PN-QXc"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="vaH-ye-Ytv">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C7m-P9-f9m">
+                                <rect key="frame" x="127" y="629" width="120" height="30"/>
+                                <state key="normal" title="Créer un exercice"/>
+                                <connections>
+                                    <segue destination="pgO-Ve-OSh" kind="presentation" id="p0Z-Ir-SEp"/>
+                                </connections>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0Pc-4B-v0t">
+                                <rect key="frame" x="16" y="80" width="343" height="537"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="KCO-GK-Qtn" customClass="ExercicePhysiqueTableViewCell" customModule="Pilalheure" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="343" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="KCO-GK-Qtn" id="t1M-az-Tjx">
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fGa-Lf-Cuj">
+                                                    <rect key="frame" x="15" y="11" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="fGa-Lf-Cuj" firstAttribute="leading" secondItem="t1M-az-Tjx" secondAttribute="leadingMargin" id="SKH-0o-rr4"/>
+                                                <constraint firstItem="fGa-Lf-Cuj" firstAttribute="top" secondItem="t1M-az-Tjx" secondAttribute="topMargin" id="nEf-F8-5K6"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="fGa-Lf-Cuj" secondAttribute="bottom" constant="1" id="yRV-wF-aGe"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="nomExercicePhysique" destination="fGa-Lf-Cuj" id="tNC-wv-ehZ"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="sKO-gb-JMc" id="R4R-Es-CaX"/>
+                                    <outlet property="delegate" destination="sKO-gb-JMc" id="1TD-tC-HK4"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="0Pc-4B-v0t" firstAttribute="leading" secondItem="vaH-ye-Ytv" secondAttribute="leadingMargin" id="0bT-5h-Wrc"/>
+                            <constraint firstItem="rZN-PN-QXc" firstAttribute="top" secondItem="C7m-P9-f9m" secondAttribute="bottom" constant="8" id="379-aL-1aR"/>
+                            <constraint firstItem="C7m-P9-f9m" firstAttribute="centerX" secondItem="vaH-ye-Ytv" secondAttribute="centerX" id="94G-30-MMO"/>
+                            <constraint firstItem="0Pc-4B-v0t" firstAttribute="trailing" secondItem="vaH-ye-Ytv" secondAttribute="trailingMargin" id="EIc-7H-Gaf"/>
+                            <constraint firstItem="0Pc-4B-v0t" firstAttribute="top" secondItem="hze-6M-gLT" secondAttribute="bottom" constant="16" id="PqP-C8-Foe"/>
+                            <constraint firstItem="rZN-PN-QXc" firstAttribute="top" secondItem="0Pc-4B-v0t" secondAttribute="bottom" constant="50" id="dqA-Z7-dAW"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="exercicePhysiqueTable" destination="0Pc-4B-v0t" id="VwU-Pt-EXA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="n7d-cv-B2j" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1621.5999999999999" y="-1251.7241379310346"/>
+        </scene>
+        <!--Add Exercice Physique Table View Controller-->
         <scene sceneID="9CS-AL-3zH">
             <objects>
-                <viewController id="pgO-Ve-OSh" sceneMemberID="viewController">
+                <viewController id="pgO-Ve-OSh" customClass="AddExercicePhysiqueTableViewController" customModule="Pilalheure" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="tdR-M7-BxX"/>
                         <viewControllerLayoutGuide type="bottom" id="Pac-Sm-Ogh"/>
@@ -136,24 +213,32 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cRi-FI-U1b">
-                                <rect key="frame" x="251" y="540" width="46" height="30"/>
+                                <rect key="frame" x="248" y="540" width="53" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="Annuler"/>
+                                <connections>
+                                    <action selector="cancelAdd:" destination="pgO-Ve-OSh" eventType="touchUpInside" id="tgC-IE-Ye3"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VSW-ES-3YK">
-                                <rect key="frame" x="111" y="109" width="209" height="30"/>
+                                <rect key="frame" x="115" y="110" width="209" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="pgO-Ve-OSh" id="2Gt-7n-IZq"/>
+                                </connections>
                             </textField>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="jAB-nT-tAw">
                                 <rect key="frame" x="39" y="198" width="320" height="110"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <connections>
+                                    <outlet property="delegate" destination="pgO-Ve-OSh" id="XQQ-cn-BXr"/>
+                                </connections>
                             </textView>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="q72-a4-bPn">
                                 <rect key="frame" x="223" y="345" width="64" height="30"/>
@@ -161,6 +246,9 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                <connections>
+                                    <outlet property="delegate" destination="pgO-Ve-OSh" id="1QD-5j-8Pj"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gyR-QH-0vB">
                                 <rect key="frame" x="223" y="407" width="64" height="30"/>
@@ -168,19 +256,32 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                <connections>
+                                    <outlet property="delegate" destination="pgO-Ve-OSh" id="Jb4-Cd-nlD"/>
+                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Hf-LW-2MA">
-                                <rect key="frame" x="57" y="540" width="46" height="30"/>
+                                <rect key="frame" x="57" y="540" width="47" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="Valider"/>
+                                <connections>
+                                    <segue destination="Isw-Sf-LW8" kind="unwind" unwindAction="unwindToExercicePhysiqueListAfterSavingNewExercicePhysiqueWithSegue:" id="QHQ-3p-3ml"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="descNewExercicePhysique" destination="jAB-nT-tAw" id="fJ4-Iy-0qk"/>
+                        <outlet property="nbRepNewExercicePhysique" destination="gyR-QH-0vB" id="au1-Ve-93d"/>
+                        <outlet property="nomNewExercicePhysique" destination="VSW-ES-3YK" id="9Pz-2c-NFf"/>
+                        <outlet property="tempsNewExercicePhysique" destination="q72-a4-bPn" id="pQl-uR-FuD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="371-0C-C25" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="Isw-Sf-LW8" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="202" y="244"/>
+            <point key="canvasLocation" x="2430" y="-1252"/>
         </scene>
         <!--Menu View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -198,7 +299,7 @@
                                 <rect key="frame" x="213" y="298.5" width="137" height="137"/>
                                 <state key="normal" image="medecin"/>
                                 <connections>
-                                    <segue destination="E9d-gh-I7N" kind="show" id="1bw-ed-hLW"/>
+                                    <segue destination="E9d-gh-I7N" kind="show" id="gBl-uB-fmQ"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5oE-z6-tH1">
@@ -212,7 +313,7 @@
                                 <rect key="frame" x="213" y="465" width="137" height="137"/>
                                 <state key="normal" image="activite"/>
                                 <connections>
-                                    <segue destination="JDy-hf-f50" kind="show" id="3ap-1i-Eik"/>
+                                    <segue destination="sKO-gb-JMc" kind="show" id="WjI-Qm-VRn"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x2D-Wd-8Xd">

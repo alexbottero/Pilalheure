@@ -35,6 +35,9 @@
 		AC7AB20B20587D7A00CA5DED /* ActiviteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7AB20920587D7A00CA5DED /* ActiviteTableViewCell.swift */; };
 		AC7AB20D20589B5800CA5DED /* ExercicePhysique.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7AB20C20589B5800CA5DED /* ExercicePhysique.swift */; };
 		AC7AB21020589C2A00CA5DED /* ExercicePhysiqueDAOext.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7AB20F20589C2A00CA5DED /* ExercicePhysiqueDAOext.swift */; };
+		ACD999AB2059331B007A9BF0 /* ExercicePhysiqueTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD999AA2059331B007A9BF0 /* ExercicePhysiqueTableViewController.swift */; };
+		ACD999AD205933C1007A9BF0 /* ExercicePhysiqueTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD999AC205933C1007A9BF0 /* ExercicePhysiqueTableViewCell.swift */; };
+		ACD999B120593832007A9BF0 /* AddExercicePhysiqueTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD999B020593832007A9BF0 /* AddExercicePhysiqueTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +85,9 @@
 		AC7AB20920587D7A00CA5DED /* ActiviteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiviteTableViewCell.swift; sourceTree = "<group>"; };
 		AC7AB20C20589B5800CA5DED /* ExercicePhysique.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercicePhysique.swift; sourceTree = "<group>"; };
 		AC7AB20F20589C2A00CA5DED /* ExercicePhysiqueDAOext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercicePhysiqueDAOext.swift; sourceTree = "<group>"; };
+		ACD999AA2059331B007A9BF0 /* ExercicePhysiqueTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercicePhysiqueTableViewController.swift; sourceTree = "<group>"; };
+		ACD999AC205933C1007A9BF0 /* ExercicePhysiqueTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercicePhysiqueTableViewCell.swift; sourceTree = "<group>"; };
+		ACD999B020593832007A9BF0 /* AddExercicePhysiqueTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExercicePhysiqueTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -192,6 +198,9 @@
 				AC7AB20320586EA800CA5DED /* MenuViewController.swift */,
 				AC7AB2062058780100CA5DED /* ActiviteViewController.swift */,
 				AC7AB20920587D7A00CA5DED /* ActiviteTableViewCell.swift */,
+				ACD999AA2059331B007A9BF0 /* ExercicePhysiqueTableViewController.swift */,
+				ACD999AC205933C1007A9BF0 /* ExercicePhysiqueTableViewCell.swift */,
+				ACD999B020593832007A9BF0 /* AddExercicePhysiqueTableViewController.swift */,
 			);
 			name = Controlleur;
 			sourceTree = "<group>";
@@ -341,9 +350,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				7D93A55920582604006D37C4 /* Pilalheure.xcdatamodeld in Sources */,
+				ACD999AD205933C1007A9BF0 /* ExercicePhysiqueTableViewCell.swift in Sources */,
 				6EE14473205863A0003EA154 /* PrescriptionTableViewCell.swift in Sources */,
 				6EE1447020586380003EA154 /* PrescriptionViewController.swift in Sources */,
+				ACD999B120593832007A9BF0 /* AddExercicePhysiqueTableViewController.swift in Sources */,
 				AC7AB2072058780100CA5DED /* ActiviteViewController.swift in Sources */,
+				ACD999AB2059331B007A9BF0 /* ExercicePhysiqueTableViewController.swift in Sources */,
 				7D93A59220583468006D37C4 /* AddMedicamentViewController.swift in Sources */,
 				6EE14476205863C0003EA154 /* AddPrescriptionViewController.swift in Sources */,
 				AC7AB20A20587D7A00CA5DED /* ActiviteTableViewCell.swift in Sources */,
