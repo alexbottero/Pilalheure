@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AddExercicePhysiqueViewController: UIViewController {
+class AddExercicePhysiqueViewController: UIViewController,UITextFieldDelegate {
 
     @IBOutlet weak var nbRepNewExercicePhysique: UITextField!
     @IBOutlet weak var tempsNewExercicePhysique: UITextField!
@@ -35,8 +35,9 @@ class AddExercicePhysiqueViewController: UIViewController {
     }
     // MARK: - cancel et save
     
-    @IBAction func cancelAdd(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
+   
+    @IBAction func cancelAction(_ sender: Any) {
+        self.dismiss(animated: true,completion: nil)
     }
     
     

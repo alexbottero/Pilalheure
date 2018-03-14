@@ -7,11 +7,12 @@
 //
 
 import UIKit
+import CoreData
 
-class ExercicePhysiqueViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
+class ExercicePhysiqueViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate{
     
     @IBOutlet weak var exercicePhysiqueTable: UITableView!
-    var exercicePhysique : [ExercicePhysique] = []
+    var exercicePhysique : [ExercicePhysiqueDAO] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,11 +23,15 @@ class ExercicePhysiqueViewController: UIViewController, UITableViewDelegate, UIT
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
+    
     @IBAction func unwindToExercicePhysiqueListAfterSavingNewExercicePhysique(segue:UIStoryboardSegue){
         let newExercicePhysiqueController = segue.source as! AddExercicePhysiqueViewController
-            
-        let actPhys = ExercicePhysique(nom: newExercicePhysiqueController.nomNewExercicePhysique.text!, descript: newExercicePhysiqueController.descNewExercicePhysique.text, temps: Int64(newExercicePhysiqueController.tempsNewExercicePhysique.text!), nbRepetition: Int64(newExercicePhysiqueController.nbRepNewExercicePhysique.text!))
-        exercicePhysique.append(actPhys)
+        let nom=newExercicePhysiqueController.nomNewExercicePhysique.text
+        let desc=newExercicePhysiqueController.descNewExercicePhysique.text ?? ""
+        let times=newExercicePhysiqueController.tempsNewExercicePhysique.text ?? ""
+        let nbRep=newExercicePhysiqueController.nbRepNewExercicePhysique.text ?? ""
+        
+        self.saveNewExPhys(Nom: nom!, Desc: desc, Temps: times, NbRep: nbRep)
        exercicePhysiqueTable.reloadData()
     }
     
@@ -35,6 +40,22 @@ class ExercicePhysiqueViewController: UIViewController, UITableViewDelegate, UIT
         // Dispose of any resources that can be recreated.
     }
     
+    func saveNewExPhys(Nom nom: String, Desc descr: String, Temps temps: String, NbRep nbRep: String){
+        guard let context = self.getContext(errorMsg: "save failed") else { return }
+        let exPhys = ExercicePhysiqueDAO(context: context)
+        exPhys.nom = nom
+        exPhys.descript = descr
+        exPhys.temps = temps
+        exPhys.nbRepetition=nbRep
+        do{
+            try context.save()
+            self.exercicePhysique.append(exPhys)
+        }
+        catch let error as NSError{
+            self.alert(error: error)
+            return
+        }
+    }
     // MARK: - Table view data source
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
@@ -48,7 +69,59 @@ class ExercicePhysiqueViewController: UIViewController, UITableViewDelegate, UIT
         return self.exercicePhysique.count
     }
     
+    // MARK: - Navigation
     
+    let segueShowExPhysId = "ShowExPhysSegue"
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == self.segueShowExPhysId{
+            if let indexPath = self.exercicePhysiqueTable.indexPathForSelectedRow{
+                let showExercicePhysiqueViewController = segue.destination as! ShowExercicePhysiqueViewController
+                showExercicePhysiqueViewController.exPhys = self.exercicePhysique[indexPath.row]
+                self.exercicePhysiqueTable.deselectRow(at: indexPath, animated: true)
+            }
+        }
+    }
+    
+    
+    // MARK: - Helper Methods
+    
+    /// Récupère le context d'un Core Data initialisé dans l'application delegate
+    ///
+    /// - Parameters:
+    ///   - errorMsg: Message d'erreur
+    ///   - userInfoMsg: Information additionnelle
+    /// - Returns: Retourne le context d'un Core Data
+    
+    func getContext(errorMsg: String, userInfoMsg: String = "could not retrieve data context") -> NSManagedObjectContext?{
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            self.alert(WithTitle: errorMsg, andMessage: userInfoMsg)
+            return nil
+        }
+        return appDelegate.persistentContainer.viewContext
+    }
+    
+    /// Fait apparaître une boite de dialogue "alert" avec 2 messages
+    ///
+    /// - Parameters:
+    ///   - title: Titre de la boite de dialogue
+    ///   - msg: Message de la boite de dialogue
+    func alert(WithTitle title: String, andMessage msg: String = ""){
+        let alert = UIAlertController(title: title,
+                                      message: msg,
+                                      preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: "OK",
+                                         style: .default)
+        alert.addAction(cancelAction)
+        present(alert,animated: true)
+    }
+    
+    /// Fait apparaître une boite de dialogue lorsqu'il y a une erreur.
+    ///
+    /// - Parameter error: Erreur donné à la boite de dialogue
+    func alert(error: NSError){
+        self.alert(WithTitle:"\(error)", andMessage: "\(error.userInfo)")
+    }
     /*
      override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
      let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
