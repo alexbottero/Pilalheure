@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="12141" systemVersion="16G29" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13772" systemVersion="16G29" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="ExercicePhysiqueDAO" representedClassName="ExercicePhysiqueDAO" syncable="YES" codeGenerationType="class">
+        <attribute name="descript" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="nbRepetition" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="nom" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="temps" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+    </entity>
     <entity name="MedicamentDAO" representedClassName="MedicamentDAO" syncable="YES" codeGenerationType="class">
         <attribute name="descript" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="dose" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
@@ -8,5 +14,6 @@
     </entity>
     <elements>
         <element name="MedicamentDAO" positionX="-63" positionY="-18" width="128" height="105"/>
+        <element name="ExercicePhysiqueDAO" positionX="-63" positionY="18" width="128" height="30"/>
     </elements>
 </model>
