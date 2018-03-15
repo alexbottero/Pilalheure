@@ -10,6 +10,17 @@ import UIKit
 
 class AddExercicePhysiqueViewController: UIViewController,UITextFieldDelegate {
 
+    @IBAction func saveAction(_ sender: Any) {
+        let nom : String = self.nomNewExercicePhysique.text ?? ""
+        let temps : String = self.tempsNewExercicePhysique.text ?? ""
+        let nbRep : String = self.nbRepNewExercicePhysique.text ?? ""
+        guard (nom != "") else {return}
+        let exPhys = ExercicePhysiqueDAO(context: CoreDataManager.context)
+        exPhys.nom = nom
+        exPhys.temps = temps
+        exPhys.nbRepetition = nbRep
+        self.dismiss(animated: true, completion: nil)
+    }
     @IBOutlet weak var nbRepNewExercicePhysique: UITextField!
     @IBOutlet weak var tempsNewExercicePhysique: UITextField!
     @IBOutlet weak var descNewExercicePhysique: UITextView!

@@ -16,12 +16,26 @@ class ExercicePhysiqueViewController: UIViewController, UITableViewDelegate, UIT
     
     @IBOutlet var exPresenter : ExercicePhysiquePresenter!
     
+    fileprivate lazy var exercicePhysiqueFetched : NSFetchedResultsController<ExercicePhysiqueDAO> = {
+        let request : NSFetchRequest <ExercicePhysiqueDAO> = ExercicePhysiqueDAO.fetchRequest()
+        request.sortDescriptors = [NSSortDescriptor(key:#keyPath(ExercicePhysiqueDAO.nom),ascending:true)]
+        
+        let fetchResultController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: CoreDataManager.context, sectionNameKeyPath: nil, cacheName:nil)
+        fetchResultController.delegate =  self
+        return fetchResultController
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
-        
+        do{
+            try self.exercicePhysiqueFetched.performFetch()
+        }
+        catch let error as NSError{
+            DialogBoxHelper.alert(view: self, error: error)
+        }
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
@@ -33,7 +47,7 @@ class ExercicePhysiqueViewController: UIViewController, UITableViewDelegate, UIT
         let times=newExercicePhysiqueController.tempsNewExercicePhysique.text ?? ""
         let nbRep=newExercicePhysiqueController.nbRepNewExercicePhysique.text ?? ""
         
-        self.saveNewExPhys(Nom: nom,  Temps: times, NbRep: nbRep)
+        self.saveNewExercicePhysique(Nom: nom,  Temps: times, NbRep: nbRep)
        exercicePhysiqueTable.reloadData()
     }
     
@@ -49,7 +63,7 @@ class ExercicePhysiqueViewController: UIViewController, UITableViewDelegate, UIT
         }
     }
     
-    func saveNewExPhys(Nom nom: String, Temps temps: String?, NbRep nbRep: String?){
+    /* func saveNewExPhys(Nom nom: String, Temps temps: String?, NbRep nbRep: String?){
         guard let context = self.getContext(errorMsg: "save failed") else { return }
         let exPhys = ExercicePhysiqueDAO(context: context)
         exPhys.nom = nom
@@ -64,7 +78,7 @@ class ExercicePhysiqueViewController: UIViewController, UITableViewDelegate, UIT
             self.alert(error: error)
             return
         }
-    }
+    }*/
     
     func delete(exPhysWithIndex index: Int) -> Bool{
         guard let context = getContext(errorMsg: "Could not delete Medicament") else {
@@ -83,11 +97,14 @@ class ExercicePhysiqueViewController: UIViewController, UITableViewDelegate, UIT
         }
     }
     func deleteHandlerAction(action: UITableViewRowAction,indexPath: IndexPath) -> Void {
-        self.exercicePhysiqueTable.beginUpdates()
+        //self.exercicePhysiqueTable.beginUpdates()
+        let exPhys = self.exercicePhysiqueFetched.object(at: indexPath)
+        CoreDataManager.context.delete(exPhys)
+        /*
         if self.delete(exPhysWithIndex: indexPath.row){
             self.exercicePhysiqueTable.deleteRows(at: [indexPath], with: UITableViewRowAnimation.automatic)
         }
-        self.exercicePhysiqueTable.endUpdates()
+        self.exercicePhysiqueTable.endUpdates()*/
     }
     func editHandlerAction(action: UITableViewRowAction,indexPath: IndexPath) -> Void {
         print("edit")
@@ -100,6 +117,7 @@ class ExercicePhysiqueViewController: UIViewController, UITableViewDelegate, UIT
         edit.backgroundColor = UIColor.blue
         return [delete, edit]
     }
+    
     
     /*
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
@@ -117,14 +135,18 @@ class ExercicePhysiqueViewController: UIViewController, UITableViewDelegate, UIT
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         let cell = self.exercicePhysiqueTable.dequeueReusableCell(withIdentifier: "exercicePhysiqueCell", for: indexPath) as! ExercicePhysiqueTableViewCell
         //self.exPresenter.configure(theCell: cell, forExercicePhysique: self.exercicePhysique[indexPath.row])
-        
-        cell.nomExercicePhysique.text = self.exercicePhysique[indexPath.row].nom
+        let exPhys = self.exercicePhysiqueFetched.object(at: indexPath)
+        //cell.nomExercicePhysique.text = self.exercicePhysique[indexPath.row].nom
         return cell
         
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.exercicePhysique.count
+        //return self.exercicePhysique.count
+        guard let section = self.exercicePhysiqueFetched.sections?[section]else{
+            fatalError("unexpected section number")
+        }
+        return section.numberOfObjects
     }
     
     // MARK: - Navigation
@@ -181,7 +203,51 @@ class ExercicePhysiqueViewController: UIViewController, UITableViewDelegate, UIT
         self.alert(WithTitle:"\(error)", andMessage: "\(error.userInfo)")
     }
     
+    func saveNewExercicePhysique(Nom nom: String, Temps temps: String?, NbRep nbRep: String?){
+        let context = CoreDataManager.context
+        let exPhys = ExercicePhysiqueDAO(context:context)
+        exPhys.nom = nom
+        //exPhys.descript = desc
+        exPhys.temps = temps
+        exPhys.nbRepetition = nbRep
+        do{
+            try context.save()
+            self.exercicePhysique.append(exPhys)
+        }
+        catch let error as NSError{
+            DialogBoxHelper.alert(view: self, error: error)
+            return
+        }
+        
+        
+    }
     
+    
+    // - NSFetchResultController delegate protocol
+    
+    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        self.exercicePhysiqueTable.beginUpdates()
+    }
+    
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        self.exercicePhysiqueTable.endUpdates()
+        CoreDataManager.save()
+    }
+    
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+        switch type {
+        case .delete:
+            if let indexPath = indexPath{
+                self.exercicePhysiqueTable.deleteRows(at: [indexPath], with: .automatic)
+            }
+        case .insert:
+            if let indexPath = indexPath{
+                self.exercicePhysiqueTable.insertRows(at: [indexPath], with: .fade)
+            }
+        default:
+            break
+        }
+    }
     /*
      override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
      let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
