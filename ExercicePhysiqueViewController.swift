@@ -41,6 +41,13 @@ class ExercicePhysiqueViewController: UIViewController, UITableViewDelegate, UIT
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    //MARK : - Data management
+    
+    func save(){
+        if let error=CoreDataManager.save(){
+            DialogBoxHelper.alert(view: self, error: error)
+        }
+    }
     
     func saveNewExPhys(Nom nom: String, Temps temps: String?, NbRep nbRep: String?){
         guard let context = self.getContext(errorMsg: "save failed") else { return }
@@ -58,13 +65,60 @@ class ExercicePhysiqueViewController: UIViewController, UITableViewDelegate, UIT
             return
         }
     }
+    
+    func delete(exPhysWithIndex index: Int) -> Bool{
+        guard let context = getContext(errorMsg: "Could not delete Medicament") else {
+            return false
+        }
+        let exPhy = self.exercicePhysique[index]
+        context.delete(exPhy)
+        do{
+            try context.save()
+            self.exercicePhysique.remove(at: index)
+            return true
+        }
+        catch let error as NSError{
+            self.alert(error: error)
+            return false
+        }
+    }
+    func deleteHandlerAction(action: UITableViewRowAction,indexPath: IndexPath) -> Void {
+        self.exercicePhysiqueTable.beginUpdates()
+        if self.delete(exPhysWithIndex: indexPath.row){
+            self.exercicePhysiqueTable.deleteRows(at: [indexPath], with: UITableViewRowAnimation.automatic)
+        }
+        self.exercicePhysiqueTable.endUpdates()
+    }
+    func editHandlerAction(action: UITableViewRowAction,indexPath: IndexPath) -> Void {
+        print("edit")
+    }
+    
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let delete = UITableViewRowAction(style: .default, title: "Del", handler: self.deleteHandlerAction)
+        let edit = UITableViewRowAction(style: .default, title: "edit",handler: self.editHandlerAction)
+        delete.backgroundColor = UIColor.red
+        edit.backgroundColor = UIColor.blue
+        return [delete, edit]
+    }
+    
+    /*
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if (editingStyle == UITableViewCellEditingStyle.delete){
+            self.exercicePhysiqueTable.beginUpdates()
+            if self.delete(exPhysWithIndex: indexPath.row){
+                self.exercicePhysiqueTable.deleteRows(at: [indexPath], with: UITableViewRowAnimation.automatic)
+            }
+            self.exercicePhysiqueTable.endUpdates()
+        }
+    }*/
+    
     // MARK: - Table view data source
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         let cell = self.exercicePhysiqueTable.dequeueReusableCell(withIdentifier: "exercicePhysiqueCell", for: indexPath) as! ExercicePhysiqueTableViewCell
-        self.exPresenter.configure(theCell: cell, forExercicePhysique: self.exercicePhysique[indexPath.row])
+        //self.exPresenter.configure(theCell: cell, forExercicePhysique: self.exercicePhysique[indexPath.row])
         
-        //cell.nomExercicePhysique.text = self.exercicePhysique[indexPath.row].nom
+        cell.nomExercicePhysique.text = self.exercicePhysique[indexPath.row].nom
         return cell
         
     }
@@ -126,6 +180,8 @@ class ExercicePhysiqueViewController: UIViewController, UITableViewDelegate, UIT
     func alert(error: NSError){
         self.alert(WithTitle:"\(error)", andMessage: "\(error.userInfo)")
     }
+    
+    
     /*
      override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
      let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)

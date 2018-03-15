@@ -26,6 +26,8 @@
 		7D93A59320583468006D37C4 /* AddMedicamentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D93A59120583468006D37C4 /* AddMedicamentViewController.swift */; };
 		AC040A382059C2BD00BA9068 /* ShowExercicePhysiqueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC040A372059C2BD00BA9068 /* ShowExercicePhysiqueViewController.swift */; };
 		AC040A402059E90800BA9068 /* ExercicePhysiquePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC040A3F2059E90800BA9068 /* ExercicePhysiquePresenter.swift */; };
+		AC040A49205A02A500BA9068 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC040A48205A02A500BA9068 /* CoreDataManager.swift */; };
+		AC040A4C205A04BF00BA9068 /* DialogBoxHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC040A4B205A04BF00BA9068 /* DialogBoxHelper.swift */; };
 		AC7AB20420586EA800CA5DED /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7AB20320586EA800CA5DED /* MenuViewController.swift */; };
 		AC7AB2072058780100CA5DED /* ActiviteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7AB2062058780100CA5DED /* ActiviteViewController.swift */; };
 		AC7AB2082058780100CA5DED /* ActiviteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7AB2062058780100CA5DED /* ActiviteViewController.swift */; };
@@ -82,6 +84,8 @@
 		7D93A59120583468006D37C4 /* AddMedicamentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddMedicamentViewController.swift; sourceTree = "<group>"; };
 		AC040A372059C2BD00BA9068 /* ShowExercicePhysiqueViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowExercicePhysiqueViewController.swift; sourceTree = "<group>"; };
 		AC040A3F2059E90800BA9068 /* ExercicePhysiquePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercicePhysiquePresenter.swift; sourceTree = "<group>"; };
+		AC040A48205A02A500BA9068 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		AC040A4B205A04BF00BA9068 /* DialogBoxHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogBoxHelper.swift; sourceTree = "<group>"; };
 		AC7AB20320586EA800CA5DED /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		AC7AB2062058780100CA5DED /* ActiviteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiviteViewController.swift; sourceTree = "<group>"; };
 		AC7AB20920587D7A00CA5DED /* ActiviteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiviteTableViewCell.swift; sourceTree = "<group>"; };
@@ -123,6 +127,7 @@
 		7D93A54420582604006D37C4 = {
 			isa = PBXGroup;
 			children = (
+				AC040A4D205A05A700BA9068 /* Class Helpers */,
 				AC040A3E2059E8C800BA9068 /* Presenter */,
 				7D93A58A20582F28006D37C4 /* Controlleur */,
 				7D93A58920582D1B006D37C4 /* Model */,
@@ -222,6 +227,15 @@
 				AC040A3F2059E90800BA9068 /* ExercicePhysiquePresenter.swift */,
 			);
 			path = Presenter;
+			sourceTree = "<group>";
+		};
+		AC040A4D205A05A700BA9068 /* Class Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				AC040A4B205A04BF00BA9068 /* DialogBoxHelper.swift */,
+				AC040A48205A02A500BA9068 /* CoreDataManager.swift */,
+			);
+			path = "Class Helpers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -364,6 +378,8 @@
 				AC7AB2072058780100CA5DED /* ActiviteViewController.swift in Sources */,
 				7D93A59220583468006D37C4 /* AddMedicamentViewController.swift in Sources */,
 				AC7AB20A20587D7A00CA5DED /* ActiviteTableViewCell.swift in Sources */,
+				AC040A4C205A04BF00BA9068 /* DialogBoxHelper.swift in Sources */,
+				AC040A49205A02A500BA9068 /* CoreDataManager.swift in Sources */,
 				7D93A58C20582F88006D37C4 /* MedicamentViewController.swift in Sources */,
 				7D93A582205826AD006D37C4 /* MedicamentDAOext.swift in Sources */,
 				7D93A58720582D04006D37C4 /* Medicament.swift in Sources */,
