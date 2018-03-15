@@ -527,7 +527,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="30" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5VQ-GH-M16">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="30" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5VQ-GH-M16">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="616"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -566,7 +566,6 @@
                                             <outlet property="dose" destination="t4e-yd-cNs" id="pIW-sb-4Fs"/>
                                             <outlet property="nom" destination="YQC-jj-waP" id="HaK-tz-Auj"/>
                                             <outlet property="unite" destination="jtE-t7-I7w" id="gS4-f1-Y3i"/>
-                                            <segue destination="Ggh-hi-Tl6" kind="show" id="Tqp-2l-CpC"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -589,6 +588,7 @@
                     <connections>
                         <outlet property="medicamentPresenter" destination="dNr-ld-g7H" id="ZoI-Ap-PdZ"/>
                         <outlet property="medicamentTable" destination="5VQ-GH-M16" id="ssz-76-mRl"/>
+                        <segue destination="Ggh-hi-Tl6" kind="show" identifier="showMedicamentSegue" id="a5Z-xC-yOR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="F2X-P1-xri" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -689,6 +689,9 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="tZi-P6-1HI" id="asf-g4-Vcs"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rub-Aq-CYo" userLabel="doseText">
                                 <rect key="frame" x="16" y="217" width="195" height="30"/>
@@ -696,6 +699,9 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="tZi-P6-1HI" id="gr6-m8-dCl"/>
+                                </connections>
                             </textField>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="LlP-kd-Q4L" userLabel="descriptionText">
                                 <rect key="frame" x="16" y="437" width="343" height="128"/>
