@@ -14,6 +14,8 @@ class ExercicePhysiqueViewController: UIViewController, UITableViewDelegate, UIT
     @IBOutlet weak var exercicePhysiqueTable: UITableView!
     var exercicePhysique : [ExercicePhysiqueDAO] = []
     
+    @IBOutlet var exPresenter : ExercicePhysiquePresenter!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -60,8 +62,9 @@ class ExercicePhysiqueViewController: UIViewController, UITableViewDelegate, UIT
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         let cell = self.exercicePhysiqueTable.dequeueReusableCell(withIdentifier: "exercicePhysiqueCell", for: indexPath) as! ExercicePhysiqueTableViewCell
+        self.exPresenter.configure(theCell: cell, forExercicePhysique: self.exercicePhysique[indexPath.row])
         
-        cell.nomExercicePhysique.text = self.exercicePhysique[indexPath.row].nom
+        //cell.nomExercicePhysique.text = self.exercicePhysique[indexPath.row].nom
         return cell
         
     }
