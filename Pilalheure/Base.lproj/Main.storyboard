@@ -567,6 +567,7 @@
                                             <outlet property="dose" destination="t4e-yd-cNs" id="pIW-sb-4Fs"/>
                                             <outlet property="nom" destination="YQC-jj-waP" id="HaK-tz-Auj"/>
                                             <outlet property="unite" destination="jtE-t7-I7w" id="gS4-f1-Y3i"/>
+                                            <segue destination="Ggh-hi-Tl6" kind="show" id="Tqp-2l-CpC"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -595,6 +596,60 @@
                 <customObject id="dNr-ld-g7H" customClass="MedicamentPresenter" customModule="Pilalheure" customModuleProvider="target"/>
             </objects>
             <point key="canvasLocation" x="1905" y="221"/>
+        </scene>
+        <!--Show Medicament View Controller-->
+        <scene sceneID="QmR-BQ-bhQ">
+            <objects>
+                <viewController id="Ggh-hi-Tl6" customClass="ShowMedicamentViewController" customModule="Pilalheure" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="vTH-Gs-k9y"/>
+                        <viewControllerLayoutGuide type="bottom" id="rFR-tS-XSw"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="EUV-sk-kg9">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="nomMedicamenLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zDG-ym-8wv">
+                                <rect key="frame" x="61" y="81" width="165" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="doseMedicamenLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F4t-Zw-TXb">
+                                <rect key="frame" x="61" y="175" width="169" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="unieMedicamentLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n3f-Lf-gBd">
+                                <rect key="frame" x="183" y="323" width="169" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="descriptionMedicamentLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NJq-vQ-xdh">
+                                <rect key="frame" x="29" y="445" width="222" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                    <connections>
+                        <outlet property="descriptionMedicamenLabel" destination="NJq-vQ-xdh" id="sWl-sy-7PX"/>
+                        <outlet property="doseMedicamentLabel" destination="F4t-Zw-TXb" id="R0L-Lx-8sI"/>
+                        <outlet property="nomMedicamentLabel" destination="zDG-ym-8wv" id="cE6-oN-Ybq"/>
+                        <outlet property="unieMedicamentLabel" destination="n3f-Lf-gBd" id="T0M-sg-D3C"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6dh-PT-2EK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1905" y="959"/>
         </scene>
         <!--Add Medicament View Controller-->
         <scene sceneID="595-gx-5Yh">
