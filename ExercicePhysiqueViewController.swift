@@ -41,7 +41,13 @@ class ExercicePhysiqueViewController: UIViewController, UITableViewDelegate, UIT
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    //MARK : - save et update
+    //MARK : - Data management
+    
+    func save(){
+        if let error=CoreDataManager.save(){
+            DialogBoxHelper.alert(view: self, error: error)
+        }
+    }
     
     func saveNewExPhys(Nom nom: String, Temps temps: String?, NbRep nbRep: String?){
         guard let context = self.getContext(errorMsg: "save failed") else { return }
@@ -174,6 +180,8 @@ class ExercicePhysiqueViewController: UIViewController, UITableViewDelegate, UIT
     func alert(error: NSError){
         self.alert(WithTitle:"\(error)", andMessage: "\(error.userInfo)")
     }
+    
+    
     /*
      override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
      let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
