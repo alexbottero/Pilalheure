@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		308A33332059F4C700A67BF4 /* ShowMedicamentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308A33322059F4C700A67BF4 /* ShowMedicamentViewController.swift */; };
 		7D43438E2059794F003D01F3 /* MedicamentPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D43438D2059794F003D01F3 /* MedicamentPresenter.swift */; };
 		7D93A55120582604006D37C4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D93A55020582604006D37C4 /* AppDelegate.swift */; };
 		7D93A55320582604006D37C4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D93A55220582604006D37C4 /* ViewController.swift */; };
@@ -58,6 +59,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		308A33322059F4C700A67BF4 /* ShowMedicamentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowMedicamentViewController.swift; sourceTree = "<group>"; };
 		7D43438D2059794F003D01F3 /* MedicamentPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MedicamentPresenter.swift; sourceTree = "<group>"; };
 		7D93A54D20582604006D37C4 /* Pilalheure.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pilalheure.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D93A55020582604006D37C4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -208,6 +210,7 @@
 				ACD999AC205933C1007A9BF0 /* ExercicePhysiqueTableViewCell.swift */,
 				ACD999BA20596240007A9BF0 /* AddExercicePhysiqueViewController.swift */,
 				AC040A372059C2BD00BA9068 /* ShowExercicePhysiqueViewController.swift */,
+				308A33322059F4C700A67BF4 /* ShowMedicamentViewController.swift */,
 			);
 			name = Controlleur;
 			sourceTree = "<group>";
@@ -377,6 +380,7 @@
 				ACD999B720595E3D007A9BF0 /* PrescriptionViewController.swift in Sources */,
 				ACD999B320595E2A007A9BF0 /* AddPrescriptionViewController.swift in Sources */,
 				AC040A382059C2BD00BA9068 /* ShowExercicePhysiqueViewController.swift in Sources */,
+				308A33332059F4C700A67BF4 /* ShowMedicamentViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
