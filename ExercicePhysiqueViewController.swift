@@ -26,12 +26,12 @@ class ExercicePhysiqueViewController: UIViewController, UITableViewDelegate, UIT
     
     @IBAction func unwindToExercicePhysiqueListAfterSavingNewExercicePhysique(segue:UIStoryboardSegue){
         let newExercicePhysiqueController = segue.source as! AddExercicePhysiqueViewController
-        let nom=newExercicePhysiqueController.nomNewExercicePhysique.text
-        let desc=newExercicePhysiqueController.descNewExercicePhysique.text ?? ""
+        let nom=newExercicePhysiqueController.nomNewExercicePhysique.text ?? ""
+        //let desc=newExercicePhysiqueController.descNewExercicePhysique.text!
         let times=newExercicePhysiqueController.tempsNewExercicePhysique.text ?? ""
         let nbRep=newExercicePhysiqueController.nbRepNewExercicePhysique.text ?? ""
         
-        self.saveNewExPhys(Nom: nom!, Desc: desc, Temps: times, NbRep: nbRep)
+        self.saveNewExPhys(Nom: nom,  Temps: times, NbRep: nbRep)
        exercicePhysiqueTable.reloadData()
     }
     
@@ -40,11 +40,11 @@ class ExercicePhysiqueViewController: UIViewController, UITableViewDelegate, UIT
         // Dispose of any resources that can be recreated.
     }
     
-    func saveNewExPhys(Nom nom: String, Desc descr: String, Temps temps: String, NbRep nbRep: String){
+    func saveNewExPhys(Nom nom: String, Temps temps: String?, NbRep nbRep: String?){
         guard let context = self.getContext(errorMsg: "save failed") else { return }
         let exPhys = ExercicePhysiqueDAO(context: context)
         exPhys.nom = nom
-        exPhys.descript = descr
+        //exPhys.descript = descr
         exPhys.temps = temps
         exPhys.nbRepetition=nbRep
         do{
@@ -60,6 +60,7 @@ class ExercicePhysiqueViewController: UIViewController, UITableViewDelegate, UIT
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         let cell = self.exercicePhysiqueTable.dequeueReusableCell(withIdentifier: "exercicePhysiqueCell", for: indexPath) as! ExercicePhysiqueTableViewCell
+        
         cell.nomExercicePhysique.text = self.exercicePhysique[indexPath.row].nom
         return cell
         

@@ -170,6 +170,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="n7d-cv-B2j" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="7Gn-gi-dgn" customClass="ExercicePhysiquePresenter" customModule="Pilalheure" customModuleProvider="target"/>
             </objects>
             <point key="canvasLocation" x="1621.5999999999999" y="-1251.7241379310346"/>
         </scene>
