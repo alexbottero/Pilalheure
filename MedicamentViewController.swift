@@ -51,6 +51,8 @@ class MedicamentViewController: UIViewController, UITableViewDataSource, UITable
         let cell = self.medicamentTable.dequeueReusableCell(withIdentifier: "medicamentCell", for: indexPath) as! MedicamentTableViewCell
         //self.medicamentPresenter.configure(theCell: cell, forMedicament: self.medicaments[indexPath.row])
         cell.nom.text = self.medicaments[indexPath.row].nom
+        cell.dose.text = self.medicaments[indexPath.row].dose
+        cell.unite.text = self.medicaments[indexPath.row].unite
         return cell
         
     }
@@ -75,10 +77,13 @@ class MedicamentViewController: UIViewController, UITableViewDataSource, UITable
     
     //MARK: - Medicaments data management -
     
-    func saveNewMedicament(withName name: String){
+    func saveNewMedicament(withName name: String, withDose dose: String, withUnite unite: String, withDescription description: String){
         guard let context = getContext(errorMsg: "Save failed") else {return}
         let medoc = MedicamentDAO(context: context)
         medoc.nom = name
+        medoc.dose = dose
+        medoc.unite = unite
+        medoc.descript = description
         do{
             try context.save()
             self.medicaments.append(medoc)
@@ -162,7 +167,7 @@ class MedicamentViewController: UIViewController, UITableViewDataSource, UITable
         let newMedicamentController = segue.source as! AddMedicamentViewController
         //let doseInt : Int32 = Int32(newMedicamentController.doseMedicamentText.text!)!
         //let medoc = Medicament(nom: newMedicamentController.nomMedicamentText.text!, dose: doseInt, unite: newMedicamentController.selectedValues, desc: newMedicamentController.descriptionMedicamentText.text)
-        self.saveNewMedicament(withName: newMedicamentController.nomMedicamentText.text!)
+        self.saveNewMedicament(withName: newMedicamentController.nomMedicamentText.text!, withDose: newMedicamentController.doseMedicamentText.text!, withUnite: newMedicamentController.selectedValues, withDescription: newMedicamentController.descriptionMedicamentText.text!)
         self.medicamentTable.reloadData()
     }
     
