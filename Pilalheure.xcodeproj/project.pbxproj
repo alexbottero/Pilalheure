@@ -21,9 +21,7 @@
 		7D93A58720582D04006D37C4 /* Medicament.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D93A58620582D04006D37C4 /* Medicament.swift */; };
 		7D93A58C20582F88006D37C4 /* MedicamentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D93A58B20582F88006D37C4 /* MedicamentViewController.swift */; };
 		7D93A58F20582FB1006D37C4 /* MedicamentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D93A58E20582FB1006D37C4 /* MedicamentTableViewCell.swift */; };
-		7D93A59020582FB1006D37C4 /* MedicamentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D93A58E20582FB1006D37C4 /* MedicamentTableViewCell.swift */; };
 		7D93A59220583468006D37C4 /* AddMedicamentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D93A59120583468006D37C4 /* AddMedicamentViewController.swift */; };
-		7D93A59320583468006D37C4 /* AddMedicamentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D93A59120583468006D37C4 /* AddMedicamentViewController.swift */; };
 		AC040A382059C2BD00BA9068 /* ShowExercicePhysiqueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC040A372059C2BD00BA9068 /* ShowExercicePhysiqueViewController.swift */; };
 		AC040A402059E90800BA9068 /* ExercicePhysiquePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC040A3F2059E90800BA9068 /* ExercicePhysiquePresenter.swift */; };
 		AC040A49205A02A500BA9068 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC040A48205A02A500BA9068 /* CoreDataManager.swift */; };
@@ -202,20 +200,14 @@
 		7D93A58A20582F28006D37C4 /* Controlleur */ = {
 			isa = PBXGroup;
 			children = (
-				ACD999B820595F85007A9BF0 /* ExercicePhysiqueViewController.swift */,
+				ACE0E0C2205AD74E003A5131 /* Exercice */,
+				ACE0E0C1205AD723003A5131 /* Medicament */,
 				ACD999B620595E3C007A9BF0 /* PrescriptionViewController.swift */,
 				ACD999B420595E36007A9BF0 /* PrescriptionTableViewCell.swift */,
 				ACD999B220595E2A007A9BF0 /* AddPrescriptionViewController.swift */,
-				7D93A58B20582F88006D37C4 /* MedicamentViewController.swift */,
-				7D93A59120583468006D37C4 /* AddMedicamentViewController.swift */,
-				7D93A58E20582FB1006D37C4 /* MedicamentTableViewCell.swift */,
 				AC7AB20320586EA800CA5DED /* MenuViewController.swift */,
 				AC7AB2062058780100CA5DED /* ActiviteViewController.swift */,
 				AC7AB20920587D7A00CA5DED /* ActiviteTableViewCell.swift */,
-				ACD999AC205933C1007A9BF0 /* ExercicePhysiqueTableViewCell.swift */,
-				ACD999BA20596240007A9BF0 /* AddExercicePhysiqueViewController.swift */,
-				AC040A372059C2BD00BA9068 /* ShowExercicePhysiqueViewController.swift */,
-				308A33322059F4C700A67BF4 /* ShowMedicamentViewController.swift */,
 			);
 			name = Controlleur;
 			sourceTree = "<group>";
@@ -236,6 +228,28 @@
 				AC040A48205A02A500BA9068 /* CoreDataManager.swift */,
 			);
 			path = "Class Helpers";
+			sourceTree = "<group>";
+		};
+		ACE0E0C1205AD723003A5131 /* Medicament */ = {
+			isa = PBXGroup;
+			children = (
+				7D93A58B20582F88006D37C4 /* MedicamentViewController.swift */,
+				7D93A58E20582FB1006D37C4 /* MedicamentTableViewCell.swift */,
+				308A33322059F4C700A67BF4 /* ShowMedicamentViewController.swift */,
+				7D93A59120583468006D37C4 /* AddMedicamentViewController.swift */,
+			);
+			name = Medicament;
+			sourceTree = "<group>";
+		};
+		ACE0E0C2205AD74E003A5131 /* Exercice */ = {
+			isa = PBXGroup;
+			children = (
+				ACD999B820595F85007A9BF0 /* ExercicePhysiqueViewController.swift */,
+				ACD999AC205933C1007A9BF0 /* ExercicePhysiqueTableViewCell.swift */,
+				ACD999BA20596240007A9BF0 /* AddExercicePhysiqueViewController.swift */,
+				AC040A372059C2BD00BA9068 /* ShowExercicePhysiqueViewController.swift */,
+			);
+			name = Exercice;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -406,9 +420,7 @@
 			files = (
 				AC7AB20B20587D7A00CA5DED /* ActiviteTableViewCell.swift in Sources */,
 				7D93A56920582604006D37C4 /* PilalheureTests.swift in Sources */,
-				7D93A59020582FB1006D37C4 /* MedicamentTableViewCell.swift in Sources */,
 				AC7AB2082058780100CA5DED /* ActiviteViewController.swift in Sources */,
-				7D93A59320583468006D37C4 /* AddMedicamentViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
