@@ -12,10 +12,9 @@ import CoreData
 class ExercicePhysiqueViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate{
     
     @IBOutlet weak var exercicePhysiqueTable: UITableView!
+    
     var exercicePhysique : [ExercicePhysiqueDAO] = []
-    
-    @IBOutlet var exPresenter : ExercicePhysiquePresenter!
-    
+
     fileprivate lazy var exercicePhysiqueFetched : NSFetchedResultsController<ExercicePhysiqueDAO> = {
         let request : NSFetchRequest <ExercicePhysiqueDAO> = ExercicePhysiqueDAO.fetchRequest()
         request.sortDescriptors = [NSSortDescriptor(key:#keyPath(ExercicePhysiqueDAO.nom),ascending:true)]
@@ -25,9 +24,13 @@ class ExercicePhysiqueViewController: UIViewController, UITableViewDelegate, UIT
         return fetchResultController
     }()
     
+    // Presenter
+     @IBOutlet var exPresenter : ExercicePhysiquePresenter!
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
         do{
@@ -40,14 +43,13 @@ class ExercicePhysiqueViewController: UIViewController, UITableViewDelegate, UIT
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
     
+    
     @IBAction func unwindToExercicePhysiqueListAfterSavingNewExercicePhysique(segue:UIStoryboardSegue){
         let newExercicePhysiqueController = segue.source as! AddExercicePhysiqueViewController
         let nom=newExercicePhysiqueController.nomNewExercicePhysique.text ?? ""
-        //let desc=newExercicePhysiqueController.descNewExercicePhysique.text!
-        let times=newExercicePhysiqueController.tempsNewExercicePhysique.text ?? ""
-        let nbRep=newExercicePhysiqueController.nbRepNewExercicePhysique.text ?? ""
-        
-        self.saveNewExercicePhysique(Nom: nom,  Temps: times, NbRep: nbRep)
+        let desc=newExercicePhysiqueController.descNewExercicePhysique.text!
+        let date=newExercicePhysiqueController.dateNewExercicePhysique.date
+        self.saveNewExercicePhysique(Nom: nom,  Desc: desc, Date: date)
        exercicePhysiqueTable.reloadData()
     }
     
@@ -55,8 +57,10 @@ class ExercicePhysiqueViewController: UIViewController, UITableViewDelegate, UIT
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    //MARK : - Data management
     
+    
+    
+    //MARK : - Data management
     func save(){
         if let error=CoreDataManager.save(){
             DialogBoxHelper.alert(view: self, error: error)
@@ -79,7 +83,7 @@ class ExercicePhysiqueViewController: UIViewController, UITableViewDelegate, UIT
             return
         }
     }*/
-    
+    /*
     func delete(exPhysWithIndex index: Int) -> Bool{
         guard let context = getContext(errorMsg: "Could not delete Medicament") else {
             return false
@@ -96,6 +100,8 @@ class ExercicePhysiqueViewController: UIViewController, UITableViewDelegate, UIT
             return false
         }
     }
+    */
+    
     func deleteHandlerAction(action: UITableViewRowAction,indexPath: IndexPath) -> Void {
         //self.exercicePhysiqueTable.beginUpdates()
         let exPhys = self.exercicePhysiqueFetched.object(at: indexPath)
@@ -106,16 +112,20 @@ class ExercicePhysiqueViewController: UIViewController, UITableViewDelegate, UIT
         }
         self.exercicePhysiqueTable.endUpdates()*/
     }
-    func editHandlerAction(action: UITableViewRowAction,indexPath: IndexPath) -> Void {
+    
+    
+    /*func editHandlerAction(action: UITableViewRowAction,indexPath: IndexPath) -> Void {
         print("edit")
-    }
+    }*/
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let delete = UITableViewRowAction(style: .default, title: "Del", handler: self.deleteHandlerAction)
-        let edit = UITableViewRowAction(style: .default, title: "edit",handler: self.editHandlerAction)
+        //let edit = UITableViewRowAction(style: .default, title: "edit",handler: self.editHandlerAction)
         delete.backgroundColor = UIColor.red
-        edit.backgroundColor = UIColor.blue
-        return [delete, edit]
+        //edit.backgroundColor = UIColor.blue
+        // ajouter edit pour la modif
+        return [delete]
+        
     }
     
     
@@ -130,16 +140,24 @@ class ExercicePhysiqueViewController: UIViewController, UITableViewDelegate, UIT
         }
     }*/
     
+    
+    
     // MARK: - Table view data source
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         let cell = self.exercicePhysiqueTable.dequeueReusableCell(withIdentifier: "exercicePhysiqueCell", for: indexPath) as! ExercicePhysiqueTableViewCell
         //self.exPresenter.configure(theCell: cell, forExercicePhysique: self.exercicePhysique[indexPath.row])
         let exPhys = self.exercicePhysiqueFetched.object(at: indexPath)
-        //cell.nomExercicePhysique.text = self.exercicePhysique[indexPath.row].nom
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd-MM-yyyy"
+        let stringDate = dateFormatter.string(from: exPhys.date! as Date)
+        //self.exPresenter.configure(theCell: cell, forExercicePhysique: exPhys)
+        cell.nomExercicePhysique.text = exPhys.nom
+        cell.dateExercicePhysique.text = stringDate
         return cell
         
     }
+    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         //return self.exercicePhysique.count
@@ -149,67 +167,26 @@ class ExercicePhysiqueViewController: UIViewController, UITableViewDelegate, UIT
         return section.numberOfObjects
     }
     
-    // MARK: - Navigation
     
+    // MARK: - Navigation
     let segueShowExPhysId = "ShowExPhysSegue"
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == self.segueShowExPhysId{
             if let indexPath = self.exercicePhysiqueTable.indexPathForSelectedRow{
                 let showExercicePhysiqueViewController = segue.destination as! ShowExercicePhysiqueViewController
-                showExercicePhysiqueViewController.exPhys = self.exercicePhysique[indexPath.row]
+                showExercicePhysiqueViewController.exPhys = self.exercicePhysiqueFetched.object(at: indexPath)
                 self.exercicePhysiqueTable.deselectRow(at: indexPath, animated: true)
             }
         }
     }
     
-    
-    // MARK: - Helper Methods
-    
-    /// Récupère le context d'un Core Data initialisé dans l'application delegate
-    ///
-    /// - Parameters:
-    ///   - errorMsg: Message d'erreur
-    ///   - userInfoMsg: Information additionnelle
-    /// - Returns: Retourne le context d'un Core Data
-    
-    func getContext(errorMsg: String, userInfoMsg: String = "could not retrieve data context") -> NSManagedObjectContext?{
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-            self.alert(WithTitle: errorMsg, andMessage: userInfoMsg)
-            return nil
-        }
-        return appDelegate.persistentContainer.viewContext
-    }
-    
-    /// Fait apparaître une boite de dialogue "alert" avec 2 messages
-    ///
-    /// - Parameters:
-    ///   - title: Titre de la boite de dialogue
-    ///   - msg: Message de la boite de dialogue
-    func alert(WithTitle title: String, andMessage msg: String = ""){
-        let alert = UIAlertController(title: title,
-                                      message: msg,
-                                      preferredStyle: .alert)
-        let cancelAction = UIAlertAction(title: "OK",
-                                         style: .default)
-        alert.addAction(cancelAction)
-        present(alert,animated: true)
-    }
-    
-    /// Fait apparaître une boite de dialogue lorsqu'il y a une erreur.
-    ///
-    /// - Parameter error: Erreur donné à la boite de dialogue
-    func alert(error: NSError){
-        self.alert(WithTitle:"\(error)", andMessage: "\(error.userInfo)")
-    }
-    
-    func saveNewExercicePhysique(Nom nom: String, Temps temps: String?, NbRep nbRep: String?){
+    func saveNewExercicePhysique(Nom nom: String, Desc desc: String, Date date: Date){
         let context = CoreDataManager.context
         let exPhys = ExercicePhysiqueDAO(context:context)
         exPhys.nom = nom
-        //exPhys.descript = desc
-        exPhys.temps = temps
-        exPhys.nbRepetition = nbRep
+        exPhys.descript = desc
+        exPhys.date = date as NSDate
         do{
             try context.save()
             self.exercicePhysique.append(exPhys)
@@ -241,8 +218,8 @@ class ExercicePhysiqueViewController: UIViewController, UITableViewDelegate, UIT
                 self.exercicePhysiqueTable.deleteRows(at: [indexPath], with: .automatic)
             }
         case .insert:
-            if let indexPath = indexPath{
-                self.exercicePhysiqueTable.insertRows(at: [indexPath], with: .fade)
+            if let newIndexPath = newIndexPath{
+                self.exercicePhysiqueTable.insertRows(at: [newIndexPath], with: .fade)
             }
         default:
             break

@@ -11,6 +11,8 @@ import UIKit
 class ExercicePhysiqueTableViewCell: UITableViewCell {
 
     @IBOutlet weak var nomExercicePhysique: UILabel!
+    @IBOutlet weak var dateExercicePhysique: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

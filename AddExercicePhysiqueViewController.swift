@@ -10,21 +10,25 @@ import UIKit
 
 class AddExercicePhysiqueViewController: UIViewController,UITextFieldDelegate {
 
+    @IBOutlet weak var descNewExercicePhysique: UITextView!
+    @IBOutlet weak var dateNewExercicePhysique: UIDatePicker!
+    @IBOutlet weak var nomNewExercicePhysique: UITextField!
+    
+    var exercicePhysique: ExercicePhysique?
+    
     @IBAction func saveAction(_ sender: Any) {
         let nom : String = self.nomNewExercicePhysique.text ?? ""
-        let temps : String = self.tempsNewExercicePhysique.text ?? ""
-        let nbRep : String = self.nbRepNewExercicePhysique.text ?? ""
+        let desc : String = self.descNewExercicePhysique.text ?? ""
+        let date : Date = self.dateNewExercicePhysique.date
+        
         guard (nom != "") else {return}
         let exPhys = ExercicePhysiqueDAO(context: CoreDataManager.context)
         exPhys.nom = nom
-        exPhys.temps = temps
-        exPhys.nbRepetition = nbRep
+        exPhys.descript = desc
+        exPhys.date = date as NSDate
         self.dismiss(animated: true, completion: nil)
     }
-    @IBOutlet weak var nbRepNewExercicePhysique: UITextField!
-    @IBOutlet weak var tempsNewExercicePhysique: UITextField!
-    @IBOutlet weak var descNewExercicePhysique: UITextView!
-    @IBOutlet weak var nomNewExercicePhysique: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -44,9 +48,8 @@ class AddExercicePhysiqueViewController: UIViewController,UITextFieldDelegate {
         if segue.identifier=="OKAddExercicePhysiqueSegue"{
         }
     }
-    // MARK: - cancel et save
     
-   
+    // MARK: - cancel et save
     @IBAction func cancelAction(_ sender: Any) {
         self.dismiss(animated: true,completion: nil)
     }

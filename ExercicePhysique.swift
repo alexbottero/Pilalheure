@@ -27,30 +27,20 @@ class ExercicePhysique {
         }
     }
     
-    var temps : String?{
-        get{
-            return self.dao.temps
-        }
-        set{
-            self.dao.temps = newValue!
+    var date : NSDate{
+        get {
+            return self.dao.date!
         }
     }
-    var nbRepetition  : String?{
-        get{
-            return self.dao.nbRepetition
-        }
-        set{
-            self.dao.nbRepetition = newValue!
-        }
-    }
-    init(nom: String, descript: String, temps: String?, nbRepetition: String?){
+    
+
+    init(nom: String, descript: String, date: NSDate){
         guard let dao = ExercicePhysiqueDAO.getNewExercicePhysique() else{
             fatalError("unuable to get dao for ExercicePhysique")
         }
         self.dao = dao
         self.dao.nom = nom
-        self.dao.temps = temps
         self.dao.descript = descript
-        self.dao.nbRepetition = nbRepetition
+        self.dao.date = date
     }
 }

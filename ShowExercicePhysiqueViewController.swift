@@ -10,11 +10,11 @@ import UIKit
 
 class ShowExercicePhysiqueViewController: UIViewController {
 
-    @IBOutlet weak var nbRepEx: UILabel!
-    @IBOutlet weak var tempsEx: UILabel!
+    var exPhys: ExercicePhysiqueDAO? = nil
+
     @IBOutlet weak var nomEx: UILabel!
     @IBOutlet weak var descEx: UITextView!
-    var exPhys: ExercicePhysiqueDAO? = nil
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -23,8 +23,6 @@ class ShowExercicePhysiqueViewController: UIViewController {
         if let aExPhys = self.exPhys{
             self.nomEx.text = aExPhys.nom
             self.descEx.text = aExPhys.descript
-            self.tempsEx.text = aExPhys.temps
-            self.nbRepEx.text = aExPhys.nbRepetition
         }
     }
 

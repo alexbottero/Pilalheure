@@ -11,8 +11,7 @@ import Foundation
 class ExercicePhysiquePresenter: NSObject{
     fileprivate var nomEx : String = ""
     fileprivate var descEx : String = ""
-    fileprivate var timeEx : String = ""
-    fileprivate var nbRepEx : String = ""
+    
     
     fileprivate var ex : ExercicePhysiqueDAO?=nil{
         didSet{
@@ -24,13 +23,11 @@ class ExercicePhysiquePresenter: NSObject{
                 if let fdesc = ex.descript{
                     self.descEx = fdesc.capitalized
                 }
-                else{ self.nomEx = "-" }
+                else{ self.nomEx = "" }
             }
             else{
                 self.descEx = ""
                 self.nomEx = ""
-                self.timeEx=""
-                self.nbRepEx=""
             }
         }
     }
@@ -38,6 +35,7 @@ class ExercicePhysiquePresenter: NSObject{
         self.ex = forExercicePhysique
         guard let cell = theCell else {return}
         cell.nomExercicePhysique.text = self.nomEx
+        
         
     }
 }
