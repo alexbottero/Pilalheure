@@ -16,24 +16,21 @@ class MedicamentViewController: UIViewController, UITableViewDataSource, UITable
     @IBOutlet var medicamentPresenter: MedicamentPresenter!
     
     var medicaments : [MedicamentDAO] = []
-    var names : [String] = []
     
-    /*fileprivate lazy var medicamentsFetched : NSFetchedResultsController<MedicamentDAO> =     {
+    fileprivate lazy var medicamentsFetched : NSFetchedResultsController<MedicamentDAO> = {
      //prepare request
      let request : NSFetchRequest<MedicamentDAO> = MedicamentDAO.fetchRequest()
      request.sortDescriptors = [NSSortDescriptor(key:#keyPath(MedicamentDAO.nom), ascending:true)]
      let fetchResultController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: CoreDataManager.context, sectionNameKeyPath: nil, cacheName: nil)
      fetchResultController.delegate = self
      return fetchResultController
-     }()*/
+     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        guard let context = self.getContext(errorMsg: "Could not load data") else {return}
-        let request : NSFetchRequest<MedicamentDAO> = MedicamentDAO.fetchRequest()
         do{
-            try self.medicaments = context.fetch(request)
+            try self.medicamentsFetched.performFetch()
         }
         catch let error as NSError{
             self.alert(error: error)
@@ -49,17 +46,18 @@ class MedicamentViewController: UIViewController, UITableViewDataSource, UITable
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         let cell = self.medicamentTable.dequeueReusableCell(withIdentifier: "medicamentCell", for: indexPath) as! MedicamentTableViewCell
-        self.medicamentPresenter.configure(theCell: cell, forMedicament: self.medicaments[indexPath.row])
-        /*cell.nom.text = self.medicaments[indexPath.row].nom
-        cell.dose.text = self.medicaments[indexPath.row].dose
-        cell.unite.text = self.medicaments[indexPath.row].unite*/
+        let medoc = self.medicamentsFetched.object(at: indexPath)
+        self.medicamentPresenter.configure(theCell: cell, forMedicament: medoc)
         cell.accessoryType = .detailButton
         return cell
         
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
-        return self.medicaments.count
+        guard let section = self.medicamentsFetched.sections?[section] else{
+            fatalError("enexpected section number")
+        }
+        return section.numberOfObjects
     }
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool{
@@ -72,10 +70,12 @@ class MedicamentViewController: UIViewController, UITableViewDataSource, UITable
             self.medicamentTable.deleteRows(at: [indexPath], with: UITableViewRowAnimation.automatic)
         }
         self.medicamentTable.endUpdates()
+        self.medicamentTable.setEditing(false, animated: true)
     }
     
     func editHandlerAction(action: UITableViewRowAction, indexPath: IndexPath) -> Void{
         print("edit")
+        self.medicamentTable.setEditing(false, animated: true)
     }
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
