@@ -13,8 +13,8 @@ class ShowMedicamentViewController: UIViewController {
     
     @IBOutlet weak var nomMedicamentLabel: UILabel!
     @IBOutlet weak var doseMedicamentLabel: UILabel!
-    @IBOutlet weak var unieMedicamentLabel: UILabel!
-    @IBOutlet weak var descriptionMedicamenLabel: UILabel!
+    @IBOutlet weak var descriptionMedicamentLabel: UITextView!
+    @IBOutlet weak var uniteMedicamentLabel: UILabel!
     
     var medicament : MedicamentDAO? = nil
     
@@ -26,8 +26,8 @@ class ShowMedicamentViewController: UIViewController {
         if let medoc = self.medicament{
             self.nomMedicamentLabel.text = medoc.nom
             self.doseMedicamentLabel.text = medoc.dose
-            self.unieMedicamentLabel.text = medoc.unite
-            self.descriptionMedicamenLabel.text = medoc.descript
+            self.uniteMedicamentLabel.text = medoc.unite
+            self.descriptionMedicamentLabel.text = medoc.descript
         }
     }
     

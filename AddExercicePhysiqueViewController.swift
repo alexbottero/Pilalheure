@@ -31,6 +31,7 @@ class AddExercicePhysiqueViewController: UIViewController,UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        descNewExercicePhysique!.layer.borderWidth = 1
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false

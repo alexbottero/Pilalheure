@@ -29,11 +29,12 @@ class MedicamentViewController: UIViewController, UITableViewDataSource, UITable
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
         do{
             try self.medicamentsFetched.performFetch()
         }
         catch let error as NSError{
-            self.alert(error: error)
+            DialogBoxHelper.alert(view: self, error: error)
         }
     }
     
@@ -48,7 +49,6 @@ class MedicamentViewController: UIViewController, UITableViewDataSource, UITable
         let cell = self.medicamentTable.dequeueReusableCell(withIdentifier: "medicamentCell", for: indexPath) as! MedicamentTableViewCell
         let medoc = self.medicamentsFetched.object(at: indexPath)
         self.medicamentPresenter.configure(theCell: cell, forMedicament: medoc)
-        cell.accessoryType = .detailButton
         return cell
         
     }
@@ -65,36 +65,38 @@ class MedicamentViewController: UIViewController, UITableViewDataSource, UITable
     }
     
     func deleteHandlerAction(action: UITableViewRowAction, indexPath: IndexPath) -> Void{
-        self.medicamentTable.beginUpdates()
+        let medoc = self.medicamentsFetched.object(at: indexPath)
+        CoreDataManager.context.delete(medoc)
+        /*self.medicamentTable.beginUpdates()
         if self.delete(medicamentWithIndex: indexPath.row){
             self.medicamentTable.deleteRows(at: [indexPath], with: UITableViewRowAnimation.automatic)
         }
         self.medicamentTable.endUpdates()
-        self.medicamentTable.setEditing(false, animated: true)
+        self.medicamentTable.setEditing(false, animated: true)*/
     }
-    
-    func editHandlerAction(action: UITableViewRowAction, indexPath: IndexPath) -> Void{
-        print("edit")
-        self.medicamentTable.setEditing(false, animated: true)
-    }
+
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-        let delete = UITableViewRowAction(style: .default, title: "Del", handler: self.deleteHandlerAction)
-        let edit = UITableViewRowAction(style: .default, title: "Edit", handler: self.editHandlerAction)
+        let delete = UITableViewRowAction(style: .default, title: "Delete", handler: self.deleteHandlerAction)
         delete.backgroundColor = UIColor.red
-        edit.backgroundColor = UIColor.blue
-        return [delete, edit]
+        return [delete]
     }
     
     //MARK: - TableView delegate protocol -
     
-    var indexPathForShow : IndexPath? = nil
     
     func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
         self.performSegue(withIdentifier: segueShowMedicamentId, sender: self)
     }
     
     //MARK: - Medicaments data management -
+    
+    
+    func save(){
+        if let error=CoreDataManager.save(){
+            DialogBoxHelper.alert(view: self, error: error)
+        }
+    }
     
     /// fonction de sauvegarde des medicaments
     ///
@@ -103,8 +105,9 @@ class MedicamentViewController: UIViewController, UITableViewDataSource, UITable
     ///   - dose: dose du medicament
     ///   - unite: unite du medicament
     ///   - description: description donnée pour le médicament
+    
     func saveNewMedicament(withName name: String, withDose dose: String, withUnite unite: String, withDescription description: String){
-        guard let context = getContext(errorMsg: "Save failed") else {return}
+        let context = CoreDataManager.context
         let medoc = MedicamentDAO(context: context)
         medoc.nom = name
         medoc.dose = dose
@@ -115,12 +118,12 @@ class MedicamentViewController: UIViewController, UITableViewDataSource, UITable
             self.medicaments.append(medoc)
         }
         catch let error as NSError{
-            self.alert(error: error)
+            DialogBoxHelper.alert(view: self, error: error)
             return
         }
     }
     
-    func delete(medicamentWithIndex index: Int) -> Bool{
+    /*func delete(medicamentWithIndex index: Int) -> Bool{
         guard let context = getContext(errorMsg: "Could not delee Medicament") else { return false}
         let medoc = self.medicaments[index]
         context.delete(medoc)
@@ -133,45 +136,32 @@ class MedicamentViewController: UIViewController, UITableViewDataSource, UITable
             self.alert(error: error)
             return false
         }
+    }*/
+    
+    //MARK: - NSFetchedResult delegate protocol -
+    
+    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        self.medicamentTable.beginUpdates()
     }
     
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        self.medicamentTable.endUpdates()
+        CoreDataManager.save()
+    }
     
-    // MARK: - Helper Methods
-    
-    /// Récupère le context d'un Core Data initialisé dans l'application delegate
-    ///
-    /// - Parameters:
-    ///   - errorMsg: Message d'erreur
-    ///   - userInfoMsg: Information additionnelle
-    /// - Returns: Retourne le context d'un Core Data
-    func getContext(errorMsg: String, userInfoMsg: String = "could not retrieve data context") -> NSManagedObjectContext?{
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-            self.alert(WithTitle: errorMsg, andMessage: userInfoMsg)
-            return nil
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+        switch type {
+        case .delete:
+            if let indexPath = indexPath{
+                self.medicamentTable.deleteRows(at: [indexPath], with: .automatic)
+            }
+        case .insert:
+            if let newIndexPath = newIndexPath{
+                self.medicamentTable.insertRows(at: [newIndexPath], with: .fade)
+            }
+        default:
+            break
         }
-        return appDelegate.persistentContainer.viewContext
-    }
-    
-    /// Fait apparaître une boite de dialogue "alert" avec 2 messages
-    ///
-    /// - Parameters:
-    ///   - title: Titre de la boite de dialogue
-    ///   - msg: Message de la boite de dialogue
-    func alert(WithTitle title: String, andMessage msg: String = ""){
-        let alert = UIAlertController(title: title,
-                                      message: msg,
-                                      preferredStyle: .alert)
-        let cancelAction = UIAlertAction(title: "OK",
-                                         style: .default)
-        alert.addAction(cancelAction)
-        present(alert,animated: true)
-    }
-    
-    /// Fait apparaître une boite de dialogue lorsqu'il y a une erreur.
-    ///
-    /// - Parameter error: Erreur donné à la boite de dialogue
-    func alert(error: NSError){
-        self.alert(WithTitle:"\(error)", andMessage: "\(error.userInfo)")
     }
     
     let segueShowMedicamentId = "showMedicamentSegue"
@@ -181,9 +171,9 @@ class MedicamentViewController: UIViewController, UITableViewDataSource, UITable
     //passage des informations à la page suivante
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == self.segueShowMedicamentId{
-            if let indexPath = self.indexPathForShow{
+            if let indexPath = self.medicamentTable.indexPathForSelectedRow{
                 let showMedicamentViewController = segue.destination as! ShowMedicamentViewController
-                showMedicamentViewController.medicament = self.medicaments[indexPath.row]
+                showMedicamentViewController.medicament = self.medicamentsFetched.object(at: indexPath)
                 self.medicamentTable.deselectRow(at: indexPath, animated: true)
             }
         }
