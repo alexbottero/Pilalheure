@@ -1,17 +1,15 @@
 //
-//  AddPrescriptionViewController.swift
+//  PrecisAddPrescriptionViewController.swift
 //  Pilalheure
 //
-//  Created by Vincent Herreros on 13/03/2018.
+//  Created by Vincent HERREROS on 16/03/2018.
 //  Copyright © 2018 Vincent HERREROS. All rights reserved.
 //
 
 import UIKit
 
-class AddPrescriptionViewController: UIViewController {
+class PrecisAddPrescriptionViewController: UIViewController {
 
-    @IBOutlet weak var segmentedControl: UISegmentedControl!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
