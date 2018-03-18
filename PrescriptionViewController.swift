@@ -11,7 +11,7 @@ import UIKit
 class PrescriptionViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
 
     @IBOutlet weak var prescriptionTable: UITableView!
-    var prescriptions : [String] = []
+    var prescriptions : [PrescriptionDAO] = []
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -41,5 +41,10 @@ class PrescriptionViewController: UIViewController, UITableViewDelegate, UITable
         // Pass the selected object to the new view controller.
     }
     */
+    @IBAction func unwindToPrescriptionListAfterSavingNewPrescription(segue: UIStoryboardSegue){
+        //let newMedicamentController = segue.source as! AddMedicamentViewController
+        //self.saveNewMedicament(withName: newMedicamentController.nomMedicamentText.text!, withDose: newMedicamentController.doseMedicamentText.text!, withUnite: newMedicamentController.selectedValues, withDescription: newMedicamentController.descriptionMedicamentText.text!)
+        //self.medicamentTable.reloadData()
+    }
 
 }
