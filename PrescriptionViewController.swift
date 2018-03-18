@@ -31,6 +31,34 @@ class PrescriptionViewController: UIViewController, UITableViewDelegate, UITable
         return self.prescriptions.count
     }
     
+    //MARK: - Medicaments data management -
+    
+    
+    func save(){
+        if let error=CoreDataManager.save(){
+            DialogBoxHelper.alert(view: self, error: error)
+        }
+    }
+    
+    func saveNewPrescription(withMedoc medoc : MedicamentDAO, withDateDeb dateDeb : NSDate, withDateFin dateFin : NSDate, withHeureDeb heureDeb : NSDate, withHeureFin heureFin : NSDate, withIntervalle intervalle : UITextField){
+        let context = CoreDataManager.context
+        let prescri = PrescriptionDAO(context: context)
+        prescri.medicaments = medoc
+        prescri.dateDebut = dateDeb
+        prescri.dateFin = dateFin
+        prescri.heureDebut = heureDeb
+        prescri.heureFin = heureFin
+        do{
+            try context.save()
+            self.prescriptions.append(prescri)
+            
+        }
+        catch let error as NSError{
+            DialogBoxHelper.alert(view: self, error: error)
+            return
+        }
+    }
+    
 
     /*
     // MARK: - Navigation
@@ -42,9 +70,18 @@ class PrescriptionViewController: UIViewController, UITableViewDelegate, UITable
     }
     */
     @IBAction func unwindToPrescriptionListAfterSavingNewPrescription(segue: UIStoryboardSegue){
-        //let newMedicamentController = segue.source as! AddMedicamentViewController
-        //self.saveNewMedicament(withName: newMedicamentController.nomMedicamentText.text!, withDose: newMedicamentController.doseMedicamentText.text!, withUnite: newMedicamentController.selectedValues, withDescription: newMedicamentController.descriptionMedicamentText.text!)
-        //self.medicamentTable.reloadData()
+        let newPrescriptionController = segue.source as! AddPrescriptionViewController
+        if(newPrescriptionController.intervalleContainerView.alpha == 1){
+            let addIntervalleController = newPrescriptionController.childViewControllers[0] as! IntervalleAddPrescriptionViewController
+            print(addIntervalleController.dateDebutPicker.date)
+            //self.saveNewPrescription()
+        }
+        else{
+            let addPrecisController = newPrescriptionController.childViewControllers[1] as! PrecisAddPrescriptionViewController
+            //self.saveNewPrescription()
+        }
+        
+        self.prescriptionTable.reloadData()
     }
 
 }
