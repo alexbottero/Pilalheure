@@ -455,10 +455,12 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="prescriptionPresenter" destination="vxQ-4z-FRi" id="xPl-tE-j9Z"/>
                         <outlet property="prescriptionTable" destination="jA4-Fm-ojs" id="SeG-j8-2LN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ugH-qQ-eXI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="vxQ-4z-FRi" customClass="PrescriptionPresenter" customModule="Pilalheure" customModuleProvider="target"/>
             </objects>
             <point key="canvasLocation" x="1904.8" y="-559.07046476761627"/>
         </scene>

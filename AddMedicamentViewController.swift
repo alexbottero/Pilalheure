@@ -39,6 +39,7 @@ class AddMedicamentViewController: UIViewController, UIPickerViewDelegate, UIPic
     @IBAction func cancelAction(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
+    
     @IBAction func saveAction(_ sender: Any) {
         let nom : String = self.nomMedicamentText.text ?? ""
         let dose : String = self.doseMedicamentText.text ?? ""

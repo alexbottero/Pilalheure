@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AddPrescriptionViewController: UIViewController {
+class AddPrescriptionViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate {
     
     @IBOutlet weak var precisContainerView: UIView!
     @IBOutlet weak var intervalleContainerView: UIView!
@@ -35,6 +35,13 @@ class AddPrescriptionViewController: UIViewController {
         guard (medoc != "") else {return}
         let prescription = PrescriptionDAO(context: CoreDataManager.context)
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    //MARK: - TextField Delegate -
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
     /*
     // MARK: - Navigation
