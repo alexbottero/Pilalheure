@@ -458,10 +458,12 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="prescriptionPresenter" destination="vxQ-4z-FRi" id="xPl-tE-j9Z"/>
                         <outlet property="prescriptionTable" destination="jA4-Fm-ojs" id="SeG-j8-2LN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ugH-qQ-eXI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="vxQ-4z-FRi" customClass="PrescriptionPresenter" customModule="Pilalheure" customModuleProvider="target"/>
             </objects>
             <point key="canvasLocation" x="1904.8" y="-559.07046476761627"/>
         </scene>
@@ -515,7 +517,7 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="KVh-7d-xhP"/>
                                     <barButtonItem systemItem="save" id="I3p-ci-3r6">
                                         <connections>
-                                            <segue destination="7aV-pt-Cpt" kind="unwind" unwindAction="unwindToPrescriptionListAfterSavingNewPrescriptionWithSegue:" id="HC5-qX-vM6"/>
+                                            <action selector="saveAction:" destination="AqR-XM-Wjm" id="4Bp-QU-jk4"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="lm4-aA-0iQ"/>
@@ -530,7 +532,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qra-77-Y0G" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="7aV-pt-Cpt" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2764" y="-559.07046476761627"/>
         </scene>
@@ -1046,7 +1047,7 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="KJD-zg-Qwk"/>
                                     <barButtonItem title="Save" id="Czc-RE-svw">
                                         <connections>
-                                            <segue destination="NMt-Ad-8MX" kind="unwind" unwindAction="unwindToMedicamentsListAfterSavingNewMedicamentWithSegue:" id="SWu-oh-Ftz"/>
+                                            <action selector="saveAction:" destination="tZi-P6-1HI" id="n7Q-Vp-p7g"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="dfI-ii-zbX"/>
@@ -1063,7 +1064,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TV0-Dp-3Zr" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="NMt-Ad-8MX" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2764" y="221"/>
         </scene>

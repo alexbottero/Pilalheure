@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		308A33332059F4C700A67BF4 /* ShowMedicamentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308A33322059F4C700A67BF4 /* ShowMedicamentViewController.swift */; };
+		30A38794206037DA0071B0CD /* PrescriptionPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A38793206037DA0071B0CD /* PrescriptionPresenter.swift */; };
 		7D43438E2059794F003D01F3 /* MedicamentPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D43438D2059794F003D01F3 /* MedicamentPresenter.swift */; };
 		7D93A55120582604006D37C4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D93A55020582604006D37C4 /* AppDelegate.swift */; };
 		7D93A55320582604006D37C4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D93A55220582604006D37C4 /* ViewController.swift */; };
@@ -66,6 +67,7 @@
 
 /* Begin PBXFileReference section */
 		308A33322059F4C700A67BF4 /* ShowMedicamentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowMedicamentViewController.swift; sourceTree = "<group>"; };
+		30A38793206037DA0071B0CD /* PrescriptionPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrescriptionPresenter.swift; sourceTree = "<group>"; };
 		7D43438D2059794F003D01F3 /* MedicamentPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MedicamentPresenter.swift; sourceTree = "<group>"; };
 		7D93A54D20582604006D37C4 /* Pilalheure.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pilalheure.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D93A55020582604006D37C4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -240,6 +242,7 @@
 			children = (
 				7D43438D2059794F003D01F3 /* MedicamentPresenter.swift */,
 				AC040A3F2059E90800BA9068 /* ExercicePhysiquePresenter.swift */,
+				30A38793206037DA0071B0CD /* PrescriptionPresenter.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -444,6 +447,7 @@
 				AC55BFE720601A9800478633 /* ShowContactViewController.swift in Sources */,
 				ACD999B520595E36007A9BF0 /* PrescriptionTableViewCell.swift in Sources */,
 				AC7AB20D20589B5800CA5DED /* ExercicePhysique.swift in Sources */,
+				30A38794206037DA0071B0CD /* PrescriptionPresenter.swift in Sources */,
 				7D43438E2059794F003D01F3 /* MedicamentPresenter.swift in Sources */,
 				AC7AB20420586EA800CA5DED /* MenuViewController.swift in Sources */,
 				7D93A58F20582FB1006D37C4 /* MedicamentTableViewCell.swift in Sources */,

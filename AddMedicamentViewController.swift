@@ -39,6 +39,20 @@ class AddMedicamentViewController: UIViewController, UIPickerViewDelegate, UIPic
         self.dismiss(animated: true, completion: nil)
     }
     
+    @IBAction func saveAction(_ sender: Any) {
+        let nom : String = self.nomMedicamentText.text ?? ""
+        let dose : String = self.doseMedicamentText.text ?? ""
+        let unite : String = self.selectedValues
+        let description : String = self.descriptionMedicamentText.text ?? ""
+        guard (nom != "") else {return}
+        let medoc = MedicamentDAO(context: CoreDataManager.context)
+        medoc.nom = nom
+        medoc.dose = dose
+        medoc.unite = unite
+        medoc.descript = description
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     //MARK: - TextField Delegate -
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

@@ -7,15 +7,32 @@
 //
 
 import UIKit
+import CoreData
 
-class PrescriptionViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
-
+class PrescriptionViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate{
+    
+    @IBOutlet var prescriptionPresenter: PrescriptionPresenter!
+    
     @IBOutlet weak var prescriptionTable: UITableView!
-    var prescriptions : [PrescriptionDAO] = []
+    
+    fileprivate lazy var prescriptionFetched : NSFetchedResultsController<PrescriptionDAO> = {
+        let request : NSFetchRequest<PrescriptionDAO> = PrescriptionDAO.fetchRequest()
+        request.sortDescriptors = [NSSortDescriptor(key:#keyPath(PrescriptionDAO.medicaments.nom), ascending: true)]
+        let fetchResultController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: CoreDataManager.context, sectionNameKeyPath: nil, cacheName: nil)
+        fetchResultController.delegate = self
+        return fetchResultController
+    }()
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        do{
+            try self.prescriptionFetched.performFetch()
+        }
+        catch let error as NSError{
+            DialogBoxHelper.alert(view: self, error: error)
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -24,12 +41,34 @@ class PrescriptionViewController: UIViewController, UITableViewDelegate, UITable
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         let cell = self.prescriptionTable.dequeueReusableCell(withIdentifier: "prescriptionCell", for: indexPath) as! PrescriptionTableViewCell
+        let prescription = self.prescriptionFetched.object(at: indexPath)
+        self.prescriptionPresenter.configure(theCell: cell, forPrescription: prescription)
         return cell
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.prescriptions.count
+        guard let section = self.prescriptionFetched.sections?[section] else{
+            fatalError("enexpected section number")
+        }
+        return section.numberOfObjects
     }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool{
+        return true
+    }
+    
+    func deleteHandlerAction(action: UITableViewRowAction, indexPath: IndexPath) -> Void{
+        let prescription = self.prescriptionFetched.object(at: indexPath)
+        CoreDataManager.context.delete(prescription)
+    }
+    
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let delete = UITableViewRowAction(style: .default, title: "Delete", handler: self.deleteHandlerAction)
+        delete.backgroundColor = UIColor.red
+        return [delete]
+    }
+    
+    
     
     //MARK: - Medicaments data management -
     
@@ -40,22 +79,29 @@ class PrescriptionViewController: UIViewController, UITableViewDelegate, UITable
         }
     }
     
-    func saveNewPrescription(withMedoc medoc : MedicamentDAO, withDateDeb dateDeb : NSDate, withDateFin dateFin : NSDate, withHeureDeb heureDeb : NSDate, withHeureFin heureFin : NSDate, withIntervalle intervalle : UITextField){
-        let context = CoreDataManager.context
-        let prescri = PrescriptionDAO(context: context)
-        prescri.medicaments = medoc
-        prescri.dateDebut = dateDeb
-        prescri.dateFin = dateFin
-        prescri.heureDebut = heureDeb
-        prescri.heureFin = heureFin
-        do{
-            try context.save()
-            self.prescriptions.append(prescri)
-            
-        }
-        catch let error as NSError{
-            DialogBoxHelper.alert(view: self, error: error)
-            return
+    //MARK: - NSFetchedResult delegate protocol -
+    
+    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        self.prescriptionTable.beginUpdates()
+    }
+    
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        self.prescriptionTable.endUpdates()
+        CoreDataManager.save()
+    }
+    
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+        switch type {
+        case .delete:
+            if let indexPath = indexPath{
+                self.prescriptionTable.deleteRows(at: [indexPath], with: .automatic)
+            }
+        case .insert:
+            if let newIndexPath = newIndexPath{
+                self.prescriptionTable.insertRows(at: [newIndexPath], with: .fade)
+            }
+        default:
+            break
         }
     }
     
@@ -69,19 +115,5 @@ class PrescriptionViewController: UIViewController, UITableViewDelegate, UITable
         // Pass the selected object to the new view controller.
     }
     */
-    @IBAction func unwindToPrescriptionListAfterSavingNewPrescription(segue: UIStoryboardSegue){
-        let newPrescriptionController = segue.source as! AddPrescriptionViewController
-        if(newPrescriptionController.intervalleContainerView.alpha == 1){
-            let addIntervalleController = newPrescriptionController.childViewControllers[0] as! IntervalleAddPrescriptionViewController
-            print(addIntervalleController.dateDebutPicker.date)
-            //self.saveNewPrescription()
-        }
-        else{
-            let addPrecisController = newPrescriptionController.childViewControllers[1] as! PrecisAddPrescriptionViewController
-            //self.saveNewPrescription()
-        }
-        
-        self.prescriptionTable.reloadData()
-    }
 
 }
