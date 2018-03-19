@@ -28,6 +28,10 @@
 		AC040A402059E90800BA9068 /* ExercicePhysiquePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC040A3F2059E90800BA9068 /* ExercicePhysiquePresenter.swift */; };
 		AC040A49205A02A500BA9068 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC040A48205A02A500BA9068 /* CoreDataManager.swift */; };
 		AC040A4C205A04BF00BA9068 /* DialogBoxHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC040A4B205A04BF00BA9068 /* DialogBoxHelper.swift */; };
+		AC55BFE120601A2E00478633 /* ContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC55BFE020601A2E00478633 /* ContactViewController.swift */; };
+		AC55BFE520601A7E00478633 /* AddContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC55BFE420601A7E00478633 /* AddContactViewController.swift */; };
+		AC55BFE720601A9800478633 /* ShowContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC55BFE620601A9800478633 /* ShowContactViewController.swift */; };
+		AC55BFEC20605EA600478633 /* ContactTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC55BFEB20605EA600478633 /* ContactTableViewCell.swift */; };
 		AC7AB20420586EA800CA5DED /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7AB20320586EA800CA5DED /* MenuViewController.swift */; };
 		AC7AB2072058780100CA5DED /* ActiviteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7AB2062058780100CA5DED /* ActiviteViewController.swift */; };
 		AC7AB2082058780100CA5DED /* ActiviteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7AB2062058780100CA5DED /* ActiviteViewController.swift */; };
@@ -88,6 +92,10 @@
 		AC040A3F2059E90800BA9068 /* ExercicePhysiquePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercicePhysiquePresenter.swift; sourceTree = "<group>"; };
 		AC040A48205A02A500BA9068 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		AC040A4B205A04BF00BA9068 /* DialogBoxHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogBoxHelper.swift; sourceTree = "<group>"; };
+		AC55BFE020601A2E00478633 /* ContactViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactViewController.swift; sourceTree = "<group>"; };
+		AC55BFE420601A7E00478633 /* AddContactViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddContactViewController.swift; sourceTree = "<group>"; };
+		AC55BFE620601A9800478633 /* ShowContactViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowContactViewController.swift; sourceTree = "<group>"; };
+		AC55BFEB20605EA600478633 /* ContactTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactTableViewCell.swift; sourceTree = "<group>"; };
 		AC7AB20320586EA800CA5DED /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		AC7AB2062058780100CA5DED /* ActiviteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiviteViewController.swift; sourceTree = "<group>"; };
 		AC7AB20920587D7A00CA5DED /* ActiviteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiviteTableViewCell.swift; sourceTree = "<group>"; };
@@ -204,6 +212,7 @@
 		7D93A58A20582F28006D37C4 /* Controlleur */ = {
 			isa = PBXGroup;
 			children = (
+				AC55BFDB2060197B00478633 /* contact */,
 				7DD1E95B205C02FF0096AB44 /* Prescription */,
 				ACE0E0C2205AD74E003A5131 /* Exercice */,
 				ACE0E0C1205AD723003A5131 /* Medicament */,
@@ -242,6 +251,17 @@
 				AC040A48205A02A500BA9068 /* CoreDataManager.swift */,
 			);
 			path = "Class Helpers";
+			sourceTree = "<group>";
+		};
+		AC55BFDB2060197B00478633 /* contact */ = {
+			isa = PBXGroup;
+			children = (
+				AC55BFE020601A2E00478633 /* ContactViewController.swift */,
+				AC55BFE420601A7E00478633 /* AddContactViewController.swift */,
+				AC55BFE620601A9800478633 /* ShowContactViewController.swift */,
+				AC55BFEB20605EA600478633 /* ContactTableViewCell.swift */,
+			);
+			name = contact;
 			sourceTree = "<group>";
 		};
 		ACE0E0C1205AD723003A5131 /* Medicament */ = {
@@ -406,18 +426,22 @@
 				AC7AB2072058780100CA5DED /* ActiviteViewController.swift in Sources */,
 				7D93A59220583468006D37C4 /* AddMedicamentViewController.swift in Sources */,
 				AC7AB20A20587D7A00CA5DED /* ActiviteTableViewCell.swift in Sources */,
+				AC55BFEC20605EA600478633 /* ContactTableViewCell.swift in Sources */,
 				AC040A4C205A04BF00BA9068 /* DialogBoxHelper.swift in Sources */,
 				AC040A49205A02A500BA9068 /* CoreDataManager.swift in Sources */,
 				7DD1E95A205C01F80096AB44 /* PrecisAddPrescriptionViewController.swift in Sources */,
 				7D93A58C20582F88006D37C4 /* MedicamentViewController.swift in Sources */,
 				7D93A582205826AD006D37C4 /* MedicamentDAOext.swift in Sources */,
+				AC55BFE120601A2E00478633 /* ContactViewController.swift in Sources */,
 				7DD1E958205C01D30096AB44 /* IntervalleAddPrescriptionViewController.swift in Sources */,
 				7D93A58720582D04006D37C4 /* Medicament.swift in Sources */,
+				AC55BFE520601A7E00478633 /* AddContactViewController.swift in Sources */,
 				7D93A55320582604006D37C4 /* ViewController.swift in Sources */,
 				ACD999BB20596240007A9BF0 /* AddExercicePhysiqueViewController.swift in Sources */,
 				7D93A55120582604006D37C4 /* AppDelegate.swift in Sources */,
 				AC040A402059E90800BA9068 /* ExercicePhysiquePresenter.swift in Sources */,
 				AC7AB21020589C2A00CA5DED /* ExercicePhysiqueDAOext.swift in Sources */,
+				AC55BFE720601A9800478633 /* ShowContactViewController.swift in Sources */,
 				ACD999B520595E36007A9BF0 /* PrescriptionTableViewCell.swift in Sources */,
 				AC7AB20D20589B5800CA5DED /* ExercicePhysique.swift in Sources */,
 				7D43438E2059794F003D01F3 /* MedicamentPresenter.swift in Sources */,

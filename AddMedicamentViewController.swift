@@ -16,7 +16,6 @@ class AddMedicamentViewController: UIViewController, UIPickerViewDelegate, UIPic
     @IBOutlet weak var descriptionMedicamentText: UITextView!
     
     var pickerData : [String] = [String]()
-    
     var selectedValues : String = ""
     
     override func viewDidLoad() {

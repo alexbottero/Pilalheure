@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="12141" systemVersion="16G29" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13772" systemVersion="16G29" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="ContactDAO" representedClassName="ContactDAO" syncable="YES" codeGenerationType="class">
+        <attribute name="adresse" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="nom" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="profession" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="telephone" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <entity name="EventDAO" representedClassName="EventDAO" syncable="YES" codeGenerationType="class">
         <relationship name="exercicesPhysiques" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ExercicePhysiqueDAO" inverseName="events" inverseEntity="ExercicePhysiqueDAO" syncable="YES"/>
         <relationship name="prescriptions" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PrescriptionDAO" inverseName="events" inverseEntity="PrescriptionDAO" syncable="YES"/>
@@ -34,10 +41,11 @@
         <relationship name="events" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="EventDAO" inverseName="rappels" inverseEntity="EventDAO" syncable="YES"/>
     </entity>
     <elements>
+        <element name="EventDAO" positionX="295" positionY="-27" width="128" height="88"/>
         <element name="ExercicePhysiqueDAO" positionX="-99" positionY="63" width="128" height="103"/>
         <element name="MedicamentDAO" positionX="-99" positionY="-99" width="128" height="118"/>
         <element name="PrescriptionDAO" positionX="99" positionY="-171" width="128" height="163"/>
-        <element name="EventDAO" positionX="295" positionY="-27" width="128" height="88"/>
         <element name="Rappel" positionX="556" positionY="-9" width="128" height="88"/>
+        <element name="ContactDAO" positionX="108" positionY="-9" width="128" height="120"/>
     </elements>
 </model>
