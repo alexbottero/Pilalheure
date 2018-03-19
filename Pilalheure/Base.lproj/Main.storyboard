@@ -821,6 +821,10 @@
         <scene sceneID="Zii-TS-RQ8">
             <objects>
                 <viewController id="Mor-iK-ZDt" customClass="IntervalleAddPrescriptionViewController" customModule="Pilalheure" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="OQt-Bz-hWN"/>
+                        <viewControllerLayoutGuide type="bottom" id="Ct3-9y-5EL"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Att-jd-LVc">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="508"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -890,6 +894,10 @@
         <scene sceneID="SYu-16-j2A">
             <objects>
                 <viewController id="SK9-JY-iiO" customClass="PrecisAddPrescriptionViewController" customModule="Pilalheure" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="COv-uz-2yw"/>
+                        <viewControllerLayoutGuide type="bottom" id="Hut-ay-bIC"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8UW-Vq-GxW">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="508"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -921,10 +929,19 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="SK9-JY-iiO" id="aDp-d7-2DT"/>
+                                </connections>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
+                    <connections>
+                        <outlet property="dateDebutPickerText" destination="bS7-RD-cDC" id="nqq-T0-MUl"/>
+                        <outlet property="dateFinPickerText" destination="gU3-ex-vjX" id="qgi-dl-rr8"/>
+                        <outlet property="heurePrecisePickerText" destination="LQD-Rp-ps0" id="FVB-H9-hia"/>
+                        <outlet property="medicamentPickerText" destination="sTs-Ck-gu1" id="1zf-aW-JSc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tJV-Up-aBi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
