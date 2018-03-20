@@ -16,7 +16,7 @@ class AddContactViewController: UIViewController, UIPickerViewDelegate, UIPicker
     @IBOutlet weak var adresseContact: UITextField!
     @IBOutlet weak var profContact: UIPickerView!
     
-    var contact: ContactDAO?
+    var contact: ContactDTO?
     
     var pickerData : [String] = [String]()
     var selectedValues : String = ""
@@ -28,7 +28,7 @@ class AddContactViewController: UIViewController, UIPickerViewDelegate, UIPicker
         let prof: String = self.selectedValues
         let mail: String = self.mailContact.text ?? ""
         guard (nom != "") else {return}
-        let contact = ContactDAO(context: CoreDataManager.context)
+        let contact = ContactDTO(context: CoreDataManager.context)
         contact.nom = nom
         contact.email = mail
         contact.profession = prof

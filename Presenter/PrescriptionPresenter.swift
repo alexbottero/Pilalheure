@@ -10,7 +10,7 @@ import Foundation
 class PrescriptionPresenter : NSObject{
     fileprivate var nomMedicament : String = ""
     
-    fileprivate var prescription : PrescriptionDAO? = nil {
+    fileprivate var prescription : PrescriptionDTO? = nil {
         didSet{
             if let prescription = self.prescription {
                 if let pmedoc = prescription.medicaments?.nom{
@@ -24,7 +24,7 @@ class PrescriptionPresenter : NSObject{
         }
     }
     
-    func configure(theCell : PrescriptionTableViewCell?, forPrescription: PrescriptionDAO?){
+    func configure(theCell : PrescriptionTableViewCell?, forPrescription: PrescriptionDTO?){
         self.prescription = forPrescription
         guard let cell = theCell else { return }
         cell.nomMedicament.text = self.nomMedicament

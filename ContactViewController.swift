@@ -13,11 +13,11 @@ import CoreData
 class ContactViewController: UIViewController,UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate{
     
     @IBOutlet weak var contactTable: UITableView!
-    var contacts : [ContactDAO] = []
+    var contacts : [ContactDTO] = []
     
-    fileprivate lazy var contactFetched : NSFetchedResultsController<ContactDAO> = {
-        let request : NSFetchRequest <ContactDAO> = ContactDAO.fetchRequest()
-        request.sortDescriptors = [NSSortDescriptor(key:#keyPath(ContactDAO.nom),ascending:true)]
+    fileprivate lazy var contactFetched : NSFetchedResultsController<ContactDTO> = {
+        let request : NSFetchRequest <ContactDTO> = ContactDTO.fetchRequest()
+        request.sortDescriptors = [NSSortDescriptor(key:#keyPath(ContactDTO.nom),ascending:true)]
         
         let fetchResultController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: CoreDataManager.context, sectionNameKeyPath: nil, cacheName:nil)
         fetchResultController.delegate =  self

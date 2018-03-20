@@ -15,9 +15,9 @@ class PrescriptionViewController: UIViewController, UITableViewDelegate, UITable
     
     @IBOutlet weak var prescriptionTable: UITableView!
     
-    fileprivate lazy var prescriptionFetched : NSFetchedResultsController<PrescriptionDAO> = {
-        let request : NSFetchRequest<PrescriptionDAO> = PrescriptionDAO.fetchRequest()
-        request.sortDescriptors = [NSSortDescriptor(key:#keyPath(PrescriptionDAO.medicaments.nom), ascending: true)]
+    fileprivate lazy var prescriptionFetched : NSFetchedResultsController<PrescriptionDTO> = {
+        let request : NSFetchRequest<PrescriptionDTO> = PrescriptionDTO.fetchRequest()
+        request.sortDescriptors = [NSSortDescriptor(key:#keyPath(PrescriptionDTO.medicaments.nom), ascending: true)]
         let fetchResultController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: CoreDataManager.context, sectionNameKeyPath: nil, cacheName: nil)
         fetchResultController.delegate = self
         return fetchResultController

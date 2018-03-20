@@ -10,7 +10,7 @@ import UIKit
 
 class ShowContactViewController: UIViewController {
     
-    var contact : ContactDAO?=nil
+    var contact : ContactDTO?=nil
     
 
     @IBOutlet weak var mailField: UILabel!

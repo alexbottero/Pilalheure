@@ -13,7 +13,7 @@ class ExercicePhysiquePresenter: NSObject{
     fileprivate var descEx : String = ""
     
     
-    fileprivate var ex : ExercicePhysiqueDAO?=nil{
+    fileprivate var ex : ExercicePhysiqueDTO?=nil{
         didSet{
             if let ex = self.ex{
                 if let fnom = ex.nom{
@@ -31,7 +31,7 @@ class ExercicePhysiquePresenter: NSObject{
             }
         }
     }
-    func configure(theCell: ExercicePhysiqueTableViewCell?, forExercicePhysique: ExercicePhysiqueDAO?){
+    func configure(theCell: ExercicePhysiqueTableViewCell?, forExercicePhysique: ExercicePhysiqueDTO?){
         self.ex = forExercicePhysique
         guard let cell = theCell else {return}
         cell.nomExercicePhysique.text = self.nomEx

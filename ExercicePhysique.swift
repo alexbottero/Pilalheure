@@ -9,7 +9,7 @@
 import Foundation
 
 class ExercicePhysique {
-    private let dao : ExercicePhysiqueDAO
+    private let dao : ExercicePhysiqueDTO
     var nom   : String{
         get{
             return self.dao.nom!
@@ -35,7 +35,7 @@ class ExercicePhysique {
     
 
     init(nom: String, descript: String, date: NSDate){
-        guard let dao = ExercicePhysiqueDAO.getNewExercicePhysique() else{
+        guard let dao = ExercicePhysiqueDTO.getNewExercicePhysique() else{
             fatalError("unuable to get dao for ExercicePhysique")
         }
         self.dao = dao

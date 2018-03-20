@@ -13,11 +13,11 @@ class ExercicePhysiqueViewController: UIViewController, UITableViewDelegate, UIT
     
     @IBOutlet weak var exercicePhysiqueTable: UITableView!
     
-    var exercicePhysique : [ExercicePhysiqueDAO] = []
+    var exercicePhysique : [ExercicePhysiqueDTO] = []
 
-    fileprivate lazy var exercicePhysiqueFetched : NSFetchedResultsController<ExercicePhysiqueDAO> = {
-        let request : NSFetchRequest <ExercicePhysiqueDAO> = ExercicePhysiqueDAO.fetchRequest()
-        request.sortDescriptors = [NSSortDescriptor(key:#keyPath(ExercicePhysiqueDAO.nom),ascending:true)]
+    fileprivate lazy var exercicePhysiqueFetched : NSFetchedResultsController<ExercicePhysiqueDTO> = {
+        let request : NSFetchRequest <ExercicePhysiqueDTO> = ExercicePhysiqueDTO.fetchRequest()
+        request.sortDescriptors = [NSSortDescriptor(key:#keyPath(ExercicePhysiqueDTO.nom),ascending:true)]
         
         let fetchResultController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: CoreDataManager.context, sectionNameKeyPath: nil, cacheName:nil)
         fetchResultController.delegate =  self
@@ -69,7 +69,7 @@ class ExercicePhysiqueViewController: UIViewController, UITableViewDelegate, UIT
     
     /* func saveNewExPhys(Nom nom: String, Temps temps: String?, NbRep nbRep: String?){
         guard let context = self.getContext(errorMsg: "save failed") else { return }
-        let exPhys = ExercicePhysiqueDAO(context: context)
+        let exPhys = ExercicePhysiqueDTO(context: context)
         exPhys.nom = nom
         //exPhys.descript = descr
         exPhys.temps = temps
@@ -183,7 +183,7 @@ class ExercicePhysiqueViewController: UIViewController, UITableViewDelegate, UIT
     
     func saveNewExercicePhysique(Nom nom: String, Desc desc: String, Date date: Date){
         let context = CoreDataManager.context
-        let exPhys = ExercicePhysiqueDAO(context:context)
+        let exPhys = ExercicePhysiqueDTO(context:context)
         exPhys.nom = nom
         exPhys.descript = desc
         exPhys.date = date as NSDate

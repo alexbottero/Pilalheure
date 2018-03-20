@@ -34,14 +34,14 @@ class AddPrescriptionViewController: UIViewController, UITextFieldDelegate, UITe
                 else {return}
             let medoc : String = embedIntervalleAddViewController.medicamentPickerText.text ?? ""
             guard (medoc != "") else {return}
-            let prescription = PrescriptionDAO(context: CoreDataManager.context)
+            let prescription = PrescriptionDTO(context: CoreDataManager.context)
         }
         else {
             guard let embedPrecisAddViewController = self.childViewControllers[0] as? PrecisAddPrescriptionViewController
                 else {return}
             let medoc : String = embedPrecisAddViewController.medicamentPickerText.text ?? ""
             guard (medoc != "") else {return}
-            let prescription = PrescriptionDAO(context: CoreDataManager.context)
+            let prescription = PrescriptionDTO(context: CoreDataManager.context)
         }
         self.dismiss(animated: true, completion: nil)
     }
