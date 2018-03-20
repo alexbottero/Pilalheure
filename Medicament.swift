@@ -8,7 +8,9 @@
 
 import Foundation
 class Medicament {
-    private let dao : MedicamentDAO
+    
+    
+    internal let dao : MedicamentDTO
     var nom   : String{
         return self.dao.nom!
     }
@@ -18,16 +20,12 @@ class Medicament {
     var dose  : String{
         return self.dao.dose!
     }
-    var desc  : String?{
-        get{
-            return self.dao.descript
-        }
-        set{
-            self.dao.descript = newValue
-        }
+    var desc  : String{
+        return self.dao.descript!
     }
+    
     init(nom: String, dose: String, unite: String, desc: String){
-        guard let dao = MedicamentDAO.getNewMedicament() else{
+        guard let dao = MedicamentDTO.createDTO() else{
             fatalError("unuable to get dao for medicament")
         }
         self.dao = dao

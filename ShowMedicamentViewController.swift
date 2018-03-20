@@ -16,7 +16,7 @@ class ShowMedicamentViewController: UIViewController {
     @IBOutlet weak var descriptionMedicamentLabel: UITextView!
     @IBOutlet weak var uniteMedicamentLabel: UILabel!
     
-    var medicament : MedicamentDAO? = nil
+    var medicament : MedicamentDTO? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()

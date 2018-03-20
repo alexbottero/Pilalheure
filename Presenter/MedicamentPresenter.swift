@@ -12,7 +12,7 @@ class MedicamentPresenter : NSObject{
     fileprivate var doseMedicament : String = ""
     fileprivate var uniteMedicament : String = ""
     
-    fileprivate var medicament : MedicamentDAO? = nil {
+    fileprivate var medicament : MedicamentDTO? = nil {
         didSet{
             if let medicament = self.medicament {
                 if let mname = medicament.nom{
@@ -36,7 +36,7 @@ class MedicamentPresenter : NSObject{
         }
     }
     
-    func configure(theCell : MedicamentTableViewCell?, forMedicament: MedicamentDAO?){
+    func configure(theCell : MedicamentTableViewCell?, forMedicament: MedicamentDTO?){
         self.medicament = forMedicament
         guard let cell = theCell else { return }
         cell.nom.text = self.nomMedicament

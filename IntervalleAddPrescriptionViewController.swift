@@ -11,7 +11,7 @@ import CoreData
 
 class IntervalleAddPrescriptionViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
 
-    var data = [MedicamentDAO]()
+    var data = [MedicamentDTO]()
     let managedObjectContext = CoreDataManager.context
     @IBOutlet weak var medicamentPickerText: UITextField!
     @IBOutlet weak var dateDebutPickerText: UITextField!
@@ -48,8 +48,8 @@ class IntervalleAddPrescriptionViewController: UIViewController, UIPickerViewDel
     
     func fetchData(){
     
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "MedicamentDAO")
-        if let fetchResults = try? managedObjectContext.fetch(fetchRequest) as? [MedicamentDAO]{
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "MedicamentDTO")
+        if let fetchResults = try? managedObjectContext.fetch(fetchRequest) as? [MedicamentDTO]{
             data = fetchResults!
         }
     }

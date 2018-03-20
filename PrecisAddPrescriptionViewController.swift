@@ -15,7 +15,7 @@ class PrecisAddPrescriptionViewController: UIViewController, UIPickerViewDelegat
     @IBOutlet weak var dateFinPickerText: UITextField!
     @IBOutlet weak var medicamentPickerText: UITextField!
     let managedObjectContext = CoreDataManager.context
-    var data : [MedicamentDAO] = []
+    var data : [MedicamentDTO] = []
     var medicamentPicker = UIPickerView()
     let dateDebutPicker = UIDatePicker()
     let dateFinPicker = UIDatePicker()
@@ -42,8 +42,8 @@ class PrecisAddPrescriptionViewController: UIViewController, UIPickerViewDelegat
     
     func fetchData(){
         
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "MedicamentDAO")
-        if let fetchResults = try? managedObjectContext.fetch(fetchRequest) as? [MedicamentDAO]{
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "MedicamentDTO")
+        if let fetchResults = try? managedObjectContext.fetch(fetchRequest) as? [MedicamentDTO]{
             data = fetchResults!
         }
     }

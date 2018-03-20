@@ -45,11 +45,8 @@ class AddMedicamentViewController: UIViewController, UIPickerViewDelegate, UIPic
         let unite : String = self.selectedValues
         let description : String = self.descriptionMedicamentText.text ?? ""
         guard (nom != "") else {return}
-        let medoc = MedicamentDAO(context: CoreDataManager.context)
-        medoc.nom = nom
-        medoc.dose = dose
-        medoc.unite = unite
-        medoc.descript = description
+        let medoc = Medicament(nom: nom, dose: dose, unite: unite, desc: description)
+        MedicamentDTO.add(medicament: medoc)
         self.dismiss(animated: true, completion: nil)
     }
     

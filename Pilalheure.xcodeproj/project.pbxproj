@@ -10,6 +10,7 @@
 		308A33332059F4C700A67BF4 /* ShowMedicamentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308A33322059F4C700A67BF4 /* ShowMedicamentViewController.swift */; };
 		30A38794206037DA0071B0CD /* PrescriptionPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A38793206037DA0071B0CD /* PrescriptionPresenter.swift */; };
 		7D43438E2059794F003D01F3 /* MedicamentPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D43438D2059794F003D01F3 /* MedicamentPresenter.swift */; };
+		7D8188FB206163C700474060 /* MedicamentSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D8188FA206163C700474060 /* MedicamentSet.swift */; };
 		7D93A55120582604006D37C4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D93A55020582604006D37C4 /* AppDelegate.swift */; };
 		7D93A55320582604006D37C4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D93A55220582604006D37C4 /* ViewController.swift */; };
 		7D93A55620582604006D37C4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D93A55420582604006D37C4 /* Main.storyboard */; };
@@ -18,7 +19,7 @@
 		7D93A55E20582604006D37C4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D93A55C20582604006D37C4 /* LaunchScreen.storyboard */; };
 		7D93A56920582604006D37C4 /* PilalheureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D93A56820582604006D37C4 /* PilalheureTests.swift */; };
 		7D93A57420582604006D37C4 /* PilalheureUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D93A57320582604006D37C4 /* PilalheureUITests.swift */; };
-		7D93A582205826AD006D37C4 /* MedicamentDAOext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D93A581205826AD006D37C4 /* MedicamentDAOext.swift */; };
+		7D93A582205826AD006D37C4 /* MedicamentDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D93A581205826AD006D37C4 /* MedicamentDAO.swift */; };
 		7D93A58720582D04006D37C4 /* Medicament.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D93A58620582D04006D37C4 /* Medicament.swift */; };
 		7D93A58C20582F88006D37C4 /* MedicamentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D93A58B20582F88006D37C4 /* MedicamentViewController.swift */; };
 		7D93A58F20582FB1006D37C4 /* MedicamentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D93A58E20582FB1006D37C4 /* MedicamentTableViewCell.swift */; };
@@ -69,6 +70,7 @@
 		308A33322059F4C700A67BF4 /* ShowMedicamentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowMedicamentViewController.swift; sourceTree = "<group>"; };
 		30A38793206037DA0071B0CD /* PrescriptionPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrescriptionPresenter.swift; sourceTree = "<group>"; };
 		7D43438D2059794F003D01F3 /* MedicamentPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MedicamentPresenter.swift; sourceTree = "<group>"; };
+		7D8188FA206163C700474060 /* MedicamentSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MedicamentSet.swift; sourceTree = "<group>"; };
 		7D93A54D20582604006D37C4 /* Pilalheure.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pilalheure.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D93A55020582604006D37C4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7D93A55220582604006D37C4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -83,7 +85,7 @@
 		7D93A56F20582604006D37C4 /* PilalheureUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PilalheureUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D93A57320582604006D37C4 /* PilalheureUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PilalheureUITests.swift; sourceTree = "<group>"; };
 		7D93A57520582604006D37C4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7D93A581205826AD006D37C4 /* MedicamentDAOext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MedicamentDAOext.swift; path = Pilalheure/MedicamentDAOext.swift; sourceTree = "<group>"; };
+		7D93A581205826AD006D37C4 /* MedicamentDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MedicamentDAO.swift; path = Pilalheure/MedicamentDAO.swift; sourceTree = "<group>"; };
 		7D93A58620582D04006D37C4 /* Medicament.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Medicament.swift; sourceTree = "<group>"; };
 		7D93A58B20582F88006D37C4 /* MedicamentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MedicamentViewController.swift; sourceTree = "<group>"; };
 		7D93A58E20582FB1006D37C4 /* MedicamentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MedicamentTableViewCell.swift; sourceTree = "<group>"; };
@@ -196,7 +198,7 @@
 		7D93A58520582CD2006D37C4 /* DAO */ = {
 			isa = PBXGroup;
 			children = (
-				7D93A581205826AD006D37C4 /* MedicamentDAOext.swift */,
+				7D93A581205826AD006D37C4 /* MedicamentDAO.swift */,
 				AC7AB20F20589C2A00CA5DED /* ExercicePhysiqueDAOext.swift */,
 			);
 			name = DAO;
@@ -207,6 +209,7 @@
 			children = (
 				7D93A58620582D04006D37C4 /* Medicament.swift */,
 				AC7AB20C20589B5800CA5DED /* ExercicePhysique.swift */,
+				7D8188FA206163C700474060 /* MedicamentSet.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -434,12 +437,13 @@
 				AC040A49205A02A500BA9068 /* CoreDataManager.swift in Sources */,
 				7DD1E95A205C01F80096AB44 /* PrecisAddPrescriptionViewController.swift in Sources */,
 				7D93A58C20582F88006D37C4 /* MedicamentViewController.swift in Sources */,
-				7D93A582205826AD006D37C4 /* MedicamentDAOext.swift in Sources */,
+				7D93A582205826AD006D37C4 /* MedicamentDAO.swift in Sources */,
 				AC55BFE120601A2E00478633 /* ContactViewController.swift in Sources */,
 				7DD1E958205C01D30096AB44 /* IntervalleAddPrescriptionViewController.swift in Sources */,
 				7D93A58720582D04006D37C4 /* Medicament.swift in Sources */,
 				AC55BFE520601A7E00478633 /* AddContactViewController.swift in Sources */,
 				7D93A55320582604006D37C4 /* ViewController.swift in Sources */,
+				7D8188FB206163C700474060 /* MedicamentSet.swift in Sources */,
 				ACD999BB20596240007A9BF0 /* AddExercicePhysiqueViewController.swift in Sources */,
 				7D93A55120582604006D37C4 /* AppDelegate.swift in Sources */,
 				AC040A402059E90800BA9068 /* ExercicePhysiquePresenter.swift in Sources */,
@@ -622,6 +626,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				INFOPLIST_FILE = Pilalheure/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = IG.Pilalheure;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -633,6 +638,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				INFOPLIST_FILE = Pilalheure/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = IG.Pilalheure;
 				PRODUCT_NAME = "$(TARGET_NAME)";

@@ -15,10 +15,10 @@ class MedicamentViewController: UIViewController, UITableViewDataSource, UITable
     
     @IBOutlet var medicamentPresenter: MedicamentPresenter!
     
-    fileprivate lazy var medicamentsFetched : NSFetchedResultsController<MedicamentDAO> = {
+    fileprivate lazy var medicamentsFetched : NSFetchedResultsController<MedicamentDTO> = {
      //prepare request
-     let request : NSFetchRequest<MedicamentDAO> = MedicamentDAO.fetchRequest()
-     request.sortDescriptors = [NSSortDescriptor(key:#keyPath(MedicamentDAO.nom), ascending:true)]
+     let request : NSFetchRequest<MedicamentDTO> = MedicamentDTO.fetchRequest()
+     request.sortDescriptors = [NSSortDescriptor(key:#keyPath(MedicamentDTO.nom), ascending:true)]
      let fetchResultController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: CoreDataManager.context, sectionNameKeyPath: nil, cacheName: nil)
      fetchResultController.delegate = self
      return fetchResultController
