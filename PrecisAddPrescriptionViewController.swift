@@ -77,9 +77,6 @@ class PrecisAddPrescriptionViewController: UIViewController, UIPickerViewDelegat
     func doneClick() {
         medicamentPickerText.resignFirstResponder()
     }
-    func cancelClick() {
-        medicamentPickerText.resignFirstResponder()
-    }
     
     //MARK:- Date Picker function -
     

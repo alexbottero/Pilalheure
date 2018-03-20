@@ -38,5 +38,9 @@ extension MedicamentDTO{
         }
     }
     
+    static func delete(medicament : MedicamentDTO){
+        CoreDataManager.context.delete(medicament)
+        CoreDataManager.save()
+    }
     
 }

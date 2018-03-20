@@ -34,4 +34,5 @@ class Medicament {
         self.dao.dose = dose
         self.dao.descript = desc
     }
+    
 }

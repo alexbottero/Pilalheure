@@ -64,7 +64,8 @@ class MedicamentViewController: UIViewController, UITableViewDataSource, UITable
     
     func deleteHandlerAction(action: UITableViewRowAction, indexPath: IndexPath) -> Void{
         let medoc = self.medicamentsFetched.object(at: indexPath)
-        CoreDataManager.context.delete(medoc)
+        //CoreDataManager.context.delete(medoc)
+        MedicamentDTO.delete(medicament : medoc)
     }
 
     
@@ -81,29 +82,6 @@ class MedicamentViewController: UIViewController, UITableViewDataSource, UITable
         self.performSegue(withIdentifier: segueShowMedicamentId, sender: self)
     }
     
-    //MARK: - Medicaments data management -
-    
-    
-    func save(){
-        if let error=CoreDataManager.save(){
-            DialogBoxHelper.alert(view: self, error: error)
-        }
-    }
-    
-    /*func delete(medicamentWithIndex index: Int) -> Bool{
-        guard let context = getContext(errorMsg: "Could not delee Medicament") else { return false}
-        let medoc = self.medicaments[index]
-        context.delete(medoc)
-        do{
-            try context.save()
-            self.medicaments.remove(at: index)
-            return true
-        }
-        catch let error as NSError{
-            self.alert(error: error)
-            return false
-        }
-    }*/
     
     //MARK: - NSFetchedResult delegate protocol -
     
