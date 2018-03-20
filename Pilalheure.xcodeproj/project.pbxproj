@@ -46,6 +46,8 @@
 		ACD999B720595E3D007A9BF0 /* PrescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD999B620595E3C007A9BF0 /* PrescriptionViewController.swift */; };
 		ACD999B920595F85007A9BF0 /* ExercicePhysiqueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD999B820595F85007A9BF0 /* ExercicePhysiqueViewController.swift */; };
 		ACD999BB20596240007A9BF0 /* AddExercicePhysiqueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD999BA20596240007A9BF0 /* AddExercicePhysiqueViewController.swift */; };
+		ACE8ACB22061BE5C00CB96F8 /* ContactDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE8ACB12061BE5C00CB96F8 /* ContactDAO.swift */; };
+		ACE8ACB42061BEEA00CB96F8 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE8ACB32061BEEA00CB96F8 /* Contact.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -109,6 +111,8 @@
 		ACD999B620595E3C007A9BF0 /* PrescriptionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrescriptionViewController.swift; sourceTree = "<group>"; };
 		ACD999B820595F85007A9BF0 /* ExercicePhysiqueViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercicePhysiqueViewController.swift; sourceTree = "<group>"; };
 		ACD999BA20596240007A9BF0 /* AddExercicePhysiqueViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExercicePhysiqueViewController.swift; sourceTree = "<group>"; };
+		ACE8ACB12061BE5C00CB96F8 /* ContactDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDAO.swift; sourceTree = "<group>"; };
+		ACE8ACB32061BEEA00CB96F8 /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -198,6 +202,7 @@
 			children = (
 				7D93A581205826AD006D37C4 /* MedicamentDAO.swift */,
 				AC7AB20F20589C2A00CA5DED /* ExercicePhysiqueDAOext.swift */,
+				ACE8ACB12061BE5C00CB96F8 /* ContactDAO.swift */,
 			);
 			name = DAO;
 			sourceTree = "<group>";
@@ -207,6 +212,7 @@
 			children = (
 				7D93A58620582D04006D37C4 /* Medicament.swift */,
 				AC7AB20C20589B5800CA5DED /* ExercicePhysique.swift */,
+				ACE8ACB32061BEEA00CB96F8 /* Contact.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -214,7 +220,7 @@
 		7D93A58A20582F28006D37C4 /* Controlleur */ = {
 			isa = PBXGroup;
 			children = (
-				AC55BFDB2060197B00478633 /* contact */,
+				AC55BFDB2060197B00478633 /* Contact */,
 				7DD1E95B205C02FF0096AB44 /* Prescription */,
 				ACE0E0C2205AD74E003A5131 /* Exercice */,
 				ACE0E0C1205AD723003A5131 /* Medicament */,
@@ -256,7 +262,7 @@
 			path = "Class Helpers";
 			sourceTree = "<group>";
 		};
-		AC55BFDB2060197B00478633 /* contact */ = {
+		AC55BFDB2060197B00478633 /* Contact */ = {
 			isa = PBXGroup;
 			children = (
 				AC55BFE020601A2E00478633 /* ContactViewController.swift */,
@@ -264,7 +270,7 @@
 				AC55BFE620601A9800478633 /* ShowContactViewController.swift */,
 				AC55BFEB20605EA600478633 /* ContactTableViewCell.swift */,
 			);
-			name = contact;
+			name = Contact;
 			sourceTree = "<group>";
 		};
 		ACE0E0C1205AD723003A5131 /* Medicament */ = {
@@ -425,6 +431,7 @@
 			files = (
 				7D93A55920582604006D37C4 /* Pilalheure.xcdatamodeld in Sources */,
 				ACD999AD205933C1007A9BF0 /* ExercicePhysiqueTableViewCell.swift in Sources */,
+				ACE8ACB42061BEEA00CB96F8 /* Contact.swift in Sources */,
 				ACD999B920595F85007A9BF0 /* ExercicePhysiqueViewController.swift in Sources */,
 				AC7AB2072058780100CA5DED /* ActiviteViewController.swift in Sources */,
 				7D93A59220583468006D37C4 /* AddMedicamentViewController.swift in Sources */,
@@ -434,6 +441,7 @@
 				AC040A49205A02A500BA9068 /* CoreDataManager.swift in Sources */,
 				7DD1E95A205C01F80096AB44 /* PrecisAddPrescriptionViewController.swift in Sources */,
 				7D93A58C20582F88006D37C4 /* MedicamentViewController.swift in Sources */,
+				ACE8ACB22061BE5C00CB96F8 /* ContactDAO.swift in Sources */,
 				7D93A582205826AD006D37C4 /* MedicamentDAO.swift in Sources */,
 				AC55BFE120601A2E00478633 /* ContactViewController.swift in Sources */,
 				7DD1E958205C01D30096AB44 /* IntervalleAddPrescriptionViewController.swift in Sources */,

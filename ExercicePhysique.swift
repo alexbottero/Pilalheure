@@ -9,33 +9,20 @@
 import Foundation
 
 class ExercicePhysique {
-    private let dao : ExercicePhysiqueDTO
+    internal let dao : ExercicePhysiqueDTO
     var nom   : String{
-        get{
-            return self.dao.nom!
-        }
-        set{
-            self.dao.nom = newValue
-        }
+        return self.dao.nom!
     }
     var descript : String{
-        get{
-            return self.dao.descript!
-        }
-        set{
-            self.dao.descript = newValue
-        }
+        return self.dao.descript!
     }
-    
     var date : NSDate{
-        get {
-            return self.dao.date!
-        }
+        return self.dao.date!
     }
     
 
     init(nom: String, descript: String, date: NSDate){
-        guard let dao = ExercicePhysiqueDTO.getNewExercicePhysique() else{
+        guard let dao = ExercicePhysiqueDTO.createDTO() else{
             fatalError("unuable to get dao for ExercicePhysique")
         }
         self.dao = dao

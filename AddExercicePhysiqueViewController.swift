@@ -22,10 +22,8 @@ class AddExercicePhysiqueViewController: UIViewController,UITextFieldDelegate {
         let date : Date = self.dateNewExercicePhysique.date
         
         guard (nom != "") else {return}
-        let exPhys = ExercicePhysiqueDTO(context: CoreDataManager.context)
-        exPhys.nom = nom
-        exPhys.descript = desc
-        exPhys.date = date as NSDate
+        let exPhys = ExercicePhysique(nom: nom, descript: desc, date: date as NSDate)
+        ExercicePhysiqueDTO.add(exPhys : exPhys)
         self.dismiss(animated: true, completion: nil)
     }
     

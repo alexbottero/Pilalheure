@@ -11,16 +11,36 @@ import UIKit
 import CoreData
 
 extension ExercicePhysiqueDTO{
-    static func getNewExercicePhysique() -> ExercicePhysiqueDTO?{
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else{
-            return nil
+    static let request : NSFetchRequest<ExercicePhysiqueDTO> = ExercicePhysiqueDTO.fetchRequest()
+    
+    static func createDTO() -> ExercicePhysiqueDTO?{
+        let exPhys = ExercicePhysiqueDTO(context: CoreDataManager.context)
+        return exPhys
+    }
+    
+    static func add(exPhys: ExercicePhysique){
+        if self.count(exPhys: exPhys) > 1{
+            CoreDataManager.context.delete(exPhys.dao)
         }
-        let moc = appDelegate.persistentContainer.viewContext
-        guard let entity = NSEntityDescription.entity(forEntityName: "ExercicePhysiqueDTO", in: moc) else{
-            return nil
+        else{
+            CoreDataManager.save()
         }
-        let exercicePhysique = ExercicePhysiqueDTO(entity: entity, insertInto: moc)
-        return exercicePhysique
+    }
+    
+    static func count(exPhys: ExercicePhysique) -> Int{
+        let predicate = NSPredicate(format:"nom == %@ ",exPhys.nom)
+        self.request.predicate = predicate
+        do{
+            return try CoreDataManager.context.count(for: self.request)
+        }
+        catch{
+            fatalError()
+        }
+    }
+    
+    static func delete(exPhys : ExercicePhysiqueDTO){
+        CoreDataManager.context.delete(exPhys)
+        CoreDataManager.save()
     }
     
 }

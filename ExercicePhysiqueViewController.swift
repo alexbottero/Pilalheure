@@ -12,8 +12,6 @@ import CoreData
 class ExercicePhysiqueViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate{
     
     @IBOutlet weak var exercicePhysiqueTable: UITableView!
-    
-    var exercicePhysique : [ExercicePhysiqueDTO] = []
 
     fileprivate lazy var exercicePhysiqueFetched : NSFetchedResultsController<ExercicePhysiqueDTO> = {
         let request : NSFetchRequest <ExercicePhysiqueDTO> = ExercicePhysiqueDTO.fetchRequest()
@@ -44,73 +42,15 @@ class ExercicePhysiqueViewController: UIViewController, UITableViewDelegate, UIT
     }
     
     
-    @IBAction func unwindToExercicePhysiqueListAfterSavingNewExercicePhysique(segue:UIStoryboardSegue){
-        let newExercicePhysiqueController = segue.source as! AddExercicePhysiqueViewController
-        let nom=newExercicePhysiqueController.nomNewExercicePhysique.text ?? ""
-        let desc=newExercicePhysiqueController.descNewExercicePhysique.text!
-        let date=newExercicePhysiqueController.dateNewExercicePhysique.date
-        self.saveNewExercicePhysique(Nom: nom,  Desc: desc, Date: date)
-       exercicePhysiqueTable.reloadData()
-    }
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
     
-    
-    //MARK : - Data management
-    func save(){
-        if let error=CoreDataManager.save(){
-            DialogBoxHelper.alert(view: self, error: error)
-        }
-    }
-    
-    /* func saveNewExPhys(Nom nom: String, Temps temps: String?, NbRep nbRep: String?){
-        guard let context = self.getContext(errorMsg: "save failed") else { return }
-        let exPhys = ExercicePhysiqueDTO(context: context)
-        exPhys.nom = nom
-        //exPhys.descript = descr
-        exPhys.temps = temps
-        exPhys.nbRepetition=nbRep
-        do{
-            try context.save()
-            self.exercicePhysique.append(exPhys)
-        }
-        catch let error as NSError{
-            self.alert(error: error)
-            return
-        }
-    }*/
-    /*
-    func delete(exPhysWithIndex index: Int) -> Bool{
-        guard let context = getContext(errorMsg: "Could not delete Medicament") else {
-            return false
-        }
-        let exPhy = self.exercicePhysique[index]
-        context.delete(exPhy)
-        do{
-            try context.save()
-            self.exercicePhysique.remove(at: index)
-            return true
-        }
-        catch let error as NSError{
-            self.alert(error: error)
-            return false
-        }
-    }
-    */
-    
     func deleteHandlerAction(action: UITableViewRowAction,indexPath: IndexPath) -> Void {
-        //self.exercicePhysiqueTable.beginUpdates()
         let exPhys = self.exercicePhysiqueFetched.object(at: indexPath)
-        CoreDataManager.context.delete(exPhys)
-        /*
-        if self.delete(exPhysWithIndex: indexPath.row){
-            self.exercicePhysiqueTable.deleteRows(at: [indexPath], with: UITableViewRowAnimation.automatic)
-        }
-        self.exercicePhysiqueTable.endUpdates()*/
+        ExercicePhysiqueDTO.delete(exPhys: exPhys)
     }
     
     
@@ -127,20 +67,6 @@ class ExercicePhysiqueViewController: UIViewController, UITableViewDelegate, UIT
         return [delete]
         
     }
-    
-    
-    /*
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if (editingStyle == UITableViewCellEditingStyle.delete){
-            self.exercicePhysiqueTable.beginUpdates()
-            if self.delete(exPhysWithIndex: indexPath.row){
-                self.exercicePhysiqueTable.deleteRows(at: [indexPath], with: UITableViewRowAnimation.automatic)
-            }
-            self.exercicePhysiqueTable.endUpdates()
-        }
-    }*/
-    
-    
     
     // MARK: - Table view data source
     
@@ -160,7 +86,6 @@ class ExercicePhysiqueViewController: UIViewController, UITableViewDelegate, UIT
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        //return self.exercicePhysique.count
         guard let section = self.exercicePhysiqueFetched.sections?[section]else{
             fatalError("unexpected section number")
         }
@@ -170,7 +95,6 @@ class ExercicePhysiqueViewController: UIViewController, UITableViewDelegate, UIT
     
     // MARK: - Navigation
     let segueShowExPhysId = "ShowExPhysSegue"
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == self.segueShowExPhysId{
             if let indexPath = self.exercicePhysiqueTable.indexPathForSelectedRow{
@@ -181,23 +105,6 @@ class ExercicePhysiqueViewController: UIViewController, UITableViewDelegate, UIT
         }
     }
     
-    func saveNewExercicePhysique(Nom nom: String, Desc desc: String, Date date: Date){
-        let context = CoreDataManager.context
-        let exPhys = ExercicePhysiqueDTO(context:context)
-        exPhys.nom = nom
-        exPhys.descript = desc
-        exPhys.date = date as NSDate
-        do{
-            try context.save()
-            self.exercicePhysique.append(exPhys)
-        }
-        catch let error as NSError{
-            DialogBoxHelper.alert(view: self, error: error)
-            return
-        }
-        
-        
-    }
     
     
     // - NSFetchResultController delegate protocol

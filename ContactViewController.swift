@@ -13,7 +13,6 @@ import CoreData
 class ContactViewController: UIViewController,UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate{
     
     @IBOutlet weak var contactTable: UITableView!
-    var contacts : [ContactDTO] = []
     
     fileprivate lazy var contactFetched : NSFetchedResultsController<ContactDTO> = {
         let request : NSFetchRequest <ContactDTO> = ContactDTO.fetchRequest()
@@ -74,7 +73,7 @@ class ContactViewController: UIViewController,UITableViewDelegate, UITableViewDa
     func deleteHandlerAction(action: UITableViewRowAction,indexPath: IndexPath) -> Void {
         //self.exercicePhysiqueTable.beginUpdates()
         let contact = self.contactFetched.object(at: indexPath)
-        CoreDataManager.context.delete(contact)
+        ContactDTO.delete(cont: contact)
         /*
          if self.delete(exPhysWithIndex: indexPath.row){
          self.exercicePhysiqueTable.deleteRows(at: [indexPath], with: UITableViewRowAnimation.automatic)

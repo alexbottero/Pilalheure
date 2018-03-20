@@ -16,7 +16,7 @@ class AddContactViewController: UIViewController, UIPickerViewDelegate, UIPicker
     @IBOutlet weak var adresseContact: UITextField!
     @IBOutlet weak var profContact: UIPickerView!
     
-    var contact: ContactDTO?
+    var contact: Contact?
     
     var pickerData : [String] = [String]()
     var selectedValues : String = ""
@@ -24,16 +24,12 @@ class AddContactViewController: UIViewController, UIPickerViewDelegate, UIPicker
     @IBAction func saveAction(_ sender: Any) {
         let nom : String = self.nomContact.text ?? ""
         let tel : String = self.telContact.text ?? ""
-        let adres : String = self.adresseContact.text ?? ""
+        let adresse : String = self.adresseContact.text ?? ""
         let prof: String = self.selectedValues
         let mail: String = self.mailContact.text ?? ""
         guard (nom != "") else {return}
-        let contact = ContactDTO(context: CoreDataManager.context)
-        contact.nom = nom
-        contact.email = mail
-        contact.profession = prof
-        contact.adresse = adres
-        contact.telephone = tel
+        let cont = Contact(nom: nom, prof: prof, mail: mail, adresse: adresse, tel: tel)
+        ContactDTO.add(cont: cont)
         self.dismiss(animated: true, completion: nil)
         
     }
