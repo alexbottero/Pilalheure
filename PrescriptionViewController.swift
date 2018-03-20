@@ -10,7 +10,7 @@ import UIKit
 import CoreData
 
 class PrescriptionViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate{
-    
+   
     @IBOutlet var prescriptionPresenter: PrescriptionPresenter!
     
     @IBOutlet weak var prescriptionTable: UITableView!

@@ -29,11 +29,20 @@ class AddPrescriptionViewController: UIViewController, UITextFieldDelegate, UITe
     }
     
     @IBAction func saveAction(_ sender: Any) {
-        guard let embedIntervalleAddViewController = self.childViewControllers[0] as? IntervalleAddPrescriptionViewController
-            else {return}
-        let medoc : String = embedIntervalleAddViewController.medicamentPickerText.text ?? ""
-        guard (medoc != "") else {return}
-        let prescription = PrescriptionDAO(context: CoreDataManager.context)
+        if(self.intervalleContainerView.alpha == 1){
+            guard let embedIntervalleAddViewController = self.childViewControllers[1] as? IntervalleAddPrescriptionViewController
+                else {return}
+            let medoc : String = embedIntervalleAddViewController.medicamentPickerText.text ?? ""
+            guard (medoc != "") else {return}
+            let prescription = PrescriptionDAO(context: CoreDataManager.context)
+        }
+        else {
+            guard let embedPrecisAddViewController = self.childViewControllers[0] as? PrecisAddPrescriptionViewController
+                else {return}
+            let medoc : String = embedPrecisAddViewController.medicamentPickerText.text ?? ""
+            guard (medoc != "") else {return}
+            let prescription = PrescriptionDAO(context: CoreDataManager.context)
+        }
         self.dismiss(animated: true, completion: nil)
     }
     
