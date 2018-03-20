@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="12141" systemVersion="16G29" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13772" systemVersion="17D102" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="ContactDTO" representedClassName="ContactDTO" syncable="YES" codeGenerationType="class">
         <attribute name="adresse" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
@@ -31,7 +31,7 @@
         <attribute name="heureDebut" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="heureFin" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="heurePrecise" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
-        <attribute name="intervalle" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="intervalle" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="events" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="EventDTO" inverseName="prescriptions" inverseEntity="EventDTO" syncable="YES"/>
         <relationship name="medicaments" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MedicamentDTO" inverseName="prescriptions" inverseEntity="MedicamentDTO" syncable="YES"/>
     </entity>

@@ -20,6 +20,7 @@ class IntervalleAddPrescriptionViewController: UIViewController, UIPickerViewDel
     @IBOutlet weak var heureFinPickerText: UITextField!
     @IBOutlet weak var intervalleText: UITextField!
     
+    var selectedMedicament : MedicamentDTO? = nil
     var medicamentPicker = UIPickerView()
     let dateDebutPicker = UIDatePicker()
     let dateFinPicker = UIDatePicker()
@@ -168,6 +169,7 @@ class IntervalleAddPrescriptionViewController: UIViewController, UIPickerViewDel
     }
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         let oneData = data[row]
+        selectedMedicament = oneData
         return (oneData.nom)
     }
     

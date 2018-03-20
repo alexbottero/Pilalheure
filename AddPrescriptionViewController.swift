@@ -32,9 +32,19 @@ class AddPrescriptionViewController: UIViewController, UITextFieldDelegate, UITe
         if(self.intervalleContainerView.alpha == 1){
             guard let embedIntervalleAddViewController = self.childViewControllers[1] as? IntervalleAddPrescriptionViewController
                 else {return}
-            let medoc : String = embedIntervalleAddViewController.medicamentPickerText.text ?? ""
-            guard (medoc != "") else {return}
-            let prescription = PrescriptionDTO(context: CoreDataManager.context)
+            let medoc : MedicamentDTO = embedIntervalleAddViewController.selectedMedicament!
+            let dateDebutPicker : Date = embedIntervalleAddViewController.dateDebutPicker.date
+            /*let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "dd-MM-yyyy"
+            let stringDate = dateFormatter.string(from: datePicker as Date)
+            print(stringDate)*/
+            let dateFinPicker : Date = embedIntervalleAddViewController.dateFinPicker.date
+            let heureDebutPicker : Date = embedIntervalleAddViewController.heureDebutPicker.date
+            let heureFinPicker : Date = embedIntervalleAddViewController.heureFinPicker.date
+            let intervalle : String = embedIntervalleAddViewController.intervalleText.text!
+            guard (medoc != nil) else {return}
+            let prescription = Prescription(medicament: medoc, dateDebut: dateDebutPicker, dateFin: dateFinPicker, heureDebut: heureDebutPicker, heureFin: heureFinPicker, intervalle: intervalle, heurePrecise: nil)
+            PrescriptionDTO.add(prescription: prescription)
         }
         else {
             guard let embedPrecisAddViewController = self.childViewControllers[0] as? PrecisAddPrescriptionViewController
