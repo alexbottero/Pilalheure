@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import UserNotifications
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,8 +16,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions:
         
+        
+        [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge], completionHandler: {didAllow, error in
+            
+        })
+        let answerOne = UNNotificationAction(identifier: "reponse1", title: "actif", options: [.foreground])
+        let answerTwo = UNNotificationAction(identifier: "reponse2", title: "passif", options: [.foreground])
+        let answerThree = UNNotificationAction(identifier: "reponse3", title: "dysquinesie", options: [.foreground])
+        let questCat = UNNotificationCategory(identifier: "questCat", actions:[answerOne,answerTwo,answerThree] , intentIdentifiers: [], options: [])
+        UNUserNotificationCenter.current().setNotificationCategories([questCat])
         // Override point for customization after application launch.
         return true
     }

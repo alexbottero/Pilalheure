@@ -326,7 +326,7 @@
             </objects>
             <point key="canvasLocation" x="2429.5999999999999" y="-1252.6236881559221"/>
         </scene>
-        <!--Acceuil-->
+        <!--Accueil-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="MenuViewController" customModule="Pilalheure" customModuleProvider="target" sceneMemberID="viewController">
@@ -389,7 +389,7 @@
                             <constraint firstItem="W7N-bA-a36" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" multiplier="1.5" id="yn5-p8-EKw"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Acceuil" id="K2K-VX-zoP"/>
+                    <navigationItem key="navigationItem" title="Accueil" id="K2K-VX-zoP"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -820,6 +820,14 @@
                                     <segue destination="H4W-tX-2C3" kind="show" id="Zdx-Kw-hDR"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tn5-b2-XdX">
+                                <rect key="frame" x="102" y="390" width="156" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Resultat Questionnaire"/>
+                                <connections>
+                                    <segue destination="mgg-73-ANx" kind="show" id="aUb-KE-Pl4"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -908,6 +916,104 @@
                 <customObject id="dNr-ld-g7H" customClass="MedicamentPresenter" customModule="Pilalheure" customModuleProvider="target"/>
             </objects>
             <point key="canvasLocation" x="1905" y="221"/>
+        </scene>
+        <!--Questionnaire View Controller-->
+        <scene sceneID="MqX-VI-VTi">
+            <objects>
+                <viewController id="mgg-73-ANx" customClass="QuestionnaireViewController" customModule="Pilalheure" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="nKV-SQ-Ptm"/>
+                        <viewControllerLayoutGuide type="bottom" id="NuZ-lG-p6m"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ho0-n9-q5z">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bO4-rw-HnR">
+                                <rect key="frame" x="27" y="138" width="321" height="451"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="questCell" id="SE9-gp-wf6" customClass="QuestionnaireTableViewCell" customModule="Pilalheure" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="321" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="SE9-gp-wf6" id="MDx-gD-hDB">
+                                            <rect key="frame" x="0.0" y="0.0" width="321" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BQt-Qq-r0y">
+                                                    <rect key="frame" x="35" y="11" width="100" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="100" id="DeL-MT-4Tn"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2zd-Tj-GG0">
+                                                    <rect key="frame" x="235" y="11" width="0.0" height="22"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="2zd-Tj-GG0" firstAttribute="top" secondItem="MDx-gD-hDB" secondAttribute="topMargin" id="840-yz-yK8"/>
+                                                <constraint firstItem="2zd-Tj-GG0" firstAttribute="bottom" secondItem="MDx-gD-hDB" secondAttribute="bottomMargin" id="9UX-rA-nhM"/>
+                                                <constraint firstItem="2zd-Tj-GG0" firstAttribute="leading" secondItem="BQt-Qq-r0y" secondAttribute="trailing" constant="100" id="KOw-8z-tKr"/>
+                                                <constraint firstItem="BQt-Qq-r0y" firstAttribute="top" secondItem="MDx-gD-hDB" secondAttribute="topMargin" id="YH2-Jj-XIG"/>
+                                                <constraint firstItem="BQt-Qq-r0y" firstAttribute="leading" secondItem="MDx-gD-hDB" secondAttribute="leadingMargin" constant="20" id="pXr-Rl-C57"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="BQt-Qq-r0y" secondAttribute="bottom" constant="1" id="uoa-sO-GHe"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="date" destination="2zd-Tj-GG0" id="fcM-7d-sJl"/>
+                                            <outlet property="etat" destination="BQt-Qq-r0y" id="gWm-lg-IbI"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="mgg-73-ANx" id="9ol-FF-l0b"/>
+                                    <outlet property="delegate" destination="mgg-73-ANx" id="P60-gs-rLn"/>
+                                </connections>
+                            </tableView>
+                            <segmentedControl opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="NL7-Cg-4up">
+                                <rect key="frame" x="128" y="93" width="119" height="29"/>
+                                <segments>
+                                    <segment title="1"/>
+                                    <segment title="2"/>
+                                    <segment title="3"/>
+                                    <segment title="4"/>
+                                    <segment title="5"/>
+                                </segments>
+                            </segmentedControl>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C58-zM-iT9">
+                                <rect key="frame" x="40" y="80" width="62" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="notif test"/>
+                                <connections>
+                                    <action selector="notif" destination="mgg-73-ANx" eventType="touchUpInside" id="pSr-ND-g0F"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="NuZ-lG-p6m" firstAttribute="top" secondItem="bO4-rw-HnR" secondAttribute="bottom" constant="78" id="2pg-Md-vJq"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="bO4-rw-HnR" secondAttribute="trailing" constant="11" id="3VV-cr-YWt"/>
+                            <constraint firstItem="NL7-Cg-4up" firstAttribute="top" secondItem="nKV-SQ-Ptm" secondAttribute="bottom" constant="29" id="8mQ-LO-UGp"/>
+                            <constraint firstItem="bO4-rw-HnR" firstAttribute="centerX" secondItem="ho0-n9-q5z" secondAttribute="centerX" id="Ga4-ny-Cef"/>
+                            <constraint firstItem="bO4-rw-HnR" firstAttribute="leading" secondItem="ho0-n9-q5z" secondAttribute="leadingMargin" constant="11" id="WQe-Bg-Vhj"/>
+                            <constraint firstItem="bO4-rw-HnR" firstAttribute="top" secondItem="NL7-Cg-4up" secondAttribute="bottom" constant="17" id="dVt-MX-xAl"/>
+                            <constraint firstItem="NL7-Cg-4up" firstAttribute="centerX" secondItem="ho0-n9-q5z" secondAttribute="centerX" id="kVL-KI-UGu"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="QuestionnaireTable" destination="bO4-rw-HnR" id="DnB-lV-QoZ"/>
+                        <outlet property="jourQuest" destination="NL7-Cg-4up" id="7Cd-LZ-7xR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YnI-vj-8fC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="962.39999999999998" y="1040.3298350824589"/>
         </scene>
         <!--Show Medicament View Controller-->
         <scene sceneID="QmR-BQ-bhQ">
