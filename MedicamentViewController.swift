@@ -125,5 +125,25 @@ class MedicamentViewController: UIViewController, UITableViewDataSource, UITable
         }
     }
     
+    //test
+    /*var dateComp:NSDateComponents = NSDateComponents()
+    dateComp.year = 2015;
+    dateComp.month = 06;
+    dateComp.day = 03;
+    dateComp.hour = 12;
+    dateComp.minute = 55;
+    dateComp.timeZone = NSTimeZone.systemTimeZone()
+    
+    var calender:NSCalendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
+    var date:NSDate = calender.dateFromComponents(dateComp)!
+    
+    var notification:UILocalNotification = UILocalNotification()
+    notification.category = "Daily Quote"
+    notification.alertBody = quoteBook.randomQuote()
+    notification.fireDate = date
+    notification.repeatInterval =
+    
+    UIApplication.sharedApplication().scheduleLocalNotification(notification)*/
+    
 }
 

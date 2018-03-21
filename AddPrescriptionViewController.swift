@@ -32,16 +32,31 @@ class AddPrescriptionViewController: UIViewController, UITextFieldDelegate, UITe
         if(self.intervalleContainerView.alpha == 1){
             guard let embedIntervalleAddViewController = self.childViewControllers[1] as? IntervalleAddPrescriptionViewController
                 else {return}
-            let medoc : String = embedIntervalleAddViewController.medicamentPickerText.text ?? ""
-            guard (medoc != "") else {return}
-            let prescription = PrescriptionDTO(context: CoreDataManager.context)
+            let medoc : MedicamentDTO? = embedIntervalleAddViewController.selectedMedicament
+            let dateDebutPicker : Date = embedIntervalleAddViewController.dateDebutPicker.date
+            /*let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "dd-MM-yyyy"
+            let stringDate = dateFormatter.string(from: datePicker as Date)
+            print(stringDate)*/
+            let dateFinPicker : Date = embedIntervalleAddViewController.dateFinPicker.date
+            let heureDebutPicker : Date = embedIntervalleAddViewController.heureDebutPicker.date
+            let heureFinPicker : Date = embedIntervalleAddViewController.heureFinPicker.date
+            let intervalle : String = embedIntervalleAddViewController.intervalleText.text!
+            let number: Int64? = Int64(intervalle)
+            guard let medoc2 = medoc else {return}
+            let prescription = Prescription(medicament: medoc2, dateDebut: dateDebutPicker, dateFin: dateFinPicker, heureDebut: heureDebutPicker, heureFin: heureFinPicker, intervalle: number, heurePrecise: nil)
+            PrescriptionDTO.add(prescription: prescription)
         }
         else {
             guard let embedPrecisAddViewController = self.childViewControllers[0] as? PrecisAddPrescriptionViewController
                 else {return}
-            let medoc : String = embedPrecisAddViewController.medicamentPickerText.text ?? ""
-            guard (medoc != "") else {return}
-            let prescription = PrescriptionDTO(context: CoreDataManager.context)
+            let medoc : MedicamentDTO? = embedPrecisAddViewController.selectedMedicament
+            let dateDebutPicker : Date = embedPrecisAddViewController.dateDebutPicker.date
+            let dateFinPicker : Date = embedPrecisAddViewController.dateFinPicker.date
+            let heurePrecise : Date = embedPrecisAddViewController.heurePrecisePicker.date
+            guard let medoc2 = medoc else {return}
+            let prescription = Prescription(medicament: medoc2, dateDebut: dateDebutPicker, dateFin: dateFinPicker, heureDebut: nil, heureFin: nil, intervalle: nil, heurePrecise: heurePrecise)
+            PrescriptionDTO.add(prescription: prescription)
         }
         self.dismiss(animated: true, completion: nil)
     }

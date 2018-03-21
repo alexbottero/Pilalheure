@@ -16,6 +16,7 @@ class PrecisAddPrescriptionViewController: UIViewController, UIPickerViewDelegat
     @IBOutlet weak var medicamentPickerText: UITextField!
     let managedObjectContext = CoreDataManager.context
     var data : [MedicamentDTO] = []
+    var selectedMedicament : MedicamentDTO? = nil
     var medicamentPicker = UIPickerView()
     let dateDebutPicker = UIDatePicker()
     let dateFinPicker = UIDatePicker()
@@ -66,9 +67,7 @@ class PrecisAddPrescriptionViewController: UIViewController, UIPickerViewDelegat
         
         // Adding Button ToolBar
         let doneButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(IntervalleAddPrescriptionViewController.doneClick))
-        let spaceButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-        let cancelButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(IntervalleAddPrescriptionViewController.cancelClick))
-        toolBar.setItems([cancelButton, spaceButton, doneButton], animated: false)
+        toolBar.setItems([doneButton], animated: false)
         toolBar.isUserInteractionEnabled = true
         textField.inputAccessoryView = toolBar
         
@@ -145,6 +144,7 @@ class PrecisAddPrescriptionViewController: UIViewController, UIPickerViewDelegat
     }
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         let oneData = data[row]
+        selectedMedicament = oneData
         return (oneData.nom)
     }
     
