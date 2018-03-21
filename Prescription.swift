@@ -49,39 +49,54 @@ class Prescription {
         self.dao.heurePrecise = heurePrecise as NSDate?
         if let hdeb = heureDebut, let hfin = heureFin, let inter = intervalle{
             // convert Date to TimeInterval (typealias for Double)
-            let timeInterval = hfin.timeIntervalSince(hdeb)
-            // convert to Integer
-            var dif = Int64(timeInterval)
-            if(inter > 0){
-                dif=dif/inter+1
-            }
-            var rappels = [Date]()
-            
-            let gregorian = Calendar(identifier: .gregorian)
-            var componentsDD = gregorian.dateComponents([.year, .month, .day, .hour, .minute, .second], from: dateDebut)
-            var componentsHD = gregorian.dateComponents([.year, .month, .day, .hour, .minute, .second], from: heureDebut!)
-            
-            // Change the time to 9:30:00 in your locale
-            componentsDD.hour = componentsHD.hour
-            componentsDD.minute = componentsHD.minute
-            
-            let date = gregorian.date(from: componentsDD)!
-            
-            rappels.append(date)
-            let heure = hdeb + 5.minutes
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "HH:mm"
-            let stringDate = dateFormatter.string(from: heure as Date)
-            print(stringDate)
-            dateFormatter.dateFormat = "dd-MM-yyyy 'at' HH:mm"
-            print(date)
-
- 
-            //let timeInterval = Double(myInt)
-            
-            // create NSDate from Double (NSTimeInterval)
-            //let myNSDate = Date(timeIntervalSince1970: timeInterval)
+            let rappels : [Date] = createRappels(heureDebut: hdeb, heureFin: hfin, intervalle: inter)
         }
+    }
+    
+    func createRappels(heureDebut hdeb : Date, heureFin hfin : Date, intervalle inter : Int64) -> [Date]{
+        //intervalle de temps entre 2 dates
+        let timeInterval = hfin.timeIntervalSince(hdeb)
+        // conversion en Int
+        let dif = Int64(timeInterval)
+        //Si intervalle > 0 -> in faut ajouter autant de rappel que necessaire
+        
+        //création du tableau de rappels
+        var rappels = [Date]()
+        let gregorian = Calendar(identifier: .gregorian)
+        //création des composants pour effectuer les changement de dates -> Jour date Debut + heure de heure Debut
+        let componentsDD = gregorian.dateComponents([.year, .month, .day, .hour, .minute, .second], from: dateDebut)
+        var componentsHD = gregorian.dateComponents([.year, .month, .day, .hour, .minute, .second], from: hdeb)
+        
+        //change the time
+        var date = gregorian.date(from: componentsDD)!
+        let ecart=Int(dif/(inter+1))
+        print(dif)
+        print(ecart)
+        while date < dateFin {
+            var componentsD = gregorian.dateComponents([.year, .month, .day, .hour, .minute, .second], from: date)
+            componentsD.hour = componentsHD.hour
+            componentsD.minute = componentsHD.minute
+            date = gregorian.date(from: componentsD)!
+            rappels.append(date)
+            for _ in 0...inter{
+                date = date + ecart.seconds
+                rappels.append(date)
+            }
+            date = date + 1.days
+        }
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd-MM-yyyy 'at' HH:mm"
+        for d in rappels {
+            let stringDate = dateFormatter.string(from: d as Date)
+            print(stringDate)
+        }
+        
+        
+        //let timeInterval = Double(myInt)
+        
+        // create NSDate from Double (NSTimeInterval)
+        //let myNSDate = Date(timeIntervalSince1970: timeInterval)
+        return rappels
     }
 }
 

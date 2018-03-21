@@ -25,7 +25,6 @@
 		7D93A58C20582F88006D37C4 /* MedicamentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D93A58B20582F88006D37C4 /* MedicamentViewController.swift */; };
 		7D93A58F20582FB1006D37C4 /* MedicamentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D93A58E20582FB1006D37C4 /* MedicamentTableViewCell.swift */; };
 		7D93A59220583468006D37C4 /* AddMedicamentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D93A59120583468006D37C4 /* AddMedicamentViewController.swift */; };
-		7D9648712062444E0043C5EF /* EventDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D9648702062444E0043C5EF /* EventDAO.swift */; };
 		7D9648732062449F0043C5EF /* RappelDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D9648722062449F0043C5EF /* RappelDAO.swift */; };
 		7D9648752062468E0043C5EF /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D9648742062468E0043C5EF /* DateHelper.swift */; };
 		7DD1E958205C01D30096AB44 /* IntervalleAddPrescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD1E957205C01D30096AB44 /* IntervalleAddPrescriptionViewController.swift */; };
@@ -101,7 +100,6 @@
 		7D93A58B20582F88006D37C4 /* MedicamentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MedicamentViewController.swift; sourceTree = "<group>"; };
 		7D93A58E20582FB1006D37C4 /* MedicamentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MedicamentTableViewCell.swift; sourceTree = "<group>"; };
 		7D93A59120583468006D37C4 /* AddMedicamentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddMedicamentViewController.swift; sourceTree = "<group>"; };
-		7D9648702062444E0043C5EF /* EventDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDAO.swift; sourceTree = "<group>"; };
 		7D9648722062449F0043C5EF /* RappelDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RappelDAO.swift; sourceTree = "<group>"; };
 		7D9648742062468E0043C5EF /* DateHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateHelper.swift; sourceTree = "<group>"; };
 		7DD1E957205C01D30096AB44 /* IntervalleAddPrescriptionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntervalleAddPrescriptionViewController.swift; sourceTree = "<group>"; };
@@ -158,6 +156,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6EF2AF342063154F00599858 /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
 		7D93A54420582604006D37C4 = {
 			isa = PBXGroup;
 			children = (
@@ -170,6 +175,7 @@
 				7D93A56720582604006D37C4 /* PilalheureTests */,
 				7D93A57220582604006D37C4 /* PilalheureUITests */,
 				7D93A54E20582604006D37C4 /* Products */,
+				6EF2AF342063154F00599858 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -222,6 +228,8 @@
 				AC7AB20F20589C2A00CA5DED /* ExercicePhysiqueDAOext.swift */,
 				ACE8ACB12061BE5C00CB96F8 /* ContactDAO.swift */,
 				ACE8ACBE20624AAF00CB96F8 /* QuestionnaireDAO.swift */,
+				30D8FE142061C9280065D968 /* PrescriptionDAO.swift */,
+				7D9648722062449F0043C5EF /* RappelDAO.swift */,
 			);
 			name = DAO;
 			sourceTree = "<group>";
@@ -233,6 +241,7 @@
 				AC7AB20C20589B5800CA5DED /* ExercicePhysique.swift */,
 				ACE8ACB32061BEEA00CB96F8 /* Contact.swift */,
 				ACE8ACC420624C9300CB96F8 /* Questionnaire.swift */,
+				30D8FE122061C5550065D968 /* Prescription.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
