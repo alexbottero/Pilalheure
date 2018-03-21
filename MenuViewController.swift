@@ -7,9 +7,9 @@
 //
 
 import UIKit
+class MenuViewController: UIViewController{
 
-class MenuViewController: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let gradientLayer = CAGradientLayer()
@@ -19,6 +19,9 @@ class MenuViewController: UIViewController {
         gradientLayer.colors = [color1, color2]
         gradientLayer.locations = [0.0, 1]
         self.view.layer.insertSublayer(gradientLayer,at: 0)
+        
+        
+
         // Do any additional setup after loading the view.
     }
 
@@ -39,3 +42,4 @@ class MenuViewController: UIViewController {
     */
 
 }
+

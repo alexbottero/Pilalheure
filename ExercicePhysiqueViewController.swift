@@ -9,6 +9,7 @@
 import UIKit
 import CoreData
 
+
 class ExercicePhysiqueViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate{
     
     @IBOutlet weak var exercicePhysiqueTable: UITableView!
@@ -37,6 +38,7 @@ class ExercicePhysiqueViewController: UIViewController, UITableViewDelegate, UIT
         catch let error as NSError{
             DialogBoxHelper.alert(view: self, error: error)
         }
+       
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
