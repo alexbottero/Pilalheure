@@ -73,10 +73,9 @@ class Prescription {
             dateFormatter.dateFormat = "HH:mm"
             let stringDate = dateFormatter.string(from: heure as Date)
             print(stringDate)
-            
-/*let dateFormatter = DateFormatter()
- dateFormatter.dateFormat = "dd-MM-yyyy"
- let stringDate = dateFormatter.string(from: exPhys.date! as Date)*/
+            dateFormatter.dateFormat = "dd-MM-yyyy 'at' HH:mm"
+            print(date)
+
  
             //let timeInterval = Double(myInt)
             
