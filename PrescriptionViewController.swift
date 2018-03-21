@@ -59,24 +59,13 @@ class PrescriptionViewController: UIViewController, UITableViewDelegate, UITable
     
     func deleteHandlerAction(action: UITableViewRowAction, indexPath: IndexPath) -> Void{
         let prescription = self.prescriptionFetched.object(at: indexPath)
-        CoreDataManager.context.delete(prescription)
+        PrescriptionDTO.delete(prescription: prescription)
     }
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let delete = UITableViewRowAction(style: .default, title: "Delete", handler: self.deleteHandlerAction)
         delete.backgroundColor = UIColor.red
         return [delete]
-    }
-    
-    
-    
-    //MARK: - Medicaments data management -
-    
-    
-    func save(){
-        if let error=CoreDataManager.save(){
-            DialogBoxHelper.alert(view: self, error: error)
-        }
     }
     
     //MARK: - NSFetchedResult delegate protocol -
