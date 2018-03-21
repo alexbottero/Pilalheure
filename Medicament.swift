@@ -33,6 +33,7 @@ class Medicament {
         self.dao.unite = unite
         self.dao.dose = dose
         self.dao.descript = desc
+        
     }
     
 }
