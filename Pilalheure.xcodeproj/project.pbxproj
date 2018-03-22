@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		308A33332059F4C700A67BF4 /* ShowMedicamentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308A33322059F4C700A67BF4 /* ShowMedicamentViewController.swift */; };
+		3099A5F5206338EC0061728B /* EventDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3099A5F4206338EC0061728B /* EventDAO.swift */; };
 		30A38794206037DA0071B0CD /* PrescriptionPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A38793206037DA0071B0CD /* PrescriptionPresenter.swift */; };
 		30D8FE132061C5550065D968 /* Prescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D8FE122061C5550065D968 /* Prescription.swift */; };
 		30D8FE152061C9280065D968 /* PrescriptionDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D8FE142061C9280065D968 /* PrescriptionDAO.swift */; };
@@ -77,6 +78,7 @@
 
 /* Begin PBXFileReference section */
 		308A33322059F4C700A67BF4 /* ShowMedicamentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowMedicamentViewController.swift; sourceTree = "<group>"; };
+		3099A5F4206338EC0061728B /* EventDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDAO.swift; sourceTree = "<group>"; };
 		30A38793206037DA0071B0CD /* PrescriptionPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrescriptionPresenter.swift; sourceTree = "<group>"; };
 		30D8FE122061C5550065D968 /* Prescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prescription.swift; sourceTree = "<group>"; };
 		30D8FE142061C9280065D968 /* PrescriptionDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrescriptionDAO.swift; sourceTree = "<group>"; };
@@ -224,6 +226,7 @@
 		7D93A58520582CD2006D37C4 /* DAO */ = {
 			isa = PBXGroup;
 			children = (
+				3099A5F4206338EC0061728B /* EventDAO.swift */,
 				7D93A581205826AD006D37C4 /* MedicamentDAO.swift */,
 				AC7AB20F20589C2A00CA5DED /* ExercicePhysiqueDAOext.swift */,
 				ACE8ACB12061BE5C00CB96F8 /* ContactDAO.swift */,
@@ -506,6 +509,7 @@
 				7D93A58F20582FB1006D37C4 /* MedicamentTableViewCell.swift in Sources */,
 				ACE8ACBF20624AAF00CB96F8 /* QuestionnaireDAO.swift in Sources */,
 				ACD999B720595E3D007A9BF0 /* PrescriptionViewController.swift in Sources */,
+				3099A5F5206338EC0061728B /* EventDAO.swift in Sources */,
 				ACE8ACB92062400D00CB96F8 /* QuestionnaireViewController.swift in Sources */,
 				ACD999B320595E2A007A9BF0 /* AddPrescriptionViewController.swift in Sources */,
 				AC040A382059C2BD00BA9068 /* ShowExercicePhysiqueViewController.swift in Sources */,

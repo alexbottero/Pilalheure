@@ -10,43 +10,53 @@ import Foundation
 class Prescription {
     
     
-    internal let dao : PrescriptionDTO
+    internal let daoPrescription : PrescriptionDTO
+    internal let daoEvent : EventDTO
+    internal let daoRappel : RappelDTO
     var medicament   : MedicamentDTO{
-        return self.dao.medicaments!
+        return self.daoPrescription.medicaments!
     }
     var dateDebut : Date{
-        return self.dao.dateDebut! as Date
+        return self.daoPrescription.dateDebut! as Date
     }
     var dateFin  : Date{
-        return self.dao.dateFin! as Date
+        return self.daoPrescription.dateFin! as Date
     }
     var heureDebut  : Date?{
-        return self.dao.heureDebut! as Date
+        return self.daoPrescription.heureDebut! as Date
     }
     var heureFin : Date?{
-        return self.dao.heureFin! as Date
+        return self.daoPrescription.heureFin! as Date
     }
     var interval : Int64?{
-        return self.dao.intervalle
+        return self.daoPrescription.intervalle
     }
     var heurePrecise : Date?{
-        return self.dao.heurePrecise! as Date
+        return self.daoPrescription.heurePrecise! as Date
     }
     
     init(medicament: MedicamentDTO, dateDebut: Date, dateFin: Date, heureDebut: Date?, heureFin: Date?, intervalle: Int64?, heurePrecise: Date?){
-        guard let dao = PrescriptionDTO.createDTO() else{
+        guard let daoP = PrescriptionDTO.createDTO() else{
             fatalError("unuable to get dao for medicament")
         }
-        self.dao = dao
-        self.dao.medicaments = medicament
-        self.dao.dateDebut = dateDebut as NSDate
-        self.dao.dateFin = dateFin as NSDate
-        self.dao.heureDebut = heureDebut as NSDate?
-        self.dao.heureFin = heureFin as NSDate?
-        if let interval = intervalle{
-            self.dao.intervalle = interval
+        guard let daoR = RappelDTO.createDTO() else{
+            fatalError("unuable to get dao for medicament")
         }
-        self.dao.heurePrecise = heurePrecise as NSDate?
+        guard let daoE = EventDTO.createDTO() else{
+            fatalError("unuable to get dao for medicament")
+        }
+        self.daoPrescription = daoP
+        self.daoEvent = daoE
+        self.daoRappel = daoR
+        self.daoPrescription.medicaments = medicament
+        self.daoPrescription.dateDebut = dateDebut as NSDate
+        self.daoPrescription.dateFin = dateFin as NSDate
+        self.daoPrescription.heureDebut = heureDebut as NSDate?
+        self.daoPrescription.heureFin = heureFin as NSDate?
+        if let interval = intervalle{
+            self.daoPrescription.intervalle = interval
+        }
+        self.daoPrescription.heurePrecise = heurePrecise as NSDate?
         if let hdeb = heureDebut, let hfin = heureFin{
             // convert Date to TimeInterval (typealias for Double)
             let rappels = createRappels(heureDebut: hdeb, heureFin: hfin, intervalle: intervalle)
