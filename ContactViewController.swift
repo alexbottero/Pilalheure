@@ -37,6 +37,7 @@ class ContactViewController: UIViewController,UITableViewDelegate, UITableViewDa
         let cont = self.contactFetched.object(at: indexPath)
         //self.exPresenter.configure(theCell: cell, forExercicePhysique: exPhys)
         cell.nomContact.text = cont.nom
+        
         return cell
         
     }

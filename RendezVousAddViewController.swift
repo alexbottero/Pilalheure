@@ -29,6 +29,8 @@ class RendezVousAddViewController: UIViewController, UIPickerViewDelegate, UIPic
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
+        fetchData()
+        contactPicker.reloadAllComponents()
     }
     
     override func didReceiveMemoryWarning() {
@@ -62,7 +64,7 @@ class RendezVousAddViewController: UIViewController, UIPickerViewDelegate, UIPic
         toolBar.sizeToFit()
         
         // Adding Button ToolBar
-        let doneButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(IntervalleAddPrescriptionViewController.doneClick))
+        let doneButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(RendezVousAddViewController.doneClick))
         toolBar.setItems([doneButton], animated: false)
         toolBar.isUserInteractionEnabled = true
         textField.inputAccessoryView = toolBar
@@ -107,9 +109,9 @@ class RendezVousAddViewController: UIViewController, UIPickerViewDelegate, UIPic
     @IBAction func saveAction(_ sender: Any) {
         let rdv : String = self.contactPickerText.text ?? ""
         let date : Date = self.dateRDV.date
-        
+        print(date)
         guard (rdv != "") else {return}
-        let rendezVous = RendezVous(date: date, contact : selectedContact!)
+        let rendezVous = RendezVous(date: date, contact: selectedContact!)
         RendezVousDTO.add(rendezVous : rendezVous)
         self.dismiss(animated: true, completion: nil)
 

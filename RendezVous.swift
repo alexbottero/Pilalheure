@@ -32,6 +32,7 @@ class RendezVous {
         self.daoE = daoE
         self.dao.events = daoE
         self.dao.contacts = contact
+        self.dao.date = date as NSDate
         let rappel = self.rappels()
         for i in rappel{
             guard let daoR = RappelDTO.createDTO() else{
