@@ -17,7 +17,7 @@ class RendezVousViewController: UIViewController, UITableViewDelegate, UITableVi
     
     fileprivate lazy var rendezVousFetched : NSFetchedResultsController<RendezVousDTO> = {
         let request : NSFetchRequest<RendezVousDTO> = RendezVousDTO.fetchRequest()
-        request.sortDescriptors = [NSSortDescriptor(key:#keyPath(PrescriptionDTO.medicaments.nom), ascending: true)]
+        request.sortDescriptors = [NSSortDescriptor(key:#keyPath(RendezVousDTO.date), ascending: true)]
         let fetchResultController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: CoreDataManager.context, sectionNameKeyPath: nil, cacheName: nil)
         fetchResultController.delegate = self
         return fetchResultController
@@ -44,8 +44,8 @@ class RendezVousViewController: UIViewController, UITableViewDelegate, UITableVi
         let rendezVous = self.rendezVousFetched.object(at: indexPath)
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "HH:mm"
-        let stringDate = dateFormatter.string(from: cell.date! as Date)
-        cell.RDV.text = rendezVous.nom
+        let stringDate = dateFormatter.string(from: rendezVous.date! as Date)
+        cell.RDV.text = rendezVous.contacts?.profession
         cell.date.text = stringDate
         return cell
     }

@@ -29,7 +29,22 @@ class RendezVous {
             fatalError("unuable to get dao for medicament")
         }
         self.dao = dao
+        self.daoE = daoE
+        self.dao.events = daoE
         self.dao.contacts = contact
+        let rappel = self.rappels()
+        for i in rappel{
+            guard let daoR = RappelDTO.createDTO() else{
+                fatalError("unuable to get dao for medicament")
+            }
+            daoR.dateRappel = i as NSDate
+            daoR.events = self.daoE
+        }
+    }
+    
+    func rappels() -> [Date]{
+        let date = [self.date]
+        return date
     }
 }
 

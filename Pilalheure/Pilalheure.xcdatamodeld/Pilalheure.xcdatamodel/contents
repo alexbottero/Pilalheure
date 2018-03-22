@@ -10,9 +10,9 @@
     </entity>
     <entity name="EventDTO" representedClassName="EventDTO" syncable="YES" codeGenerationType="class">
         <relationship name="exercicesPhysiques" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ExercicePhysiqueDTO" inverseName="events" inverseEntity="ExercicePhysiqueDTO" syncable="YES"/>
-        <relationship name="newRelationship" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="RendezVousDTO" syncable="YES"/>
         <relationship name="prescriptions" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PrescriptionDTO" inverseName="events" inverseEntity="PrescriptionDTO" syncable="YES"/>
         <relationship name="rappels" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="RappelDTO" inverseName="events" inverseEntity="RappelDTO" syncable="YES"/>
+        <relationship name="rendezVousS" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="RendezVousDTO" inverseName="events" inverseEntity="RendezVousDTO" syncable="YES"/>
     </entity>
     <entity name="ExercicePhysiqueDTO" representedClassName="ExercicePhysiqueDTO" syncable="YES" codeGenerationType="class">
         <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
@@ -49,6 +49,7 @@
     <entity name="RendezVousDTO" representedClassName="RendezVousDTO" syncable="YES" codeGenerationType="class">
         <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <relationship name="contacts" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ContactDTO" inverseName="rendezVous" inverseEntity="ContactDTO" syncable="YES"/>
+        <relationship name="events" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="EventDTO" inverseName="rendezVousS" inverseEntity="EventDTO" syncable="YES"/>
     </entity>
     <elements>
         <element name="ContactDTO" positionX="187" positionY="225" width="128" height="133"/>
@@ -58,6 +59,6 @@
         <element name="PrescriptionDTO" positionX="99" positionY="-171" width="128" height="163"/>
         <element name="QuestionnaireDTO" positionX="387" positionY="-144" width="128" height="75"/>
         <element name="RappelDTO" positionX="556" positionY="-9" width="128" height="90"/>
-        <element name="RendezVousDTO" positionX="349" positionY="189" width="128" height="73"/>
+        <element name="RendezVousDTO" positionX="387" positionY="198" width="128" height="88"/>
     </elements>
 </model>

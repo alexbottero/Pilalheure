@@ -19,6 +19,7 @@ extension RendezVousDTO{
     }
     
     static func add(rendezVous: RendezVous){
+        CoreDataManager.save()
         /*if self.count(prescription: prescription) > 1{
          CoreDataManager.context.delete(prescription.dao)
          }
@@ -27,19 +28,9 @@ extension RendezVousDTO{
          }*/
     }
     
-    static func count(prescription: RendezVous) -> Int{
-        let predicate = NSPredicate(format:"medicament.nom == %@ AND medicament.dose == %@ AND medicament.unite == %@",prescription.medicament.nom!,prescription.medicament.dose!,prescription.medicament.unite!)
-        self.request.predicate = predicate
-        do{
-            return try CoreDataManager.context.count(for: self.request)
-        }
-        catch{
-            fatalError()
-        }
-    }
     
-    static func delete(prescription : PrescriptionDTO){
-        CoreDataManager.context.delete(prescription)
+    static func delete(rendezVous : RendezVousDTO){
+        CoreDataManager.context.delete(rendezVous)
         CoreDataManager.save()
     }
     

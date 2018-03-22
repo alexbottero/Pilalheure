@@ -109,7 +109,7 @@ class RendezVousAddViewController: UIViewController, UIPickerViewDelegate, UIPic
         let date : Date = self.dateRDV.date
         
         guard (rdv != "") else {return}
-        let rendezVous = RendezVous(dateRDV: date as NSDate)
+        let rendezVous = RendezVous(date: date, contact : selectedContact!)
         RendezVousDTO.add(rendezVous : rendezVous)
         self.dismiss(animated: true, completion: nil)
 

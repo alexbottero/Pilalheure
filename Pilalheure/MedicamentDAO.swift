@@ -19,12 +19,12 @@ extension MedicamentDTO{
     }
     
     static func add(medicament: Medicament){
-        if self.count(medicament: medicament) > 1{
+        /*if self.count(medicament: medicament) > 1{
             CoreDataManager.context.delete(medicament.dao)
         }
         else{
             CoreDataManager.save()
-        }
+        }*/
     }
     
     static func count(medicament: Medicament) -> Int{
