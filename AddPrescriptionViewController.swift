@@ -34,10 +34,6 @@ class AddPrescriptionViewController: UIViewController, UITextFieldDelegate, UITe
                 else {return}
             let medoc : MedicamentDTO? = embedIntervalleAddViewController.selectedMedicament
             let dateDebutPicker : Date = embedIntervalleAddViewController.dateDebutPicker.date
-            /*let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "dd-MM-yyyy"
-            let stringDate = dateFormatter.string(from: datePicker as Date)
-            print(stringDate)*/
             let dateFinPicker : Date = embedIntervalleAddViewController.dateFinPicker.date
             let heureDebutPicker : Date = embedIntervalleAddViewController.heureDebutPicker.date
             let heureFinPicker : Date = embedIntervalleAddViewController.heureFinPicker.date
