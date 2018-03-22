@@ -10,8 +10,21 @@ import UIKit
 import CoreData
 import UserNotifications
 
-class QuestionnaireViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate{
+class QuestionnaireViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, 
+NSFetchedResultsControllerDelegate{
+    
+    var startOfDay: Date{
+        return Calendar.current.startOfDay(for:Date())
+    }
+    let jourAvant: Int = 1
+    
+    @IBAction func switchJour(_ sender: UISegmentedControl) {
+        
+        
+        
 
+        
+    }
     @IBAction func notif() {
         let content = UNMutableNotificationContent()
         content.title = " Questionnaire d'etat"
@@ -144,4 +157,18 @@ extension QuestionnaireViewController: UNUserNotificationCenterDelegate{
             break
         }
     }
+    func dateSynth()-> Date{
+        //retourne le jours voulu en fonction du picker
+        let current : Date  = self.startOfDay
+        let nbJoursAvant = self.jourAvant
+        let jourAvant: Date = Calendar.current.date(byAdding: .day, value: 0-nbJoursAvant , to : current)!
+        return jourAvant
+        /*
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd MMMM yyy HH:mm"
+        dateFormatter.locale = NSLocale(localeIdentifier: "fr_FR") as Locale!
+        dateFormatter.timeZone = TimeZone.current
+        let jourSynthese = dateFormatter.string(from: jourAvant)
+        
+        return jourSynthese    */ }
 }
