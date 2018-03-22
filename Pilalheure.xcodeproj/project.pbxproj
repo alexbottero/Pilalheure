@@ -12,6 +12,8 @@
 		30A38794206037DA0071B0CD /* PrescriptionPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A38793206037DA0071B0CD /* PrescriptionPresenter.swift */; };
 		30D8FE132061C5550065D968 /* Prescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D8FE122061C5550065D968 /* Prescription.swift */; };
 		30D8FE152061C9280065D968 /* PrescriptionDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D8FE142061C9280065D968 /* PrescriptionDAO.swift */; };
+		7D0256212063EBFD00D3062D /* ShowPrescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0256202063EBFD00D3062D /* ShowPrescriptionViewController.swift */; };
+		7D0256232063F7EA00D3062D /* ShowPrescriptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0256222063F7EA00D3062D /* ShowPrescriptionTableViewCell.swift */; };
 		7D43438E2059794F003D01F3 /* MedicamentPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D43438D2059794F003D01F3 /* MedicamentPresenter.swift */; };
 		7D93A55120582604006D37C4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D93A55020582604006D37C4 /* AppDelegate.swift */; };
 		7D93A55320582604006D37C4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D93A55220582604006D37C4 /* ViewController.swift */; };
@@ -82,6 +84,8 @@
 		30A38793206037DA0071B0CD /* PrescriptionPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrescriptionPresenter.swift; sourceTree = "<group>"; };
 		30D8FE122061C5550065D968 /* Prescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prescription.swift; sourceTree = "<group>"; };
 		30D8FE142061C9280065D968 /* PrescriptionDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrescriptionDAO.swift; sourceTree = "<group>"; };
+		7D0256202063EBFD00D3062D /* ShowPrescriptionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowPrescriptionViewController.swift; sourceTree = "<group>"; };
+		7D0256222063F7EA00D3062D /* ShowPrescriptionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowPrescriptionTableViewCell.swift; sourceTree = "<group>"; };
 		7D43438D2059794F003D01F3 /* MedicamentPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MedicamentPresenter.swift; sourceTree = "<group>"; };
 		7D93A54D20582604006D37C4 /* Pilalheure.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pilalheure.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D93A55020582604006D37C4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -267,11 +271,13 @@
 		7DD1E95B205C02FF0096AB44 /* Prescription */ = {
 			isa = PBXGroup;
 			children = (
+				7D0256202063EBFD00D3062D /* ShowPrescriptionViewController.swift */,
 				7DD1E957205C01D30096AB44 /* IntervalleAddPrescriptionViewController.swift */,
 				7DD1E959205C01F80096AB44 /* PrecisAddPrescriptionViewController.swift */,
 				ACD999B620595E3C007A9BF0 /* PrescriptionViewController.swift */,
 				ACD999B420595E36007A9BF0 /* PrescriptionTableViewCell.swift */,
 				ACD999B220595E2A007A9BF0 /* AddPrescriptionViewController.swift */,
+				7D0256222063F7EA00D3062D /* ShowPrescriptionTableViewCell.swift */,
 			);
 			name = Prescription;
 			sourceTree = "<group>";
@@ -493,6 +499,7 @@
 				7DD1E958205C01D30096AB44 /* IntervalleAddPrescriptionViewController.swift in Sources */,
 				7D93A58720582D04006D37C4 /* Medicament.swift in Sources */,
 				AC55BFE520601A7E00478633 /* AddContactViewController.swift in Sources */,
+				7D0256212063EBFD00D3062D /* ShowPrescriptionViewController.swift in Sources */,
 				7D93A55320582604006D37C4 /* ViewController.swift in Sources */,
 				7D9648752062468E0043C5EF /* DateHelper.swift in Sources */,
 				ACD999BB20596240007A9BF0 /* AddExercicePhysiqueViewController.swift in Sources */,
@@ -511,6 +518,7 @@
 				ACD999B720595E3D007A9BF0 /* PrescriptionViewController.swift in Sources */,
 				3099A5F5206338EC0061728B /* EventDAO.swift in Sources */,
 				ACE8ACB92062400D00CB96F8 /* QuestionnaireViewController.swift in Sources */,
+				7D0256232063F7EA00D3062D /* ShowPrescriptionTableViewCell.swift in Sources */,
 				ACD999B320595E2A007A9BF0 /* AddPrescriptionViewController.swift in Sources */,
 				AC040A382059C2BD00BA9068 /* ShowExercicePhysiqueViewController.swift in Sources */,
 				7D9648732062449F0043C5EF /* RappelDAO.swift in Sources */,

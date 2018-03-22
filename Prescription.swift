@@ -12,7 +12,6 @@ class Prescription {
     
     internal let daoPrescription : PrescriptionDTO
     internal let daoEvent : EventDTO
-    internal let daoRappel : RappelDTO
     var medicament   : MedicamentDTO{
         return self.daoPrescription.medicaments!
     }
@@ -37,18 +36,15 @@ class Prescription {
     
     init(medicament: MedicamentDTO, dateDebut: Date, dateFin: Date, heureDebut: Date?, heureFin: Date?, intervalle: Int64?, heurePrecise: Date?){
         guard let daoP = PrescriptionDTO.createDTO() else{
-            fatalError("unuable to get dao for medicament")
-        }
-        guard let daoR = RappelDTO.createDTO() else{
-            fatalError("unuable to get dao for medicament")
+            fatalError("unuable to get dao for prescription")
         }
         guard let daoE = EventDTO.createDTO() else{
-            fatalError("unuable to get dao for medicament")
+            fatalError("unuable to get dao for event")
         }
         self.daoPrescription = daoP
-        self.daoEvent = daoE
-        self.daoRappel = daoR
         self.daoPrescription.medicaments = medicament
+        self.daoEvent = daoE
+        self.daoPrescription.events = daoEvent
         self.daoPrescription.dateDebut = dateDebut as NSDate
         self.daoPrescription.dateFin = dateFin as NSDate
         self.daoPrescription.heureDebut = heureDebut as NSDate?
@@ -57,16 +53,32 @@ class Prescription {
             self.daoPrescription.intervalle = interval
         }
         self.daoPrescription.heurePrecise = heurePrecise as NSDate?
+        var rappels = [Date]()
         if let hdeb = heureDebut, let hfin = heureFin{
             // convert Date to TimeInterval (typealias for Double)
-            let rappels = createRappels(heureDebut: hdeb, heureFin: hfin, intervalle: intervalle)
+            rappels = createRappels(heureDebut: hdeb, heureFin: hfin, intervalle: intervalle)
         }
         else{
             if let hP = heurePrecise{
-               let rappels = createRappels(heurePrecise: hP)
+               rappels = createRappels(heurePrecise: hP)
             }
         }
+        for i in rappels{
+            guard let daoR = RappelDTO.createDTO() else{
+                fatalError("unuable to get dao for rappels")
+            }
+            daoR.dateRappel = i as NSDate
+            daoR.events = self.daoEvent
+        }
+        /*let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd-MM-yyyy 'at' HH:mm"
+        for d in rappels {
+            let stringDate = dateFormatter.string(from: d as Date)
+            print(stringDate)
+        }*/
     }
+    
+    
     
     func createRappels(heureDebut hdeb : Date, heureFin hfin : Date, intervalle inter : Int64?) -> [Date]{
         //intervalle de temps entre 2 dates
@@ -102,8 +114,6 @@ class Prescription {
                 for _ in 0...inter!{
                     date = date + ecart.seconds
                     rappels.append(date)
-                    print(ecart)
-
                 }
             }
             else{
@@ -112,12 +122,6 @@ class Prescription {
             }
             date = date + 1.days
             dDay = calendar.component(.day, from: date)
-        }
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd-MM-yyyy 'at' HH:mm"
-        for d in rappels {
-            let stringDate = dateFormatter.string(from: d as Date)
-            print(stringDate)
         }
         
         
@@ -146,12 +150,7 @@ class Prescription {
             date = date + 1.days
             dDay = calendar.component(.day, from: date)
         }
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd-MM-yyyy 'at' HH:mm"
-        for d in rappels {
-            let stringDate = dateFormatter.string(from: d as Date)
-            print(stringDate)
-        }
+       
         return rappels
     }
 }

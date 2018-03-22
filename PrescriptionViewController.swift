@@ -68,6 +68,13 @@ class PrescriptionViewController: UIViewController, UITableViewDelegate, UITable
         return [delete]
     }
     
+    //MARK: - TableView delegate protocol -
+    
+    
+    func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
+        self.performSegue(withIdentifier: segueShowPrescriptionId, sender: self)
+    }
+    
     //MARK: - NSFetchedResult delegate protocol -
     
     func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
@@ -104,5 +111,17 @@ class PrescriptionViewController: UIViewController, UITableViewDelegate, UITable
         // Pass the selected object to the new view controller.
     }
     */
+    let segueShowPrescriptionId = "showPrescriptionSegue"
+    
+    //passage des informations à la page suivante
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == self.segueShowPrescriptionId{
+            if let indexPath = self.prescriptionTable.indexPathForSelectedRow{
+                let showPrescriptionViewController = segue.destination as! ShowPrescriptionViewController
+                showPrescriptionViewController.prescription = self.prescriptionFetched.object(at: indexPath)
+                self.prescriptionTable.deselectRow(at: indexPath, animated: true)
+            }
+        }
+    }
 
 }
