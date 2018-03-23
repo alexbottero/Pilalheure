@@ -12,6 +12,10 @@ import CoreData
 
 class RendezVousAddViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
     
+    @IBOutlet weak var heureFinField: UITextField!
+    @IBOutlet weak var labelHeureFin: UILabel!
+    @IBOutlet weak var heureDebutField: UITextField!
+    @IBOutlet weak var labelHeureDebut: UILabel!
     @IBOutlet weak var dateRDV: UIDatePicker!
     @IBOutlet weak var contactPickerText: UITextField!
     var data = [ContactDTO]()
@@ -90,6 +94,18 @@ class RendezVousAddViewController: UIViewController, UIPickerViewDelegate, UIPic
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         let oneData = data[row]
         selectedContact = oneData
+        if (selectedContact?.profession == "potier"){
+            labelHeureDebut.isHidden = false
+            labelHeureFin.isHidden = false
+            heureDebutField.isHidden = false
+            heureFinField.isHidden = false
+        }
+        else{
+            labelHeureDebut.isHidden = true
+            labelHeureFin.isHidden = true
+            heureDebutField.isHidden = true
+            heureFinField.isHidden = true
+        }
         return (oneData.nom)
     }
     
