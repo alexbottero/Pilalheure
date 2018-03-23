@@ -150,19 +150,19 @@ class RendezVousAddViewController: UIViewController, UIPickerViewDelegate, UIPic
     
     func donePressedHeureDeb(){
         let dateFormatter = DateFormatter()
-        dateFormatter.dateStyle = .short
-        dateFormatter.timeStyle = .none
+        dateFormatter.dateStyle = .none
+        dateFormatter.timeStyle = .short
         dateFormatter.locale = Locale(identifier: "fr_FR")
-        labelHeureDebut.text = dateFormatter.string(from: heureDebutPicker.date)
+        heureDebutField.text = dateFormatter.string(from: heureDebutPicker.date)
         self.view.endEditing(true)
     }
     
     func donePressedHeureFin(){
         let dateFormatter = DateFormatter()
-        dateFormatter.dateStyle = .short
-        dateFormatter.timeStyle = .none
+        dateFormatter.dateStyle = .none
+        dateFormatter.timeStyle = .short
         dateFormatter.locale = Locale(identifier: "fr_FR")
-        labelHeureFin.text = dateFormatter.string(from: heureFinPicker.date)
+        heureFinField.text = dateFormatter.string(from: heureFinPicker.date)
         self.view.endEditing(true)
     }
     
