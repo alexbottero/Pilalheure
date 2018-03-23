@@ -48,6 +48,8 @@
     </entity>
     <entity name="RendezVousDTO" representedClassName="RendezVousDTO" syncable="YES" codeGenerationType="class">
         <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="heureDebut" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="heureFin" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <relationship name="contacts" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ContactDTO" inverseName="rendezVous" inverseEntity="ContactDTO" syncable="YES"/>
         <relationship name="events" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="EventDTO" inverseName="rendezVousS" inverseEntity="EventDTO" syncable="YES"/>
     </entity>
@@ -59,6 +61,6 @@
         <element name="PrescriptionDTO" positionX="99" positionY="-171" width="128" height="163"/>
         <element name="QuestionnaireDTO" positionX="387" positionY="-144" width="128" height="75"/>
         <element name="RappelDTO" positionX="556" positionY="-9" width="128" height="90"/>
-        <element name="RendezVousDTO" positionX="387" positionY="198" width="128" height="88"/>
+        <element name="RendezVousDTO" positionX="387" positionY="198" width="128" height="120"/>
     </elements>
 </model>

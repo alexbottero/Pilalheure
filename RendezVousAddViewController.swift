@@ -21,7 +21,6 @@ class RendezVousAddViewController: UIViewController, UIPickerViewDelegate, UIPic
     var data = [ContactDTO]()
     let managedObjectContext = CoreDataManager.context
     
-    
     var selectedContact : ContactDTO? = nil
     var contactPicker = UIPickerView()
     
@@ -29,9 +28,13 @@ class RendezVousAddViewController: UIViewController, UIPickerViewDelegate, UIPic
     let heureFinPicker = UIDatePicker()
     
     
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        createDatePicker(Picker: heureDebutPicker, textPicker: heureDebutField, debOuFin: true)
+         createDatePicker(Picker: heureFinPicker, textPicker: heureFinField, debOuFin: false)
         // Do any additional setup after loading the view.
         fetchData()
         contactPicker.reloadAllComponents()
@@ -125,12 +128,60 @@ class RendezVousAddViewController: UIViewController, UIPickerViewDelegate, UIPic
     @IBAction func saveAction(_ sender: Any) {
         let rdv : String = self.contactPickerText.text ?? ""
         let date : Date = self.dateRDV.date
+        let heureDeb : Date = self.heureDebutPicker.date
+        let heureFin : Date = self.heureFinPicker.date
         print(date)
         guard (rdv != "") else {return}
-        let rendezVous = RendezVous(date: date, contact: selectedContact!)
-        RendezVousDTO.add(rendezVous : rendezVous)
+        if (selectedContact?.profession == "potier"){
+            let rendezVous = RendezVous(date: date, contact: selectedContact!,heureDeb:heureDeb, heureFin:heureFin)
+             RendezVousDTO.add(rendezVous : rendezVous)
+            
+        }
+        else{
+            let rendezVous = RendezVous(date: date, contact: selectedContact!,heureDeb:nil, heureFin:nil)
+             RendezVousDTO.add(rendezVous : rendezVous)
+        }
+       
         self.dismiss(animated: true, completion: nil)
 
+    }
+    //MARK : Gestion heures Picker
+    
+    
+    func donePressedHeureDeb(){
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .short
+        dateFormatter.timeStyle = .none
+        dateFormatter.locale = Locale(identifier: "fr_FR")
+        labelHeureDebut.text = dateFormatter.string(from: heureDebutPicker.date)
+        self.view.endEditing(true)
+    }
+    
+    func donePressedHeureFin(){
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .short
+        dateFormatter.timeStyle = .none
+        dateFormatter.locale = Locale(identifier: "fr_FR")
+        labelHeureFin.text = dateFormatter.string(from: heureFinPicker.date)
+        self.view.endEditing(true)
+    }
+    
+    func createDatePicker(Picker picker : UIDatePicker, textPicker text : UITextField, debOuFin value : Bool){
+        let toolbar = UIToolbar()
+        toolbar.sizeToFit()
+        picker.locale = NSLocale(localeIdentifier: "fr_FR") as Locale
+        picker.datePickerMode = .time
+        if(value){
+            let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(donePressedHeureDeb))
+            toolbar.setItems([doneButton], animated: false)
+            text.inputAccessoryView = toolbar
+            }
+        else{
+            let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(donePressedHeureFin))
+            toolbar.setItems([doneButton], animated: false)
+            text.inputAccessoryView = toolbar
+            }
+        text.inputView = picker
     }
     
 }

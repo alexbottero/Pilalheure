@@ -19,9 +19,15 @@ class RendezVous {
     var contact : ContactDTO{
         return self.dao.contacts!
     }
+    var heureDebut : Date{
+        return self.dao.heureDebut! as Date
+    }
     
+    var heureFin : Date{
+        return self.dao.heureFin! as Date
+    }
     
-    init(date: Date, contact: ContactDTO){
+    init(date: Date, contact: ContactDTO, heureDeb : Date?, heureFin : Date?){
         guard let dao = RendezVousDTO.createDTO() else{
             fatalError("unuable to get dao for medicament")
         }
@@ -33,6 +39,8 @@ class RendezVous {
         self.dao.events = daoE
         self.dao.contacts = contact
         self.dao.date = date as NSDate
+        self.dao.heureDebut = heureDeb as NSDate?
+        self.dao.heureFin = heureFin as NSDate?
         let rappel = self.rappels()
         for i in rappel{
             guard let daoR = RappelDTO.createDTO() else{
