@@ -41,8 +41,10 @@ class RendezVous {
         self.dao.date = date as NSDate
         self.dao.heureDebut = heureDeb as NSDate?
         self.dao.heureFin = heureFin as NSDate?
-        let rappel = self.rappels()
-        for i in rappel{
+        var rappels = [Date]()
+        rappels = createRappels(heureRappel: date)
+        
+        for i in rappels{
             guard let daoR = RappelDTO.createDTO() else{
                 fatalError("unuable to get dao for medicament")
             }
@@ -51,9 +53,14 @@ class RendezVous {
         }
     }
     
-    func rappels() -> [Date]{
-        let date = [self.date]
-        return date
+    
+    
+    func createRappels(heureRappel hR : Date) -> [Date]{
+        
+        let heureRappel = Calendar.current.date(byAdding: .hour, value: -1, to: hR)
+        var rappels = [Date]()
+        rappels.append(heureRappel!)
+        return rappels
     }
 }
 

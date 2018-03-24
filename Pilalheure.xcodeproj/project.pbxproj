@@ -172,13 +172,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		6EF2AF342063154F00599858 /* Recovered References */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = "Recovered References";
-			sourceTree = "<group>";
-		};
 		7D93A54420582604006D37C4 = {
 			isa = PBXGroup;
 			children = (
