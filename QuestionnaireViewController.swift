@@ -26,6 +26,12 @@ NSFetchedResultsControllerDelegate{
         
     }
     @IBAction func notif() {
+        let date = Date().addingTimeInterval(5)
+        let timer = Timer(fireAt: date, interval: 0, target: self, selector: #selector(runCode), userInfo: nil, repeats: false)
+        RunLoop.main.add(timer, forMode: RunLoopMode.commonModes)
+    }
+    
+    func runCode(){
         let content = UNMutableNotificationContent()
         content.title = " Questionnaire d'etat"
         content.subtitle = " rendez vous chez le neurologue proche"
@@ -35,6 +41,7 @@ NSFetchedResultsControllerDelegate{
         
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
         let requestIdentifier = "EtatQuestionnaire"
+        
         let request=UNNotificationRequest(identifier: requestIdentifier, content: content, trigger: trigger)
         UNUserNotificationCenter.current().add(request, withCompletionHandler: {
             error in
