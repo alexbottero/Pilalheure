@@ -38,7 +38,7 @@ class AddContactViewController: UIViewController, UIPickerViewDelegate, UIPicker
         
         self.profContact.delegate = self
         self.profContact.dataSource = self
-        pickerData = ["chirugien", "kine", "danseur", "potier"]
+        pickerData = ["chirugien", "neurologue", "danseur", "potier"]
         // Do any additional setup after loading the view.
     }
 
