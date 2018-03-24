@@ -40,6 +40,7 @@
     <entity name="QuestionnaireDTO" representedClassName="QuestionnaireDTO" syncable="YES" codeGenerationType="class">
         <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="etat" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="rendezVousQuestS" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="RendezVousDTO" inverseName="questionnaires" inverseEntity="RendezVousDTO" syncable="YES"/>
     </entity>
     <entity name="RappelDTO" representedClassName="RappelDTO" syncable="YES" codeGenerationType="class">
         <attribute name="dateRappel" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
@@ -52,6 +53,7 @@
         <attribute name="heureFin" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <relationship name="contacts" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ContactDTO" inverseName="rendezVous" inverseEntity="ContactDTO" syncable="YES"/>
         <relationship name="events" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="EventDTO" inverseName="rendezVousS" inverseEntity="EventDTO" syncable="YES"/>
+        <relationship name="questionnaires" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="QuestionnaireDTO" inverseName="rendezVousQuestS" inverseEntity="QuestionnaireDTO" syncable="YES"/>
     </entity>
     <elements>
         <element name="ContactDTO" positionX="187" positionY="225" width="128" height="133"/>
@@ -59,8 +61,8 @@
         <element name="ExercicePhysiqueDTO" positionX="-99" positionY="63" width="128" height="105"/>
         <element name="MedicamentDTO" positionX="-99" positionY="-99" width="128" height="120"/>
         <element name="PrescriptionDTO" positionX="99" positionY="-171" width="128" height="163"/>
-        <element name="QuestionnaireDTO" positionX="387" positionY="-144" width="128" height="75"/>
+        <element name="QuestionnaireDTO" positionX="556" positionY="222" width="128" height="88"/>
         <element name="RappelDTO" positionX="556" positionY="-9" width="128" height="90"/>
-        <element name="RendezVousDTO" positionX="387" positionY="198" width="128" height="120"/>
+        <element name="RendezVousDTO" positionX="387" positionY="198" width="128" height="133"/>
     </elements>
 </model>
