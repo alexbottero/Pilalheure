@@ -19,7 +19,7 @@ extension PrescriptionDTO{
     }
     
     static func add(prescription: Prescription){
-        if self.count(prescription: prescription) > 1{
+        if self.count(prescription: prescription) > 10000{
             CoreDataManager.context.delete(prescription.daoPrescription)
         }
         else{

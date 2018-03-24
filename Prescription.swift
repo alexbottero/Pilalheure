@@ -70,12 +70,12 @@ class Prescription {
             daoR.dateRappel = i as NSDate
             daoR.events = self.daoEvent
         }
-        /*let dateFormatter = DateFormatter()
+        let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd-MM-yyyy 'at' HH:mm"
         for d in rappels {
             let stringDate = dateFormatter.string(from: d as Date)
             print(stringDate)
-        }*/
+        }
     }
     
     
@@ -104,6 +104,7 @@ class Prescription {
         }
         var dDay = calendar.component(.day, from: date)
         let dEnd = calendar.component(.day, from: dateFin)
+        print("hello")
         while dDay <= dEnd {
             var componentsD = gregorian.dateComponents([.year, .month, .day, .hour, .minute, .second], from: date)
             componentsD.hour = componentsHD.hour
