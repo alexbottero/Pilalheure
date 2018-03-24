@@ -172,13 +172,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		6EF2AF342063154F00599858 /* Recovered References */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = "Recovered References";
-			sourceTree = "<group>";
-		};
 		7D93A54420582604006D37C4 = {
 			isa = PBXGroup;
 			children = (
@@ -246,6 +239,8 @@
 				ACE8ACB12061BE5C00CB96F8 /* ContactDAO.swift */,
 				ACE8ACBE20624AAF00CB96F8 /* QuestionnaireDAO.swift */,
 				AC0198372063FD1500754733 /* RendezVousDAO.swift */,
+				30D8FE142061C9280065D968 /* PrescriptionDAO.swift */,
+				7D9648722062449F0043C5EF /* RappelDAO.swift */,
 			);
 			name = DAO;
 			sourceTree = "<group>";
@@ -258,6 +253,7 @@
 				ACE8ACB32061BEEA00CB96F8 /* Contact.swift */,
 				ACE8ACC420624C9300CB96F8 /* Questionnaire.swift */,
 				AC0198392063FF1200754733 /* RendezVous.swift */,
+				30D8FE122061C5550065D968 /* Prescription.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -295,9 +291,6 @@
 		AC0198232062C53600754733 /* Recovered References */ = {
 			isa = PBXGroup;
 			children = (
-				30D8FE122061C5550065D968 /* Prescription.swift */,
-				30D8FE142061C9280065D968 /* PrescriptionDAO.swift */,
-				7D9648722062449F0043C5EF /* RappelDAO.swift */,
 			);
 			name = "Recovered References";
 			sourceTree = "<group>";
