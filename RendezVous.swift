@@ -62,5 +62,39 @@ class RendezVous {
         rappels.append(heureRappel!)
         return rappels
     }
+    
+    
+   func createRappels(heureDebut hdeb : Date, heureFin hfin : Date, dateDebut debut : Date, dateFin fin : Date) -> [Date]{
+        //intervalle de temps entre 2 dates
+        let timeInterval = hfin.timeIntervalSince(hdeb)
+        // conversion en Int
+        let dif = Int64(timeInterval)
+        //Si intervalle > 0 -> in faut ajouter autant de rappel que necessaire
+        
+        //création du tableau de rappels
+        var rappels = [Date]()
+        let gregorian = Calendar(identifier: .gregorian)
+        //création des composants pour effectuer les changement de dates -> Jour date Debut + heure de heure Debut
+        let componentsDD = gregorian.dateComponents([.year, .month, .day, .hour, .minute, .second], from: fin)
+        var componentsHD = gregorian.dateComponents([.year, .month, .day, .hour, .minute, .second], from: hdeb)
+        
+        //change the time
+        var date = gregorian.date(from: componentsDD)!
+        var dDay = calendar.component(.day, from: date)
+        let dEnd = calendar.component(.day, from: debut)
+        while dDay <= dEnd {
+            var componentsD = gregorian.dateComponents([.year, .month, .day, .hour, .minute, .second], from: date)
+            componentsD.hour = componentsHD.hour
+            componentsD.minute = componentsHD.minute
+            date = gregorian.date(from: componentsD)!
+            rappels.append(date)
+            for _ in 0...dif{
+                date = date + 1.hours
+                rappels.append(date)}
+            date = date + 1.days
+            dDay = calendar.component(.day, from: date)
+        }
+        return rappels
+    }
 }
 

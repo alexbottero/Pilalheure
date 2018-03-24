@@ -147,7 +147,6 @@ extension QuestionnaireViewController: UNUserNotificationCenterDelegate{
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
         switch response.actionIdentifier {
         case "reponse1":
-            print("hello")
             let date = Date()
             let quest = Questionnaire(etat: "actif", date: date as NSDate)
             QuestionnaireDTO.add(quest: quest)
