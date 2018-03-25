@@ -34,7 +34,7 @@ class Rappel {
         switch type {
         case 1:
             content.title = "Rappel Activité "
-            content.body = "Vous avez une activité à faire : "
+            content.body = "Vous avez une activité à faire : " + (daoE.exercicesPhysiques?.nom)!
             content.sound = UNNotificationSound.default()
             requestIdentifier = "RappelAct"
             

@@ -35,8 +35,9 @@ class ExercicePhysique {
         self.dao.descript = descript
         self.dao.date = date
         self.daoE = daoE
-        
+        self.daoE.exercicesPhysiques = dao
         let _ = Rappel(date: date as Date, type: 1, event: daoE)
-        
+
+            
     }
 }
