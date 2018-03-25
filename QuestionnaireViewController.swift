@@ -141,6 +141,7 @@ NSFetchedResultsControllerDelegate{
 
 }
 extension QuestionnaireViewController: UNUserNotificationCenterDelegate{
+    
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         completionHandler([.alert, .sound])
     }
@@ -163,18 +164,4 @@ extension QuestionnaireViewController: UNUserNotificationCenterDelegate{
             break
         }
     }
-    func dateSynth()-> Date{
-        //retourne le jours voulu en fonction du picker
-        let current : Date  = self.startOfDay
-        let nbJoursAvant = self.jourAvant
-        let jourAvant: Date = Calendar.current.date(byAdding: .day, value: 0-nbJoursAvant , to : current)!
-        return jourAvant
-        /*
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd MMMM yyy HH:mm"
-        dateFormatter.locale = NSLocale(localeIdentifier: "fr_FR") as Locale!
-        dateFormatter.timeZone = TimeZone.current
-        let jourSynthese = dateFormatter.string(from: jourAvant)
-        
-        return jourSynthese    */ }
 }
