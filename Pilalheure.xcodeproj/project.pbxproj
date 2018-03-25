@@ -45,6 +45,7 @@
 		AC55BFE520601A7E00478633 /* AddContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC55BFE420601A7E00478633 /* AddContactViewController.swift */; };
 		AC55BFE720601A9800478633 /* ShowContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC55BFE620601A9800478633 /* ShowContactViewController.swift */; };
 		AC55BFEC20605EA600478633 /* ContactTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC55BFEB20605EA600478633 /* ContactTableViewCell.swift */; };
+		AC5AF1812067E2B900E0A6FB /* Rappel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5AF1802067E2B900E0A6FB /* Rappel.swift */; };
 		AC7AB20420586EA800CA5DED /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7AB20320586EA800CA5DED /* MenuViewController.swift */; };
 		AC7AB2072058780100CA5DED /* ActiviteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7AB2062058780100CA5DED /* ActiviteViewController.swift */; };
 		AC7AB2082058780100CA5DED /* ActiviteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7AB2062058780100CA5DED /* ActiviteViewController.swift */; };
@@ -128,6 +129,7 @@
 		AC55BFE420601A7E00478633 /* AddContactViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddContactViewController.swift; sourceTree = "<group>"; };
 		AC55BFE620601A9800478633 /* ShowContactViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowContactViewController.swift; sourceTree = "<group>"; };
 		AC55BFEB20605EA600478633 /* ContactTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactTableViewCell.swift; sourceTree = "<group>"; };
+		AC5AF1802067E2B900E0A6FB /* Rappel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rappel.swift; sourceTree = "<group>"; };
 		AC7AB20320586EA800CA5DED /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		AC7AB2062058780100CA5DED /* ActiviteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiviteViewController.swift; sourceTree = "<group>"; };
 		AC7AB20920587D7A00CA5DED /* ActiviteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiviteTableViewCell.swift; sourceTree = "<group>"; };
@@ -254,6 +256,7 @@
 				ACE8ACC420624C9300CB96F8 /* Questionnaire.swift */,
 				AC0198392063FF1200754733 /* RendezVous.swift */,
 				30D8FE122061C5550065D968 /* Prescription.swift */,
+				AC5AF1802067E2B900E0A6FB /* Rappel.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -502,6 +505,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7D93A55920582604006D37C4 /* Pilalheure.xcdatamodeld in Sources */,
+				AC5AF1812067E2B900E0A6FB /* Rappel.swift in Sources */,
 				ACD999AD205933C1007A9BF0 /* ExercicePhysiqueTableViewCell.swift in Sources */,
 				AC0198382063FD1500754733 /* RendezVousDAO.swift in Sources */,
 				ACE8ACB42061BEEA00CB96F8 /* Contact.swift in Sources */,
