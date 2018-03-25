@@ -45,7 +45,6 @@ class RendezVous {
         let rappelRdv: Date = createRappels(heureRappel: date)
         
         if (contact.profession == "neurologue"){
-            print("salut")
             rappelsQuestionnaire = createRappels(heureDebut: heureDeb!, heureFin: heureFin!, dateFin: date)
         }
         
@@ -70,8 +69,6 @@ class RendezVous {
         let heureRappel = Calendar.current.date(byAdding: .hour, value: -1, to: hR)
         var rappel : Date
         rappel = heureRappel!
-        print("hRDV")
-        print(rappel)
         return rappel
     }
     
@@ -83,7 +80,6 @@ class RendezVous {
         // conversion en Int
         let dif = Int64(timeInterval)
         let heures : Int64 = dif/3600
-        print(heures)
         //Si intervalle > 0 -> in faut ajouter autant de rappel que necessaire
         
         //création du tableau de rappels
@@ -96,12 +92,10 @@ class RendezVous {
         //change the time
         var date = gregorian.date(from: componentsDD)!
         var dDay = calendar.component(.day, from: date)
-        print(dDay)
     
         let dEnd = calendar.component(.day, from: fin)
         print(dEnd)
         while dDay <= dEnd {
-            print("ici")
             var componentsD = gregorian.dateComponents([.year, .month, .day, .hour, .minute, .second], from: date)
             componentsD.hour = componentsHD.hour
             componentsD.minute = componentsHD.minute
