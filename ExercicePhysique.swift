@@ -36,11 +36,7 @@ class ExercicePhysique {
         self.dao.date = date
         self.daoE = daoE
         
-        guard let daoR = RappelDTO.createDTO() else{
-            fatalError("unuable to get dao for Rappel")
-        }
-        daoR.dateRappel = date as NSDate
-        daoR.events = self.daoE
+        let _ = Rappel(date: date as Date, type: 1, event: daoE)
         
     }
 }

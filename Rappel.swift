@@ -18,13 +18,12 @@ class Rappel {
     }
    
     
-    init(date : Date, type : Int){
+    init(date : Date, type : Int, event :EventDTO){
         guard let dao = RappelDTO.createDTO() else{
             fatalError("unuable to get dao for Rappel")
         }
-        guard let daoE = EventDTO.createDTO() else{
-            fatalError("unuable to get dao for Event")
-        }
+        let daoE = event
+
         self.dao = dao
         self.daoE = daoE
         self.dao.dateRappel = date as NSDate
@@ -35,7 +34,7 @@ class Rappel {
         switch type {
         case 1:
             content.title = "Rappel Activité "
-            content.body = "Vous avez une activité à faire : " + (daoE.exercicesPhysiques?.nom)!
+            content.body = "Vous avez une activité à faire : "
             content.sound = UNNotificationSound.default()
             requestIdentifier = "RappelAct"
             
