@@ -12,7 +12,7 @@ class PrescriptionTableViewCell: UITableViewCell {
 
     @IBOutlet weak var nomMedicament: UILabel!
     @IBOutlet weak var dateMedicament: UILabel!
-    
+        
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

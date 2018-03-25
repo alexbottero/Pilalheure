@@ -10,6 +10,7 @@
 		308A33332059F4C700A67BF4 /* ShowMedicamentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308A33322059F4C700A67BF4 /* ShowMedicamentViewController.swift */; };
 		3099A5F5206338EC0061728B /* EventDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3099A5F4206338EC0061728B /* EventDAO.swift */; };
 		30A38794206037DA0071B0CD /* PrescriptionPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A38793206037DA0071B0CD /* PrescriptionPresenter.swift */; };
+		30BBCA81206826CE002E0014 /* Futura.ttc in Resources */ = {isa = PBXBuildFile; fileRef = 30BBCA7F2068268A002E0014 /* Futura.ttc */; };
 		30D8FE132061C5550065D968 /* Prescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D8FE122061C5550065D968 /* Prescription.swift */; };
 		30D8FE152061C9280065D968 /* PrescriptionDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D8FE142061C9280065D968 /* PrescriptionDAO.swift */; };
 		7D0256212063EBFD00D3062D /* ShowPrescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0256202063EBFD00D3062D /* ShowPrescriptionViewController.swift */; };
@@ -88,6 +89,7 @@
 		308A33322059F4C700A67BF4 /* ShowMedicamentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowMedicamentViewController.swift; sourceTree = "<group>"; };
 		3099A5F4206338EC0061728B /* EventDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDAO.swift; sourceTree = "<group>"; };
 		30A38793206037DA0071B0CD /* PrescriptionPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrescriptionPresenter.swift; sourceTree = "<group>"; };
+		30BBCA7F2068268A002E0014 /* Futura.ttc */ = {isa = PBXFileReference; lastKnownFileType = file; path = Futura.ttc; sourceTree = "<group>"; };
 		30D8FE122061C5550065D968 /* Prescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prescription.swift; sourceTree = "<group>"; };
 		30D8FE142061C9280065D968 /* PrescriptionDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrescriptionDAO.swift; sourceTree = "<group>"; };
 		7D0256202063EBFD00D3062D /* ShowPrescriptionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowPrescriptionViewController.swift; sourceTree = "<group>"; };
@@ -174,9 +176,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		30BBCA7C206824E4002E0014 /* Futura */ = {
+			isa = PBXGroup;
+			children = (
+				30BBCA7F2068268A002E0014 /* Futura.ttc */,
+			);
+			path = Futura;
+			sourceTree = "<group>";
+		};
 		7D93A54420582604006D37C4 = {
 			isa = PBXGroup;
 			children = (
+				30BBCA7C206824E4002E0014 /* Futura */,
 				AC040A4D205A05A700BA9068 /* Class Helpers */,
 				AC040A3E2059E8C800BA9068 /* Presenter */,
 				7D93A58A20582F28006D37C4 /* Controlleur */,
@@ -477,6 +488,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				30BBCA81206826CE002E0014 /* Futura.ttc in Resources */,
 				7D93A55E20582604006D37C4 /* LaunchScreen.storyboard in Resources */,
 				7D93A55B20582604006D37C4 /* Assets.xcassets in Resources */,
 				7D93A55620582604006D37C4 /* Main.storyboard in Resources */,
