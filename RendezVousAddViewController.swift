@@ -97,7 +97,7 @@ class RendezVousAddViewController: UIViewController, UIPickerViewDelegate, UIPic
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         let oneData = data[row]
         selectedContact = oneData
-        if (selectedContact?.profession == "potier"){
+        if (selectedContact?.profession == "neurologue"){
             labelHeureDebut.isHidden = false
             labelHeureFin.isHidden = false
             heureDebutField.isHidden = false
@@ -132,7 +132,7 @@ class RendezVousAddViewController: UIViewController, UIPickerViewDelegate, UIPic
         let heureFin : Date = self.heureFinPicker.date
         print(date)
         guard (rdv != "") else {return}
-        if (selectedContact?.profession == "potier"){
+        if (selectedContact?.profession == "neurologue"){
             let rendezVous = RendezVous(date: date, contact: selectedContact!,heureDeb:heureDeb, heureFin:heureFin)
              RendezVousDTO.add(rendezVous : rendezVous)
             

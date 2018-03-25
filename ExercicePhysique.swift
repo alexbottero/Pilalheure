@@ -10,6 +10,8 @@ import Foundation
 
 class ExercicePhysique {
     internal let dao : ExercicePhysiqueDTO
+    internal let daoE : EventDTO
+    
     var nom   : String{
         return self.dao.nom!
     }
@@ -25,9 +27,20 @@ class ExercicePhysique {
         guard let dao = ExercicePhysiqueDTO.createDTO() else{
             fatalError("unuable to get dao for ExercicePhysique")
         }
+        guard let daoE = EventDTO.createDTO() else{
+            fatalError("unuable to get dao for Event")
+        }
         self.dao = dao
         self.dao.nom = nom
         self.dao.descript = descript
         self.dao.date = date
+        self.daoE = daoE
+        
+        guard let daoR = RappelDTO.createDTO() else{
+            fatalError("unuable to get dao for Rappel")
+        }
+        daoR.dateRappel = date as NSDate
+        daoR.events = self.daoE
+        
     }
 }
