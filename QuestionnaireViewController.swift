@@ -13,6 +13,8 @@ import UserNotifications
 class QuestionnaireViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, 
 NSFetchedResultsControllerDelegate{
     
+    var rendezVous : RendezVousDTO? = nil
+    
     var startOfDay: Date{
         return Calendar.current.startOfDay(for:Date())
     }

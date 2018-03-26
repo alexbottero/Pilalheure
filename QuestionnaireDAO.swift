@@ -37,4 +37,27 @@ extension QuestionnaireDTO{
             fatalError()
         }
     }
+    
+    static func selectPerDay(Rdv: RendezVousDTO, jour: Int) -> [NSObject]{
+        let d = Calendar.current.date(byAdding: .day, value: -jour, to: Rdv.date! as Date)
+        let gregorian = Calendar(identifier: .gregorian)
+        //création des composants pour effectuer les changement de dates -> Jour date Debut + heure de heure Debut
+        var componentsDD = gregorian.dateComponents([.year, .month, .day, .hour, .minute, .second], from: d!)
+        //change the time
+        componentsDD.hour = 0
+        componentsDD.minute = 0
+        let dateD = gregorian.date(from: componentsDD)!
+        let v = Calendar.current.date(byAdding: .day, value: -jour+1, to: Rdv.date! as Date)
+        componentsDD = gregorian.dateComponents([.year, .month, .day, .hour, .minute, .second], from: v!)
+        let dateF = gregorian.date(from: componentsDD)!
+        let predicate = NSPredicate(format:"date < %@ AND date > %@", dateD as CVarArg, dateF as CVarArg)
+        self.request.predicate = predicate
+        do{
+            return try CoreDataManager.context.fetch(self.request)
+        }
+        catch{
+            fatalError()
+        }
+        
+    }
 }

@@ -16,6 +16,8 @@
 		7D0256212063EBFD00D3062D /* ShowPrescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0256202063EBFD00D3062D /* ShowPrescriptionViewController.swift */; };
 		7D0256232063F7EA00D3062D /* ShowPrescriptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0256222063F7EA00D3062D /* ShowPrescriptionTableViewCell.swift */; };
 		7D43438E2059794F003D01F3 /* MedicamentPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D43438D2059794F003D01F3 /* MedicamentPresenter.swift */; };
+		7D7BEDAE20691E4300B36F6C /* QuestionnaireRendezVousViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D7BEDAD20691E4300B36F6C /* QuestionnaireRendezVousViewController.swift */; };
+		7D7BEDB020691E9D00B36F6C /* QuestionnaireRendezVousTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D7BEDAF20691E9D00B36F6C /* QuestionnaireRendezVousTableViewCell.swift */; };
 		7D93A55120582604006D37C4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D93A55020582604006D37C4 /* AppDelegate.swift */; };
 		7D93A55320582604006D37C4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D93A55220582604006D37C4 /* ViewController.swift */; };
 		7D93A55620582604006D37C4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D93A55420582604006D37C4 /* Main.storyboard */; };
@@ -95,6 +97,8 @@
 		7D0256202063EBFD00D3062D /* ShowPrescriptionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowPrescriptionViewController.swift; sourceTree = "<group>"; };
 		7D0256222063F7EA00D3062D /* ShowPrescriptionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowPrescriptionTableViewCell.swift; sourceTree = "<group>"; };
 		7D43438D2059794F003D01F3 /* MedicamentPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MedicamentPresenter.swift; sourceTree = "<group>"; };
+		7D7BEDAD20691E4300B36F6C /* QuestionnaireRendezVousViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionnaireRendezVousViewController.swift; sourceTree = "<group>"; };
+		7D7BEDAF20691E9D00B36F6C /* QuestionnaireRendezVousTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionnaireRendezVousTableViewCell.swift; sourceTree = "<group>"; };
 		7D93A54D20582604006D37C4 /* Pilalheure.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pilalheure.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D93A55020582604006D37C4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7D93A55220582604006D37C4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -377,6 +381,8 @@
 			children = (
 				ACE8ACB82062400D00CB96F8 /* QuestionnaireViewController.swift */,
 				ACE8ACBC206244D700CB96F8 /* QuestionnaireTableViewCell.swift */,
+				7D7BEDAD20691E4300B36F6C /* QuestionnaireRendezVousViewController.swift */,
+				7D7BEDAF20691E9D00B36F6C /* QuestionnaireRendezVousTableViewCell.swift */,
 			);
 			name = Questionnaire;
 			sourceTree = "<group>";
@@ -541,6 +547,8 @@
 				AC55BFE120601A2E00478633 /* ContactViewController.swift in Sources */,
 				7DD1E958205C01D30096AB44 /* IntervalleAddPrescriptionViewController.swift in Sources */,
 				7D93A58720582D04006D37C4 /* Medicament.swift in Sources */,
+				7D7BEDAE20691E4300B36F6C /* QuestionnaireRendezVousViewController.swift in Sources */,
+				7D7BEDB020691E9D00B36F6C /* QuestionnaireRendezVousTableViewCell.swift in Sources */,
 				AC55BFE520601A7E00478633 /* AddContactViewController.swift in Sources */,
 				7D0256212063EBFD00D3062D /* ShowPrescriptionViewController.swift in Sources */,
 				7D93A55320582604006D37C4 /* ViewController.swift in Sources */,
