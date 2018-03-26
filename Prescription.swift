@@ -54,13 +54,13 @@ class Prescription {
         }
         self.daoPrescription.heurePrecise = heurePrecise as NSDate?
         var rappels = [Date]()
-        if let hdeb = heureDebut, let hfin = heureFin{
-            // convert Date to TimeInterval (typealias for Double)
-            rappels = createRappels(heureDebut: hdeb, heureFin: hfin, intervalle: intervalle)
-        }
-        else{
-            if let hP = heurePrecise{
-               rappels = createRappels(heurePrecise: hP)
+        if let hdeb = heureDebut{
+            if let hfin = heureFin{
+                print("hello")
+                rappels = createRappels(heureDebut: hdeb, heureFin: hfin, intervalle: intervalle)
+            }
+            else{
+                rappels = createRappels(heurePrecise: heureDebut!)
             }
         }
         for i in rappels{
@@ -104,7 +104,6 @@ class Prescription {
         }
         var dDay = calendar.component(.day, from: date)
         let dEnd = calendar.component(.day, from: dateFin)
-        print("hello")
         while dDay <= dEnd {
             var componentsD = gregorian.dateComponents([.year, .month, .day, .hour, .minute, .second], from: date)
             componentsD.hour = componentsHD.hour

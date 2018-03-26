@@ -36,12 +36,20 @@ class AddPrescriptionViewController: UIViewController, UITextFieldDelegate, UITe
             let dateDebutPicker : Date = embedIntervalleAddViewController.dateDebutPicker.date
             let dateFinPicker : Date = embedIntervalleAddViewController.dateFinPicker.date
             let heureDebutPicker : Date = embedIntervalleAddViewController.heureDebutPicker.date
-            let heureFinPicker : Date = embedIntervalleAddViewController.heureFinPicker.date
+            let heureFinPicker : Date? = embedIntervalleAddViewController.heureFinPicker.date
             let intervalle : String = embedIntervalleAddViewController.intervalleText.text!
             let number: Int64? = Int64(intervalle)
             guard let medoc2 = medoc else {return}
-            let prescription = Prescription(medicament: medoc2, dateDebut: dateDebutPicker, dateFin: dateFinPicker, heureDebut: heureDebutPicker, heureFin: heureFinPicker, intervalle: number, heurePrecise: nil)
-            PrescriptionDTO.add(prescription: prescription)
+            if(embedIntervalleAddViewController.heureDebutPickerText.text != ""){
+                if(embedIntervalleAddViewController.heureFinPickerText.text != ""){
+                    let prescription = Prescription(medicament: medoc2, dateDebut: dateDebutPicker, dateFin: dateFinPicker, heureDebut: heureDebutPicker, heureFin: heureFinPicker, intervalle: number, heurePrecise: nil)
+                    PrescriptionDTO.add(prescription: prescription)
+                }
+                else{
+                    let prescription = Prescription(medicament: medoc2, dateDebut: dateDebutPicker, dateFin: dateFinPicker, heureDebut: heureDebutPicker, heureFin: nil, intervalle: number, heurePrecise: nil)
+                    PrescriptionDTO.add(prescription: prescription)
+                }
+            }
         }
         else {
             guard let embedPrecisAddViewController = self.childViewControllers[0] as? PrecisAddPrescriptionViewController
