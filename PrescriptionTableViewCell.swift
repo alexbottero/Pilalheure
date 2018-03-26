@@ -11,8 +11,9 @@ import UIKit
 class PrescriptionTableViewCell: UITableViewCell {
 
     @IBOutlet weak var nomMedicament: UILabel!
-    @IBOutlet weak var dateMedicament: UILabel!
-        
+    @IBOutlet weak var doseMedicament: UILabel!
+    @IBOutlet weak var uniteMedicament: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

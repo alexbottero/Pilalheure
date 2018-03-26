@@ -9,6 +9,8 @@
 import Foundation
 class PrescriptionPresenter : NSObject{
     fileprivate var nomMedicament : String = ""
+    fileprivate var doseMedicament : String = ""
+    fileprivate var uniteMedicament : String = ""
     
     fileprivate var prescription : PrescriptionDTO? = nil {
         didSet{
@@ -17,10 +19,21 @@ class PrescriptionPresenter : NSObject{
                     self.nomMedicament = pmedoc.capitalized
                 }
                 else { self.nomMedicament = " - " }
+                if let dmedoc = prescription.medicaments?.dose{
+                    self.doseMedicament = dmedoc.capitalized
+                }
+                else { self.doseMedicament = " - " }
+                if let umedoc = prescription.medicaments?.unite{
+                    self.uniteMedicament = umedoc.capitalized
+                }
+                else { self.uniteMedicament = " - " }
             }
             else{
                 self.nomMedicament = ""
+                self.doseMedicament = ""
+                self.uniteMedicament = ""
             }
+            
         }
     }
     
@@ -28,6 +41,8 @@ class PrescriptionPresenter : NSObject{
         self.prescription = forPrescription
         guard let cell = theCell else { return }
         cell.nomMedicament.text = self.nomMedicament
+        cell.doseMedicament.text = self.doseMedicament
+        cell.uniteMedicament.text = self.uniteMedicament
 
     }
 }

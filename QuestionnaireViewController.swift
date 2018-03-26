@@ -19,12 +19,16 @@ NSFetchedResultsControllerDelegate{
     let jourAvant: Int = 1
     
     @IBAction func switchJour(_ sender: UISegmentedControl) {
-        
-        
-        
-
-        
+        if sender.selectedSegmentIndex == 0 {
+            UIView.animate(withDuration: 0.5, animations: {
+            })
+        } else {
+            UIView.animate(withDuration: 0.5, animations: {
+                
+            })
+        }
     }
+    
     @IBAction func notif() {
         let date = Date().addingTimeInterval(5)
         let timer = Timer(fireAt: date, interval: 0, target: self, selector: #selector(runCode), userInfo: nil, repeats: false)
