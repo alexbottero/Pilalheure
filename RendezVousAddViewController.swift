@@ -18,7 +18,7 @@ class RendezVousAddViewController: UIViewController, UIPickerViewDelegate, UIPic
     @IBOutlet weak var labelHeureDebut: UILabel!
     @IBOutlet weak var dateRDV: UIDatePicker!
     @IBOutlet weak var contactPickerText: UITextField!
-    var data = [ContactDTO]()
+    var data = [ContactDTO?]()
     let managedObjectContext = CoreDataManager.context
     
     var selectedContact : ContactDTO? = nil
@@ -111,11 +111,11 @@ class RendezVousAddViewController: UIViewController, UIPickerViewDelegate, UIPic
             heureDebutField.isHidden = true
             heureFinField.isHidden = true
         }
-        return (oneData.nom)
+        return (oneData?.nom)
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        self.contactPickerText.text = data[row].nom
+        self.contactPickerText.text = data[row]?.nom
     }
     //MARK:- TextFiled Delegate
     

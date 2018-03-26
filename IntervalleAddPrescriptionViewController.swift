@@ -11,7 +11,7 @@ import CoreData
 
 class IntervalleAddPrescriptionViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
 
-    var data = [MedicamentDTO]()
+    var data = [MedicamentDTO?]()
     let managedObjectContext = CoreDataManager.context
     @IBOutlet weak var medicamentPickerText: UITextField!
     @IBOutlet weak var dateDebutPickerText: UITextField!
@@ -170,12 +170,12 @@ class IntervalleAddPrescriptionViewController: UIViewController, UIPickerViewDel
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         let oneData = data[row]
         selectedMedicament = oneData
-        return (oneData.nom)
+        return (oneData?.nom)
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        self.medicamentPickerText.text = data[row].nom
-    }
+        self.medicamentPickerText.text = data[row]?.nom
+        }
     //MARK:- TextFiled Delegate
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
