@@ -15,14 +15,36 @@ NSFetchedResultsControllerDelegate{
     
     var rendezVous : RendezVousDTO? = nil
     
+    var data : [Questionnaire]? = nil
+    
     var startOfDay: Date{
         return Calendar.current.startOfDay(for:Date())
     }
     let jourAvant: Int = 1
     
+    
+    func QuestionWithRendezVous(rendezVous rdv : RendezVousDTO?) throws -> [Questionnaire]?{
+        
+        let context = CoreDataManager.context
+        let request: NSFetchRequest<QuestionnaireDTO> = QuestionnaireDTO.fetchRequest()
+        
+        request.predicate = NSPredicate(format: "rendezVousQuestS.contacts.nom == %@", (rdv?.contacts?.nom)!)
+        
+        return try context.fetch(request as! NSFetchRequest<NSFetchRequestResult>) as! [Questionnaire]
+    }
+    
     @IBAction func switchJour(_ sender: UISegmentedControl) {
         if sender.selectedSegmentIndex == 0 {
             UIView.animate(withDuration: 0.5, animations: {
+                /*do{
+                    let data2 = try QuestionWithRendezVous(self.rendezVous){
+                        print("hello")
+                    }
+                } catch let error as NSError{
+                    DialogBoxHelper.alert(view: self, error: error)
+                }*/
+                    
+                
             })
         } else {
             UIView.animate(withDuration: 0.5, animations: {
