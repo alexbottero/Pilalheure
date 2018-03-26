@@ -605,39 +605,45 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="prescriptionCell" rowHeight="132" id="wk5-O1-u2R" customClass="PrescriptionTableViewCell" customModule="Pilalheure" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="132"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="prescriptionCell" rowHeight="72" id="wk5-O1-u2R" customClass="PrescriptionTableViewCell" customModule="Pilalheure" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="72"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wk5-O1-u2R" id="GJS-fD-04t">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="131.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="71.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="dateMedicament" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Usq-c6-J4l">
-                                                    <rect key="frame" x="166" y="12" width="129" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NCG-Kf-5Cq">
+                                                    <rect key="frame" x="245" y="18" width="49" height="26"/>
+                                                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="nomMedicament" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M3T-qr-ucX">
-                                                    <rect key="frame" x="8" y="12" width="129" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c8K-2C-tLb">
+                                                    <rect key="frame" x="302" y="18" width="49" height="26"/>
+                                                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="blf-O0-QjT">
-                                                    <rect key="frame" x="15" y="100" width="42" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="nomMedicament" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M3T-qr-ucX">
+                                                    <rect key="frame" x="8" y="17" width="158.5" height="27.5"/>
+                                                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="21"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="c8K-2C-tLb" firstAttribute="top" secondItem="GJS-fD-04t" secondAttribute="topMargin" constant="7" id="J2Q-GW-LkW"/>
+                                                <constraint firstItem="M3T-qr-ucX" firstAttribute="top" secondItem="GJS-fD-04t" secondAttribute="topMargin" constant="6" id="ZaW-Wh-jGl"/>
+                                                <constraint firstItem="NCG-Kf-5Cq" firstAttribute="top" secondItem="GJS-fD-04t" secondAttribute="topMargin" constant="7" id="b3w-17-uvQ"/>
+                                                <constraint firstItem="c8K-2C-tLb" firstAttribute="leading" secondItem="NCG-Kf-5Cq" secondAttribute="trailing" constant="8" id="etA-U2-ytU"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="c8K-2C-tLb" secondAttribute="trailing" constant="9" id="gBg-7g-dap"/>
+                                                <constraint firstItem="M3T-qr-ucX" firstAttribute="leading" secondItem="GJS-fD-04t" secondAttribute="leading" constant="8" id="lan-NW-92R"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="dateMedicament" destination="Usq-c6-J4l" id="r3Y-gj-2pq"/>
+                                            <outlet property="doseMedicament" destination="NCG-Kf-5Cq" id="xak-hz-LMs"/>
                                             <outlet property="nomMedicament" destination="M3T-qr-ucX" id="eHu-ia-148"/>
+                                            <outlet property="uniteMedicament" destination="c8K-2C-tLb" id="PCR-eb-pLk"/>
                                             <segue destination="rWK-cG-xcc" kind="show" identifier="showPrescriptionSegue" id="HOZ-Ea-I6G"/>
                                         </connections>
                                     </tableViewCell>
@@ -1204,34 +1210,29 @@
                                             <rect key="frame" x="0.0" y="0.0" width="321" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BQt-Qq-r0y">
-                                                    <rect key="frame" x="35" y="11" width="100" height="21"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="100" id="DeL-MT-4Tn"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yKT-zC-rgz">
+                                                    <rect key="frame" x="15" y="12" width="49" height="26"/>
+                                                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2zd-Tj-GG0">
-                                                    <rect key="frame" x="235" y="11" width="0.0" height="22"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sn0-hL-S17">
+                                                    <rect key="frame" x="233" y="12" width="49" height="26"/>
+                                                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="2zd-Tj-GG0" firstAttribute="top" secondItem="MDx-gD-hDB" secondAttribute="topMargin" id="840-yz-yK8"/>
-                                                <constraint firstItem="2zd-Tj-GG0" firstAttribute="bottom" secondItem="MDx-gD-hDB" secondAttribute="bottomMargin" id="9UX-rA-nhM"/>
-                                                <constraint firstItem="2zd-Tj-GG0" firstAttribute="leading" secondItem="BQt-Qq-r0y" secondAttribute="trailing" constant="100" id="KOw-8z-tKr"/>
-                                                <constraint firstItem="BQt-Qq-r0y" firstAttribute="top" secondItem="MDx-gD-hDB" secondAttribute="topMargin" id="YH2-Jj-XIG"/>
-                                                <constraint firstItem="BQt-Qq-r0y" firstAttribute="leading" secondItem="MDx-gD-hDB" secondAttribute="leadingMargin" constant="20" id="pXr-Rl-C57"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="BQt-Qq-r0y" secondAttribute="bottom" constant="1" id="uoa-sO-GHe"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="Sn0-hL-S17" secondAttribute="trailing" constant="24" id="3jR-Q0-b9o"/>
+                                                <constraint firstItem="Sn0-hL-S17" firstAttribute="top" secondItem="MDx-gD-hDB" secondAttribute="topMargin" constant="1" id="tP2-Fy-N2N"/>
+                                                <constraint firstItem="yKT-zC-rgz" firstAttribute="top" secondItem="MDx-gD-hDB" secondAttribute="topMargin" constant="1" id="ukk-na-HhI"/>
+                                                <constraint firstItem="yKT-zC-rgz" firstAttribute="leading" secondItem="MDx-gD-hDB" secondAttribute="leadingMargin" id="xZB-7L-tD7"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="date" destination="2zd-Tj-GG0" id="fcM-7d-sJl"/>
-                                            <outlet property="etat" destination="BQt-Qq-r0y" id="gWm-lg-IbI"/>
+                                            <outlet property="date" destination="Sn0-hL-S17" id="4ZP-ay-kBQ"/>
+                                            <outlet property="etat" destination="yKT-zC-rgz" id="M8W-xU-DGp"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

@@ -10,8 +10,8 @@ import UIKit
 
 class QuestionnaireTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var date: UILabel!
     @IBOutlet weak var etat: UILabel!
+    @IBOutlet weak var date: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
