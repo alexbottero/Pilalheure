@@ -819,27 +819,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="0gX-fQ-qq2">
-                                <rect key="frame" x="127" y="71" width="121" height="29"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <segments>
-                                    <segment title="First"/>
-                                    <segment title="Second"/>
-                                </segments>
-                                <color key="tintColor" red="0.60000002379999995" green="0.60000002379999995" blue="0.60000002379999995" alpha="1" colorSpace="calibratedRGB"/>
-                                <connections>
-                                    <action selector="showComponents:" destination="AqR-XM-Wjm" eventType="valueChanged" id="7mR-ex-Q6V"/>
-                                </connections>
-                            </segmentedControl>
-                            <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fGr-xx-bRk">
-                                <rect key="frame" x="0.0" y="107" width="375" height="508"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <connections>
-                                    <segue destination="SK9-JY-iiO" kind="embed" id="CgM-EH-uHF"/>
-                                </connections>
-                            </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8ed-JZ-aEl">
-                                <rect key="frame" x="0.0" y="107" width="375" height="508"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <connections>
                                     <segue destination="Mor-iK-ZDt" kind="embed" id="UV3-ah-5Rq"/>
@@ -866,14 +847,9 @@
                             </toolbar>
                         </subviews>
                         <color key="backgroundColor" red="0.20000000000000001" green="0.40000000000000002" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
-                        <constraints>
-                            <constraint firstItem="0gX-fQ-qq2" firstAttribute="centerX" secondItem="yG2-fG-oux" secondAttribute="centerX" id="1w1-7v-Qo1"/>
-                            <constraint firstItem="0gX-fQ-qq2" firstAttribute="top" secondItem="exh-Ru-Ai4" secondAttribute="bottom" constant="51" id="3bb-gb-Zzw"/>
-                        </constraints>
                     </view>
                     <connections>
                         <outlet property="intervalleContainerView" destination="8ed-JZ-aEl" id="aL4-Oz-ynG"/>
-                        <outlet property="precisContainerView" destination="fGr-xx-bRk" id="JHb-iS-Qmm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qra-77-Y0G" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1351,7 +1327,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="N86-8L-Ikm" id="U9s-ek-SMg">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SgV-pQ-R3p">
@@ -1802,7 +1778,7 @@
                         <viewControllerLayoutGuide type="bottom" id="Ct3-9y-5EL"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Att-jd-LVc">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="508"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Medicament" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lDW-Er-AYW">
@@ -1962,63 +1938,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mNL-Jg-Y59" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3576.8000000000002" y="-796.10194902548733"/>
-        </scene>
-        <!--Precis Add Prescription View Controller-->
-        <scene sceneID="SYu-16-j2A">
-            <objects>
-                <viewController id="SK9-JY-iiO" customClass="PrecisAddPrescriptionViewController" customModule="Pilalheure" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="COv-uz-2yw"/>
-                        <viewControllerLayoutGuide type="bottom" id="Hut-ay-bIC"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8UW-Vq-GxW">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="508"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="date debut" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bS7-RD-cDC">
-                                <rect key="frame" x="139" y="97" width="97" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="date fin" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gU3-ex-vjX">
-                                <rect key="frame" x="139" y="181" width="97" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="heure precise" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LQD-Rp-ps0">
-                                <rect key="frame" x="139" y="255" width="97" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="medicament" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sTs-Ck-gu1">
-                                <rect key="frame" x="139" y="20" width="97" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <outlet property="delegate" destination="SK9-JY-iiO" id="aDp-d7-2DT"/>
-                                </connections>
-                            </textField>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </view>
-                    <connections>
-                        <outlet property="dateDebutPickerText" destination="bS7-RD-cDC" id="nqq-T0-MUl"/>
-                        <outlet property="dateFinPickerText" destination="gU3-ex-vjX" id="qgi-dl-rr8"/>
-                        <outlet property="heurePrecisePickerText" destination="LQD-Rp-ps0" id="FVB-H9-hia"/>
-                        <outlet property="medicamentPickerText" destination="sTs-Ck-gu1" id="1zf-aW-JSc"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="tJV-Up-aBi" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3577" y="-172"/>
         </scene>
     </scenes>
     <resources>

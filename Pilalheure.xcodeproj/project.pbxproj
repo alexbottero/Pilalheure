@@ -34,7 +34,6 @@
 		7D9648732062449F0043C5EF /* RappelDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D9648722062449F0043C5EF /* RappelDAO.swift */; };
 		7D9648752062468E0043C5EF /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D9648742062468E0043C5EF /* DateHelper.swift */; };
 		7DD1E958205C01D30096AB44 /* IntervalleAddPrescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD1E957205C01D30096AB44 /* IntervalleAddPrescriptionViewController.swift */; };
-		7DD1E95A205C01F80096AB44 /* PrecisAddPrescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD1E959205C01F80096AB44 /* PrecisAddPrescriptionViewController.swift */; };
 		AC01982D2063E4E800754733 /* RendezVousViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC01982C2063E4E800754733 /* RendezVousViewController.swift */; };
 		AC01982F2063E52500754733 /* RendezVousAddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC01982E2063E52500754733 /* RendezVousAddViewController.swift */; };
 		AC0198312063E56100754733 /* RendezVousTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0198302063E56100754733 /* RendezVousTableViewCell.swift */; };
@@ -123,7 +122,6 @@
 		7D9648722062449F0043C5EF /* RappelDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RappelDAO.swift; sourceTree = "<group>"; };
 		7D9648742062468E0043C5EF /* DateHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateHelper.swift; sourceTree = "<group>"; };
 		7DD1E957205C01D30096AB44 /* IntervalleAddPrescriptionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntervalleAddPrescriptionViewController.swift; sourceTree = "<group>"; };
-		7DD1E959205C01F80096AB44 /* PrecisAddPrescriptionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrecisAddPrescriptionViewController.swift; sourceTree = "<group>"; };
 		AC01982C2063E4E800754733 /* RendezVousViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RendezVousViewController.swift; sourceTree = "<group>"; };
 		AC01982E2063E52500754733 /* RendezVousAddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RendezVousAddViewController.swift; sourceTree = "<group>"; };
 		AC0198302063E56100754733 /* RendezVousTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RendezVousTableViewCell.swift; sourceTree = "<group>"; };
@@ -302,7 +300,6 @@
 			children = (
 				7D0256202063EBFD00D3062D /* ShowPrescriptionViewController.swift */,
 				7DD1E957205C01D30096AB44 /* IntervalleAddPrescriptionViewController.swift */,
-				7DD1E959205C01F80096AB44 /* PrecisAddPrescriptionViewController.swift */,
 				ACD999B620595E3C007A9BF0 /* PrescriptionViewController.swift */,
 				ACD999B420595E36007A9BF0 /* PrescriptionTableViewCell.swift */,
 				ACD999B220595E2A007A9BF0 /* AddPrescriptionViewController.swift */,
@@ -543,7 +540,6 @@
 				ACE8ACC520624C9300CB96F8 /* Questionnaire.swift in Sources */,
 				AC040A49205A02A500BA9068 /* CoreDataManager.swift in Sources */,
 				30D8FE132061C5550065D968 /* Prescription.swift in Sources */,
-				7DD1E95A205C01F80096AB44 /* PrecisAddPrescriptionViewController.swift in Sources */,
 				7D93A58C20582F88006D37C4 /* MedicamentViewController.swift in Sources */,
 				AC01982D2063E4E800754733 /* RendezVousViewController.swift in Sources */,
 				ACE8ACB22061BE5C00CB96F8 /* ContactDAO.swift in Sources */,

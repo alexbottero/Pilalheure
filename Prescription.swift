@@ -56,7 +56,6 @@ class Prescription {
         var rappels = [Date]()
         if let hdeb = heureDebut{
             if let hfin = heureFin{
-                print("hello")
                 rappels = createRappels(heureDebut: hdeb, heureFin: hfin, intervalle: intervalle)
             }
             else{
