@@ -30,6 +30,14 @@ class ExercicePhysiqueViewController: UIViewController, UITableViewDelegate, UIT
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.frame = self.view.bounds
+        let color1 = UIColor(red: 0.2, green: 0.4, blue: 0.6, alpha: 1.0).cgColor
+        let color2 = UIColor(red: 0.4, green: 0.8, blue: 0.8, alpha: 1.0).cgColor
+        gradientLayer.colors = [color1, color2]
+        gradientLayer.locations = [0.0, 1]
+        self.view.layer.insertSublayer(gradientLayer,at: 0)
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
         do{
@@ -38,7 +46,6 @@ class ExercicePhysiqueViewController: UIViewController, UITableViewDelegate, UIT
         catch let error as NSError{
             DialogBoxHelper.alert(view: self, error: error)
         }
-       
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
@@ -77,7 +84,7 @@ class ExercicePhysiqueViewController: UIViewController, UITableViewDelegate, UIT
         //self.exPresenter.configure(theCell: cell, forExercicePhysique: self.exercicePhysique[indexPath.row])
         let exPhys = self.exercicePhysiqueFetched.object(at: indexPath)
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd-MM-yyyy"
+        dateFormatter.dateFormat = "dd/MM/yyyy HH:mm"
         let stringDate = dateFormatter.string(from: exPhys.date! as Date)
         //self.exPresenter.configure(theCell: cell, forExercicePhysique: exPhys)
         cell.nomExercicePhysique.text = exPhys.nom

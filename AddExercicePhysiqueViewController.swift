@@ -29,7 +29,15 @@ class AddExercicePhysiqueViewController: UIViewController,UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        descNewExercicePhysique!.layer.borderWidth = 1
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.frame = self.view.bounds
+        let color1 = UIColor(red: 0.2, green: 0.4, blue: 0.6, alpha: 1.0).cgColor
+        let color2 = UIColor(red: 0.4, green: 0.8, blue: 0.8, alpha: 1.0).cgColor
+        gradientLayer.colors = [color1, color2]
+        gradientLayer.locations = [0.0, 1]
+        self.view.layer.insertSublayer(gradientLayer,at: 0)
+        self.dateNewExercicePhysique.setValue(UIColor.white, forKey: "textColor")
+        
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
