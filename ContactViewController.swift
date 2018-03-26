@@ -37,6 +37,7 @@ class ContactViewController: UIViewController,UITableViewDelegate, UITableViewDa
         let cont = self.contactFetched.object(at: indexPath)
         //self.exPresenter.configure(theCell: cell, forExercicePhysique: exPhys)
         cell.nomContact.text = cont.nom
+        cell.profContact.text = cont.profession
         
         return cell
         
@@ -53,6 +54,7 @@ class ContactViewController: UIViewController,UITableViewDelegate, UITableViewDa
         catch let error as NSError{
             DialogBoxHelper.alert(view: self, error: error)
         }
+        Background.color(controleur: self)
         // Do any additional setup after loading the view.
     }
 

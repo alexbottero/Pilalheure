@@ -49,6 +49,7 @@
 		AC55BFE720601A9800478633 /* ShowContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC55BFE620601A9800478633 /* ShowContactViewController.swift */; };
 		AC55BFEC20605EA600478633 /* ContactTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC55BFEB20605EA600478633 /* ContactTableViewCell.swift */; };
 		AC5AF1812067E2B900E0A6FB /* Rappel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5AF1802067E2B900E0A6FB /* Rappel.swift */; };
+		AC5AF19020696E1400E0A6FB /* Background.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5AF18F20696E1400E0A6FB /* Background.swift */; };
 		AC7AB20420586EA800CA5DED /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7AB20320586EA800CA5DED /* MenuViewController.swift */; };
 		AC7AB2072058780100CA5DED /* ActiviteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7AB2062058780100CA5DED /* ActiviteViewController.swift */; };
 		AC7AB2082058780100CA5DED /* ActiviteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7AB2062058780100CA5DED /* ActiviteViewController.swift */; };
@@ -136,6 +137,7 @@
 		AC55BFE620601A9800478633 /* ShowContactViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowContactViewController.swift; sourceTree = "<group>"; };
 		AC55BFEB20605EA600478633 /* ContactTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactTableViewCell.swift; sourceTree = "<group>"; };
 		AC5AF1802067E2B900E0A6FB /* Rappel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rappel.swift; sourceTree = "<group>"; };
+		AC5AF18F20696E1400E0A6FB /* Background.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Background.swift; sourceTree = "<group>"; };
 		AC7AB20320586EA800CA5DED /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		AC7AB2062058780100CA5DED /* ActiviteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiviteViewController.swift; sourceTree = "<group>"; };
 		AC7AB20920587D7A00CA5DED /* ActiviteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiviteTableViewCell.swift; sourceTree = "<group>"; };
@@ -339,6 +341,7 @@
 				AC040A4B205A04BF00BA9068 /* DialogBoxHelper.swift */,
 				AC040A48205A02A500BA9068 /* CoreDataManager.swift */,
 				7D9648742062468E0043C5EF /* DateHelper.swift */,
+				AC5AF18F20696E1400E0A6FB /* Background.swift */,
 			);
 			path = "Class Helpers";
 			sourceTree = "<group>";
@@ -545,6 +548,7 @@
 				ACE8ACBD206244D700CB96F8 /* QuestionnaireTableViewCell.swift in Sources */,
 				AC0198312063E56100754733 /* RendezVousTableViewCell.swift in Sources */,
 				AC55BFE120601A2E00478633 /* ContactViewController.swift in Sources */,
+				AC5AF19020696E1400E0A6FB /* Background.swift in Sources */,
 				7DD1E958205C01D30096AB44 /* IntervalleAddPrescriptionViewController.swift in Sources */,
 				7D93A58720582D04006D37C4 /* Medicament.swift in Sources */,
 				7D7BEDAE20691E4300B36F6C /* QuestionnaireRendezVousViewController.swift in Sources */,

@@ -32,13 +32,15 @@ class AddContactViewController: UIViewController, UIPickerViewDelegate, UIPicker
         ContactDTO.add(cont: cont)
         self.dismiss(animated: true, completion: nil)
         
+        
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        Background.color(controleur: self)
         self.profContact.delegate = self
         self.profContact.dataSource = self
-        pickerData = ["chirugien", "neurologue", "danseur", "potier"]
+        pickerData = ["chirugien", "neurologue", "kine", "généraliste"]
+        self.profContact.setValue(UIColor.white, forKey: "textColor")
         // Do any additional setup after loading the view.
     }
 

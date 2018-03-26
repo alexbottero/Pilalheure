@@ -11,6 +11,7 @@ import UIKit
 class ContactTableViewCell: UITableViewCell {
 
  
+    @IBOutlet weak var profContact: UILabel!
     
     @IBOutlet weak var nomContact: UILabel!
     
