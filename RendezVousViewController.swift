@@ -13,7 +13,30 @@ class RendezVousViewController: UIViewController, UITableViewDelegate, UITableVi
     
     @IBOutlet weak var rendezVousTable: UITableView!
     
-
+    @IBAction func addEvent(_ sender: Any) {
+        let alert = UIAlertController(title: "Nouvel événement",
+                                      message: "Ajouter un événement",
+                                      preferredStyle: .alert)
+        let saveAction = UIAlertAction(title: "Ajouter",
+                                       style: .default)
+        {
+            [unowned self] action in
+            guard let textField = alert.textFields?.first,
+                let nameToSave = textField.text else{
+                    return
+            }
+            
+        }
+        let cancelAction = UIAlertAction(title : "Annuler",
+                                         style: .default)
+        
+        alert.addTextField()
+        alert.addAction(saveAction)
+        alert.addAction(cancelAction)
+        
+        present(alert, animated: true)
+    }
+    
     
     fileprivate lazy var rendezVousFetched : NSFetchedResultsController<RendezVousDTO> = {
         let request : NSFetchRequest<RendezVousDTO> = RendezVousDTO.fetchRequest()
@@ -49,6 +72,33 @@ class RendezVousViewController: UIViewController, UITableViewDelegate, UITableVi
         cell.RDV.text = rendezVous.contacts?.profession
         cell.date.text = stringDate
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let alert = UIAlertController(title: "Nouvel événement",
+                                      message: "Ajouter un événement",
+                                      preferredStyle: .alert)
+        let saveAction = UIAlertAction(title: "Ajouter",
+                                       style: .default)
+        {
+            [unowned self] action in
+            guard let textField = alert.textFields?.first,
+                let nameToSave = textField.text else{
+                    return
+            }
+            
+            let rendezVous = self.rendezVousFetched.object(at: indexPath as IndexPath)
+            EventExceptionnel(nom: nameToSave, date: Date(), rendezVous: rendezVous)
+            CoreDataManager.save()
+        }
+        let cancelAction = UIAlertAction(title : "Annuler",
+                                         style: .default)
+        
+        alert.addTextField()
+        alert.addAction(saveAction)
+        alert.addAction(cancelAction)
+        
+        present(alert, animated: true)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
