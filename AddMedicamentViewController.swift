@@ -20,12 +20,12 @@ class AddMedicamentViewController: UIViewController, UIPickerViewDelegate, UIPic
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        descriptionMedicamentText!.layer.borderWidth = 1
         
         // Do any additional setup after loading the view.
         self.unitePicker.delegate = self
         self.unitePicker.dataSource = self
         pickerData = ["mL", "L", "g", "mg"]
+        Background.color(controleur: self)
     }
     
     override func didReceiveMemoryWarning() {

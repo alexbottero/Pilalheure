@@ -31,7 +31,6 @@ class Rappel {
         let comps = Calendar.current.dateComponents([.year,.month,.day,.hour,.minute], from: date)
         print(comps)
         let trigger = UNCalendarNotificationTrigger(dateMatching: comps, repeats: false)
-        var requestIdentifier : String = "default"
         let content = UNMutableNotificationContent()
         let uuid = UUID().uuidString
         switch type {

@@ -42,6 +42,7 @@ class AddContactViewController: UIViewController, UIPickerViewDelegate, UIPicker
         pickerData = ["chirugien", "neurologue", "kine", "généraliste"]
         self.profContact.setValue(UIColor.white, forKey: "textColor")
         // Do any additional setup after loading the view.
+        Background.color(controleur: self)
     }
 
     override func didReceiveMemoryWarning() {
