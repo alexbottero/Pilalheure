@@ -13,6 +13,9 @@ import CoreData
 extension RendezVousDTO{
     static let request : NSFetchRequest<RendezVousDTO> = RendezVousDTO.fetchRequest()
     
+    /// Création d'un DTO de rendezVous
+    ///
+    /// - Returns: return le RendezVousDTO crée
     static func createDTO() -> RendezVousDTO?{
         let rendezVous = RendezVousDTO(context: CoreDataManager.context)
         return rendezVous

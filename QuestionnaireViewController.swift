@@ -23,6 +23,7 @@ NSFetchedResultsControllerDelegate{
     /// - Parameter sender: UISegmentedControl
     @IBAction func switchJour(_ sender: UISegmentedControl) {
         if sender.selectedSegmentIndex == 0 {
+            //Récupréation des données selon l'onglet selectionné, questionnaire ou Event exceptionnel
             UIView.animate(withDuration: 0.5, animations: {
                 self.value = 0
                 let context = CoreDataManager.context
@@ -78,6 +79,7 @@ NSFetchedResultsControllerDelegate{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         let cell = self.QuestionnaireTable.dequeueReusableCell(withIdentifier: "questCell", for: indexPath) as! QuestionnaireTableViewCell
+        //Si cas 1, on affiche les events exceptionnel, sinon les questionnaires répondus
         if(value == 1){
             let quest = self.data2![indexPath.row]
             let dateFormatter = DateFormatter()

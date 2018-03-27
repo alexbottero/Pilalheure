@@ -113,6 +113,7 @@ class RendezVous {
         var dDay = calendar.component(.day, from: date)
     
         let dEnd = calendar.component(.day, from: fin)
+    // Si le jour actuel du rappel est inférieur au jour de fin, on continue de créer les rappels
         while dDay <= dEnd {
             var componentsD = gregorian.dateComponents([.year, .month, .day, .hour, .minute, .second], from: date)
             componentsD.hour = componentsHD.hour

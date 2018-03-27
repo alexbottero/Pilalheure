@@ -34,6 +34,16 @@ class Prescription {
         return self.daoPrescription.heurePrecise! as Date
     }
     
+    /// Création d'un PrescriptionDTO, suivant différent paramètre possible (1 date, 2 date, prise supplémentaire si intervalle
+    ///
+    /// - Parameters:
+    ///   - medicament: MedicamentDTO, médicament de la prescription
+    ///   - dateDebut: Date, date de début de prise
+    ///   - dateFin: Date, date de fin de prise
+    ///   - heureDebut: Date, heure de début de prise. Si seule heure, alors deviens heure précise
+    ///   - heureFin: Date, heure de fin de prise. Si aucun intervalle, heure début et heure fin seront les seules prises de la journée
+    ///   - intervalle: Int, nombre de prise que l'on veut rajouter dans la journée entre les deux heures de début et fin
+    ///   - heurePrecise: Date
     init(medicament: MedicamentDTO, dateDebut: Date, dateFin: Date, heureDebut: Date?, heureFin: Date?, intervalle: Int64?, heurePrecise: Date?){
         guard let daoP = PrescriptionDTO.createDTO() else{
             fatalError("unuable to get dao for prescription")
@@ -41,6 +51,7 @@ class Prescription {
         guard let daoE = EventDTO.createDTO() else{
             fatalError("unuable to get dao for event")
         }
+        // Affection des variables et des DTO pour créer les liens dans le CoreData
         self.daoPrescription = daoP
         self.daoPrescription.medicaments = medicament
         self.daoEvent = daoE
@@ -53,16 +64,20 @@ class Prescription {
             self.daoPrescription.intervalle = interval
         }
         self.daoPrescription.heurePrecise = heurePrecise as NSDate?
+        //Tableau contenant toutes les prises que devrai faire le patient pour la prescription
         var rappels = [Date]()
         if let hdeb = heureDebut{
             if let hfin = heureFin{
+                // Effectué si on a une heure début et une heure fin, possiblement un intervalle(non obligatoire)
                 rappels = createRappels(heureDebut: hdeb, heureFin: hfin, intervalle: intervalle)
             }
             else{
+                // Effectué si seule un heure début est présente
                 rappels = createRappels(heurePrecise: heureDebut!)
             }
         }
         var i = rappels.count
+        //Création des rappels dans la base
         while (i>0){
             Rappel(date: rappels[i-1], type: 2, event: daoE)
             i=i-1
@@ -77,6 +92,13 @@ class Prescription {
     
     
     
+    /// Fonction de création de rappels dans le cas ou l'heure de début et l'heure de fin sont présentes
+    ///
+    /// - Parameters:
+    ///   - hdeb: Date, heure de début de la prise dans la journéee
+    ///   - hfin: date, heure de fin de la prise dans la journée
+    ///   - inter: Int, nombre de prise que l'on veut rajouter dans la journée (optionnel)
+    /// - Returns: retourne un tableau de Date correspondant à toutes les prises
     func createRappels(heureDebut hdeb : Date, heureFin hfin : Date, intervalle inter : Int64?) -> [Date]{
         //intervalle de temps entre 2 dates
         let timeInterval = hfin.timeIntervalSince(hdeb)
@@ -102,10 +124,12 @@ class Prescription {
         dEnd = dEnd! + 1.days
         var x = false
         var ecart : Int = 0
+        // création de l'intervalle de temps entre chaque prise
         if let inter2 = inter{
             x = true
             ecart=Int(dif/(inter2+1))
         }
+        // Si le jour actuel du rappel est inférieur au jour de fin, on continue de créer les rappels
         while date <= dEnd! {
             var componentsD = gregorian.dateComponents([.year, .month, .day, .hour, .minute, .second], from: date)
             componentsD.hour = componentsHD.hour
@@ -124,15 +148,14 @@ class Prescription {
             }
             date = date + 1.days
         }
-        
-        
-        //let timeInterval = Double(myInt)
-        
-        // create NSDate from Double (NSTimeInterval)
-        //let myNSDate = Date(timeIntervalSince1970: timeInterval)
+
         return rappels
     }
     
+    /// Creéation des rappels dans le cas ou seul l'heure de début est présente, cela devient une heure précise
+    ///
+    /// - Parameter hP: date, heure de la prise dans la journée
+    /// - Returns: Retourne un tableau de Date correspondant au rappels des prises
     func createRappels(heurePrecise hP : Date) -> [Date]{
         //création du tableau de rappels
         var rappels = [Date]()
@@ -153,6 +176,7 @@ class Prescription {
         var date = gregorian.date(from: componentsDD)!
         var dEnd = gregorian.date(from: componentsDateFin)
         dEnd = dEnd! + 1.days
+        // Si le jour actuel du rappel est inférieur au jour de fin, on continue de créer les rappels
         while date <= dEnd! {
             rappels.append(date)
             date = date + 1.days

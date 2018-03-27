@@ -21,7 +21,7 @@ class ShowPrescriptionViewController: UIViewController, UITableViewDataSource, U
         let request : NSFetchRequest<RappelDTO> = RappelDTO.fetchRequest()
         //Ajout d'un tri sur la requete : trie pat les noms de médicaments
         request.sortDescriptors = [NSSortDescriptor(key:#keyPath(RappelDTO.dateRappel), ascending:true)]
-        let predicate = NSPredicate(format:"events.prescriptions.medicaments.nom = %@", (self.prescription?.medicaments?.nom)!)
+        let predicate = NSPredicate(format:"events.prescriptions == %@", self.prescription!)
         request.predicate = predicate
         let fetchResultController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: CoreDataManager.context, sectionNameKeyPath: nil, cacheName: nil)
         fetchResultController.delegate = self

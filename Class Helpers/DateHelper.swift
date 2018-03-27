@@ -13,7 +13,7 @@ import Foundation
         let component: Calendar.Component
         let amount: Int
     }
-    
+    ///Ajoute une nouvelle opération sur le + pour permettre de fonctionner sur des dates. Permet de faire Date + Int
     infix operator +: AdditionPrecedence
     extension Date {
         
@@ -25,7 +25,7 @@ import Foundation
     }
 
 
-
+    /// Crée une extension sur le Int pour que celui puisse s'ajouter au dates en lui signifiant de quel type il est (.day pour un jour, .hour pour une heure. (permet de faire Int.day ou Int.hour)
     extension Int {
         
         var years: CalendarComponentAmount {

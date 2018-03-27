@@ -11,8 +11,13 @@ import Foundation
 import CoreData
 import UIKit
 extension EventExceptionnelDTO{
+
     static let request : NSFetchRequest<EventExceptionnelDTO> = EventExceptionnelDTO.fetchRequest()
     
+    
+    /// Creation d'un DTO Event
+    ///
+    /// - Returns: return un EventDTO
     static func createDTO() -> EventExceptionnelDTO?{
         let event = EventExceptionnelDTO(context: CoreDataManager.context)
         return event

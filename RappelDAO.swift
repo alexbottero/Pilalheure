@@ -12,6 +12,9 @@ import UIKit
 extension RappelDTO{
     static let request : NSFetchRequest<RappelDTO> = RappelDTO.fetchRequest()
     
+    /// Création d'un DTO Rappel
+    ///
+    /// - Returns: Return un RappelDTO
     static func createDTO() -> RappelDTO?{
         let rappel = RappelDTO(context: CoreDataManager.context)
         return rappel

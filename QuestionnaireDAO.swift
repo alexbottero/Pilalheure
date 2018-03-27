@@ -38,6 +38,12 @@ extension QuestionnaireDTO{
         }
     }
     
+    /// Fonction de récupératioon des questionnaire en fonction du rendez-vous et du jour que l'on désire. Inutilisable
+    ///
+    /// - Parameters:
+    ///   - Rdv: RendezVousDTO
+    ///   - jour: Int
+    /// - Returns: Return un tableau de NSObject, contenant des Questionnaires
     static func selectPerDay(Rdv: RendezVousDTO, jour: Int) -> [NSObject]{
         let d = Calendar.current.date(byAdding: .day, value: -jour, to: Rdv.date! as Date)
         let gregorian = Calendar(identifier: .gregorian)

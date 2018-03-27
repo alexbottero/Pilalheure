@@ -10,7 +10,7 @@ import UIKit
 
 class AddExercicePhysiqueViewController: UIViewController,UITextFieldDelegate {
 
-    //MARK:-Variables-
+    //MARK: - Variables -
     @IBOutlet weak var descNewExercicePhysique: UITextView!
     @IBOutlet weak var dateNewExercicePhysique: UIDatePicker!
     @IBOutlet weak var nomNewExercicePhysique: UITextField!
@@ -33,7 +33,7 @@ class AddExercicePhysiqueViewController: UIViewController,UITextFieldDelegate {
     }
     
     
-    // MARK: - cancel et save
+    // MARK: - cancel et save -
     @IBAction func cancelAction(_ sender: Any) {
         self.dismiss(animated: true,completion: nil)
     }
@@ -49,7 +49,7 @@ class AddExercicePhysiqueViewController: UIViewController,UITextFieldDelegate {
         self.dismiss(animated: true, completion: nil)
     }
     
-    // MARK: - Textfield Delegate
+    // MARK: - Textfield Delegate -
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true

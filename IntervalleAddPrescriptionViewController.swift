@@ -11,16 +11,20 @@ import CoreData
 
 class IntervalleAddPrescriptionViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
 
+    /// Tabelau contenant tout les médicaments de la base de donnée
     var data = [MedicamentDTO?]()
     let managedObjectContext = CoreDataManager.context
+    //Création des différents champs de text
     @IBOutlet weak var medicamentPickerText: UITextField!
     @IBOutlet weak var dateDebutPickerText: UITextField!
     @IBOutlet weak var dateFinPickerText: UITextField!
     @IBOutlet weak var heureDebutPickerText: UITextField!
     @IBOutlet weak var heureFinPickerText: UITextField!
     @IBOutlet weak var intervalleText: UITextField!
-    
+    /// variable contenant le médicament choisi pour la description
     var selectedMedicament : MedicamentDTO? = nil
+    
+    //Création des différents Picker
     var medicamentPicker = UIPickerView()
     let dateDebutPicker = UIDatePicker()
     let dateFinPicker = UIDatePicker()
@@ -32,6 +36,7 @@ class IntervalleAddPrescriptionViewController: UIViewController, UIPickerViewDel
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        //Création des picker de Date suivant différents paramètre (Date ou Heure de prise, début ou fin de prise)
         createDatePicker(datePicker: dateDebutPicker, textPicker: dateDebutPickerText, debOuFin: true, dateOuHeure: true)
         createDatePicker(datePicker: dateFinPicker, textPicker: dateFinPickerText, debOuFin: false, dateOuHeure: true)
         createDatePicker(datePicker: heureDebutPicker, textPicker: heureDebutPickerText, debOuFin: true, dateOuHeure: false)
@@ -47,6 +52,7 @@ class IntervalleAddPrescriptionViewController: UIViewController, UIPickerViewDel
     
     //MARK:- Medicament Picker function -
     
+    /// Récupération des médicaments de la base de donnée
     func fetchData(){
     
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "MedicamentDTO")
@@ -55,6 +61,9 @@ class IntervalleAddPrescriptionViewController: UIViewController, UIPickerViewDel
         }
     }
     
+    /// Fonction qui permet d'afficher un Picker en cliquant sur un text field
+    ///
+    /// - Parameter textField: TextField
     func pickUp(_ textField : UITextField){
         
         // UIPickerView
@@ -89,10 +98,18 @@ class IntervalleAddPrescriptionViewController: UIViewController, UIPickerViewDel
     //MARK:- Date Picker function -
 
     
+    /// Function qui permet d'afficher des DatePicker en cliquant sur un TextField, créée les picker pour la selection des jours et des heures
+    ///
+    /// - Parameters:
+    ///   - picker: UIDatePicker
+    ///   - text: UITextField
+    ///   - value: Bool: True sur début, false si fin
+    ///   - val: Bool, true sir date, false si heure
     func createDatePicker(datePicker picker : UIDatePicker, textPicker text : UITextField, debOuFin value : Bool, dateOuHeure val : Bool){
         let toolbar = UIToolbar()
         toolbar.sizeToFit()
         picker.locale = NSLocale(localeIdentifier: "fr_FR") as Locale
+        //choix du picker que l'on désire selon la textField voulu
         if(val){
             picker.datePickerMode = .date
             if(value){
