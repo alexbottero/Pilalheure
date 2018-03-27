@@ -15,8 +15,10 @@ class AddMedicamentViewController: UIViewController, UIPickerViewDelegate, UIPic
     @IBOutlet weak var unitePicker: UIPickerView!
     @IBOutlet weak var descriptionMedicamentText: UITextView!
     
-    /// 
+    /// Donnée des unités de dose
     var pickerData : [String] = ["mL", "L", "g", "mg"]
+    
+    /// variables servant a récupérer la valeur selectionnée par le picker
     var selectedValues : String = ""
     
     override func viewDidLoad() {
@@ -32,12 +34,15 @@ class AddMedicamentViewController: UIViewController, UIPickerViewDelegate, UIPic
         // Dispose of any resources that can be recreated.
     }
     
-    //MARK: - Cancel and Save
+    //MARK: - Cancel and Save -
     
     @IBAction func cancelAction(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
     
+    /// Bouton de sauvegarde du médicament. Appel le constructeur de MedicamentDTO.
+    /// - Pre-conditions : A besoin forcement d'un médicament
+    /// - Parameter sender: Any
     @IBAction func saveAction(_ sender: Any) {
         let nom : String = self.nomMedicamentText.text ?? ""
         let dose : String = self.doseMedicamentText.text ?? ""
@@ -79,16 +84,6 @@ class AddMedicamentViewController: UIViewController, UIPickerViewDelegate, UIPic
         // The parameter named row and component represents what was selected.
         selectedValues = pickerData[unitePicker.selectedRow(inComponent: 0)]
     }
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
     
 }
 

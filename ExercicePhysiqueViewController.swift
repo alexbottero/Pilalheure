@@ -14,6 +14,7 @@ class ExercicePhysiqueViewController: UIViewController, UITableViewDelegate, UIT
     
     @IBOutlet weak var exercicePhysiqueTable: UITableView!
 
+    /// Variable récupérant les exercicesPhysiques grâce au fecth
     fileprivate lazy var exercicePhysiqueFetched : NSFetchedResultsController<ExercicePhysiqueDTO> = {
         let request : NSFetchRequest <ExercicePhysiqueDTO> = ExercicePhysiqueDTO.fetchRequest()
         request.sortDescriptors = [NSSortDescriptor(key:#keyPath(ExercicePhysiqueDTO.nom),ascending:true)]
@@ -23,7 +24,7 @@ class ExercicePhysiqueViewController: UIViewController, UITableViewDelegate, UIT
         return fetchResultController
     }()
     
-    // Presenter
+    /// Presenter
      @IBOutlet var exPresenter : ExercicePhysiquePresenter!
     
     
@@ -32,8 +33,7 @@ class ExercicePhysiqueViewController: UIViewController, UITableViewDelegate, UIT
         super.viewDidLoad()
         
         Background.color(controleur: self)
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
+
         do{
             try self.exercicePhysiqueFetched.performFetch()
         }
@@ -57,21 +57,14 @@ class ExercicePhysiqueViewController: UIViewController, UITableViewDelegate, UIT
     }
     
     
-    /*func editHandlerAction(action: UITableViewRowAction,indexPath: IndexPath) -> Void {
-        print("edit")
-    }*/
-    
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let delete = UITableViewRowAction(style: .default, title: "Del", handler: self.deleteHandlerAction)
-        //let edit = UITableViewRowAction(style: .default, title: "edit",handler: self.editHandlerAction)
         delete.backgroundColor = UIColor.red
-        //edit.backgroundColor = UIColor.blue
-        // ajouter edit pour la modif
         return [delete]
         
     }
     
-    // MARK: - Table view data source
+    // MARK: - Table view data source -
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         let cell = self.exercicePhysiqueTable.dequeueReusableCell(withIdentifier: "exercicePhysiqueCell", for: indexPath) as! ExercicePhysiqueTableViewCell
