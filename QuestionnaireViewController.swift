@@ -13,10 +13,10 @@ import UserNotifications
 class QuestionnaireViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, 
 NSFetchedResultsControllerDelegate{
     
-    var rendezVous : RendezVousDTO? = nil
-    
     var data : [QuestionnaireDTO]? = nil
-    var dataTri : [QuestionnaireDTO]? = nil
+    var data2 : [EventExceptionnelDTO]? = nil
+    
+    var value = 0
     
     var startOfDay: Date{
         return Calendar.current.startOfDay(for:Date())
@@ -27,15 +27,31 @@ NSFetchedResultsControllerDelegate{
     @IBAction func switchJour(_ sender: UISegmentedControl) {
         if sender.selectedSegmentIndex == 0 {
             UIView.animate(withDuration: 0.5, animations: {
-                
+                self.value = 0
+                let context = CoreDataManager.context
+                let request : NSFetchRequest<QuestionnaireDTO> = QuestionnaireDTO.fetchRequest()
+                request.sortDescriptors = [NSSortDescriptor(key:#keyPath(QuestionnaireDTO.date), ascending: false)]
+                do{
+                    try self.data = context.fetch(request)
+                }catch let error as NSError{
+                    DialogBoxHelper.alert(view: self, error: error)
+                }
             })
         } else {
             UIView.animate(withDuration: 0.5, animations: {
-                
+                self.value = 1
+                let context = CoreDataManager.context
+                let request : NSFetchRequest<EventExceptionnelDTO> = EventExceptionnelDTO.fetchRequest()
+                request.sortDescriptors = [NSSortDescriptor(key:#keyPath(EventExceptionnelDTO.date), ascending: false)]
+                do{
+                    try self.data2 = context.fetch(request)
+                }catch let error as NSError{
+                    DialogBoxHelper.alert(view: self, error: error)
+                }
             })
         }
+        QuestionnaireTable.reloadData()
     }
-    
     
     
     @IBOutlet weak var jourQuest: UISegmentedControl!
@@ -46,9 +62,9 @@ NSFetchedResultsControllerDelegate{
         super.viewDidLoad()
         let context = CoreDataManager.context
         let request : NSFetchRequest<QuestionnaireDTO> = QuestionnaireDTO.fetchRequest()
+        request.sortDescriptors = [NSSortDescriptor(key:#keyPath(QuestionnaireDTO.date), ascending: false)]
         //let predicate = NSPredicate(format:"rendezVousQuestS.contacts.nom = %@",(self.rendezVous?.contacts?.nom)!)
         //request.predicate = predicate
-        print(rendezVous)
         do{
             try self.data = context.fetch(request)
         }catch let error as NSError{
@@ -56,14 +72,6 @@ NSFetchedResultsControllerDelegate{
         }
         Background.color(controleur: self)
         // Do any additional setup after loading the view.
-        for i in data!{
-            print(i.rendezVousQuestS)
-            print(rendezVous)
-            if(i.rendezVousQuestS?.date == rendezVous?.date){
-                dataTri?.append(i)
-
-            }
-        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -75,22 +83,33 @@ NSFetchedResultsControllerDelegate{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         let cell = self.QuestionnaireTable.dequeueReusableCell(withIdentifier: "questCell", for: indexPath) as! QuestionnaireTableViewCell
-        let quest = self.dataTri?[indexPath.row]
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "HH:mm"
-        let stringDate = dateFormatter.string(from: quest?.date as! Date)
-        cell.etat.text = quest?.etat
-        cell.date.text = stringDate
+        if(value == 1){
+            let quest = self.data2![indexPath.row]
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "dd-MM-yyyy 'at' HH:mm"
+            let stringDate = dateFormatter.string(from: quest.date as! Date)
+            cell.etat.text = quest.nom
+            cell.date.text = stringDate
+        }
+        else{
+            let quest = self.data![indexPath.row]
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "dd-MM-yyyy 'at' HH:mm"
+            let stringDate = dateFormatter.string(from: quest.date as! Date)
+            cell.etat.text = quest.etat
+            cell.date.text = stringDate
+        }
         return cell
-        
     }
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
-        if let c = self.dataTri?.count{
-            return c
+        if(value==0){
+            return self.data!.count
         }
-        return 0
+        else{
+            return self.data2!.count
+        }
     }
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool{
