@@ -10,6 +10,7 @@ import UIKit
 
 class RendezVousTableViewCell: UITableViewCell {
 
+    //MARK: - Variables-
     @IBOutlet weak var date: UILabel!
     @IBOutlet weak var RDV: UILabel!
     override func awakeFromNib() {

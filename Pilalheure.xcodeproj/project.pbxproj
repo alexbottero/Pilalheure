@@ -49,10 +49,6 @@
 		AC5AF1812067E2B900E0A6FB /* Rappel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5AF1802067E2B900E0A6FB /* Rappel.swift */; };
 		AC5AF19020696E1400E0A6FB /* Background.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5AF18F20696E1400E0A6FB /* Background.swift */; };
 		AC7AB20420586EA800CA5DED /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7AB20320586EA800CA5DED /* MenuViewController.swift */; };
-		AC7AB2072058780100CA5DED /* ActiviteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7AB2062058780100CA5DED /* ActiviteViewController.swift */; };
-		AC7AB2082058780100CA5DED /* ActiviteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7AB2062058780100CA5DED /* ActiviteViewController.swift */; };
-		AC7AB20A20587D7A00CA5DED /* ActiviteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7AB20920587D7A00CA5DED /* ActiviteTableViewCell.swift */; };
-		AC7AB20B20587D7A00CA5DED /* ActiviteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7AB20920587D7A00CA5DED /* ActiviteTableViewCell.swift */; };
 		AC7AB20D20589B5800CA5DED /* ExercicePhysique.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7AB20C20589B5800CA5DED /* ExercicePhysique.swift */; };
 		AC7AB21020589C2A00CA5DED /* ExercicePhysiqueDAOext.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7AB20F20589C2A00CA5DED /* ExercicePhysiqueDAOext.swift */; };
 		AC808356206A5DA100A5A8C3 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC808355206A5DA100A5A8C3 /* Event.swift */; };
@@ -138,8 +134,6 @@
 		AC5AF1802067E2B900E0A6FB /* Rappel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rappel.swift; sourceTree = "<group>"; };
 		AC5AF18F20696E1400E0A6FB /* Background.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Background.swift; sourceTree = "<group>"; };
 		AC7AB20320586EA800CA5DED /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
-		AC7AB2062058780100CA5DED /* ActiviteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiviteViewController.swift; sourceTree = "<group>"; };
-		AC7AB20920587D7A00CA5DED /* ActiviteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiviteTableViewCell.swift; sourceTree = "<group>"; };
 		AC7AB20C20589B5800CA5DED /* ExercicePhysique.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercicePhysique.swift; sourceTree = "<group>"; };
 		AC7AB20F20589C2A00CA5DED /* ExercicePhysiqueDAOext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercicePhysiqueDAOext.swift; sourceTree = "<group>"; };
 		AC808355206A5DA100A5A8C3 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
@@ -293,8 +287,6 @@
 				ACE0E0C2205AD74E003A5131 /* Exercice */,
 				ACE0E0C1205AD723003A5131 /* Medicament */,
 				AC7AB20320586EA800CA5DED /* MenuViewController.swift */,
-				AC7AB2062058780100CA5DED /* ActiviteViewController.swift */,
-				AC7AB20920587D7A00CA5DED /* ActiviteTableViewCell.swift */,
 				AC4FC820206996B7001480FF /* MedecinViewController.swift */,
 			);
 			name = Controlleur;
@@ -534,9 +526,7 @@
 				AC0198382063FD1500754733 /* RendezVousDAO.swift in Sources */,
 				ACE8ACB42061BEEA00CB96F8 /* Contact.swift in Sources */,
 				ACD999B920595F85007A9BF0 /* ExercicePhysiqueViewController.swift in Sources */,
-				AC7AB2072058780100CA5DED /* ActiviteViewController.swift in Sources */,
 				7D93A59220583468006D37C4 /* AddMedicamentViewController.swift in Sources */,
-				AC7AB20A20587D7A00CA5DED /* ActiviteTableViewCell.swift in Sources */,
 				AC01982F2063E52500754733 /* RendezVousAddViewController.swift in Sources */,
 				AC55BFEC20605EA600478633 /* ContactTableViewCell.swift in Sources */,
 				AC040A4C205A04BF00BA9068 /* DialogBoxHelper.swift in Sources */,
@@ -590,9 +580,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AC7AB20B20587D7A00CA5DED /* ActiviteTableViewCell.swift in Sources */,
 				7D93A56920582604006D37C4 /* PilalheureTests.swift in Sources */,
-				AC7AB2082058780100CA5DED /* ActiviteViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

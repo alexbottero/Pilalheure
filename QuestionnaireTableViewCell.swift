@@ -10,6 +10,7 @@ import UIKit
 
 class QuestionnaireTableViewCell: UITableViewCell {
 
+    //-MARK : - Variables -
     @IBOutlet weak var etat: UILabel!
     @IBOutlet weak var date: UILabel!
     override func awakeFromNib() {

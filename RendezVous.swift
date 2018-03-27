@@ -27,6 +27,14 @@ class RendezVous {
         return self.dao.heureFin! as Date
     }
     
+    
+    /// initialisateur de rendez vous
+    ///
+    /// - Parameters:
+    ///   - date: date rendez vous
+    ///   - contact: contact
+    ///   - heureDeb: heure debut du rendez vous
+    ///   - heureFin: heure fin du rendez vous
     init(date: Date, contact: ContactDTO, heureDeb : Date?, heureFin : Date?){
         guard let dao = RendezVousDTO.createDTO() else{
             fatalError("unuable to get dao for medicament")
@@ -34,6 +42,7 @@ class RendezVous {
         guard let daoE = EventDTO.createDTO() else{
             fatalError("unuable to get dao for medicament")
         }
+        // on fait les relations
         self.dao = dao
         self.daoE = daoE
         self.dao.events = daoE
@@ -43,15 +52,17 @@ class RendezVous {
         self.dao.heureFin = heureFin as NSDate?
         var rappelsQuestionnaire = [Date]()
         let rappelRdv: Date = createRappels(heureRappel: date)
-        
+        // on regarde si c'est un neurologue
         if (contact.profession == "neurologue"){
-            print("salut")
+            //si oui on programme les rappels de questionnaire
             rappelsQuestionnaire = createRappels(heureDebut: heureDeb!, heureFin: heureFin!, dateFin: date)
         }
+        // creation rappel rendez vous
         self.daoE.rendezVousS = dao
         let _ = Rappel(date: rappelRdv as Date, type: 3, event: daoE)
         
         for i in rappelsQuestionnaire{
+            // creation rappel questionnaire
             let _ = Rappel(date: i as Date, type: 4, event: daoE)
             
         }
@@ -59,6 +70,10 @@ class RendezVous {
     
     
     
+    /// creation rappel une heure avant le rendez vous
+    ///
+    /// - Parameter hR: heure du rendez vous
+    /// - Returns: heure du rappel
     func createRappels(heureRappel hR : Date) -> Date{
         
         let heureRappel = Calendar.current.date(byAdding: .hour, value: -1, to: hR)
@@ -68,6 +83,13 @@ class RendezVous {
     }
     
     
+   /// creation des heures  des questionnaires pour le patient des 5 jours avant le rdv chez le neurologue
+   ///
+   /// - Parameters:
+   ///   - hdeb: heure debut questionnaire
+   ///   - hfin: heure fin des questionnaire
+   ///   - fin: date du rendez vous (fin des rappel)
+   /// - Returns: tableau de date des questionnaire
    func createRappels(heureDebut hdeb : Date, heureFin hfin : Date, dateFin fin : Date) -> [Date]{
         //intervalle de temps entre 2 dates
     

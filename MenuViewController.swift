@@ -9,12 +9,29 @@
 import UIKit
 import CoreData
 class MenuViewController: UIViewController{
-
+    //MARK:-Variables
     @IBOutlet weak var nomEvent: UILabel!
     @IBOutlet weak var dateEvent: UILabel!
-    
     var data : [RappelDTO]? = [RappelDTO]()
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+      Background.color(controleur: self)
+        loadIntro()
+        
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        loadIntro()
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    //MARK:- gestion dernier event-
+    
+    /// Permet de charger le dernier event pour l'afficher sur l'ecran d'accueil
     func loadIntro(){
         let context = CoreDataManager.context
         let dateJ = Date()
@@ -57,35 +74,6 @@ class MenuViewController: UIViewController{
         }
         
     }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-      Background.color(controleur: self)
-        loadIntro()
-        print(Date())
-        
-        // Do any additional setup after loading the view.
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        loadIntro()
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
 

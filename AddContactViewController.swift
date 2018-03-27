@@ -9,31 +9,22 @@
 import UIKit
 
 class AddContactViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
-    @IBOutlet weak var nomContact: UITextField!
+
     
+    //MARK:-Variables-
+    
+    @IBOutlet weak var nomContact: UITextField!
     @IBOutlet weak var mailContact: UITextField!
     @IBOutlet weak var telContact: UITextField!
     @IBOutlet weak var adresseContact: UITextField!
     @IBOutlet weak var profContact: UIPickerView!
-    
     var contact: Contact?
-    
     var pickerData : [String] = [String]()
     var selectedValues : String = ""
     
-    @IBAction func saveAction(_ sender: Any) {
-        let nom : String = self.nomContact.text ?? ""
-        let tel : String = self.telContact.text ?? ""
-        let adresse : String = self.adresseContact.text ?? ""
-        let prof: String = self.selectedValues
-        let mail: String = self.mailContact.text ?? ""
-        guard (nom != "") else {return}
-        let cont = Contact(nom: nom, prof: prof, mail: mail, adresse: adresse, tel: tel)
-        ContactDTO.add(cont: cont)
-        self.dismiss(animated: true, completion: nil)
-        
-        
-    }
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         Background.color(controleur: self)
@@ -60,15 +51,30 @@ class AddContactViewController: UIViewController, UIPickerViewDelegate, UIPicker
         // Pass the selected object to the new view controller.
     }
     */
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+   /* override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier=="OKAddContact"{
         }
-    }
+    }*/
     
     // MARK: - cancel et save
 
     @IBAction func cancelAction(_ sender: Any) {
          self.dismiss(animated: true,completion: nil)
+    }
+    
+    // ajoute le nouveau contact
+    @IBAction func saveAction(_ sender: Any) {
+        let nom : String = self.nomContact.text ?? ""
+        let tel : String = self.telContact.text ?? ""
+        let adresse : String = self.adresseContact.text ?? ""
+        let prof: String = self.selectedValues
+        let mail: String = self.mailContact.text ?? ""
+        guard (nom != "") else {return}
+        let cont = Contact(nom: nom, prof: prof, mail: mail, adresse: adresse, tel: tel)
+        ContactDTO.add(cont: cont)
+        self.dismiss(animated: true, completion: nil)
+        
+        
     }
     //MARK: - Picker Functions -
     

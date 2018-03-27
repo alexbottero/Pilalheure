@@ -18,17 +18,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions:
 
-        
+        // autorisation des notifications
         [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge], completionHandler: {didAllow, error in
             
         })
+        // choix de reponse aux notification
         UNUserNotificationCenter.current().delegate = self
         let valide = UNNotificationAction(identifier: "valide", title: "médicament pris", options: [.foreground])
         let answerOne = UNNotificationAction(identifier: "reponse1", title: "actif", options: [.foreground])
         let answerTwo = UNNotificationAction(identifier: "reponse2", title: "passif", options: [.foreground])
         let answerThree = UNNotificationAction(identifier: "reponse3", title: "dysquinesie", options: [.foreground])
+        // ajout de reponse possible au questionnaire
         let questCat = UNNotificationCategory(identifier: "questCat", actions:[answerOne,answerTwo,answerThree] , intentIdentifiers: [], options: [])
+        //ajout bouton de prise //creation notification activité
         let presCat=UNNotificationCategory(identifier: "presCat", actions:[valide] , intentIdentifiers: [], options: [])
         UNUserNotificationCenter.current().setNotificationCategories([questCat,presCat])
         // Override point for customization after application launch.
@@ -103,12 +106,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
             }
         }
     }
-    
+    // permet l'affichage des notifications dans l'appli
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void){
          completionHandler([.alert, .sound])
     }
     
-    
+    // gestion des reponse au notification
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
         switch response.actionIdentifier {
         case "reponse1":
@@ -126,7 +129,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
             QuestionnaireDTO.add(quest: quest)
         case "valide":
             print(response.notification.request.content.userInfo)
-
         default:
             break
         }

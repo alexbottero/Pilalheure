@@ -12,6 +12,7 @@ import CoreData
 
 class RendezVousAddViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
     
+    //MARK : - Variables -
     @IBOutlet weak var heureFinField: UITextField!
     @IBOutlet weak var labelHeureFin: UILabel!
     @IBOutlet weak var heureDebutField: UITextField!
@@ -20,10 +21,8 @@ class RendezVousAddViewController: UIViewController, UIPickerViewDelegate, UIPic
     @IBOutlet weak var contactPickerText: UITextField!
     var data = [ContactDTO?]()
     let managedObjectContext = CoreDataManager.context
-    
     var selectedContact : ContactDTO? = nil
     var contactPicker = UIPickerView()
-    
     let heureDebutPicker = UIDatePicker()
     let heureFinPicker = UIDatePicker()
     
@@ -33,13 +32,12 @@ class RendezVousAddViewController: UIViewController, UIPickerViewDelegate, UIPic
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        createDatePicker(Picker: heureDebutPicker, textPicker: heureDebutField, debOuFin: true)
-         createDatePicker(Picker: heureFinPicker, textPicker: heureFinField, debOuFin: false)
         // Do any additional setup after loading the view.
+        createDatePicker(Picker: heureDebutPicker, textPicker: heureDebutField, debOuFin: true)
+        createDatePicker(Picker: heureFinPicker, textPicker: heureFinField, debOuFin: false)
         fetchData()
         contactPicker.reloadAllComponents()
         Background.color(controleur: self)
-        self.dateRDV.tintColor = UIColor.white
     }
     
     override func didReceiveMemoryWarning() {
@@ -123,6 +121,8 @@ class RendezVousAddViewController: UIViewController, UIPickerViewDelegate, UIPic
         self.pickUp(contactPickerText)
     }
 
+    //MARK : - Navigation -
+    
     @IBAction func cancelAction(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
 
@@ -147,9 +147,8 @@ class RendezVousAddViewController: UIViewController, UIPickerViewDelegate, UIPic
         self.dismiss(animated: true, completion: nil)
 
     }
+    
     //MARK : Gestion heures Picker
-    
-    
     func donePressedHeureDeb(){
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .none
@@ -169,6 +168,12 @@ class RendezVousAddViewController: UIViewController, UIPickerViewDelegate, UIPic
         self.view.endEditing(true)
     }
     
+    /// Permet de creer un picker dans un textfield
+    ///
+    /// - Parameters:
+    ///   - picker: nom du picker
+    ///   - text: text field de destination de la valeur
+    ///   - value: true pour une date de debut et false pour une date de fin
     func createDatePicker(Picker picker : UIDatePicker, textPicker text : UITextField, debOuFin value : Bool){
         let toolbar = UIToolbar()
         toolbar.sizeToFit()

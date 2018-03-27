@@ -17,6 +17,12 @@ class EventExceptionnel {
     }
     
     
+    /// initialisateur d'un event exceptionnel
+    ///
+    /// - Parameters:
+    ///   - nom: nom de l'event
+    ///   - date: date
+    ///   - rendezVous: rendez vous associé
     init(nom: String, date: Date, rendezVous: RendezVousDTO){
         guard let dao = EventExceptionnelDTO.createDTO() else{
             fatalError("unuable to get dao for ExercicePhysique")

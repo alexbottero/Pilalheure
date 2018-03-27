@@ -23,6 +23,12 @@ class ExercicePhysique {
     }
     
 
+    /// initialisateur exercice physique
+    ///
+    /// - Parameters:
+    ///   - nom: nom exercice
+    ///   - descript: description de l'exercice
+    ///   - date: date de l'exercice
     init(nom: String, descript: String, date: NSDate){
         guard let dao = ExercicePhysiqueDTO.createDTO() else{
             fatalError("unuable to get dao for ExercicePhysique")

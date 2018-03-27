@@ -10,9 +10,8 @@ import UIKit
 
 class ContactTableViewCell: UITableViewCell {
 
- 
+    //MARK:-Variables-
     @IBOutlet weak var profContact: UILabel!
-    
     @IBOutlet weak var nomContact: UILabel!
     
     override func awakeFromNib() {

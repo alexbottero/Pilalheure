@@ -11,8 +11,8 @@ import CoreData
 
 class PrescriptionViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate{
    
+    //MARK:-Variables-
     @IBOutlet var prescriptionPresenter: PrescriptionPresenter!
-    
     @IBOutlet weak var prescriptionTable: UITableView!
     
     fileprivate lazy var prescriptionFetched : NSFetchedResultsController<PrescriptionDTO> = {
@@ -23,9 +23,9 @@ class PrescriptionViewController: UIViewController, UITableViewDelegate, UITable
         return fetchResultController
     }()
 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
         do{
             try self.prescriptionFetched.performFetch()
@@ -40,6 +40,9 @@ class PrescriptionViewController: UIViewController, UITableViewDelegate, UITable
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    // MARK: - Table View Data Source protocol -
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         let cell = self.prescriptionTable.dequeueReusableCell(withIdentifier: "prescriptionCell", for: indexPath) as! PrescriptionTableViewCell
         let prescription = self.prescriptionFetched.object(at: indexPath)
@@ -58,10 +61,7 @@ class PrescriptionViewController: UIViewController, UITableViewDelegate, UITable
         return true
     }
     
-    func deleteHandlerAction(action: UITableViewRowAction, indexPath: IndexPath) -> Void{
-        let prescription = self.prescriptionFetched.object(at: indexPath)
-        PrescriptionDTO.delete(prescription: prescription)
-    }
+
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let delete = UITableViewRowAction(style: .default, title: "Delete", handler: self.deleteHandlerAction)
@@ -69,11 +69,13 @@ class PrescriptionViewController: UIViewController, UITableViewDelegate, UITable
         return [delete]
     }
     
-    //MARK: - TableView delegate protocol -
-    
-    
     func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
         self.performSegue(withIdentifier: segueShowPrescriptionId, sender: self)
+    }
+    
+    func deleteHandlerAction(action: UITableViewRowAction, indexPath: IndexPath) -> Void{
+        let prescription = self.prescriptionFetched.object(at: indexPath)
+        PrescriptionDTO.delete(prescription: prescription)
     }
     
     //MARK: - NSFetchedResult delegate protocol -
@@ -103,15 +105,8 @@ class PrescriptionViewController: UIViewController, UITableViewDelegate, UITable
     }
     
 
-    /*
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
     let segueShowPrescriptionId = "showPrescriptionSegue"
     
     //passage des informations à la page suivante

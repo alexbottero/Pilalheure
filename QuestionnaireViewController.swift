@@ -13,17 +13,14 @@ import UserNotifications
 class QuestionnaireViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, 
 NSFetchedResultsControllerDelegate{
     
+    //MARK: - Variables -
     var data : [QuestionnaireDTO]? = nil
     var data2 : [EventExceptionnelDTO]? = nil
-    
     var value = 0
-    
-    var startOfDay: Date{
-        return Calendar.current.startOfDay(for:Date())
-    }
-    let jourAvant: Int = 1
-    
-    
+
+    /// Affiche dans la table soit les questionnaire soit les evenements excepetionnels suivant le switch
+    ///
+    /// - Parameter sender: UISegmentedControl
     @IBAction func switchJour(_ sender: UISegmentedControl) {
         if sender.selectedSegmentIndex == 0 {
             UIView.animate(withDuration: 0.5, animations: {
@@ -54,8 +51,7 @@ NSFetchedResultsControllerDelegate{
     }
     
     
-    @IBOutlet weak var jourQuest: UISegmentedControl!
-    
+    // table view des resultat
     @IBOutlet weak var QuestionnaireTable: UITableView!
     
     override func viewDidLoad() {
@@ -71,13 +67,12 @@ NSFetchedResultsControllerDelegate{
             DialogBoxHelper.alert(view: self, error: error)
         }
         Background.color(controleur: self)
-        // Do any additional setup after loading the view.
     }
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
     
     // MARK: - Table View Data Source protocol -
     
@@ -138,7 +133,6 @@ NSFetchedResultsControllerDelegate{
         }
     }
     
-    // MARK: - notif
     /*
     
 

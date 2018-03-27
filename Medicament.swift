@@ -24,6 +24,13 @@ class Medicament {
         return self.dao.descript!
     }
     
+    /// Initialisateur
+    ///
+    /// - Parameters:
+    ///   - nom: nom du medicament
+    ///   - dose: dose
+    ///   - unite: unite du medicament
+    ///   - desc: description rapide
     init(nom: String, dose: String, unite: String, desc: String){
         guard let dao = MedicamentDTO.createDTO() else{
             fatalError("unuable to get dao for medicament")

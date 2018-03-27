@@ -10,8 +10,8 @@ import UIKit
 
 class ShowExercicePhysiqueViewController: UIViewController {
 
+    //MARK: -Variables-
     var exPhys: ExercicePhysiqueDTO? = nil
-
     @IBOutlet weak var nomEx: UILabel!
     @IBOutlet weak var descEx: UITextView!
     

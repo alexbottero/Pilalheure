@@ -10,6 +10,7 @@ import UIKit
 
 class ExercicePhysiqueTableViewCell: UITableViewCell {
 
+    //Mark:-Variables-
     @IBOutlet weak var nomExercicePhysique: UILabel!
     @IBOutlet weak var dateExercicePhysique: UILabel!
     

@@ -10,6 +10,7 @@ import UIKit
 
 class ShowPrescriptionTableViewCell: UITableViewCell {
 
+    //MARK: -Variables-
     @IBOutlet weak var dateLabel: UILabel!
     
     override func awakeFromNib() {

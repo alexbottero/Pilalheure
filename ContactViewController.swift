@@ -12,17 +12,37 @@ import CoreData
 
 class ContactViewController: UIViewController,UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate{
     
-    @IBOutlet weak var contactTable: UITableView!
+    //MARK: -Variables-
     
+    //table des contact
+    @IBOutlet weak var contactTable: UITableView!
+    // recupere tout les contacts du core data
     fileprivate lazy var contactFetched : NSFetchedResultsController<ContactDTO> = {
         let request : NSFetchRequest <ContactDTO> = ContactDTO.fetchRequest()
         request.sortDescriptors = [NSSortDescriptor(key:#keyPath(ContactDTO.nom),ascending:true)]
-        
         let fetchResultController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: CoreDataManager.context, sectionNameKeyPath: nil, cacheName:nil)
         fetchResultController.delegate =  self
         return fetchResultController
     }()
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        do{
+            try self.contactFetched.performFetch()
+        }
+        catch let error as NSError{
+            DialogBoxHelper.alert(view: self, error: error)
+        }
+        Background.color(controleur: self)
+        // Do any additional setup after loading the view.
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    //MARK:  - Table View Data Source protocol -
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard let section = self.contactFetched.sections?[section]else{
@@ -42,49 +62,7 @@ class ContactViewController: UIViewController,UITableViewDelegate, UITableViewDa
         return cell
         
     }
-    
 
-  
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        do{
-            try self.contactFetched.performFetch()
-        }
-        catch let error as NSError{
-            DialogBoxHelper.alert(view: self, error: error)
-        }
-        Background.color(controleur: self)
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-    func deleteHandlerAction(action: UITableViewRowAction,indexPath: IndexPath) -> Void {
-        //self.exercicePhysiqueTable.beginUpdates()
-        let contact = self.contactFetched.object(at: indexPath)
-        ContactDTO.delete(cont: contact)
-        /*
-         if self.delete(exPhysWithIndex: indexPath.row){
-         self.exercicePhysiqueTable.deleteRows(at: [indexPath], with: UITableViewRowAnimation.automatic)
-         }
-         self.exercicePhysiqueTable.endUpdates()*/
-    }
-    
-    
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let delete = UITableViewRowAction(style: .default, title: "Del", handler: self.deleteHandlerAction)
         //let edit = UITableViewRowAction(style: .default, title: "edit",handler: self.editHandlerAction)
@@ -94,7 +72,25 @@ class ContactViewController: UIViewController,UITableViewDelegate, UITableViewDa
         return [delete]
         
     }
-    // MARK: - Navigation
+    
+    //MARK: - Suppression -
+    
+    /// Delete l'element a l'indexPath
+    ///
+    /// - Parameters:
+    ///   - action:
+    ///   - indexPath:
+    func deleteHandlerAction(action: UITableViewRowAction,indexPath: IndexPath) -> Void {
+        //self.exercicePhysiqueTable.beginUpdates()
+        let contact = self.contactFetched.object(at: indexPath)
+        ContactDTO.delete(cont: contact)
+    }
+    
+    
+    
+    // MARK: - Navigation-
+    
+    
     let segueShowContactId = "ShowContactSegue"
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

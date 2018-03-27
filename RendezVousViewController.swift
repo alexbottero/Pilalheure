@@ -11,12 +11,16 @@ import CoreData
 
 class RendezVousViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate{
     
+    // MARK : - Variables -
+    /// Table des rendez-vous
     @IBOutlet weak var rendezVousTable: UITableView!
     
+    /// Bouton d'ajout d'evenement exceptionnel
     @IBAction func addEvent(_ sender: Any) {
         let alert = UIAlertController(title: "Nouvel événement",
                                       message: "Ajouter un événement",
                                       preferredStyle: .alert)
+        // Ajoute un nouvel élément
         let saveAction = UIAlertAction(title: "Ajouter",
                                        style: .default)
         {
@@ -37,7 +41,7 @@ class RendezVousViewController: UIViewController, UITableViewDelegate, UITableVi
         present(alert, animated: true)
     }
     
-    
+    /// Tableau de rendez- vous
     fileprivate lazy var rendezVousFetched : NSFetchedResultsController<RendezVousDTO> = {
         let request : NSFetchRequest<RendezVousDTO> = RendezVousDTO.fetchRequest()
         request.sortDescriptors = [NSSortDescriptor(key:#keyPath(RendezVousDTO.date), ascending: true)]
@@ -45,6 +49,8 @@ class RendezVousViewController: UIViewController, UITableViewDelegate, UITableVi
         fetchResultController.delegate = self
         return fetchResultController
     }()
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,6 +69,8 @@ class RendezVousViewController: UIViewController, UITableViewDelegate, UITableVi
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    // MARK: - Table View Data Source protocol -
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         let cell = self.rendezVousTable.dequeueReusableCell(withIdentifier: "rdvCell", for: indexPath) as! RendezVousTableViewCell
         let rendezVous = self.rendezVousFetched.object(at: indexPath)
@@ -86,7 +94,6 @@ class RendezVousViewController: UIViewController, UITableViewDelegate, UITableVi
                 let nameToSave = textField.text else{
                     return
             }
-            
             let rendezVous = self.rendezVousFetched.object(at: indexPath as IndexPath)
             EventExceptionnel(nom: nameToSave, date: Date(), rendezVous: rendezVous)
             CoreDataManager.save()
@@ -114,6 +121,12 @@ class RendezVousViewController: UIViewController, UITableViewDelegate, UITableVi
         return true
     }
     
+    
+    /// Permet de supprimer l'objet a la ligne de l'indexPath
+    ///
+    /// - Parameters:
+    ///   - action: UITableViewRowAction
+    ///   - indexPath: IndexPath
     func deleteHandlerAction(action: UITableViewRowAction, indexPath: IndexPath) -> Void{
         let rendezVous = self.rendezVousFetched.object(at: indexPath)
         RendezVousDTO.delete(rendezVous: rendezVous)
@@ -124,6 +137,7 @@ class RendezVousViewController: UIViewController, UITableViewDelegate, UITableVi
         delete.backgroundColor = UIColor.red
         return [delete]
     }
+    
     
     //MARK: - NSFetchedResult delegate protocol -
     

@@ -11,13 +11,16 @@ import CoreData
 
 class MedicamentViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate{
     
+    
+    // MARK : - Variables-
+
     /// Table contenant les médicaments
     @IBOutlet weak var medicamentTable: UITableView!
     
     /// Presenter de la cellule médicament
     @IBOutlet var medicamentPresenter: MedicamentPresenter!
-    
     /// Récupère tous les médicaments contenu dans le CoreData
+    
     fileprivate lazy var medicamentsFetched : NSFetchedResultsController<MedicamentDTO> = {
         //préparation de la requete
         let request : NSFetchRequest<MedicamentDTO> = MedicamentDTO.fetchRequest()
@@ -28,10 +31,11 @@ class MedicamentViewController: UIViewController, UITableViewDataSource, UITable
         return fetchResultController
      }()
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        
         do{
             try self.medicamentsFetched.performFetch()
         }
@@ -40,14 +44,13 @@ class MedicamentViewController: UIViewController, UITableViewDataSource, UITable
         }
         Background.color(controleur: self)
     }
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-    // MARK: - Table View Data Source protocol -
     
+    // MARK: - Table View Data Source protocol -
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         let cell = self.medicamentTable.dequeueReusableCell(withIdentifier: "medicamentCell", for: indexPath) as! MedicamentTableViewCell
         let medoc = self.medicamentsFetched.object(at: indexPath)

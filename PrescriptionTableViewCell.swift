@@ -10,6 +10,7 @@ import UIKit
 
 class PrescriptionTableViewCell: UITableViewCell {
 
+    //MARK: -Variables-
     @IBOutlet weak var nomMedicament: UILabel!
     @IBOutlet weak var doseMedicament: UILabel!
     @IBOutlet weak var uniteMedicament: UILabel!

@@ -10,19 +10,22 @@ import UIKit
 
 class AddPrescriptionViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate {
     
+    //MARK:-Variables-
+    
     @IBOutlet weak var intervalleContainerView: UIView!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         Background.color(controleur: self)
         // Do any additional setup after loading the view.
     }
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
+    //MARK: -Cancel and save-
     @IBAction func cancelAction(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
@@ -38,13 +41,16 @@ class AddPrescriptionViewController: UIViewController, UITextFieldDelegate, UITe
             let intervalle : String = embedIntervalleAddViewController.intervalleText.text!
             let number: Int64? = Int64(intervalle)
             guard let medoc2 = medoc else {return}
+        
+        //On regarde quel type de prescription il faut creer
             if(embedIntervalleAddViewController.heureDebutPickerText.text != ""){
                 if(embedIntervalleAddViewController.heureFinPickerText.text != ""){
+                    //creer la nouvelle prescription
                     let prescription = Prescription(medicament: medoc2, dateDebut: dateDebutPicker, dateFin: dateFinPicker, heureDebut: heureDebutPicker, heureFin: heureFinPicker, intervalle: number, heurePrecise: nil)
                     PrescriptionDTO.add(prescription: prescription)
                 }
                 else{
-                    print("hello")
+                    //creer la nouvelle prescription
                     let prescription = Prescription(medicament: medoc2, dateDebut: dateDebutPicker, dateFin: dateFinPicker, heureDebut: heureDebutPicker, heureFin: nil, intervalle: number, heurePrecise: nil)
                     PrescriptionDTO.add(prescription: prescription)
                 }
@@ -53,19 +59,9 @@ class AddPrescriptionViewController: UIViewController, UITextFieldDelegate, UITe
     }
     
     //MARK: - TextField Delegate -
-    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
     
 }

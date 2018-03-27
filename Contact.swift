@@ -27,6 +27,14 @@ class Contact {
     }
     
     
+    /// initialisateur de contact
+    ///
+    /// - Parameters:
+    ///   - nom: nom du contact
+    ///   - prof: profession
+    ///   - mail: mail du contact
+    ///   - adresse: adres du contact
+    ///   - tel: telephone du contact
     init(nom: String, prof: String, mail: String, adresse: String, tel:String){
         guard let dao = ContactDTO.createDTO() else{
             fatalError("unuable to get dao for ExercicePhysique")

@@ -19,6 +19,11 @@ class Questionnaire{
         return self.dao.date!
     }
     
+    /// initialisateur de questionnaire
+    ///
+    /// - Parameters:
+    ///   - etat: etat du patient
+    ///   - date: date questionnaire
     init(etat: String, date: NSDate){
         guard let dao = QuestionnaireDTO.createDTO() else{
             fatalError("unuable to get dao for medicament")
