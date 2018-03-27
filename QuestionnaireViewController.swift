@@ -16,6 +16,7 @@ NSFetchedResultsControllerDelegate{
     var rendezVous : RendezVousDTO? = nil
     
     var data : [QuestionnaireDTO]? = nil
+    var dataTri : [QuestionnaireDTO]? = nil
     
     var startOfDay: Date{
         return Calendar.current.startOfDay(for:Date())
@@ -47,6 +48,7 @@ NSFetchedResultsControllerDelegate{
         let request : NSFetchRequest<QuestionnaireDTO> = QuestionnaireDTO.fetchRequest()
         //let predicate = NSPredicate(format:"rendezVousQuestS.contacts.nom = %@",(self.rendezVous?.contacts?.nom)!)
         //request.predicate = predicate
+        print(rendezVous)
         do{
             try self.data = context.fetch(request)
         }catch let error as NSError{
@@ -54,6 +56,14 @@ NSFetchedResultsControllerDelegate{
         }
         Background.color(controleur: self)
         // Do any additional setup after loading the view.
+        for i in data!{
+            print(i.rendezVousQuestS)
+            print(rendezVous)
+            if(i.rendezVousQuestS?.date == rendezVous?.date){
+                dataTri?.append(i)
+
+            }
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -65,10 +75,10 @@ NSFetchedResultsControllerDelegate{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         let cell = self.QuestionnaireTable.dequeueReusableCell(withIdentifier: "questCell", for: indexPath) as! QuestionnaireTableViewCell
-        let quest = self.data?[indexPath.row]
+        let quest = self.dataTri?[indexPath.row]
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "HH:mm"
-        let stringDate = dateFormatter.string(from: quest?.date! as! Date)
+        let stringDate = dateFormatter.string(from: quest?.date as! Date)
         cell.etat.text = quest?.etat
         cell.date.text = stringDate
         return cell
@@ -77,7 +87,10 @@ NSFetchedResultsControllerDelegate{
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
-        return (self.data?.count)!
+        if let c = self.dataTri?.count{
+            return c
+        }
+        return 0
     }
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool{

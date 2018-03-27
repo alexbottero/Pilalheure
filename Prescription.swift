@@ -90,18 +90,23 @@ class Prescription {
         //création des composants pour effectuer les changement de dates -> Jour date Debut + heure de heure Debut
         let componentsDD = gregorian.dateComponents([.year, .month, .day, .hour, .minute, .second], from: dateDebut)
         var componentsHD = gregorian.dateComponents([.year, .month, .day, .hour, .minute, .second], from: hdeb)
-        
+        var componentsDate = gregorian.dateComponents([.year, .month, .day, .hour, .minute, .second], from: dateDebut)
+        var componentsDateFin = gregorian.dateComponents([.year, .month, .day, .hour, .minute, .second], from: dateFin)
+        componentsDate.hour = 0
+        componentsDate.minute = 0
+        componentsDateFin.hour = 0
+        componentsDateFin.minute = 0
         //change the time
         var date = gregorian.date(from: componentsDD)!
+        var dEnd = gregorian.date(from: componentsDateFin)
+        dEnd = dEnd! + 1.days
         var x = false
         var ecart : Int = 0
         if let inter2 = inter{
             x = true
             ecart=Int(dif/(inter2+1))
         }
-        var dDay = calendar.component(.day, from: date)
-        let dEnd = calendar.component(.day, from: dateFin)
-        while dDay <= dEnd {
+        while date <= dEnd! {
             var componentsD = gregorian.dateComponents([.year, .month, .day, .hour, .minute, .second], from: date)
             componentsD.hour = componentsHD.hour
             componentsD.minute = componentsHD.minute
@@ -118,7 +123,6 @@ class Prescription {
                 rappels.append(date)
             }
             date = date + 1.days
-            dDay = calendar.component(.day, from: date)
         }
         
         
@@ -139,13 +143,19 @@ class Prescription {
         componentsDD.hour = componentsHP.hour
         componentsDD.minute = componentsHP.minute
         //change the time
+        var componentsDate = gregorian.dateComponents([.year, .month, .day, .hour, .minute, .second], from: dateDebut)
+        var componentsDateFin = gregorian.dateComponents([.year, .month, .day, .hour, .minute, .second], from: dateFin)
+        componentsDate.hour = 0
+        componentsDate.minute = 0
+        componentsDateFin.hour = 0
+        componentsDateFin.minute = 0
+        //change the time
         var date = gregorian.date(from: componentsDD)!
-        var dDay = calendar.component(.day, from: date)
-        let dEnd = calendar.component(.day, from: dateFin)
-        while dDay <= dEnd {
+        var dEnd = gregorian.date(from: componentsDateFin)
+        dEnd = dEnd! + 1.days
+        while date <= dEnd! {
             rappels.append(date)
             date = date + 1.days
-            dDay = calendar.component(.day, from: date)
         }
        
         return rappels

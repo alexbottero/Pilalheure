@@ -13,7 +13,7 @@ class MenuViewController: UIViewController{
     @IBOutlet weak var nomEvent: UILabel!
     @IBOutlet weak var dateEvent: UILabel!
     
-    var data = [RappelDTO]()
+    var data : [RappelDTO]? = [RappelDTO]()
     
     func loadIntro(){
         let context = CoreDataManager.context
@@ -28,28 +28,34 @@ class MenuViewController: UIViewController{
             DialogBoxHelper.alert(view: self, error: error)
         }
         var i = 0
-        while(data[i].dateRappel as Date! < dateJ){
-            i = i+1
-        }
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd/MM/yyyy HH:mm"
-        let stringDate = dateFormatter.string(from: data[i].dateRappel as! Date)
-        if let medoc = data[i].events?.prescriptions?.medicaments?.nom{
-            self.nomEvent.text = medoc
-            self.dateEvent.text = stringDate
-        }
-        else if let activite = data[i].events?.exercicesPhysiques?.nom{
-            self.nomEvent.text = activite
-            self.dateEvent.text = stringDate
-        }
-        else if let rdv = data[i].events?.rendezVousS?.contacts?.nom{
-            self.nomEvent.text = rdv
-            self.dateEvent.text = stringDate
-        }
-        else{
+        if(data?.count != 0){
+            while(data?[i].dateRappel as Date! < dateJ){
+                i = i+1
+            }
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "dd/MM/yyyy HH:mm"
+            let stringDate = dateFormatter.string(from: data?[i].dateRappel as! Date)
+            if let medoc = data?[i].events?.prescriptions?.medicaments?.nom{
+                self.nomEvent.text = medoc
+                self.dateEvent.text = stringDate
+            }
+            else if let activite = data?[i].events?.exercicesPhysiques?.nom{
+                self.nomEvent.text = activite
+                self.dateEvent.text = stringDate
+            }
+            else if let rdv = data?[i].events?.rendezVousS?.contacts?.nom{
+                self.nomEvent.text = rdv
+                self.dateEvent.text = stringDate
+            }
+            else{
+                self.nomEvent.text = "Pas de prochain événement"
+                self.dateEvent.text = ""
+            }
+        }else{
             self.nomEvent.text = "Pas de prochain événement"
             self.dateEvent.text = ""
         }
+        
     }
     
     override func viewDidLoad() {
