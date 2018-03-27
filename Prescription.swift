@@ -62,12 +62,10 @@ class Prescription {
                 rappels = createRappels(heurePrecise: heureDebut!)
             }
         }
-        for i in rappels{
-            guard let daoR = RappelDTO.createDTO() else{
-                fatalError("unuable to get dao for rappels")
-            }
-            daoR.dateRappel = i as NSDate
-            daoR.events = self.daoEvent
+        var i = rappels.count
+        while (i>0){
+            Rappel(date: rappels[i-1], type: 2, event: daoE)
+            i=i-1
         }
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd-MM-yyyy 'at' HH:mm"

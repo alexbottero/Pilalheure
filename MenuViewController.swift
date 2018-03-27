@@ -56,6 +56,7 @@ class MenuViewController: UIViewController{
         super.viewDidLoad()
       Background.color(controleur: self)
         loadIntro()
+        print(Date())
         
         // Do any additional setup after loading the view.
     }
