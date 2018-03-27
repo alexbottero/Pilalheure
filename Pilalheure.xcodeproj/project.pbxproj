@@ -57,6 +57,9 @@
 		AC7AB20B20587D7A00CA5DED /* ActiviteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7AB20920587D7A00CA5DED /* ActiviteTableViewCell.swift */; };
 		AC7AB20D20589B5800CA5DED /* ExercicePhysique.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7AB20C20589B5800CA5DED /* ExercicePhysique.swift */; };
 		AC7AB21020589C2A00CA5DED /* ExercicePhysiqueDAOext.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7AB20F20589C2A00CA5DED /* ExercicePhysiqueDAOext.swift */; };
+		AC808356206A5DA100A5A8C3 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC808355206A5DA100A5A8C3 /* Event.swift */; };
+		AC808358206A72E200A5A8C3 /* EventExceptionnelDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC808357206A72E200A5A8C3 /* EventExceptionnelDAO.swift */; };
+		AC80835A206A732700A5A8C3 /* EventExceptionnel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC808359206A732700A5A8C3 /* EventExceptionnel.swift */; };
 		ACD999AD205933C1007A9BF0 /* ExercicePhysiqueTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD999AC205933C1007A9BF0 /* ExercicePhysiqueTableViewCell.swift */; };
 		ACD999B320595E2A007A9BF0 /* AddPrescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD999B220595E2A007A9BF0 /* AddPrescriptionViewController.swift */; };
 		ACD999B520595E36007A9BF0 /* PrescriptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD999B420595E36007A9BF0 /* PrescriptionTableViewCell.swift */; };
@@ -143,6 +146,9 @@
 		AC7AB20920587D7A00CA5DED /* ActiviteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiviteTableViewCell.swift; sourceTree = "<group>"; };
 		AC7AB20C20589B5800CA5DED /* ExercicePhysique.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercicePhysique.swift; sourceTree = "<group>"; };
 		AC7AB20F20589C2A00CA5DED /* ExercicePhysiqueDAOext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercicePhysiqueDAOext.swift; sourceTree = "<group>"; };
+		AC808355206A5DA100A5A8C3 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		AC808357206A72E200A5A8C3 /* EventExceptionnelDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventExceptionnelDAO.swift; sourceTree = "<group>"; };
+		AC808359206A732700A5A8C3 /* EventExceptionnel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventExceptionnel.swift; sourceTree = "<group>"; };
 		ACD999AC205933C1007A9BF0 /* ExercicePhysiqueTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercicePhysiqueTableViewCell.swift; sourceTree = "<group>"; };
 		ACD999B220595E2A007A9BF0 /* AddPrescriptionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPrescriptionViewController.swift; sourceTree = "<group>"; };
 		ACD999B420595E36007A9BF0 /* PrescriptionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrescriptionTableViewCell.swift; sourceTree = "<group>"; };
@@ -260,6 +266,7 @@
 				AC0198372063FD1500754733 /* RendezVousDAO.swift */,
 				30D8FE142061C9280065D968 /* PrescriptionDAO.swift */,
 				7D9648722062449F0043C5EF /* RappelDAO.swift */,
+				AC808357206A72E200A5A8C3 /* EventExceptionnelDAO.swift */,
 			);
 			name = DAO;
 			sourceTree = "<group>";
@@ -274,6 +281,8 @@
 				AC0198392063FF1200754733 /* RendezVous.swift */,
 				30D8FE122061C5550065D968 /* Prescription.swift */,
 				AC5AF1802067E2B900E0A6FB /* Rappel.swift */,
+				AC808355206A5DA100A5A8C3 /* Event.swift */,
+				AC808359206A732700A5A8C3 /* EventExceptionnel.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -549,6 +558,7 @@
 				AC55BFE120601A2E00478633 /* ContactViewController.swift in Sources */,
 				AC5AF19020696E1400E0A6FB /* Background.swift in Sources */,
 				7DD1E958205C01D30096AB44 /* IntervalleAddPrescriptionViewController.swift in Sources */,
+				AC80835A206A732700A5A8C3 /* EventExceptionnel.swift in Sources */,
 				7D93A58720582D04006D37C4 /* Medicament.swift in Sources */,
 				7D7BEDAE20691E4300B36F6C /* QuestionnaireRendezVousViewController.swift in Sources */,
 				7D7BEDB020691E9D00B36F6C /* QuestionnaireRendezVousTableViewCell.swift in Sources */,
@@ -559,6 +569,7 @@
 				7D9648752062468E0043C5EF /* DateHelper.swift in Sources */,
 				ACD999BB20596240007A9BF0 /* AddExercicePhysiqueViewController.swift in Sources */,
 				7D93A55120582604006D37C4 /* AppDelegate.swift in Sources */,
+				AC808356206A5DA100A5A8C3 /* Event.swift in Sources */,
 				AC040A402059E90800BA9068 /* ExercicePhysiquePresenter.swift in Sources */,
 				AC7AB21020589C2A00CA5DED /* ExercicePhysiqueDAOext.swift in Sources */,
 				AC01983A2063FF1200754733 /* RendezVous.swift in Sources */,
@@ -573,6 +584,7 @@
 				ACE8ACBF20624AAF00CB96F8 /* QuestionnaireDAO.swift in Sources */,
 				ACD999B720595E3D007A9BF0 /* PrescriptionViewController.swift in Sources */,
 				3099A5F5206338EC0061728B /* EventDAO.swift in Sources */,
+				AC808358206A72E200A5A8C3 /* EventExceptionnelDAO.swift in Sources */,
 				ACE8ACB92062400D00CB96F8 /* QuestionnaireViewController.swift in Sources */,
 				7D0256232063F7EA00D3062D /* ShowPrescriptionTableViewCell.swift in Sources */,
 				ACD999B320595E2A007A9BF0 /* AddPrescriptionViewController.swift in Sources */,
