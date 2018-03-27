@@ -13,6 +13,7 @@ class Rappel {
     
     internal let dao : RappelDTO
     internal let daoE: EventDTO
+    let encouragements = ["Tu peux le faire !", "N'abandonnes pas ", "Let's go boys", "C'est un petit pas pour toi mais un grand pas pour ta santé", "Croire en soi c'est déjà presque reussir ","C'est les vainqueurs qui écrivent l'histoire"]
     var date   : Date{
         return self.dao.dateRappel! as Date
     }
@@ -33,10 +34,16 @@ class Rappel {
         let trigger = UNCalendarNotificationTrigger(dateMatching: comps, repeats: false)
         let content = UNMutableNotificationContent()
         let uuid = UUID().uuidString
+        
         switch type {
         case 1:
+            
+            // Generate a random index
+            let randomIndex = Int(arc4random_uniform(UInt32(encouragements.count)))
+            // Get a random item
+            let randomItem = encouragements[randomIndex]
             content.title = "Rappel Activité "
-            content.body = "Vous avez une activité à faire : " + (daoE.exercicesPhysiques?.nom)!
+            content.body = "Vous avez une activité à faire : " + (daoE.exercicesPhysiques?.nom)! + "\n " + randomItem
             content.sound = UNNotificationSound.default()
             //requestIdentifier = "RappelAct"
             
