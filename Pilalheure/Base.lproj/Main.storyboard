@@ -1298,7 +1298,7 @@
                                         <connections>
                                             <outlet property="dateRendezVous" destination="8Tx-39-2Y7" id="eUp-lY-iUM"/>
                                             <outlet property="nomDocteur" destination="836-Nf-Ddu" id="Efc-qf-vhX"/>
-                                            <segue destination="mgg-73-ANx" kind="show" id="nG9-yZ-bmY"/>
+                                            <segue destination="mgg-73-ANx" kind="show" identifier="showRendezVousSegue" id="nG9-yZ-bmY"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -1616,7 +1616,6 @@
                     </view>
                     <connections>
                         <outlet property="QuestionnaireTable" destination="bO4-rw-HnR" id="DnB-lV-QoZ"/>
-                        <outlet property="jourQuest" destination="NL7-Cg-4up" id="7Cd-LZ-7xR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YnI-vj-8fC" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -11,17 +11,21 @@ import CoreData
 
 class MedicamentViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate{
     
+    /// Table contenant les médicaments
     @IBOutlet weak var medicamentTable: UITableView!
     
+    /// Presenter de la cellule médicament
     @IBOutlet var medicamentPresenter: MedicamentPresenter!
     
+    /// Récupère tous les médicaments contenu dans le CoreData
     fileprivate lazy var medicamentsFetched : NSFetchedResultsController<MedicamentDTO> = {
-     //prepare request
-     let request : NSFetchRequest<MedicamentDTO> = MedicamentDTO.fetchRequest()
-     request.sortDescriptors = [NSSortDescriptor(key:#keyPath(MedicamentDTO.nom), ascending:true)]
-     let fetchResultController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: CoreDataManager.context, sectionNameKeyPath: nil, cacheName: nil)
-     fetchResultController.delegate = self
-     return fetchResultController
+        //préparation de la requete
+        let request : NSFetchRequest<MedicamentDTO> = MedicamentDTO.fetchRequest()
+        //Ajout d'un tri sur la requete : trie pat les noms de médicaments
+        request.sortDescriptors = [NSSortDescriptor(key:#keyPath(MedicamentDTO.nom), ascending:true)]
+        let fetchResultController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: CoreDataManager.context, sectionNameKeyPath: nil, cacheName: nil)
+        fetchResultController.delegate = self
+        return fetchResultController
      }()
     
     override func viewDidLoad() {
@@ -63,9 +67,15 @@ class MedicamentViewController: UIViewController, UITableViewDataSource, UITable
         return true
     }
     
+    // MARK: - Table View Handler Action -
+    
+    /// Function de suppression des médicaments. Appelle la fonction delete du DAO
+    ///
+    /// - Parameters:
+    ///   - action: UITableViewRowAction
+    ///   - indexPath: IndexPath
     func deleteHandlerAction(action: UITableViewRowAction, indexPath: IndexPath) -> Void{
         let medoc = self.medicamentsFetched.object(at: indexPath)
-        //CoreDataManager.context.delete(medoc)
         MedicamentDTO.delete(medicament : medoc)
     }
 
@@ -113,9 +123,14 @@ class MedicamentViewController: UIViewController, UITableViewDataSource, UITable
     
     // MARK: - Navigation -
     
+    /// Id du la page show de médicament
     let segueShowMedicamentId = "showMedicamentSegue"
 
-    //passage des informations à la page suivante
+    /// Passage des informations de la cellule à la page suivante Show
+    ///
+    /// - Parameters:
+    ///   - segue: UIStoryboardSegue
+    ///   - sender: Any?
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == self.segueShowMedicamentId{
             if let indexPath = self.medicamentTable.indexPathForSelectedRow{
@@ -126,25 +141,6 @@ class MedicamentViewController: UIViewController, UITableViewDataSource, UITable
         }
     }
     
-    //test
-    /*var dateComp:NSDateComponents = NSDateComponents()
-    dateComp.year = 2015;
-    dateComp.month = 06;
-    dateComp.day = 03;
-    dateComp.hour = 12;
-    dateComp.minute = 55;
-    dateComp.timeZone = NSTimeZone.systemTimeZone()
-    
-    var calender:NSCalendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
-    var date:NSDate = calender.dateFromComponents(dateComp)!
-    
-    var notification:UILocalNotification = UILocalNotification()
-    notification.category = "Daily Quote"
-    notification.alertBody = quoteBook.randomQuote()
-    notification.fireDate = date
-    notification.repeatInterval =
-    
-    UIApplication.sharedApplication().scheduleLocalNotification(notification)*/
     
 }
 
