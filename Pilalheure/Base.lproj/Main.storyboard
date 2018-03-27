@@ -681,32 +681,32 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="jA4-Fm-ojs">
-                                <rect key="frame" x="0.0" y="72" width="375" height="527"/>
+                                <rect key="frame" x="11" y="72" width="353" height="527"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="prescriptionCell" rowHeight="72" id="wk5-O1-u2R" customClass="PrescriptionTableViewCell" customModule="Pilalheure" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="72"/>
+                                        <rect key="frame" x="0.0" y="28" width="353" height="72"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wk5-O1-u2R" id="GJS-fD-04t">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="71.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="353" height="71.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NCG-Kf-5Cq">
-                                                    <rect key="frame" x="259" y="18" width="42" height="22.5"/>
+                                                    <rect key="frame" x="237" y="18" width="42" height="22.5"/>
                                                     <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
-                                                    <nil key="textColor"/>
+                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c8K-2C-tLb">
-                                                    <rect key="frame" x="309" y="18" width="42" height="22.5"/>
+                                                    <rect key="frame" x="287" y="18" width="42" height="22.5"/>
                                                     <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
-                                                    <nil key="textColor"/>
+                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="nomMedicament" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M3T-qr-ucX">
                                                     <rect key="frame" x="8" y="17" width="128.5" height="22.5"/>
                                                     <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
-                                                    <nil key="textColor"/>
+                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -748,9 +748,9 @@
                         </subviews>
                         <color key="backgroundColor" red="0.20000000000000001" green="0.40000000000000002" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="jA4-Fm-ojs" secondAttribute="trailing" id="8qr-SR-8db"/>
+                            <constraint firstAttribute="trailing" secondItem="jA4-Fm-ojs" secondAttribute="trailing" constant="11" id="8qr-SR-8db"/>
                             <constraint firstItem="sHg-PC-0yp" firstAttribute="top" secondItem="6k7-0G-9Ja" secondAttribute="bottom" constant="8" id="CXz-B7-8BL"/>
-                            <constraint firstItem="jA4-Fm-ojs" firstAttribute="leading" secondItem="5vh-Ne-NvJ" secondAttribute="leading" id="FYJ-M7-InD"/>
+                            <constraint firstItem="jA4-Fm-ojs" firstAttribute="leading" secondItem="5vh-Ne-NvJ" secondAttribute="leading" constant="11" id="FYJ-M7-InD"/>
                             <constraint firstItem="6k7-0G-9Ja" firstAttribute="top" secondItem="jA4-Fm-ojs" secondAttribute="bottom" constant="10" id="YC7-aG-GAb"/>
                             <constraint firstItem="6k7-0G-9Ja" firstAttribute="centerX" secondItem="5vh-Ne-NvJ" secondAttribute="centerX" id="bQB-xN-o33"/>
                             <constraint firstItem="jA4-Fm-ojs" firstAttribute="top" secondItem="3rv-ek-7r9" secondAttribute="bottom" constant="8" id="zUp-px-Onq"/>
@@ -1216,16 +1216,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="JcT-SC-3m7">
-                                <rect key="frame" x="0.0" y="64" width="375" height="595"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="JcT-SC-3m7">
+                                <rect key="frame" x="16" y="72" width="343" height="587"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="sectionIndexColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="rappelCell" id="N86-8L-Ikm" customClass="ShowPrescriptionTableViewCell" customModule="Pilalheure" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="28" width="343" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="N86-8L-Ikm" id="U9s-ek-SMg">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SgV-pQ-R3p">
@@ -1236,7 +1236,9 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <connections>
                                             <outlet property="dateLabel" destination="SgV-pQ-R3p" id="a0d-3g-Sxt"/>
                                         </connections>
@@ -1248,7 +1250,14 @@
                                 </connections>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.20000000000000001" green="0.40000000000000002" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="JcT-SC-3m7" firstAttribute="centerX" secondItem="uas-Lj-nfj" secondAttribute="centerX" id="0rw-ge-RR0"/>
+                            <constraint firstItem="UIk-fL-P4t" firstAttribute="top" secondItem="JcT-SC-3m7" secondAttribute="bottom" constant="8" id="6Kc-mN-zRI"/>
+                            <constraint firstItem="JcT-SC-3m7" firstAttribute="trailing" secondItem="uas-Lj-nfj" secondAttribute="trailingMargin" id="Cnu-ot-HBS"/>
+                            <constraint firstItem="JcT-SC-3m7" firstAttribute="leading" secondItem="uas-Lj-nfj" secondAttribute="leadingMargin" id="KOg-67-AeJ"/>
+                            <constraint firstItem="JcT-SC-3m7" firstAttribute="top" secondItem="ugj-dx-ryg" secondAttribute="bottom" constant="8" id="QrS-z5-lVk"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="rappelTable" destination="JcT-SC-3m7" id="2hU-6o-MLd"/>
@@ -1425,10 +1434,10 @@
                                 </connections>
                             </tableView>
                             <segmentedControl opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="NL7-Cg-4up">
-                                <rect key="frame" x="165" y="93" width="45" height="29"/>
+                                <rect key="frame" x="56" y="93" width="263" height="29"/>
                                 <segments>
-                                    <segment title="1"/>
-                                    <segment title="2"/>
+                                    <segment title="Etats"/>
+                                    <segment title="Autres evenements"/>
                                 </segments>
                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
