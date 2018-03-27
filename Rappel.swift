@@ -44,7 +44,8 @@ class Rappel {
             content.title = "Rappel Prescription "
             content.body = "Vous avez un médicament à prendre :" + (daoE.prescriptions?.medicaments?.nom)! + (daoE.prescriptions?.medicaments?.dose)!
             content.sound = UNNotificationSound.default()
-            //requestIdentifier = "rappelPres"
+            content.badge = 1
+            content.categoryIdentifier = "presCat"
 
         case 3:
             content.body = "Vous avez un rendez-vous dans 1 heure avec " + (daoE.rendezVousS?.contacts?.nom)!
