@@ -25,6 +25,7 @@ class Rappel {
         let daoE = event
         self.dao = dao
         self.daoE = daoE
+        self.dao.events = daoE
         self.dao.dateRappel = date as NSDate
         
         let comps = Calendar.current.dateComponents([.year,.month,.day,.hour,.minute], from: date)

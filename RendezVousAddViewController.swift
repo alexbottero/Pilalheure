@@ -38,7 +38,8 @@ class RendezVousAddViewController: UIViewController, UIPickerViewDelegate, UIPic
         // Do any additional setup after loading the view.
         fetchData()
         contactPicker.reloadAllComponents()
-        
+        Background.color(controleur: self)
+        self.dateRDV.tintColor = UIColor.white
     }
     
     override func didReceiveMemoryWarning() {
