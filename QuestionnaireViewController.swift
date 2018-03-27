@@ -35,28 +35,7 @@ NSFetchedResultsControllerDelegate{
         }
     }
     
-    @IBAction func notif() {
-        let date = Date().addingTimeInterval(5)
-        let timer = Timer(fireAt: date, interval: 0, target: self, selector: #selector(runCode), userInfo: nil, repeats: false)
-        RunLoop.main.add(timer, forMode: RunLoopMode.commonModes)
-    }
     
-    func runCode(){
-        let content = UNMutableNotificationContent()
-        content.title = " Questionnaire d'etat"
-        content.subtitle = " rendez vous chez le neurologue proche"
-        content.body = " Quel est votre état ?"
-        content.badge = 1
-        content.categoryIdentifier = "questCat"
-        
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
-        let requestIdentifier = "EtatQuestionnaire"
-        
-        let request=UNNotificationRequest(identifier: requestIdentifier, content: content, trigger: trigger)
-        UNUserNotificationCenter.current().add(request, withCompletionHandler: {
-            error in
-        })
-    }
     
     @IBOutlet weak var jourQuest: UISegmentedControl!
     
@@ -66,14 +45,13 @@ NSFetchedResultsControllerDelegate{
         super.viewDidLoad()
         let context = CoreDataManager.context
         let request : NSFetchRequest<QuestionnaireDTO> = QuestionnaireDTO.fetchRequest()
-        let predicate = NSPredicate(format:"rendezVousQuestS.contacts.nom",(self.rendezVous?.contacts?.nom)!)
-        request.predicate = predicate
+        //let predicate = NSPredicate(format:"rendezVousQuestS.contacts.nom = %@",(self.rendezVous?.contacts?.nom)!)
+        //request.predicate = predicate
         do{
             try self.data = context.fetch(request)
         }catch let error as NSError{
             DialogBoxHelper.alert(view: self, error: error)
         }
-        UNUserNotificationCenter.current().delegate = self
         Background.color(controleur: self)
         // Do any additional setup after loading the view.
     }
@@ -139,29 +117,4 @@ NSFetchedResultsControllerDelegate{
     }
     */
 
-}
-extension QuestionnaireViewController: UNUserNotificationCenterDelegate{
-    
-    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-        completionHandler([.alert, .sound])
-    }
-    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
-        switch response.actionIdentifier {
-        case "reponse1":
-            let date = Date()
-            let quest = Questionnaire(etat: "actif", date: date as NSDate)
-            QuestionnaireDTO.add(quest: quest)
-            
-        case "reponse2":
-            let date = Date()
-            let quest = Questionnaire(etat: "passif", date: date as NSDate)
-            QuestionnaireDTO.add(quest: quest)
-        case "reponse3":
-            let date = Date()
-            let quest = Questionnaire(etat: "actif", date: date as NSDate)
-            QuestionnaireDTO.add(quest: quest)
-        default:
-            break
-        }
-    }
 }
