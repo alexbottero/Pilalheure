@@ -15,7 +15,8 @@ class AddMedicamentViewController: UIViewController, UIPickerViewDelegate, UIPic
     @IBOutlet weak var unitePicker: UIPickerView!
     @IBOutlet weak var descriptionMedicamentText: UITextView!
     
-    var pickerData : [String] = [String]()
+    /// 
+    var pickerData : [String] = ["mL", "L", "g", "mg"]
     var selectedValues : String = ""
     
     override func viewDidLoad() {
@@ -25,7 +26,6 @@ class AddMedicamentViewController: UIViewController, UIPickerViewDelegate, UIPic
         // Do any additional setup after loading the view.
         self.unitePicker.delegate = self
         self.unitePicker.dataSource = self
-        pickerData = ["mL", "L", "g", "mg"]
     }
     
     override func didReceiveMemoryWarning() {
