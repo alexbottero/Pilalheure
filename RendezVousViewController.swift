@@ -99,6 +99,8 @@ class RendezVousViewController: UIViewController, UITableViewDelegate, UITableVi
         alert.addAction(cancelAction)
         
         present(alert, animated: true)
+        self.rendezVousTable.deselectRow(at: indexPath, animated: true)
+
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
