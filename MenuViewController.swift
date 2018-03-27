@@ -17,7 +17,7 @@ class MenuViewController: UIViewController{
     
     func loadIntro(){
         let context = CoreDataManager.context
-        var dateJ = Date()
+        let dateJ = Date()
         let request : NSFetchRequest<RappelDTO> = RappelDTO.fetchRequest()
         let predicate = NSPredicate(format:"dateRappel > %@", dateJ as CVarArg)
         request.predicate = predicate
