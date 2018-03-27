@@ -16,7 +16,7 @@ class ShowPrescriptionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-
+        Background.color(controleur: self)
         // Do any additional setup after loading the view.
         if let prescri = self.prescription{
             print("hello")

@@ -32,7 +32,7 @@ class MenuViewController: UIViewController{
             i = i+1
         }
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd-MM-yyyy"
+        dateFormatter.dateFormat = "dd/MM/yyyy HH:mm"
         let stringDate = dateFormatter.string(from: data[i].dateRappel as! Date)
         if let medoc = data[i].events?.prescriptions?.medicaments?.nom{
             self.nomEvent.text = medoc
@@ -48,7 +48,7 @@ class MenuViewController: UIViewController{
         }
         else{
             self.nomEvent.text = "Pas de prochain événement"
-            self.dateEvent.text = "Aucune date"
+            self.dateEvent.text = ""
         }
     }
     

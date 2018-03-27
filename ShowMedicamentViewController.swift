@@ -30,6 +30,7 @@ class ShowMedicamentViewController: UIViewController {
             self.uniteMedicamentLabel.text = medoc.unite
             self.descriptionMedicamentLabel.text = medoc.descript
         }
+        Background.color(controleur: self)
     }
     
     override func didReceiveMemoryWarning() {

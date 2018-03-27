@@ -14,7 +14,7 @@ class AddPrescriptionViewController: UIViewController, UITextFieldDelegate, UITe
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        Background.color(controleur: self)
         // Do any additional setup after loading the view.
     }
 

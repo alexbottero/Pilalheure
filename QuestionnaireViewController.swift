@@ -74,7 +74,7 @@ NSFetchedResultsControllerDelegate{
             DialogBoxHelper.alert(view: self, error: error)
         }
         UNUserNotificationCenter.current().delegate = self
-
+        Background.color(controleur: self)
         // Do any additional setup after loading the view.
     }
 

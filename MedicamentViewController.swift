@@ -38,6 +38,7 @@ class MedicamentViewController: UIViewController, UITableViewDataSource, UITable
         catch let error as NSError{
             DialogBoxHelper.alert(view: self, error: error)
         }
+        Background.color(controleur: self)
     }
     
     override func didReceiveMemoryWarning() {
