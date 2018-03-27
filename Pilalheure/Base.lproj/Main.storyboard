@@ -200,11 +200,12 @@
                                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="paT-gB-ulk">
-                                                    <rect key="frame" x="282" y="7" width="46" height="30"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <state key="normal" title="Button">
-                                                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="paT-gB-ulk">
+                                                    <rect key="frame" x="263" y="0.0" width="57" height="43.5"/>
+                                                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                                                    <state key="normal" title="Ajouter">
+                                                        <color key="titleColor" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <color key="titleShadowColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
                                                     </state>
                                                     <connections>
                                                         <action selector="addEvent:" destination="YJ2-fZ-Ole" eventType="touchUpInside" id="8s9-d8-aTn"/>
@@ -216,6 +217,7 @@
                                                 <constraint firstItem="N8K-8J-wQP" firstAttribute="top" secondItem="6CM-rl-Z7n" secondAttribute="topMargin" id="2bh-j7-H1j"/>
                                                 <constraint firstItem="ksO-T1-fpb" firstAttribute="leading" secondItem="N8K-8J-wQP" secondAttribute="trailing" constant="100" id="78U-iu-2bT"/>
                                                 <constraint firstItem="ksO-T1-fpb" firstAttribute="top" secondItem="6CM-rl-Z7n" secondAttribute="topMargin" id="8Vc-tL-tC7"/>
+                                                <constraint firstAttribute="bottom" secondItem="paT-gB-ulk" secondAttribute="bottom" id="8o0-h0-fge"/>
                                                 <constraint firstItem="N8K-8J-wQP" firstAttribute="bottom" secondItem="6CM-rl-Z7n" secondAttribute="bottomMargin" id="AV4-Gb-M9A"/>
                                                 <constraint firstItem="ksO-T1-fpb" firstAttribute="top" secondItem="6CM-rl-Z7n" secondAttribute="topMargin" id="JOz-Hm-SW3"/>
                                                 <constraint firstItem="ksO-T1-fpb" firstAttribute="leading" secondItem="N8K-8J-wQP" secondAttribute="trailing" constant="100" id="Wga-hg-5X3"/>
@@ -223,6 +225,8 @@
                                                 <constraint firstItem="N8K-8J-wQP" firstAttribute="top" secondItem="6CM-rl-Z7n" secondAttribute="topMargin" id="fHQ-tq-gqJ"/>
                                                 <constraint firstItem="ksO-T1-fpb" firstAttribute="bottom" secondItem="6CM-rl-Z7n" secondAttribute="bottomMargin" id="fuG-kB-O9c"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="ksO-T1-fpb" secondAttribute="bottom" id="iC5-5l-I51"/>
+                                                <constraint firstItem="paT-gB-ulk" firstAttribute="top" secondItem="6CM-rl-Z7n" secondAttribute="top" id="iL1-27-am1"/>
+                                                <constraint firstAttribute="trailing" secondItem="paT-gB-ulk" secondAttribute="trailing" constant="23" id="o4d-B1-V7x"/>
                                                 <constraint firstItem="N8K-8J-wQP" firstAttribute="leading" secondItem="6CM-rl-Z7n" secondAttribute="leadingMargin" id="poP-yk-T70"/>
                                                 <constraint firstItem="N8K-8J-wQP" firstAttribute="leading" secondItem="6CM-rl-Z7n" secondAttribute="leadingMargin" id="zBR-RW-5nX"/>
                                             </constraints>
