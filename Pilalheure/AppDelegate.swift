@@ -24,11 +24,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
             
         })
         UNUserNotificationCenter.current().delegate = self
+        let valide = UNNotificationAction(identifier: "valide", title: "médicament pris", options: [.foreground])
         let answerOne = UNNotificationAction(identifier: "reponse1", title: "actif", options: [.foreground])
         let answerTwo = UNNotificationAction(identifier: "reponse2", title: "passif", options: [.foreground])
         let answerThree = UNNotificationAction(identifier: "reponse3", title: "dysquinesie", options: [.foreground])
         let questCat = UNNotificationCategory(identifier: "questCat", actions:[answerOne,answerTwo,answerThree] , intentIdentifiers: [], options: [])
-        UNUserNotificationCenter.current().setNotificationCategories([questCat])
+        let presCat=UNNotificationCategory(identifier: "presCat", actions:[valide] , intentIdentifiers: [], options: [])
+        UNUserNotificationCenter.current().setNotificationCategories([questCat,presCat])
         // Override point for customization after application launch.
         return true
     }
@@ -120,8 +122,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
             QuestionnaireDTO.add(quest: quest)
         case "reponse3":
             let date = Date()
-            let quest = Questionnaire(etat: "actif", date: date as NSDate)
+            let quest = Questionnaire(etat: "dysquinésie", date: date as NSDate)
             QuestionnaireDTO.add(quest: quest)
+        case "valide":
+            print(response.notification.request.content.userInfo)
+
         default:
             break
         }
