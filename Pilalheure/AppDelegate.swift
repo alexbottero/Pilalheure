@@ -106,8 +106,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
          completionHandler([.alert, .sound])
     }
     
-    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void){
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        switch response.actionIdentifier {
+        case "reponse1":
+            let date = Date()
+            let quest = Questionnaire(etat: "actif", date: date as NSDate)
+            QuestionnaireDTO.add(quest: quest)
+            
+        case "reponse2":
+            let date = Date()
+            let quest = Questionnaire(etat: "passif", date: date as NSDate)
+            QuestionnaireDTO.add(quest: quest)
+        case "reponse3":
+            let date = Date()
+            let quest = Questionnaire(etat: "actif", date: date as NSDate)
+            QuestionnaireDTO.add(quest: quest)
+        default:
+            break
+        }
     }
-
 }
 

@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Questionnaire {
+class Questionnaire{
     
 
     internal let dao : QuestionnaireDTO
@@ -27,5 +27,6 @@ class Questionnaire {
         self.dao.etat = etat
         self.dao.date = date
     }
+
     
 }

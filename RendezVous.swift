@@ -45,21 +45,16 @@ class RendezVous {
         let rappelRdv: Date = createRappels(heureRappel: date)
         
         if (contact.profession == "neurologue"){
+            print("salut")
             rappelsQuestionnaire = createRappels(heureDebut: heureDeb!, heureFin: heureFin!, dateFin: date)
         }
+        self.daoE.rendezVousS = dao
+        let _ = Rappel(date: rappelRdv as Date, type: 3, event: daoE)
         
         for i in rappelsQuestionnaire{
-            guard let daoR = RappelDTO.createDTO() else{
-                fatalError("unuable to get dao for Rappel")
-            }
-            daoR.dateRappel = i as NSDate
-            daoR.events = self.daoE
+            let _ = Rappel(date: i as Date, type: 4, event: daoE)
+            
         }
-        guard let daoR = RappelDTO.createDTO() else{
-            fatalError("unuable to get dao for Rappel")
-        }
-        daoR.dateRappel = rappelRdv as NSDate
-        daoR.events = self.daoE
     }
     
     
@@ -75,6 +70,7 @@ class RendezVous {
     
    func createRappels(heureDebut hdeb : Date, heureFin hfin : Date, dateFin fin : Date) -> [Date]{
         //intervalle de temps entre 2 dates
+    
         let debut = Calendar.current.date(byAdding: .day, value: -5, to: fin)
         let timeInterval = hfin.timeIntervalSince(hdeb)
         // conversion en Int
@@ -84,9 +80,10 @@ class RendezVous {
         
         //création du tableau de rappels
         var rappels = [Date]()
-        let gregorian = Calendar(identifier: .gregorian)
+        var gregorian = Calendar.current
+        gregorian.locale = NSLocale(localeIdentifier: "fr_FR") as Locale
         //création des composants pour effectuer les changement de dates -> Jour date Debut + heure de heure Debut
-    let componentsDD = gregorian.dateComponents([.year, .month, .day, .hour, .minute, .second], from: debut!)
+        let componentsDD = gregorian.dateComponents([.year, .month, .day, .hour, .minute, .second], from: debut!)
         var componentsHD = gregorian.dateComponents([.year, .month, .day, .hour, .minute, .second], from: hdeb)
         
         //change the time
@@ -94,7 +91,6 @@ class RendezVous {
         var dDay = calendar.component(.day, from: date)
     
         let dEnd = calendar.component(.day, from: fin)
-        print(dEnd)
         while dDay <= dEnd {
             var componentsD = gregorian.dateComponents([.year, .month, .day, .hour, .minute, .second], from: date)
             componentsD.hour = componentsHD.hour
@@ -102,12 +98,12 @@ class RendezVous {
             date = gregorian.date(from: componentsD)!
             rappels.append(date)
             for _ in 0...heures{
+                print(date)
                 date = date + 1.hours
                 rappels.append(date)}
             date = date + 1.days
             dDay = calendar.component(.day, from: date)
         }
-        print(rappels)
         return rappels
     }
 }

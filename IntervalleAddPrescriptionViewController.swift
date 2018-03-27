@@ -147,6 +147,7 @@ class IntervalleAddPrescriptionViewController: UIViewController, UIPickerViewDel
         dateFormatter.timeStyle = .short
         dateFormatter.locale = Locale(identifier: "fr_FR")
         heureDebutPickerText.text = dateFormatter.string(from: heureDebutPicker.date)
+        print(heureDebutPicker.date)
         self.view.endEditing(true)
     }
     

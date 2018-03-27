@@ -15,7 +15,7 @@ NSFetchedResultsControllerDelegate{
     
     var rendezVous : RendezVousDTO? = nil
     
-    var data : [Questionnaire]? = nil
+    var data : [QuestionnaireDTO]? = nil
     
     var startOfDay: Date{
         return Calendar.current.startOfDay(for:Date())
@@ -23,27 +23,9 @@ NSFetchedResultsControllerDelegate{
     let jourAvant: Int = 1
     
     
-    func QuestionWithRendezVous(rendezVous rdv : RendezVousDTO?) throws -> [Questionnaire]?{
-        
-        let context = CoreDataManager.context
-        let request: NSFetchRequest<QuestionnaireDTO> = QuestionnaireDTO.fetchRequest()
-        
-        request.predicate = NSPredicate(format: "rendezVousQuestS.contacts.nom == %@", (rdv?.contacts?.nom)!)
-        
-        return try context.fetch(request as! NSFetchRequest<NSFetchRequestResult>) as! [Questionnaire]
-    }
-    
     @IBAction func switchJour(_ sender: UISegmentedControl) {
         if sender.selectedSegmentIndex == 0 {
             UIView.animate(withDuration: 0.5, animations: {
-                /*do{
-                    let data2 = try QuestionWithRendezVous(self.rendezVous){
-                        print("hello")
-                    }
-                } catch let error as NSError{
-                    DialogBoxHelper.alert(view: self, error: error)
-                }*/
-                    
                 
             })
         } else {
@@ -80,22 +62,15 @@ NSFetchedResultsControllerDelegate{
     
     @IBOutlet weak var QuestionnaireTable: UITableView!
     
-    fileprivate lazy var questionnairesFetched : NSFetchedResultsController<QuestionnaireDTO> = {
-        //prepare request
-        let request : NSFetchRequest<QuestionnaireDTO> = QuestionnaireDTO.fetchRequest()
-        request.sortDescriptors = [NSSortDescriptor(key:#keyPath(QuestionnaireDTO.date), ascending:true)]
-        let fetchResultController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: CoreDataManager.context, sectionNameKeyPath: nil, cacheName: nil)
-        fetchResultController.delegate = self
-        return fetchResultController
-    }()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        let context = CoreDataManager.context
+        let request : NSFetchRequest<QuestionnaireDTO> = QuestionnaireDTO.fetchRequest()
+        let predicate = NSPredicate(format:"rendezVousQuestS.contacts.nom",(self.rendezVous?.contacts?.nom)!)
+        request.predicate = predicate
         do{
-            try self.questionnairesFetched.performFetch()
-        }
-        catch let error as NSError{
+            try self.data = context.fetch(request)
+        }catch let error as NSError{
             DialogBoxHelper.alert(view: self, error: error)
         }
         UNUserNotificationCenter.current().delegate = self
@@ -112,11 +87,11 @@ NSFetchedResultsControllerDelegate{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         let cell = self.QuestionnaireTable.dequeueReusableCell(withIdentifier: "questCell", for: indexPath) as! QuestionnaireTableViewCell
-        let quest = self.questionnairesFetched.object(at: indexPath)
+        let quest = self.data?[indexPath.row]
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "HH:mm"
-        let stringDate = dateFormatter.string(from: quest.date! as Date)
-        cell.etat.text = quest.etat
+        let stringDate = dateFormatter.string(from: quest?.date! as! Date)
+        cell.etat.text = quest?.etat
         cell.date.text = stringDate
         return cell
         
@@ -124,10 +99,7 @@ NSFetchedResultsControllerDelegate{
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
-        guard let section = self.questionnairesFetched.sections?[section] else{
-            fatalError("enexpected section number")
-        }
-        return section.numberOfObjects
+        return (self.data?.count)!
     }
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool{

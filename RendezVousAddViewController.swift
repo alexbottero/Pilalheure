@@ -38,6 +38,7 @@ class RendezVousAddViewController: UIViewController, UIPickerViewDelegate, UIPic
         // Do any additional setup after loading the view.
         fetchData()
         contactPicker.reloadAllComponents()
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -130,9 +131,9 @@ class RendezVousAddViewController: UIViewController, UIPickerViewDelegate, UIPic
         let date : Date = self.dateRDV.date
         let heureDeb : Date = self.heureDebutPicker.date
         let heureFin : Date = self.heureFinPicker.date
-        print(date)
         guard (rdv != "") else {return}
         if (selectedContact?.profession == "neurologue"){
+            print(heureDeb)
             let rendezVous = RendezVous(date: date, contact: selectedContact!,heureDeb:heureDeb, heureFin:heureFin)
              RendezVousDTO.add(rendezVous : rendezVous)
             
@@ -154,6 +155,7 @@ class RendezVousAddViewController: UIViewController, UIPickerViewDelegate, UIPic
         dateFormatter.timeStyle = .short
         dateFormatter.locale = Locale(identifier: "fr_FR")
         heureDebutField.text = dateFormatter.string(from: heureDebutPicker.date)
+        print(heureDebutPicker.date)
         self.view.endEditing(true)
     }
     

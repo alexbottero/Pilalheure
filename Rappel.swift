@@ -23,11 +23,12 @@ class Rappel {
             fatalError("unuable to get dao for Rappel")
         }
         let daoE = event
-
         self.dao = dao
         self.daoE = daoE
         self.dao.dateRappel = date as NSDate
+        
         let comps = Calendar.current.dateComponents([.year,.month,.day,.hour,.minute], from: date)
+        print(comps)
         let trigger = UNCalendarNotificationTrigger(dateMatching: comps, repeats: false)
         var requestIdentifier : String = "default"
         let content = UNMutableNotificationContent()
@@ -51,6 +52,7 @@ class Rappel {
             
             
         case 4:
+            print("cava")
             content.title = " Questionnaire d'etat"
             content.subtitle = " rendez vous chez le neurologue proche"
             content.body = " Quel est votre état ?"
@@ -70,3 +72,4 @@ class Rappel {
     }
     
 }
+
