@@ -16,13 +16,14 @@ class ShowMedicamentViewController: UIViewController {
     @IBOutlet weak var descriptionMedicamentLabel: UITextView!
     @IBOutlet weak var uniteMedicamentLabel: UILabel!
     
+    /// Variable contenant les informations de la cellule selectionnée.
     var medicament : MedicamentDTO? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
-        
+        // Affection des informations sur les labels
         if let medoc = self.medicament{
             self.nomMedicamentLabel.text = medoc.nom
             self.doseMedicamentLabel.text = medoc.dose
@@ -36,16 +37,6 @@ class ShowMedicamentViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
     
 }
 
