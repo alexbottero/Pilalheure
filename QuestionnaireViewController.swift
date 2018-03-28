@@ -83,7 +83,7 @@ NSFetchedResultsControllerDelegate{
         if(value == 1){
             let quest = self.data2![indexPath.row]
             let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "dd-MM-yyyy 'at' HH:mm"
+            dateFormatter.dateFormat = "dd/MM/yyyy HH:mm"
             let stringDate = dateFormatter.string(from: quest.date as! Date)
             cell.etat.text = quest.nom
             cell.date.text = stringDate
@@ -91,7 +91,7 @@ NSFetchedResultsControllerDelegate{
         else{
             let quest = self.data![indexPath.row]
             let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "dd-MM-yyyy 'at' HH:mm"
+            dateFormatter.dateFormat = "dd/MM/yyyy HH:mm"
             let stringDate = dateFormatter.string(from: quest.date as! Date)
             cell.etat.text = quest.etat
             cell.date.text = stringDate
